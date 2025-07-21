@@ -1,0 +1,98 @@
+# Überarbeitungs-Prompt: Grema Website professioneller gestalten
+
+```
+Die aktuelle Website für Grema Gebäudeservice sieht zu sehr nach einem generischen Template aus. Überarbeite sie zu einer individuellen, professionellen Firmen-Präsenz, die Vertrauen und Kompetenz ausstrahlt.
+
+## HAUPTPROBLEME DER AKTUELLEN SEITE:
+1. Zu viel Blau - wirkt wie Standard-Template
+2. Icons zu klischeehaft (typische Reinigungssymbole)
+3. Layout zu symmetrisch und vorhersagbar
+4. Texte zu allgemein, keine Persönlichkeit
+5. Conversion-Elemente zu aggressiv/aufdringlich
+
+## KONKRETE ÜBERARBEITUNGEN:
+
+### 1. FARBSCHEMA KOMPLETT ÄNDERN
+**Von:** Blaue Dominanz 
+**Zu:** 
+- Hauptfarbe: Tiefes Anthrazit (#2d3748) + Weiß
+- Akzent: Warmes Gold/Kupfer (#c17f3e) für Premium-Gefühl
+- Zweite Akzentfarbe: Dunkelgrün (#065f46) für Vertrauen
+- Hintergründe: Warme Off-White Töne (#fafaf9, #f7f7f6)
+
+### 2. HERO SECTION INDIVIDUALISIEREN
+**Aktuell:** Generischer blauer Hintergrund mit Standard-Text
+**Neu:**
+- **Hintergrund:** Großformatiges, hochwertiges Foto einer modernen Bürolobby in Anthrazit-Tönen
+- **Layout:** Asymmetrische Anordnung - Text links, Bildbereich rechts mit Overlay
+- **Überschrift:** "Seit 2014 sorgen wir für makellose Sauberkeit in Moers" (persönlicher, spezifischer)
+- **Untertitel:** "Familiengeführt. Zuverlässig. Mit über 10 Jahren Erfahrung."
+- **CTA:** Nur EINE Hauptaktion: "Persönliches Gespräch vereinbaren" (weniger aggressiv)
+
+### 3. EINZIGARTIGE LEISTUNGS-DARSTELLUNG
+**Weg von:** Standard-Icon-Grid in Karten
+**Hin zu:** 
+- Horizontale Timeline-Darstellung der Services
+- Jede Leistung mit eigenem Micro-Bereich und individueller Farbe
+- Echte Vorher/Nachher Bilder statt Icons
+- Spezifische Details: "Streifenfreie Glasreinigung bis 15m Höhe"
+
+### 4. PERSÖNLICHKEIT EINBAUEN
+**"Warum Grema" Section überarbeiten:**
+- Echte Fotos von Tanja Scheurenberg und Ivana Grejic
+- Persönliche Zitate: "Wir behandeln jedes Gebäude wie unser eigenes"
+- Lokale Verbindung stärken: "Moers ist unser Zuhause - hier kennen wir jeden Winkel"
+- Konkrete Zahlen: "Über 500 zufriedene Kunden in 10 Jahren"
+
+### 5. TESTIMONIALS AUTHENTISCH GESTALTEN
+**Weg von:** Standard-Testimonial-Karten
+**Hin zu:**
+- Großformatige Kundenzitate mit echten Fotos der Objekte
+- Video-Testimonials einbetten (auch wenn nur Platzhalter)
+- Spezifische Projekte: "KiTa Sonnenschein", "Zahnarztpraxis Dr. Weber"
+
+### 6. SUBTILE CONVERSION-OPTIMIERUNG
+**Anstatt:** Aufdringliche "Jetzt anrufen" Buttons überall
+**Besser:**
+- Eine dezente, fixe Kontakt-Leiste am unteren Bildschirmrand
+- Sanfte Übergänge zu Kontaktmöglichkeiten
+- Beratungscharakter statt Verkaufscharakter: "Kostenlose Bestandsaufnahme"
+
+### 7. PREMIUM DESIGN-DETAILS
+- **Typografie:** Zwei Schriftarten: Elegant für Headlines (Playfair Display), Modern für Text (Inter)
+- **Schatten:** Weiche, natürliche Schatten statt harte CSS-Drops
+- **Spacing:** Mehr Weißraum für Eleganz
+- **Animationen:** Minimal und subtil - nur bei Hover-Zuständen
+- **Fotografie:** Hochwertige, einheitliche Bildsprache in warmen Tönen
+
+### 8. INDIVIDUELLE CONTENT-BEREICHE
+**Neu hinzufügen:**
+- "Unser Moers" Sektion mit lokalen Bezügen
+- "10 Jahre Grema" Timeline mit Meilensteinen
+- "Qualitätsversprechen" mit konkreten Standards
+- Diskrete Zertifikats-/Versicherungslogos im Footer
+
+### 9. MOBILE EXPERIENCE VERBESSERN
+- Größere Touch-Targets
+- Weniger Text pro Screen
+- Swipe-Gesten für Testimonials
+- Thumb-freundliche Navigation
+
+### 10. TECHNISCHE VERBESSERUNGEN
+- Ladezeiten-Optimierung
+- Progressive Web App Features
+- Bessere SEO-Struktur
+- Accessibility verbessern
+
+## DESIGN-INSPIRATION:
+"Denke an hochwertige Anwaltskanzlei-Websites oder Premium-Beratungsunternehmen, nicht an typische Dienstleister-Templates. Die Website soll ausstrahlen: Etabliert, vertrauenswürdig, individuell, lokal verwurzelt."
+
+## CONVERSION-PSYCHOLOGIE:
+- Vertrauen vor Verkauf
+- Expertise demonstrieren statt behaupten  
+- Lokale Verbindung nutzen
+- Familiärer Charakter als USP
+- Qualität über Quantität
+
+Überarbeite die Website Schritt für Schritt mit diesen spezifischen Änderungen. Das Ziel: Eine Website, bei der Besucher denken "Das ist definitiv kein Template - hier steckt Durchdacht dahinter."
+```
