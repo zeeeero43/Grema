@@ -1,0 +1,124 @@
+# Homepage Prompt für Grema Gebäudeservice GmbH (Modernster 2025 Stack)
+
+```
+Erstelle eine hochmoderne, conversion-optimierte Homepage für "Grema Gebäudeservice GmbH" - eine professionelle Gebäudereinigungsfirma aus Moers.
+
+## MODERNSTER TECH STACK 2025
+- **Framework:** Next.js 15 mit App Router und Server Components
+- **Sprache:** TypeScript für Typsicherheit und bessere Developer Experience
+- **Styling:** Tailwind CSS + Shadcn/ui Components (hochwertige, vorgefertigte UI-Elemente)
+- **Animationen:** Framer Motion für performante Scroll-Animationen und Micro-Interactions
+- **Icons:** Lucide React (modernste Icon Library)
+- **Formulare:** React Hook Form + Zod Schema Validation
+- **Performance:** Image Optimization mit Next.js Image, Streaming Components
+- **Build Tool:** Turbopack (Next.js integriert)
+
+## WARUM DIESER STACK?
+- **Next.js 15:** Beste SEO, Server-Side Rendering, Performance out-of-the-box
+- **TypeScript:** Weniger Bugs, bessere Maintainability
+- **Shadcn/ui:** Enterprise-grade UI Components, konsistentes Design
+- **Server Components:** Schnellere Ladezeiten, weniger JavaScript zum Client
+
+## DESIGN-PHILOSOPHIE: ENTERPRISE-GRADE
+**Design System:**
+- Tailwind CSS Custom Configuration mit Corporate Farben
+- Shadcn/ui für professionelle Buttons, Cards, Forms
+- Custom CSS Variables für Brand Colors
+- Dark/Light Mode Support (optional)
+
+**Farbpalette:**
+- Primary: slate-900, blue-600
+- Secondary: slate-500, slate-100  
+- Accent: blue-500, emerald-500
+- Neutral: gray-50 bis gray-900
+
+**Typography:** 
+- Font Family: Inter Variable Font
+- Tailwind Typography Plugin für Content
+
+## HOMEPAGE STRUKTUR
+
+### 1. HERO SECTION (Above the fold - CONVERSION CRITICAL)
+**Zielsetzung:** Sofortige Klarheit über Angebot + Vertrauen aufbauen + zum Handeln bewegen
+
+**Elemente:**
+- Kraftvolle H1: "Professionelle Gebäudereinigung in Moers"
+- Untertitel: "Über 10 Jahre Erfahrung - Vertrauen Sie den Experten"
+- Zwei prominente CTAs: "📞 Sofort anrufen: 0176/3444 6399" und "Kostenloses Angebot"
+- Trust Badges: "Versichert", "Umweltfreundlich", "Zertifiziert"
+- Hero Image: Hochwertige Fotos von modernen Bürogebäuden oder Reinigungsteam
+
+**Animationen:** Staggered fade-in der Elemente, Parallax-Effekt für Hintergrundbild
+
+### 2. LEISTUNGEN PREVIEW (Quick Conversion Path)
+**6 Hauptleistungen** in Grid-Layout mit:
+- Custom Icons (Lucide React)
+- Kurze Beschreibung (2-3 Zeilen)
+- "Mehr erfahren" CTAs
+- Hover-Animationen mit Framer Motion
+
+**Services:**
+- Unterhaltsreinigung (Büros, Praxen)
+- Glas- und Fensterreinigung
+- Bauabschlussreinigung  
+- Sonderreinigung (Graffiti-Entfernung etc.)
+- Entrümpelung & Haushaltsauflösung
+- Treppenhausreinigung
+
+### 3. UNIQUE VALUE PROPOSITION
+**"Warum Grema Gebäudeservice?"**
+- Familienunternehmen mit persönlichem Service
+- Geschäftsführung: Tanja Scheurenberg & Ivana Grejic
+- Lokal in Moers - schnelle Reaktionszeiten
+- Umweltfreundliche Reinigungsmittel
+- Flexible Arbeitszeiten ohne Betriebsstörung
+- Vollversichert und zertifiziert
+
+**Design:** Split-Screen Layout mit professionellen Teamfotos
+
+### 4. SOCIAL PROOF (Vertrauen verstärken)
+**Kundenbewertungen Slider** mit:
+- Echte Testimonials aus den Referenzen
+- Kundenlogos oder Initialen
+- Sterne-Bewertungen
+- Verschiedene Kundentypen (KiTa, FoodTruck, Privat)
+
+### 5. CONVERSION ZONE (Final Push)
+**Zwei-Säulen Ansatz:**
+
+**Spalte 1 - Sofortiger Kontakt:**
+- Große Telefonnummer als klickbarer Link
+- WhatsApp Business Link (falls vorhanden)
+- Öffnungszeiten
+- "Kostenlose Beratung" Hinweis
+
+**Spalte 2 - Angebot anfordern:**
+- Kompaktes 4-Feld Formular:
+  * Name (required)
+  * E-Mail (required)  
+  * Telefon (optional)
+  * Service-Auswahl Dropdown
+- Single CTA: "Kostenloses Angebot erhalten"
+
+## ANIMATIONEN & MICRO-INTERACTIONS
+- **Scroll-triggered Animations:** Elemente faden ein bei 70% Viewport
+- **Button Hover States:** Sanfte Scale-Transformationen
+- **Loading States:** Skeleton Components während Formular-Submission
+- **Success Feedback:** Checkmark Animation nach Formular-Absendung
+- **Performance:** 60fps Animationen, reduced-motion Support
+
+## CONVERSION OPTIMIERUNGEN
+1. **Reibung reduzieren:** Minimale Formularfelder, Auto-Fill Support
+2. **Dringlichkeit:** "Kostenlose Beratung heute noch"
+3. **Vertrauen:** Kundenbewertungen, Zertifikate, lokaler Bezug
+4. **Klarheit:** Eindeutige CTAs, keine Ablenkungen
+5. **Mobile Excellence:** Touch-optimiert, große Buttons
+6. **Performance:** <3s Ladezeit, Core Web Vitals optimiert
+
+## ACCESSIBILITY & PERFORMANCE
+- **WCAG 2.1 AA konform:** Proper heading structure, alt texts, keyboard navigation
+- **Performance Budget:** <100kb Initial Bundle, Lighthouse Score >90
+- **SEO Ready:** Semantic HTML, Open Graph Tags, JSON-LD Structured Data
+
+Verwende diesen modernen Stack und erstelle eine Enterprise-grade Website, die sowohl technisch als auch design-mäßig auf dem neuesten Stand ist. Die Website soll das Vertrauen einer etablierten GmbH ausstrahlen und Besucher effektiv zu Kunden konvertieren.
+```
