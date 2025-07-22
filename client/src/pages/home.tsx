@@ -117,36 +117,36 @@ export default function Home() {
     {
       title: "Moers kennen wir blitzeblank",
       subtitle: "kurze Wege, persönlicher Service",
-      description: "Tanja und Ivana sind echte Moerserinnen. Sie kennen jeden Winkel der Stadt und machen ihn sauber."
+      description: "Wir sind echte Moerser. Wir kennen jeden Winkel der Stadt und machen ihn sauber."
     },
     {
-      title: "Zwei Frauen, ein Versprechen",
-      subtitle: "Tanja Scheurenberg & Ivana Grejic",
-      description: "Blitzeblank oder nichts! Unsere Geschäftsführerinnen stehen persönlich dafür ein, dass alles perfekt sauber wird."
+      title: "Ein Team, ein Versprechen",
+      subtitle: "Professionelle Reinigungsdienstleistung",
+      description: "Blitzeblank oder nichts! Wir stehen persönlich dafür ein, dass alles perfekt sauber wird."
     }
   ];
 
   const testimonials = [
     {
-      text: "Kristallklare Fenster, streifenfreie Spiegel, glänzende Böden – Grema macht unsere Praxis jeden Tag zu einem Schmuckstück. Die Behandlungsräume glänzen blitzeblank!",
-      author: "Dr. Michaela Weber", 
-      company: "Zahnarztpraxis am Schlosspark",
-      location: "Moers-Zentrum",
-      years: "Kunde seit 2019"
+      text: "Das Team war pünktlich, freundlich und äußerst gründlich. Besonders beeindruckt hat mich die Sorgfalt, mit der jedes Detail beachtet wurde. Unsere KiTa glänzen förmlich und alle Ecken und Winkel wurden sorgfältig gereinigt.",
+      author: "Vera M.", 
+      company: "KiTa Moers",
+      location: "Google Bewertung",
+      years: "⭐⭐⭐⭐⭐"
     },
     {
-      text: "Fleckenlos sauber bis in den letzten Winkel! Unsere kleinen Schätze können überall krabbeln – wir wissen: Bei Grema ist alles porentief rein und kindersicher.",
-      author: "Andrea Schmidt",
-      company: "KiTa Sonnenschein",
-      location: "Moers-Kapellen", 
-      years: "Kunde seit 2015"
+      text: "Hat alles super geklappt, schnelle Terminvergabe, freundliche Mitarbeiter und meine Fenster sind wieder blitzeblank 😊 werde ich aufjedenfall weiterempfehlen 👍",
+      author: "Sandra K.",
+      company: "Privatkunde",
+      location: "Google Bewertung", 
+      years: "⭐⭐⭐⭐⭐"
     },
     {
-      text: "Makellose Glasflächen, spiegelglatte Oberflächen – Grema verwandelt jeden Rohbau in ein funkelndes Zuhause. Wir übergeben nur blitzsaubere Objekte!",
-      author: "Stefan Müller",
-      company: "Müller Bauunternehmung GmbH",
-      location: "Moers & Umgebung", 
-      years: "Langjährige Partnerschaft"
+      text: "Wir als FoodTruck Event Caterer sind vollsten zufrieden mit Herrn Grema und seinen Mitarbeitern. Ob komplette Küchenreinigung, Büro oder unsere FoodTrucks wir sind zufrieden und wenn es mal nicht so sein sollte, wird nachgebessert.",
+      author: "Mario R.",
+      company: "FoodTruck Caterer",
+      location: "Google Bewertung", 
+      years: "⭐⭐⭐⭐⭐"
     }
   ];
 
@@ -172,12 +172,11 @@ export default function Home() {
               <a href="#referenzen" className="text-gray-700 hover:gold-accent transition-colors font-medium">Referenzen</a>
               <Button 
                 asChild 
-                variant="outline" 
-                className="border-gray-800 text-gray-800 hover:anthracite-bg hover:text-white font-medium px-6"
+                className="anthracite-bg text-white hover:gold-shine font-bold px-8 py-3 text-lg sparkle-effect"
               >
                 <a href="#kontakt">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Gespräch vereinbaren
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Jetzt kostenlos anrufen!
                 </a>
               </Button>
             </div>
@@ -200,10 +199,10 @@ export default function Home() {
               <a href="#leistungen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Leistungen</a>
               <a href="#ueber-uns" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Über uns</a>
               <a href="#referenzen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Referenzen</a>
-              <Button asChild className="w-full anthracite-bg hover:bg-gray-800 text-white mt-4">
+              <Button asChild className="w-full anthracite-bg hover:gold-shine text-white font-bold mt-4 sparkle-effect">
                 <a href="#kontakt">
-                  <Calendar className="w-4 h-4 mr-2" />
-                  Gespräch vereinbaren
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Jetzt kostenlos anrufen!
                 </a>
               </Button>
             </div>
@@ -232,7 +231,7 @@ export default function Home() {
                 </h1>
                 
                 <p className="text-xl text-gray-700 leading-relaxed max-w-2xl mb-10">
-                  Wir machen sauber. Richtig sauber. Tanja und Ivana verwandeln seit 10 Jahren Büros, Praxen und Baustellen in 
+                  Wir machen sauber. Richtig sauber. Seit 10 Jahren verwandeln wir Büros, Praxen und Baustellen in 
                   <strong className="gold-accent"> blitzblanke Schmuckstücke</strong>.
                 </p>
               </div>
@@ -478,7 +477,7 @@ export default function Home() {
             <h2 className="text-5xl lg:text-6xl font-serif text-white mb-8 sparkle-effect">
               Alles <span className="gold-accent">blitzeblank</span> machen lassen?
             </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">Sprechen Sie direkt mit Tanja und Ivana. Kostenlos, unverbindlich, und garantiert kristallklar.</p>
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">Sprechen Sie direkt mit unserem Team. Kostenlos, unverbindlich, und garantiert kristallklar.</p>
           </div>
           
           <div className="grid lg:grid-cols-5 gap-16 items-start">
