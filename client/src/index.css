@@ -24,12 +24,19 @@
   --ring: hsl(211, 19%, 17%);
   --radius: 0.5rem;
   
-  /* Custom brand colors - Anthracite & Gold */
+  /* Custom brand colors - Cleaning Theme */
   --anthracite: hsl(211, 19%, 17%);  /* #2d3748 */
   --gold: hsl(35, 52%, 51%);         /* #c17f3e */
   --gold-light: hsl(35, 52%, 65%);
   --warm-gray: hsl(220, 9%, 46%);
   --warm-gray-light: hsl(220, 14%, 96%);
+  
+  /* Cleaning-specific colors */
+  --crystal-white: hsl(0, 0%, 100%);
+  --glass-white: hsla(0, 0%, 100%, 0.9);
+  --sparkle-white: hsla(0, 0%, 100%, 0.95);
+  --clean-blue: hsl(200, 50%, 94%);
+  --shine-gradient: linear-gradient(135deg, hsla(0, 0%, 100%, 0.9), hsla(35, 52%, 51%, 0.1));
 }
 
 .dark {
@@ -71,6 +78,151 @@
   h1, h2, h3, .font-serif {
     font-family: 'Playfair Display', 'Georgia', serif;
   }
+}
+
+@layer components {
+  /* Glassmorphism & Cleaning Effects */
+  .glass-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  .crystal-clear {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.7));
+    backdrop-filter: blur(15px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .sparkle-effect {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .sparkle-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+      transparent, 
+      rgba(255, 255, 255, 0.6), 
+      transparent
+    );
+    transition: left 0.8s ease;
+  }
+
+  .sparkle-effect:hover::before {
+    left: 100%;
+  }
+
+  /* Cleaning Animations */
+  @keyframes wipeClean {
+    0% { transform: translateX(-100%); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateX(100%); opacity: 0; }
+  }
+
+  @keyframes bubbleFloat {
+    0%, 100% { transform: translateY(0px); opacity: 0.7; }
+    50% { transform: translateY(-10px); opacity: 1; }
+  }
+
+  @keyframes shine {
+    0% { opacity: 0; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.1); }
+    100% { opacity: 0; transform: scale(1.3); }
+  }
+
+  .wipe-animation {
+    position: relative;
+    overflow: hidden;
+  }
+
+  .wipe-animation::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.4),
+      rgba(255, 255, 255, 0.7),
+      rgba(255, 255, 255, 0.4),
+      transparent
+    );
+    animation: wipeClean 3s infinite;
+  }
+
+  .bubble-effect {
+    position: relative;
+  }
+
+  .bubble-effect::before {
+    content: '✨';
+    position: absolute;
+    top: -5px;
+    right: -5px;
+    font-size: 12px;
+    animation: bubbleFloat 2s infinite;
+  }
+
+  .clean-hover:hover {
+    background: rgba(255, 255, 255, 0.98);
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+  }
+
+  .gold-shine {
+    background: linear-gradient(135deg, var(--gold), var(--gold-light));
+    position: relative;
+    overflow: hidden;
+  }
+
+  .gold-shine::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  .gold-shine:hover::after {
+    opacity: 1;
+    animation: shine 1.5s ease;
+  }
+
+  /* Crystal Clean Backgrounds */
+  .crystal-bg {
+    background: linear-gradient(135deg, 
+      rgba(255, 255, 255, 0.95), 
+      rgba(200, 220, 240, 0.3)
+    );
+  }
+
+  .pristine-white {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+}
+
+@layer utilities {
+  /* Cleaning-specific utilities */
+  .anthracite-bg { background-color: var(--anthracite); }
+  .gold-accent { color: var(--gold); }
+  .gold-bg { background-color: var(--gold); }
+  .crystal-white { background-color: var(--crystal-white); }
+  .glass-white { background-color: var(--glass-white); }
 }
 
 @layer components {
