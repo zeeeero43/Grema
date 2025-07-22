@@ -417,7 +417,7 @@ export default function Home() {
                           />
                           <div className="absolute inset-0 bg-gradient-to-t from-[hsl(45,95%,50%)]/20 via-[hsl(45,95%,50%)]/10 to-transparent transition-opacity duration-300 group-hover:opacity-60" />
                           
-                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
+                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0 z-10">
                             <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-yellow-200 group-hover:bg-clip-text group-hover:text-transparent">
                               {service.title}
                             </h3>
@@ -480,7 +480,7 @@ export default function Home() {
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-[hsl(45,95%,50%)]/20 via-[hsl(45,95%,50%)]/10 to-transparent transition-opacity duration-300 group-hover:opacity-60" />
                     
-                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0 z-10">
                       <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-yellow-200 group-hover:bg-clip-text group-hover:text-transparent">
                         {service.title}
                       </h3>
