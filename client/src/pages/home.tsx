@@ -1513,6 +1513,46 @@ export default function Home() {
           </div>
         </div>
       </footer>
+
+      {/* Floating Phone Button */}
+      <motion.div
+        initial={{ scale: 0, opacity: 0 }}
+        animate={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 0.5, delay: 1.5 }}
+        className="fixed bottom-6 right-6 z-50"
+      >
+        <motion.a
+          href="tel:017634446399"
+          className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+          whileHover={{ 
+            scale: 1.1, 
+            rotate: [0, -10, 10, 0],
+            transition: { duration: 0.4 } 
+          }}
+          whileTap={{ scale: 0.95 }}
+          animate={{
+            y: [0, -8, 0],
+          }}
+          transition={{
+            y: {
+              duration: 2,
+              repeat: Infinity,
+              ease: "easeInOut"
+            }
+          }}
+        >
+          <Phone className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
+          
+          {/* Ripple Effect */}
+          <div className="absolute inset-0 rounded-full bg-yellow-400 opacity-30 animate-ping"></div>
+          
+          {/* Tooltip */}
+          <div className="absolute right-full mr-3 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
+            Jetzt anrufen: 0176 34446399
+            <div className="absolute top-1/2 -right-1 w-2 h-2 bg-gray-900 rotate-45 transform -translate-y-1/2"></div>
+          </div>
+        </motion.a>
+      </motion.div>
     </div>
   );
 }
