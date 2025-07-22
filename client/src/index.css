@@ -204,6 +204,30 @@
     animation: shine 1.5s ease;
   }
 
+/* Clean hover effect for interactive elements */
+.clean-hover {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.clean-hover:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Carousel smooth scrolling */
+.embla {
+  overflow: hidden;
+}
+
+.embla__container {
+  display: flex;
+}
+
+.embla__slide {
+  flex: 0 0 100%;
+  min-width: 0;
+}
+
   /* Crystal Clean Backgrounds */
   .crystal-bg {
     background: linear-gradient(135deg, 

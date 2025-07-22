@@ -25,8 +25,17 @@ import {
   Crown,
   CheckCheck,
   ArrowRight,
-  Gift
+  Gift,
+  ChevronLeft,
+  ChevronRight,
+  Droplets,
+  Hammer,
+
+  Zap,
+  Trash2,
+  Camera
 } from "lucide-react";
+import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -40,6 +49,17 @@ import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/s
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
+  
+  // Carousel setup
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true,
+    align: 'center',
+    slidesToScroll: 1,
+    breakpoints: {
+      '(min-width: 768px)': { slidesToScroll: 2 },
+      '(min-width: 1024px)': { slidesToScroll: 3 }
+    }
+  });
 
   const form = useForm<InsertContactInquiry>({
     resolver: zodResolver(insertContactInquirySchema),
@@ -77,35 +97,43 @@ export default function Home() {
     contactMutation.mutate(data);
   };
 
-  const services = [
+  const cleaningServices = [
     {
-      year: "Täglich",
-      category: "Büro-Reinigung", 
-      title: "Blitzeblank jeden Tag",
-      description: "Kristallklare Oberflächen, streifenfreie Spiegel und glänzende Böden. Wir machen Ihre Praxis jeden Morgen zu einem strahlenden Arbeitsplatz.",
-      projects: "200+ Büros blitzeblank"
+      title: "Unterhaltsreinigung & Gewerbereinigung",
+      description: "Regelmäßige Reinigung für Büros, Praxen und Geschäfte. Perfekte Sauberkeit und individuelle Reinigungspläne.",
+      icon: Building2,
+      image: "office-cleaning"
     },
     {
-      year: "Wöchentlich",
-      category: "Glas & Fenster", 
-      title: "Kristallklar & streifenfrei",
-      description: "Perfekte Durchsicht garantiert! Mit professionellen Squeegees und speziellen Reinigungsmitteln sorgen wir für makellose Glasflächen ohne einen einzigen Streifen.",
-      projects: "1000+ glänzende Fenster"
+      title: "Grundreinigung",
+      description: "Tiefenreinigung für Wohnungen, Büros und Gewerbe. Intensive Dampfreinigung für makellose Sauberkeit.",
+      icon: Droplets,
+      image: "deep-cleaning"
     },
     {
-      year: "Nach Bedarf", 
-      category: "Bauabschluss-Reinigung",
-      title: "Vom Rohbau zum Schmuckstück", 
-      description: "Fleckenlos sauber bis in den letzten Winkel. Wir verwandeln jede Baustelle in ein funkelndes, bezugsfertiges Zuhause.",
-      projects: "150+ Bauprojekte strahlend übergeben"
+      title: "Fenster- & Glasreinigung",
+      description: "Streifenfreie Ergebnisse bei Fenstern, Glasfassaden. Technik und professionelle Steiger. Auch schwer erreichbare Bereiche.",
+      icon: Sparkles,
+      image: "window-cleaning"
     },
     {
-      year: "Spezial",
-      category: "Tiefenreinigung",
-      title: "Porentief rein", 
-      description: "Hartnäckige Verschmutzungen? Kein Problem! Graffiti, Flecken oder komplette Haushaltsauflösungen – wir machen alles wieder wie neu.",
-      projects: "Auch unmögliche Fälle gelöst"
+      title: "Industriereinigung",
+      description: "Maschinen Reinigung, Produktionsanlagen, Chemie Anlagentechnik und Hochdruckreinigung für optimale Betriebshygiene.",
+      icon: Zap,
+      image: "industrial-cleaning"
     },
+    {
+      title: "Baureinigung",
+      description: "Bauschlussreinigung, Baustellenreinigung und Rohbaureinigung. Perfekte Übergabe für Ihr neues Zuhause.",
+      icon: Hammer,
+      image: "construction-cleaning"
+    },
+    {
+      title: "Haushaltsauflösung",
+      description: "Komplette Entrümpelung und fachgerechte Entsorgung. Wir räumen auf und hinterlassen alles blitzeblank.",
+      icon: Trash2,
+      image: "household-dissolution"
+    }
   ];
 
   const usps = [
@@ -297,72 +325,89 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Timeline Section */}
-      <section id="leistungen" className="py-32 crystal-bg">
-        <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 sparkle-effect">
-              Wir machen <span className="gold-accent">alles</span> sauber
+      {/* Services Carousel Section */}
+      <section id="leistungen" className="py-32 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl lg:text-5xl font-serif text-gray-900 mb-6">
+              Unsere <span className="gold-accent">Dienstleistungen</span> ⭐
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
-              Kristallklar, streifenfrei, fleckenlos – vier Bereiche, in denen wir seit Jahren glänzende Ergebnisse liefern.
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+              Professionelle Gebäudereinigung für jeden Bedarf – von der Industrie bis zum Büro
             </p>
           </div>
-          
+
+          {/* Carousel */}
           <div className="relative">
-            {/* Sparkly Timeline line */}
-            <div className="absolute left-8 top-0 bottom-0 w-0.5 gold-shine sparkle-effect"></div>
-            
-            <div className="space-y-16">
-              {services.map((service, index) => (
-                <div key={index} className="relative flex items-start space-x-8">
-                  {/* Sparkly Timeline dot */}
-                  <div className="relative z-10 w-16 h-16 gold-shine rounded-full flex items-center justify-center flex-shrink-0 sparkle-effect clean-hover">
-                    <div className="w-8 h-8 pristine-white rounded-full flex items-center justify-center">
-                      <Sparkles className="w-4 h-4 gold-accent" />
-                    </div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="flex-1 pb-8">
-                    <div className="glass-card rounded-2xl p-8 lg:p-12 clean-hover sparkle-effect">
-                      <div className="flex flex-col lg:flex-row lg:items-center justify-between mb-6">
-                        <div className="mb-4 lg:mb-0">
-                          <div className="gold-accent text-sm font-medium tracking-wide uppercase mb-2">
-                            {service.year}
+            <div className="overflow-hidden" ref={emblaRef}>
+              <div className="flex">
+                {cleaningServices.map((service, index) => {
+                  const IconComponent = service.icon;
+                  return (
+                    <div key={index} className="flex-[0_0_100%] min-w-0 px-3 md:flex-[0_0_50%] lg:flex-[0_0_33.33%]">
+                      <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
+                        {/* Service Image */}
+                        <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <IconComponent className="w-16 h-16 text-gray-600" />
                           </div>
-                          <h3 className="text-3xl font-serif font-bold text-gray-900 mb-2">
+                        </div>
+                        
+                        {/* Service Content */}
+                        <div className="p-6 pb-8">
+                          <h3 className="text-xl font-serif font-bold text-gray-900 mb-4 leading-tight">
                             {service.title}
                           </h3>
-                          <div className="text-lg font-medium text-gray-700">
-                            {service.category}
+                          <p className="text-gray-600 leading-relaxed text-sm mb-6">
+                            {service.description}
+                          </p>
+                          
+                          <div className="flex items-center justify-between">
+                            <Button variant="ghost" size="sm" className="gold-accent hover:gold-accent/80 p-0 h-auto font-medium">
+                              Mehr Infos <ArrowRight className="w-4 h-4 ml-1" />
+                            </Button>
                           </div>
                         </div>
-                        <div className="text-right bubble-effect">
-                          <div className="text-sm gold-accent font-medium">
-                            {service.projects}
-                          </div>
-                        </div>
-                      </div>
-                      
-                      <p className="text-gray-600 leading-relaxed text-lg mb-8">
-                        {service.description}
-                      </p>
-                      
-                      <div className="aspect-video crystal-clear rounded-xl overflow-hidden relative sparkle-effect">
-                        {/* Glass cleaning visual representation */}
-                        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-blue-50/50 to-yellow-50/30">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <div className="text-center text-gray-700">
-                              <Sparkles className="w-16 h-16 mx-auto mb-2 gold-accent wipe-animation" />
-                              <div className="text-sm font-medium">Blitzeblank • {service.category}</div>
-                            </div>
-                          </div>
-                        </div>
+                        
+                        {/* Gold accent bar at bottom */}
+                        <div className="h-1 gold-shine"></div>
                       </div>
                     </div>
-                  </div>
-                </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Navigation buttons */}
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10"
+              onClick={() => emblaApi?.scrollPrev()}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </Button>
+            
+            <Button 
+              variant="outline" 
+              size="icon"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10"
+              onClick={() => emblaApi?.scrollNext()}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </Button>
+
+            {/* Dots indicator */}
+            <div className="flex justify-center mt-8 space-x-2">
+              {[...Array(6)].map((_, index) => (
+                <button 
+                  key={index}
+                  className={`w-2 h-2 rounded-full transition-all ${
+                    index < 3 ? 'gold-shine' : 'bg-gray-300'
+                  }`}
+                  onClick={() => emblaApi?.scrollTo(index)}
+                />
               ))}
             </div>
           </div>
