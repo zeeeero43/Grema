@@ -663,9 +663,9 @@ export default function Home() {
             
             {/* Contact Form */}
             <div className="lg:col-span-3">
-              <div className="crystal-clear shadow-2xl sparkle-effect">
+              <div className="bg-white/95 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl">
                 <div className="p-10">
-                  <h3 className="text-3xl font-serif font-bold text-white mb-8">Gespräch vereinbaren</h3>
+                  <h3 className="text-3xl font-serif font-bold text-gray-900 mb-8">Gespräch vereinbaren</h3>
                   
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
@@ -675,11 +675,11 @@ export default function Home() {
                           name="name"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300 text-sm font-medium">Vollständiger Name *</FormLabel>
+                              <FormLabel className="text-gray-700 text-sm font-medium">Vollständiger Name *</FormLabel>
                               <FormControl>
                                 <Input 
                                   placeholder="Max Mustermann" 
-                                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 h-12 focus:border-yellow-600 focus:ring-yellow-600"
+                                  className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-500 h-12 rounded-xl focus:border-yellow-600 focus:ring-yellow-600"
                                   {...field} 
                                 />
                               </FormControl>
@@ -693,12 +693,12 @@ export default function Home() {
                           name="email"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300 text-sm font-medium">E-Mail Adresse *</FormLabel>
+                              <FormLabel className="text-gray-700 text-sm font-medium">E-Mail Adresse *</FormLabel>
                               <FormControl>
                                 <Input 
                                   type="email"
                                   placeholder="m.mustermann@beispiel.de" 
-                                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 h-12 focus:border-yellow-600 focus:ring-yellow-600"
+                                  className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-500 h-12 rounded-xl focus:border-yellow-600 focus:ring-yellow-600"
                                   {...field} 
                                 />
                               </FormControl>
@@ -714,12 +714,12 @@ export default function Home() {
                           name="phone"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300 text-sm font-medium">Telefon (optional)</FormLabel>
+                              <FormLabel className="text-gray-700 text-sm font-medium">Telefon (optional)</FormLabel>
                               <FormControl>
                                 <Input 
                                   type="tel"
                                   placeholder="0123 456789" 
-                                  className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 h-12 focus:border-yellow-600 focus:ring-yellow-600"
+                                  className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-500 h-12 rounded-xl focus:border-yellow-600 focus:ring-yellow-600"
                                   {...field} 
                                 />
                               </FormControl>
@@ -733,10 +733,10 @@ export default function Home() {
                           name="service"
                           render={({ field }) => (
                             <FormItem>
-                              <FormLabel className="text-gray-300 text-sm font-medium">Interesse</FormLabel>
+                              <FormLabel className="text-gray-700 text-sm font-medium">Interesse</FormLabel>
                               <Select onValueChange={field.onChange} defaultValue={field.value}>
                                 <FormControl>
-                                  <SelectTrigger className="bg-white/10 border-white/20 text-white h-12 focus:border-yellow-600 focus:ring-yellow-600">
+                                  <SelectTrigger className="bg-white border-gray-200 text-gray-900 h-12 rounded-xl focus:border-yellow-600 focus:ring-yellow-600">
                                     <SelectValue placeholder="Bitte auswählen..." />
                                   </SelectTrigger>
                                 </FormControl>
@@ -760,11 +760,11 @@ export default function Home() {
                         name="message"
                         render={({ field }) => (
                           <FormItem>
-                            <FormLabel className="text-gray-300 text-sm font-medium">Ihre Nachricht (optional)</FormLabel>
+                            <FormLabel className="text-gray-700 text-sm font-medium">Ihre Nachricht (optional)</FormLabel>
                             <FormControl>
                               <Textarea 
                                 placeholder="Teilen Sie uns gerne weitere Details zu Ihrem Projekt mit..." 
-                                className="bg-white/10 border-white/20 text-white placeholder:text-gray-400 resize-none min-h-24 focus:border-yellow-600 focus:ring-yellow-600"
+                                className="bg-white border-gray-200 text-gray-900 placeholder:text-gray-500 resize-none min-h-24 rounded-xl focus:border-yellow-600 focus:ring-yellow-600"
                                 rows={4}
                                 {...field} 
                               />
@@ -777,7 +777,7 @@ export default function Home() {
                       <div className="pt-4">
                         <Button 
                           type="submit" 
-                          className="w-full gold-bg hover:bg-yellow-700 text-white font-serif font-bold py-4 text-lg transition-all duration-300"
+                          className="w-full gold-bg hover:bg-yellow-700 text-white font-serif font-bold py-4 text-lg rounded-xl transition-all duration-300"
                           disabled={contactMutation.isPending}
                         >
                           {contactMutation.isPending ? (
@@ -798,7 +798,7 @@ export default function Home() {
                           )}
                         </Button>
                         
-                        <p className="text-sm text-gray-400 text-center mt-4 leading-relaxed">
+                        <p className="text-sm text-gray-600 text-center mt-4 leading-relaxed">
                           <ShieldCheck className="w-4 h-4 mr-1 inline gold-accent" />
                           Ihre Daten werden streng vertraulich behandelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
                         </p>
