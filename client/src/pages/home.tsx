@@ -698,9 +698,9 @@ export default function Home() {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.7 }}
-            className="text-center mt-16"
+            className="flex justify-center mt-16"
           >
-            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg text-center">
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg text-center max-w-md">
               <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
                 Bereit für blitzblanke Räume?
               </h4>
