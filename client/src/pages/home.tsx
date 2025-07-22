@@ -43,6 +43,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
+import { GoogleReviews } from "../components/GoogleReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 
 export default function Home() {
@@ -572,40 +573,8 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Testimonials Section */}
-      <section id="referenzen" className="py-32 crystal-bg">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 sparkle-effect">
-              So <span className="gold-accent">blitzeblank</span> arbeiten wir
-            </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">Unsere Kunden schwärmen von kristallklaren Ergebnissen</p>
-          </div>
-          
-          <div className="grid lg:grid-cols-3 gap-10">
-            {testimonials.map((testimonial, index) => (
-              <div key={index} className="glass-card border-0 shadow-lg clean-hover sparkle-effect">
-                <div className="p-8">
-                  <Sparkles className="w-12 h-12 gold-accent mb-6 bubble-effect" />
-                  <p className="text-gray-700 mb-8 leading-relaxed text-lg italic">
-                    "{testimonial.text}"
-                  </p>
-                  <div className="border-t border-white/20 pt-6">
-                    <div className="mb-2">
-                      <p className="font-serif font-bold text-gray-900 text-lg">{testimonial.author}</p>
-                      <p className="text-gray-600 font-medium">{testimonial.company}</p>
-                    </div>
-                    <div className="flex justify-between items-center text-sm text-gray-500">
-                      <span>{testimonial.location}</span>
-                      <span className="gold-accent font-medium">{testimonial.years}</span>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Google Reviews Section */}
+      <GoogleReviews />
 
       {/* Contact Section */}
       <section id="kontakt" className="py-32 anthracite-bg text-white">
