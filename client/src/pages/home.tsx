@@ -596,9 +596,6 @@ export default function Home() {
           </div>
 
           <div className="grid lg:grid-cols-3 gap-12 relative">
-            {/* Connection Lines */}
-            <div className="hidden lg:block absolute top-32 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
-            
             {/* Step 1: Contact */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
