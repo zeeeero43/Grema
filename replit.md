@@ -14,13 +14,16 @@ Avoid generic service provider templates; emphasize established, trustworthy app
 
 ✓ Complete homepage redesign with premium aesthetic transformation
 ✓ New color scheme: Anthracite (#2d3748) + Gold (#c17f3e) replacing blue
-✓ Typography upgrade: Playfair Display serif + Inter sans-serif  
-✓ Asymmetrical hero layout with personal owner focus
-✓ Timeline-based services section replacing icon grid
-✓ Premium testimonials section with authentic local references
+✓ Typography upgrade: Crimson Text serif + Work Sans sans-serif  
+✓ Removed personal names from hero section per user feedback
+✓ Strengthened header CTA to "Jetzt kostenlos anrufen!" 
+✓ Premium carousel services section with real cleaning photos
+✓ Professional image overlays with gradient effects and hover animations
+✓ Framer Motion animations for smooth interactions
+✓ Authentic Google reviews from real customers
 ✓ Single CTA approach: "Persönliches Gespräch vereinbaren"
 ✓ Enhanced local Moers identity throughout content
-✓ Personal branding highlighting owners Tanja Scheurenberg & Ivana Grejic
+✓ Consistent gold/anthracite color scheme throughout carousel
 
 ## System Architecture
 

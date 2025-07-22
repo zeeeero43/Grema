@@ -348,30 +348,16 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="text-4xl sm:text-5xl font-bold text-[hsl(213,78%,32%)] mb-6"
+              className="text-4xl sm:text-5xl font-serif font-bold text-gray-900 mb-6"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               <span className="inline-block">Unsere</span>{" "}
-              <span className="gradient-text inline-block">Dienstleistungen</span>
-              <motion.div
-                className="inline-block ml-2"
-                animate={{ 
-                  rotate: [0, 20, -20, 0],
-                  scale: [1, 1.1, 1]
-                }}
-                transition={{ 
-                  repeat: Infinity, 
-                  duration: 4,
-                  delay: 1
-                }}
-              >
-                <Star className="w-8 h-8 text-yellow-400" />
-              </motion.div>
+              <span className="gold-accent inline-block">Dienstleistungen</span>
             </motion.h2>
             <motion.p 
-              className="text-xl text-[hsl(220,9%,43%)] max-w-3xl mx-auto"
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -386,7 +372,7 @@ export default function Home() {
               {/* Navigation Buttons */}
               <Button
                 onClick={prevSlide}
-                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[hsl(213,78%,32%)] rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
                 size="sm"
               >
                 <ChevronLeft className="w-6 h-6" />
@@ -394,7 +380,7 @@ export default function Home() {
               
               <Button
                 onClick={nextSlide}
-                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[hsl(213,78%,32%)] rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
                 size="sm"
               >
                 <ChevronRight className="w-6 h-6" />
@@ -429,10 +415,10 @@ export default function Home() {
                             alt={service.title}
                             className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                           />
-                          <div className="absolute inset-0 bg-gradient-to-t from-[hsl(213,78%,32%)]/80 via-[hsl(213,78%,32%)]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                          <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
                           
                           <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
-                            <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-300">
+                            <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-400">
                               {service.title}
                             </h3>
                             <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
@@ -460,7 +446,7 @@ export default function Home() {
                     onClick={() => setCurrentIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentIndex 
-                        ? 'bg-[hsl(187,96%,43%)] scale-125' 
+                        ? 'gold-shine scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
@@ -492,10 +478,10 @@ export default function Home() {
                       alt={service.title}
                       className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(213,78%,32%)]/80 via-[hsl(213,78%,32%)]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
                     
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
-                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-300">
+                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-400">
                         {service.title}
                       </h3>
                       <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
