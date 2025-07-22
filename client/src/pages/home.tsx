@@ -247,87 +247,189 @@ export default function Home() {
       </nav>
 
       {/* Hero Section */}
-      <section className="relative crystal-bg min-h-[90vh] flex items-center">
-        <div className="absolute inset-0 wipe-animation opacity-30"></div>
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-24 relative z-10">
-          <div className="grid lg:grid-cols-3 gap-16 items-center">
-            {/* Left Content - 2 columns */}
-            <div className="lg:col-span-2 space-y-10">
-              <div>
-                <div className="flex items-center space-x-3 mb-8">
-                  <div className="w-1 h-16 gold-shine sparkle-effect"></div>
-                  <div className="text-sm tracking-wide text-gray-600 uppercase">
-                    Seit 2014 • Blitzeblank in Moers
-                  </div>
-                </div>
-                
-                <h1 className="text-5xl lg:text-7xl font-serif leading-tight text-gray-900 mb-8">
-                  <span className="sparkle-effect">Kristall</span><span className="gold-accent">klar</span><br />
-                  <em className="font-normal">streifenfrei</em> sauber
+      <section className="relative crystal-bg min-h-[95vh] flex items-center overflow-hidden">
+        <div className="absolute inset-0 wipe-animation opacity-20"></div>
+        
+        {/* Premium Background Elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-3xl"></div>
+          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-gray-600/5 to-transparent rounded-full blur-3xl"></div>
+        </div>
+
+        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
+          <div className="grid lg:grid-cols-12 gap-16 items-center">
+            {/* Left Content - Enhanced */}
+            <div className="lg:col-span-7 space-y-12">
+              {/* Premium Badge */}
+              <motion.div 
+                className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <Crown className="w-5 h-5 gold-accent" />
+                <span className="text-sm font-medium text-gray-800">Premium Gebäudeservice seit 2014 • 5.0⭐ bei Google</span>
+                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+              </motion.div>
+              
+              {/* Main Headline */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <h1 className="text-6xl lg:text-8xl font-serif leading-[0.9] text-gray-900 mb-8">
+                  Ihr Büro wird
+                  <br />
+                  <span className="gold-accent sparkle-effect relative">
+                    kristallklar
+                    <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
+                  </span>
+                  <br />
+                  <span className="text-5xl lg:text-6xl font-normal italic text-gray-700">in 24h bereit</span>
                 </h1>
                 
-                <p className="text-xl text-gray-700 leading-relaxed max-w-2xl mb-10">
-                  Wir machen sauber. Richtig sauber. Seit 10 Jahren verwandeln wir Büros, Praxen und Baustellen in 
-                  <strong className="gold-accent"> blitzblanke Schmuckstücke</strong>.
-                </p>
-              </div>
-
-              <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-6 sm:space-y-0 sm:space-x-12">
-                <div className="glass-card p-4 rounded-lg clean-hover">
-                  <div className="text-3xl font-serif font-bold text-gray-900">1000+</div>
-                  <div className="text-sm text-gray-600">Glänzende Fenster</div>
+                <div className="flex items-start space-x-4 mb-10">
+                  <div className="w-1 h-20 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
+                  <div>
+                    <p className="text-2xl text-gray-700 leading-relaxed font-medium mb-4">
+                      Während Sie arbeiten, machen wir <span className="gold-accent font-bold">blitzeblank sauber</span>.
+                    </p>
+                    <p className="text-lg text-gray-600 leading-relaxed">
+                      Moers' führender Gebäudeservice für Büros, Praxen & Gewerbe. Garantiert streifenfrei, 
+                      pünktlich und mit 5-Sterne-Service.
+                    </p>
+                  </div>
                 </div>
-                <div className="glass-card p-4 rounded-lg clean-hover">
-                  <div className="text-3xl font-serif font-bold text-gray-900">500+</div>
-                  <div className="text-sm text-gray-600">Blitzblanke Büros</div>
-                </div>
-                <div className="glass-card p-4 rounded-lg clean-hover bubble-effect">
-                  <div className="text-3xl font-serif font-bold text-gray-900">0</div>
-                  <div className="text-sm text-gray-600">Flecken übrig</div>
-                </div>
-              </div>
+              </motion.div>
 
-              <div className="pt-8">
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="gold-shine hover:gold-shine text-white px-10 py-4 text-lg font-medium sparkle-effect"
-                >
-                  <a href="#kontakt">
-                    <Sparkles className="w-5 h-5 mr-2" />
-                    Alles blitzeblank machen lassen
-                  </a>
-                </Button>
-              </div>
-            </div>
+              {/* Enhanced Stats */}
+              <motion.div 
+                className="flex flex-wrap gap-6"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+              >
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
+                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">10</div>
+                  <div className="text-sm font-medium text-gray-600">Jahre Erfahrung</div>
+                </div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
+                  <div className="text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
+                  <div className="text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
+                </div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
+                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">24h</div>
+                  <div className="text-sm font-medium text-gray-600">Reaktionszeit</div>
+                </div>
+              </motion.div>
 
-            {/* Right Image */}
-            <div className="relative lg:col-span-1">
-              <div className="aspect-[4/5] crystal-clear rounded-2xl overflow-hidden relative sparkle-effect">
-                {/* Glass/Crystal background with cleaning reflection */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/90 via-blue-50/50 to-yellow-50/30">
-                  <div className="absolute inset-0 bg-gradient-to-t from-anthracite/10 to-transparent flex items-end p-8">
-                    <div className="text-gray-800">
-                      <Sparkles className="w-16 h-16 mb-4 gold-accent wipe-animation" />
-                      <div className="text-lg font-serif font-bold">Kristallklar & Streifenfrei</div>
-                      <div className="text-sm text-gray-600">Professionelle Reinigung • Moers</div>
+              {/* Enhanced CTA Section */}
+              <motion.div 
+                className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.7 }}
+              >
+                <div className="flex flex-col space-y-4">
+                  <Button 
+                    asChild 
+                    size="lg" 
+                    className="gold-shine hover:scale-105 text-white px-12 py-6 text-xl font-bold sparkle-effect shadow-2xl"
+                  >
+                    <a href="tel:017634446399" className="flex items-center">
+                      <Phone className="w-6 h-6 mr-3" />
+                      Sofort anrufen: 0176 34446399
+                    </a>
+                  </Button>
+                  
+                  <div className="flex items-center space-x-4 text-sm text-gray-600">
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Kostenlose Beratung</span>
+                    </div>
+                    <div className="flex items-center space-x-2">
+                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <span>Angebot in 24h</span>
                     </div>
                   </div>
                 </div>
-              </div>
-              
-              {/* Trust indicators */}
-              <div className="absolute -bottom-8 -left-8 bg-white rounded-xl p-6 shadow-lg">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 gold-bg rounded-full flex items-center justify-center">
-                    <ShieldCheck className="w-6 h-6 text-white" />
+              </motion.div>
+            </div>
+
+            {/* Right Visual - Enhanced */}
+            <div className="relative lg:col-span-5">
+              <motion.div 
+                className="relative"
+                initial={{ opacity: 0, x: 50 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.3 }}
+              >
+                {/* Main Visual Card */}
+                <div className="aspect-[4/5] bg-gradient-to-br from-white/95 via-gray-50/90 to-yellow-50/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50 sparkle-effect relative overflow-hidden">
+                  {/* Cleaning Animation Elements */}
+                  <div className="absolute top-0 left-0 w-full h-full">
+                    <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-xl animate-pulse"></div>
+                    <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-tl from-yellow-200/40 to-transparent rounded-full blur-lg animate-pulse delay-1000"></div>
                   </div>
-                  <div>
-                    <div className="font-semibold text-gray-900">Vollversichert</div>
-                    <div className="text-sm text-gray-600">& Zertifiziert</div>
+                  
+                  {/* Content */}
+                  <div className="relative z-10 h-full flex flex-col justify-between">
+                    <div className="text-center">
+                      <motion.div
+                        className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg"
+                        animate={{ rotate: 360 }}
+                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+                      >
+                        <Sparkles className="w-12 h-12 text-white" />
+                      </motion.div>
+                      
+                      <h3 className="text-3xl font-serif font-bold text-gray-900 mb-4">
+                        Perfekte Sauberkeit
+                      </h3>
+                      <p className="text-lg text-gray-700 leading-relaxed">
+                        Kristallklare Fenster, streifenfreie Oberflächen, makelloser Glanz
+                      </p>
+                    </div>
+                    
+                    <div className="grid grid-cols-2 gap-4 mt-8">
+                      <div className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-xl">
+                        <Droplets className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                        <div className="text-sm font-medium text-gray-800">Osmose-Technik</div>
+                      </div>
+                      <div className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-xl">
+                        <Zap className="w-8 h-8 gold-accent mx-auto mb-2" />
+                        <div className="text-sm font-medium text-gray-800">Profi-Equipment</div>
+                      </div>
+                    </div>
                   </div>
                 </div>
-              </div>
+                
+                {/* Trust Indicators */}
+                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-xs">
+                  <div className="flex items-center space-x-4 mb-3">
+                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
+                      <ShieldCheck className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <div className="font-bold text-gray-900">Vollversichert</div>
+                      <div className="text-sm text-gray-600">& Zertifiziert</div>
+                    </div>
+                  </div>
+                  <div className="text-xs text-gray-500 flex items-center space-x-2">
+                    <Award className="w-3 h-3" />
+                    <span>Mitglied der Gebäudereiniger-Innung</span>
+                  </div>
+                </div>
+                
+                {/* Urgency Badge */}
+                <div className="absolute -top-6 -right-6 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full shadow-lg transform rotate-12">
+                  <div className="text-center">
+                    <div className="text-sm font-bold">Heute buchen</div>
+                    <div className="text-xs opacity-90">Morgen sauber!</div>
+                  </div>
+                </div>
+              </motion.div>
             </div>
           </div>
         </div>
