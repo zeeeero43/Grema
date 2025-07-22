@@ -159,7 +159,7 @@ export async function getGooglePlaceDetails(placeId: string): Promise<GooglePlac
           profile_photo_url: review.authorAttribution?.photoUri || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.authorAttribution?.displayName || 'User') + '&background=0D8ABC&color=fff&size=128',
           rating: review.rating || 5,
           relative_time_description: translateTimeDescription(review.relativePublishTimeDescription || 'Recently'),
-          text: review.text?.text || review.originalText?.text || 'Great service!',
+          text: review.originalText?.text || review.text?.text || 'Excellent service!',
           time: new Date(review.publishTime).getTime() || Date.now()
         }));
 

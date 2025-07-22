@@ -60,11 +60,36 @@ const StarRating = ({ rating, className = "" }: { rating: number; className?: st
 };
 
 export function GoogleReviews() {
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   const { data, isLoading, error } = useQuery<GoogleReviewsData>({
     queryKey: ['/api/google-reviews'],
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 30, // 30 minutes
   });
+
+  // Auto-advance carousel
+  useEffect(() => {
+    if (!data?.data?.reviews?.length) return;
+    
+    const timer = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % data.data.reviews.length);
+    }, 4000);
+
+    return () => clearInterval(timer);
+  }, [data?.data?.reviews?.length]);
+
+  const nextSlide = () => {
+    if (data?.data?.reviews?.length) {
+      setCurrentIndex((prev) => (prev + 1) % data.data.reviews.length);
+    }
+  };
+
+  const prevSlide = () => {
+    if (data?.data?.reviews?.length) {
+      setCurrentIndex((prev) => (prev - 1 + data.data.reviews.length) % data.data.reviews.length);
+    }
+  };
 
   if (isLoading) {
     return (
@@ -115,46 +140,90 @@ export function GoogleReviews() {
 
 
 
-        {/* Reviews Grid */}
-        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-          {reviews.slice(0, 3).map((review, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: index * 0.1 }}
-              className="bg-white rounded-2xl p-6 shadow-xl"
-            >
-              <div className="flex items-start space-x-4 mb-4">
-                <div className="relative">
-                  <img
-                    src={review.profile_photo_url}
-                    alt={review.author_name}
-                    className="w-12 h-12 rounded-full object-cover"
-                  />
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center justify-between mb-2">
-                    <h4 className="font-bold text-gray-900 truncate">
-                      {review.author_name}
-                    </h4>
-                    <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
-                      {review.relative_time_description}
-                    </span>
-                  </div>
-                  <StarRating rating={review.rating} className="mb-3 relative z-10" />
-                </div>
-              </div>
-              
-              <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4">
-                "{review.text}"
-              </blockquote>
-              
-              <div className="flex justify-center">
-                <GoogleLogo className="w-12 h-5 opacity-60" />
-              </div>
-            </motion.div>
-          ))}
+        {/* Reviews Carousel */}
+        <div className="relative max-w-6xl mx-auto">
+          {/* Navigation Buttons */}
+          <Button
+            onClick={prevSlide}
+            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+            size="sm"
+          >
+            <ChevronLeft className="w-6 h-6" />
+          </Button>
+          
+          <Button
+            onClick={nextSlide}
+            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+            size="sm"
+          >
+            <ChevronRight className="w-6 h-6" />
+          </Button>
+
+          {/* Carousel Container */}
+          <div className="overflow-hidden rounded-2xl mx-8">
+            <div className="grid grid-cols-3 gap-6">
+              {[0, 1, 2].map((offset) => {
+                const reviewIndex = (currentIndex + offset) % reviews.length;
+                const review = reviews[reviewIndex];
+                
+                return (
+                  <AnimatePresence mode="wait" key={`${currentIndex}-${offset}`}>
+                    <motion.div
+                      initial={{ opacity: 0, x: 100 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      exit={{ opacity: 0, x: -100 }}
+                      transition={{ duration: 0.5, delay: offset * 0.1 }}
+                      className="bg-white rounded-2xl p-6 shadow-xl"
+                    >
+                      <div className="flex items-start space-x-4 mb-4">
+                        <div className="relative">
+                          <img
+                            src={review.profile_photo_url}
+                            alt={review.author_name}
+                            className="w-12 h-12 rounded-full object-cover"
+                          />
+                        </div>
+                        <div className="flex-1 min-w-0">
+                          <div className="flex items-center justify-between mb-2">
+                            <h4 className="font-bold text-gray-900 truncate">
+                              {review.author_name}
+                            </h4>
+                            <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
+                              {review.relative_time_description}
+                            </span>
+                          </div>
+                          <StarRating rating={review.rating} className="mb-3 relative z-10" />
+                        </div>
+                      </div>
+                      
+                      <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4 min-h-[4rem]">
+                        "{review.text}"
+                      </blockquote>
+                      
+                      <div className="flex justify-center">
+                        <GoogleLogo className="w-12 h-5 opacity-60" />
+                      </div>
+                    </motion.div>
+                  </AnimatePresence>
+                );
+              })}
+            </div>
+          </div>
+
+          {/* Indicators */}
+          <div className="flex justify-center mt-8 space-x-2">
+            {reviews.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                  index === currentIndex 
+                    ? 'gold-shine scale-125' 
+                    : 'bg-gray-300 hover:bg-gray-400'
+                }`}
+              />
+            ))}
+          </div>
         </div>
 
         {/* Google Branding Footer */}
