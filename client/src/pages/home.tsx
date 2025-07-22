@@ -573,6 +573,158 @@ export default function Home() {
         </div>
       </section>
 
+      {/* Process Section */}
+      <section id="prozess" className="py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+            >
+              In drei einfachen Schritten zu <span className="gold-accent">blitzblanken</span> Räumen
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-gray-600 max-w-3xl mx-auto"
+            >
+              Vom ersten Kontakt bis zum kristallklaren Ergebnis – unser bewährter Prozess garantiert höchste Qualität
+            </motion.p>
+          </div>
+
+          <div className="grid lg:grid-cols-3 gap-12 relative">
+            {/* Connection Lines */}
+            <div className="hidden lg:block absolute top-32 left-1/4 right-1/4 h-0.5 bg-gradient-to-r from-transparent via-gray-300 to-transparent"></div>
+            
+            {/* Step 1: Contact */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="text-center relative"
+            >
+              <div className="relative mb-8">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                  <Phone className="w-16 h-16 text-gray-700" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                  1
+                </div>
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Kontaktaufnahme</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Starten Sie Ihre Anfrage online oder telefonisch. Wir beraten Sie persönlich und gehen individuell auf Ihre Anforderungen ein.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Kostenlose Beratung</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Individuelle Lösungen</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Step 2: Quote */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="text-center relative"
+            >
+              <div className="relative mb-8">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                  <Calendar className="w-16 h-16 text-gray-700" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                  2
+                </div>
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Angebot erhalten</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Wir senden Ihnen kostenlos und unverbindlich ein maßgeschneidertes Angebot mit transparenten Leistungen und fairen Preisen.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Transparente Preise</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Detaillierte Leistungsbeschreibung</span>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Step 3: Execution */}
+            <motion.div
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="text-center relative"
+            >
+              <div className="relative mb-8">
+                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                  <Sparkles className="w-16 h-16 text-gray-700" />
+                </div>
+                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                  3
+                </div>
+              </div>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Perfekte Ausführung</h3>
+              <p className="text-gray-600 leading-relaxed mb-6">
+                Nach Erhalt und Annahme des Angebots beginnen wir mit den professionellen Reinigungsarbeiten und liefern kristallklare Ergebnisse.
+              </p>
+              <div className="space-y-3">
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Pünktliche Ausführung</span>
+                </div>
+                <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
+                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <span>Garantierte Qualität</span>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.7 }}
+            className="text-center mt-16"
+          >
+            <div className="inline-flex items-center space-x-4 bg-gray-50 rounded-2xl p-8 shadow-lg">
+              <div className="gold-bg p-4 rounded-full">
+                <Phone className="w-8 h-8 text-white" />
+              </div>
+              <div className="text-left">
+                <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
+                  Bereit für blitzblanke Räume?
+                </h4>
+                <p className="text-gray-600 mb-4">
+                  Starten Sie jetzt mit Schritt 1 – Ihre kostenlose Beratung wartet!
+                </p>
+                <a 
+                  href="tel:017634446399"
+                  className="inline-flex items-center space-x-2 gold-bg text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>Jetzt kostenlos anrufen!</span>
+                  <ArrowRight className="w-5 h-5" />
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Google Reviews Section */}
       <GoogleReviews />
 
