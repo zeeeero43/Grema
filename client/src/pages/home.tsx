@@ -665,7 +665,7 @@ export default function Home() {
             <div className="lg:col-span-3">
               <div className="bg-white/95 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl">
                 <div className="p-10">
-                  <h3 className="text-3xl font-serif font-bold text-gray-900 mb-8">Gespräch vereinbaren</h3>
+                  <h3 className="text-3xl font-serif font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-8">Gespräch vereinbaren</h3>
                   
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
