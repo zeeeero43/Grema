@@ -349,13 +349,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="text-4xl sm:text-5xl font-serif font-bold text-gray-900 mb-6"
+              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-6"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               <span className="inline-block">Unsere</span>{" "}
-              <span className="bg-gradient-to-r from-yellow-600 to-yellow-500 bg-clip-text text-transparent inline-block">Dienstleistungen</span>
+              <span className="gold-accent inline-block">Dienstleistungen</span>
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -700,26 +700,20 @@ export default function Home() {
             transition={{ duration: 0.6, delay: 0.7 }}
             className="text-center mt-16"
           >
-            <div className="inline-flex items-center space-x-4 bg-gray-50 rounded-2xl p-8 shadow-lg">
-              <div className="gold-bg p-4 rounded-full">
-                <Phone className="w-8 h-8 text-white" />
-              </div>
-              <div className="text-left">
-                <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
-                  Bereit für blitzblanke Räume?
-                </h4>
-                <p className="text-gray-600 mb-4">
-                  Starten Sie jetzt mit Schritt 1 – Ihre kostenlose Beratung wartet!
-                </p>
-                <a 
-                  href="tel:017634446399"
-                  className="inline-flex items-center space-x-2 gold-bg text-white px-6 py-3 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
-                >
-                  <Phone className="w-5 h-5" />
-                  <span>Jetzt kostenlos anrufen!</span>
-                  <ArrowRight className="w-5 h-5" />
-                </a>
-              </div>
+            <div className="bg-gray-50 rounded-2xl p-8 shadow-lg text-center">
+              <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
+                Bereit für blitzblanke Räume?
+              </h4>
+              <p className="text-gray-600 mb-6">
+                Starten Sie jetzt mit Schritt 1 – Ihre kostenlose Beratung wartet!
+              </p>
+              <a 
+                href="tel:017634446399"
+                className="inline-flex items-center space-x-2 gold-bg text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
+              >
+                <span>Jetzt kostenlos anrufen!</span>
+                <ArrowRight className="w-5 h-5" />
+              </a>
             </div>
           </motion.div>
         </div>

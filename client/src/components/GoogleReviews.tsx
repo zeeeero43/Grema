@@ -196,7 +196,7 @@ export function GoogleReviews() {
                         </div>
                       </div>
                       
-                      <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4 min-h-[4rem]">
+                      <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4">
                         "{review.text}"
                       </blockquote>
                       
