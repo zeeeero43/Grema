@@ -161,7 +161,7 @@ export function GoogleReviews() {
 
           {/* Carousel Container */}
           <div className="overflow-hidden rounded-2xl mx-8">
-            <div className="flex gap-6">
+            <div className="flex gap-6 items-start">
               {[0, 1, 2].map((offset) => {
                 const reviewIndex = (currentIndex + offset) % reviews.length;
                 const review = reviews[reviewIndex];
@@ -173,7 +173,7 @@ export function GoogleReviews() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -100 }}
                       transition={{ duration: 0.5, delay: offset * 0.1 }}
-                      className="bg-white rounded-2xl p-6 shadow-xl flex-1 min-w-0"
+                      className="bg-white rounded-2xl p-6 shadow-xl w-1/3"
                     >
                       <div className="flex items-start space-x-4 mb-4">
                         <div className="relative">
