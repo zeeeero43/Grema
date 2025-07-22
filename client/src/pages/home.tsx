@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useRef, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useMutation } from "@tanstack/react-query";
+import { motion, useInView } from "framer-motion";
 import { 
   Building2, 
   Phone, 
@@ -30,12 +31,10 @@ import {
   ChevronRight,
   Droplets,
   Hammer,
-
   Zap,
   Trash2,
   Camera
 } from "lucide-react";
-import useEmblaCarousel from 'embla-carousel-react';
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
@@ -50,16 +49,9 @@ export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
   
-  // Carousel setup
-  const [emblaRef, emblaApi] = useEmblaCarousel({ 
-    loop: true,
-    align: 'center',
-    slidesToScroll: 1,
-    breakpoints: {
-      '(min-width: 768px)': { slidesToScroll: 2 },
-      '(min-width: 1024px)': { slidesToScroll: 3 }
-    }
-  });
+  // Carousel setup  
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isTransitioning, setIsTransitioning] = useState(false);
 
   const form = useForm<InsertContactInquiry>({
     resolver: zodResolver(insertContactInquirySchema),
@@ -97,44 +89,59 @@ export default function Home() {
     contactMutation.mutate(data);
   };
 
-  const cleaningServices = [
+  const services = [
     {
-      title: "Unterhaltsreinigung & Gewerbereinigung",
-      description: "Regelmäßige Reinigung für Büros, Praxen und Geschäfte. Perfekte Sauberkeit und individuelle Reinigungspläne.",
-      icon: Building2,
-      image: "office-cleaning"
+      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Unterhalts- & Gewerbereinigung",
+      description: "Regelmäßige Reinigung für Büros, Praxen und Geschäfte. Flexible Zeiten und individuelle Reinigungspläne.",
+      href: "/services/unterhaltsreinigung",
+      icon: "🏢"
     },
     {
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       title: "Grundreinigung",
-      description: "Tiefenreinigung für Wohnungen, Büros und Gewerbe. Intensive Dampfreinigung für makellose Sauberkeit.",
-      icon: Droplets,
-      image: "deep-cleaning"
+      description: "Tiefenreinigung für Wohnungen, Büros und Gewerbe. Professionelle Dampfreinigung für makellose Sauberkeit.",
+      href: "/services/grundreinigung",
+      icon: "✨"
     },
     {
+      image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       title: "Fenster- & Glasreinigung",
-      description: "Streifenfreie Ergebnisse bei Fenstern, Glasfassaden. Technik und professionelle Steiger. Auch schwer erreichbare Bereiche.",
-      icon: Sparkles,
-      image: "window-cleaning"
+      description: "Streifenfreie Ergebnisse durch Osmose-Technik und professionelle Steiger-Ausrüstung. Auch schwer erreichbare Bereiche.",
+      href: "/services/fensterreinigung",
+      icon: "🪟"
     },
     {
+      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       title: "Industriereinigung",
-      description: "Maschinen Reinigung, Produktionsanlagen, Chemie Anlagentechnik und Hochdruckreinigung für optimale Betriebshygiene.",
-      icon: Zap,
-      image: "industrial-cleaning"
+      description: "Maschinenreinigung, Produktionsanlagen, Chemie-/Säurebehandlungen. Hochdruck- und Heißreinigung für optimale Betriebseffizienz.",
+      href: "/services/industriereinigung",
+      icon: "🏭"
     },
     {
-      title: "Baureinigung",
-      description: "Bauschlussreinigung, Baustellenreinigung und Rohbaureinigung. Perfekte Übergabe für Ihr neues Zuhause.",
-      icon: Hammer,
-      image: "construction-cleaning"
-    },
-    {
-      title: "Haushaltsauflösung",
-      description: "Komplette Entrümpelung und fachgerechte Entsorgung. Wir räumen auf und hinterlassen alles blitzeblank.",
-      icon: Trash2,
-      image: "household-dissolution"
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Bauschlussreinigung",
+      description: "Komplette Bauschlussreinigung inklusive Wertstofftrennung und fachgerechter Entsorgung. Übergabebereit in kürzester Zeit.",
+      href: "/services/bauschlussreinigung",
+      icon: "🏗️"
     }
   ];
+
+  const nextSlide = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev + 1) % services.length);
+      setIsTransitioning(false);
+    }, 0);
+  };
+
+  const prevSlide = () => {
+    setIsTransitioning(true);
+    setTimeout(() => {
+      setCurrentIndex((prev) => (prev - 1 + services.length) % services.length);
+      setIsTransitioning(false);
+    }, 0);
+  };
 
   const usps = [
     {
@@ -325,89 +332,184 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Services Carousel Section */}
-      <section id="leistungen" className="py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl lg:text-5xl font-serif text-gray-900 mb-6">
-              Unsere <span className="gold-accent">Dienstleistungen</span> ⭐
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-              Professionelle Gebäudereinigung für jeden Bedarf – von der Industrie bis zum Büro
-            </p>
-          </div>
+      {/* Services Section with Premium Carousel */}
+      <section id="services" className="py-20 bg-[hsl(220,13%,97%)] relative overflow-hidden">
+        {/* Subtle Background */}
+        <div className="absolute inset-0 z-0">
+          <div className="absolute top-10 left-10 w-32 h-32 bg-[hsl(187,96%,43%)]/5 rounded-full blur-xl"></div>
+          <div className="absolute bottom-10 right-10 w-48 h-48 bg-[hsl(213,78%,32%)]/5 rounded-full blur-xl"></div>
+        </div>
 
-          {/* Carousel */}
-          <div className="relative">
-            <div className="overflow-hidden" ref={emblaRef}>
-              <div className="flex">
-                {cleaningServices.map((service, index) => {
-                  const IconComponent = service.icon;
-                  return (
-                    <div key={index} className="flex-[0_0_100%] min-w-0 px-3 md:flex-[0_0_50%] lg:flex-[0_0_33.33%]">
-                      <div className="bg-white rounded-2xl shadow-lg overflow-hidden h-full transform transition-all duration-300 hover:scale-105 hover:shadow-xl">
-                        {/* Service Image */}
-                        <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <IconComponent className="w-16 h-16 text-gray-600" />
-                          </div>
-                        </div>
-                        
-                        {/* Service Content */}
-                        <div className="p-6 pb-8">
-                          <h3 className="text-xl font-serif font-bold text-gray-900 mb-4 leading-tight">
-                            {service.title}
-                          </h3>
-                          <p className="text-gray-600 leading-relaxed text-sm mb-6">
-                            {service.description}
-                          </p>
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <motion.div 
+            className="text-center mb-16"
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+          >
+            <motion.h2 
+              className="text-4xl sm:text-5xl font-bold text-[hsl(213,78%,32%)] mb-6"
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.2 }}
+            >
+              <span className="inline-block">Unsere</span>{" "}
+              <span className="gradient-text inline-block">Dienstleistungen</span>
+              <motion.div
+                className="inline-block ml-2"
+                animate={{ 
+                  rotate: [0, 20, -20, 0],
+                  scale: [1, 1.1, 1]
+                }}
+                transition={{ 
+                  repeat: Infinity, 
+                  duration: 4,
+                  delay: 1
+                }}
+              >
+                <Star className="w-8 h-8 text-yellow-400" />
+              </motion.div>
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-[hsl(220,9%,43%)] max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+            >
+              Professionelle Gebäudereinigung für jeden Bedarf - von der Industrie bis zum Büro
+            </motion.p>
+          </motion.div>
+          
+          {/* Desktop Carousel Layout */}
+          <div className="hidden md:block">
+            <div className="relative">
+              {/* Navigation Buttons */}
+              <Button
+                onClick={prevSlide}
+                className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[hsl(213,78%,32%)] rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                size="sm"
+              >
+                <ChevronLeft className="w-6 h-6" />
+              </Button>
+              
+              <Button
+                onClick={nextSlide}
+                className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-[hsl(213,78%,32%)] rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+                size="sm"
+              >
+                <ChevronRight className="w-6 h-6" />
+              </Button>
+
+              {/* Carousel Container */}
+              <div className="mx-12 overflow-hidden">
+                <div 
+                  className="flex gap-8 transition-transform duration-500 ease-in-out"
+                  style={{ 
+                    transform: `translateX(-${currentIndex * (100 / 3)}%)`,
+                  }}
+                >
+                  {[...services, ...services].map((service, index) => {
+                    return (
+                      <motion.div
+                        key={`${service.title}-${index}`}
+                        initial={{ y: 50, opacity: 0, rotateX: -15 }}
+                        animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 100,
+                          damping: 15,
+                          duration: 0.8,
+                          delay: index * 0.1
+                        }}
+                        className="flex-shrink-0 w-80 hover:scale-102 hover:-translate-y-1 transition-transform"
+                      >
+                        <div className="relative h-96 rounded-xl overflow-hidden shadow-lg hover:shadow-xl transition-all duration-300 group">
+                          <img 
+                            src={service.image} 
+                            alt={service.title}
+                            className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                          />
+                          <div className="absolute inset-0 bg-gradient-to-t from-[hsl(213,78%,32%)]/80 via-[hsl(213,78%,32%)]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
                           
-                          <div className="flex items-center justify-between">
-                            <Button variant="ghost" size="sm" className="gold-accent hover:gold-accent/80 p-0 h-auto font-medium">
-                              Mehr Infos <ArrowRight className="w-4 h-4 ml-1" />
+                          <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
+                            <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-300">
+                              {service.title}
+                            </h3>
+                            <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
+                              {service.description}
+                            </p>
+                            <Button 
+                              className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/40 group-hover:scale-102"
+                              size="sm"
+                            >
+                              Mehr Infos <ChevronRight className="w-4 h-4 ml-1" />
                             </Button>
                           </div>
                         </div>
-                        
-                        {/* Gold accent bar at bottom */}
-                        <div className="h-1 gold-shine"></div>
-                      </div>
-                    </div>
-                  );
-                })}
+                      </motion.div>
+                    );
+                  })}
+                </div>
+              </div>
+
+              {/* Carousel Indicators */}
+              <div className="flex justify-center mt-8 space-x-2">
+                {services.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                      index === currentIndex 
+                        ? 'bg-[hsl(187,96%,43%)] scale-125' 
+                        : 'bg-gray-300 hover:bg-gray-400'
+                    }`}
+                  />
+                ))}
               </div>
             </div>
+          </div>
 
-            {/* Navigation buttons */}
-            <Button 
-              variant="outline" 
-              size="icon"
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10"
-              onClick={() => emblaApi?.scrollPrev()}
-            >
-              <ChevronLeft className="w-5 h-5" />
-            </Button>
-            
-            <Button 
-              variant="outline" 
-              size="icon"
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white shadow-lg border-0 hover:bg-gray-50 z-10"
-              onClick={() => emblaApi?.scrollNext()}
-            >
-              <ChevronRight className="w-5 h-5" />
-            </Button>
-
-            {/* Dots indicator */}
-            <div className="flex justify-center mt-8 space-x-2">
-              {[...Array(6)].map((_, index) => (
-                <button 
-                  key={index}
-                  className={`w-2 h-2 rounded-full transition-all ${
-                    index < 3 ? 'gold-shine' : 'bg-gray-300'
-                  }`}
-                  onClick={() => emblaApi?.scrollTo(index)}
-                />
+          {/* Mobile Horizontal Scroll Layout */}
+          <div className="md:hidden">
+            <div className="flex gap-4 overflow-x-auto scrollbar-hide snap-x snap-mandatory pb-4">
+              {services.map((service, index) => (
+                <motion.div
+                  key={service.title}
+                  initial={{ y: 50, opacity: 0, rotateX: -15 }}
+                  animate={{ y: 0, opacity: 1, rotateX: 0 }}
+                  transition={{
+                    type: "spring",
+                    stiffness: 100,
+                    damping: 15,
+                    duration: 0.8,
+                    delay: index * 0.1
+                  }}
+                  className="flex-shrink-0 w-80 snap-start"
+                >
+                  <div className="relative h-96 rounded-xl overflow-hidden shadow-lg group">
+                    <img 
+                      src={service.image} 
+                      alt={service.title}
+                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-t from-[hsl(213,78%,32%)]/80 via-[hsl(213,78%,32%)]/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
+                    
+                    <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
+                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-300">
+                        {service.title}
+                      </h3>
+                      <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
+                        {service.description}
+                      </p>
+                      <Button 
+                        className="bg-white/20 hover:bg-white/30 text-white border-white/30 backdrop-blur-sm transition-all duration-300 group-hover:bg-white/40 group-hover:scale-102"
+                        size="sm"
+                      >
+                        Mehr Infos <ChevronRight className="w-4 h-4 ml-1" />
+                      </Button>
+                    </div>
+                  </div>
+                </motion.div>
               ))}
             </div>
           </div>
