@@ -354,7 +354,7 @@ export default function Home() {
               transition={{ duration: 1, delay: 0.2 }}
             >
               <span className="inline-block">Unsere</span>{" "}
-              <span className="gold-accent inline-block">Dienstleistungen</span>
+              <span className="bg-gradient-to-r from-yellow-600 to-yellow-500 bg-clip-text text-transparent inline-block">Dienstleistungen</span>
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -418,7 +418,7 @@ export default function Home() {
                           <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
                           
                           <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
-                            <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-400">
+                            <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-yellow-200 group-hover:bg-clip-text group-hover:text-transparent">
                               {service.title}
                             </h3>
                             <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
@@ -481,7 +481,7 @@ export default function Home() {
                     <div className="absolute inset-0 bg-gradient-to-t from-gray-900/80 via-gray-900/40 to-transparent transition-opacity duration-300 group-hover:opacity-90" />
                     
                     <div className="absolute bottom-0 left-0 right-0 p-6 text-white transition-transform duration-300 group-hover:translate-y-0">
-                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:text-yellow-400">
+                      <h3 className="text-xl font-bold mb-2 transition-all duration-300 group-hover:bg-gradient-to-r group-hover:from-yellow-300 group-hover:to-yellow-200 group-hover:bg-clip-text group-hover:text-transparent">
                         {service.title}
                       </h3>
                       <p className="text-sm opacity-90 mb-4 leading-relaxed transition-opacity duration-300 group-hover:opacity-100">
