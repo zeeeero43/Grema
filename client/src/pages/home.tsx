@@ -54,6 +54,19 @@ export default function Home() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isTransitioning, setIsTransitioning] = useState(false);
 
+  // Animation refs for scroll-triggered effects
+  const aboutRef = useRef(null);
+  const processRef = useRef(null);
+  const reviewsRef = useRef(null);
+  const faqRef = useRef(null);
+  const contactRef = useRef(null);
+  
+  const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
+  const processInView = useInView(processRef, { once: true, margin: "-100px" });
+  const reviewsInView = useInView(reviewsRef, { once: true, margin: "-100px" });
+  const faqInView = useInView(faqRef, { once: true, margin: "-100px" });
+  const contactInView = useInView(contactRef, { once: true, margin: "-100px" });
+
   const form = useForm<InsertContactInquiry>({
     resolver: zodResolver(insertContactInquirySchema),
     defaultValues: {
@@ -189,7 +202,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <nav className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50">
+      <motion.nav 
+        className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50"
+        initial={{ y: -100, opacity: 0 }}
+        animate={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
@@ -229,9 +247,22 @@ export default function Home() {
         </div>
 
         {/* Mobile Menu */}
-        {mobileMenuOpen && (
-          <div className="md:hidden bg-white border-t border-gray-100">
-            <div className="px-6 py-4 space-y-4">
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: mobileMenuOpen ? "auto" : 0,
+            opacity: mobileMenuOpen ? 1 : 0 
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+        >
+          {mobileMenuOpen && (
+            <motion.div 
+              className="px-6 py-4 space-y-4"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
               <a href="#leistungen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Leistungen</a>
               <a href="#ueber-uns" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Über uns</a>
               <a href="#referenzen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Referenzen</a>
@@ -241,10 +272,10 @@ export default function Home() {
                   Jetzt kostenlos anrufen!
                 </a>
               </Button>
-            </div>
-          </div>
-        )}
-      </nav>
+            </motion.div>
+          )}
+        </motion.div>
+      </motion.nav>
 
       {/* Hero Section */}
       <section className="relative crystal-bg min-h-[95vh] flex items-center overflow-hidden">
@@ -605,92 +636,161 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section id="ueber-uns" className="py-32 bg-white">
+      <section ref={aboutRef} id="ueber-uns" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <div>
-              <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-12 sparkle-effect">
+            <motion.div
+              initial={{ opacity: 0, x: -80 }}
+              animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+            >
+              <motion.h2 
+                className="text-5xl lg:text-6xl font-serif text-gray-900 mb-12 sparkle-effect"
+                initial={{ opacity: 0, y: 50 }}
+                animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+                transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+              >
                 Warum sind wir so <span className="gold-accent">blitzeblank</span>?
-              </h2>
+              </motion.h2>
               
               <div className="space-y-10">
                 {usps.map((usp, index) => (
-                  <div key={index} className="glass-card p-6 rounded-xl clean-hover sparkle-effect">
+                  <motion.div 
+                    key={index}
+                    className="glass-card p-6 rounded-xl clean-hover sparkle-effect"
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={aboutInView ? { 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1 
+                    } : { 
+                      opacity: 0, 
+                      y: 30, 
+                      scale: 0.95 
+                    }}
+                    transition={{ 
+                      duration: 0.6, 
+                      delay: 0.4 + (index * 0.2),
+                      ease: "easeOut" 
+                    }}
+                    whileHover={{ 
+                      scale: 1.02, 
+                      y: -5,
+                      transition: { duration: 0.2 } 
+                    }}
+                  >
                     <h3 className="text-2xl font-serif font-bold text-gray-900 mb-2">{usp.title}</h3>
                     <p className="gold-accent text-lg font-medium mb-3">{usp.subtitle}</p>
                     <p className="text-gray-600 leading-relaxed text-lg">{usp.description}</p>
-                  </div>
+                  </motion.div>
                 ))}
               </div>
-            </div>
+            </motion.div>
             
-            <div>
-              <div className="crystal-clear shadow-2xl rounded-2xl sparkle-effect">
+            <motion.div
+              initial={{ opacity: 0, x: 80 }}
+              animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
+              transition={{ duration: 0.8, delay: 0.1, ease: "easeOut" }}
+            >
+              <motion.div 
+                className="crystal-clear shadow-2xl rounded-2xl sparkle-effect"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={aboutInView ? { scale: 1, opacity: 1 } : { scale: 0.9, opacity: 0 }}
+                transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              >
                 <div className="p-10">
-                  <div className="text-center mb-8">
+                  <motion.div 
+                    className="text-center mb-8"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                  >
                     <h3 className="text-3xl font-serif font-bold text-gray-900 mb-2">Die Sauberfrauen von Moers</h3>
                     <p className="text-gray-600">Ihre persönlichen Ansprechpartnerinnen</p>
-                  </div>
+                  </motion.div>
                   
                   <div className="space-y-8">
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <Users className="w-16 h-16 text-gray-400" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-serif font-bold text-gray-900">Tanja Scheurenberg</h4>
-                        <p className="gold-accent font-medium mb-2">Geschäftsführerin</p>
-                        <p className="text-sm text-gray-600">Kundenbetreuung & Operations</p>
-                      </div>
-                    </div>
-                    
-                    <div className="text-center">
-                      <div className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center">
-                        <Users className="w-16 h-16 text-gray-400" />
-                      </div>
-                      <div>
-                        <h4 className="text-xl font-serif font-bold text-gray-900">Ivana Grejic</h4>
-                        <p className="gold-accent font-medium mb-2">Geschäftsführerin</p>
-                        <p className="text-sm text-gray-600">Qualitätsmanagement & Projektleitung</p>
-                      </div>
-                    </div>
+                    {[
+                      { name: "Tanja Scheurenberg", role: "Geschäftsführerin", dept: "Kundenbetreuung & Operations" },
+                      { name: "Ivana Grejic", role: "Geschäftsführerin", dept: "Qualitätsmanagement & Projektleitung" }
+                    ].map((person, index) => (
+                      <motion.div 
+                        key={index}
+                        className="text-center"
+                        initial={{ opacity: 0, y: 30, scale: 0.9 }}
+                        animate={aboutInView ? { 
+                          opacity: 1, 
+                          y: 0, 
+                          scale: 1 
+                        } : { 
+                          opacity: 0, 
+                          y: 30, 
+                          scale: 0.9 
+                        }}
+                        transition={{ duration: 0.6, delay: 0.7 + (index * 0.1) }}
+                        whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+                      >
+                        <motion.div 
+                          className="w-32 h-32 bg-gray-200 rounded-full mx-auto mb-4 flex items-center justify-center"
+                          whileHover={{ rotate: 5, transition: { duration: 0.3 } }}
+                        >
+                          <Users className="w-16 h-16 text-gray-400" />
+                        </motion.div>
+                        <div>
+                          <h4 className="text-xl font-serif font-bold text-gray-900">{person.name}</h4>
+                          <p className="gold-accent font-medium mb-2">{person.role}</p>
+                          <p className="text-sm text-gray-600">{person.dept}</p>
+                        </div>
+                      </motion.div>
+                    ))}
                   </div>
                   
-                  <div className="mt-10 pt-8 border-t border-gray-200 text-center">
+                  <motion.div 
+                    className="mt-10 pt-8 border-t border-gray-200 text-center"
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+                    transition={{ duration: 0.6, delay: 0.9 }}
+                  >
                     <Quote className="w-8 h-8 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-700 italic text-lg">
                       „Über 10 Jahre Erfahrung in der professionellen Gebäudereinigung – 
                       Moers ist unser Zuhause."
                     </p>
-                  </div>
+                  </motion.div>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Process Section */}
-      <section id="prozess" className="py-32 bg-white">
+      <section ref={processRef} id="prozess" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
               className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={processInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               In drei einfachen Schritten zu <span className="gold-accent">blitzblanken</span> Räumen
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-600 max-w-3xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               Vom ersten Kontakt bis zum kristallklaren Ergebnis – unser bewährter Prozess garantiert höchste Qualität
             </motion.p>
-          </div>
+          </motion.div>
 
           <div className="grid lg:grid-cols-3 gap-12 relative">
             {/* Step 1: Contact */}
@@ -814,26 +914,73 @@ export default function Home() {
       </section>
 
       {/* Google Reviews Section */}
-      <GoogleReviews />
+      <motion.div
+        ref={reviewsRef}
+        initial={{ opacity: 0, y: 100 }}
+        animate={reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
+        transition={{ duration: 0.8, ease: "easeOut" }}
+      >
+        <GoogleReviews />
+      </motion.div>
 
       {/* Contact Section */}
-      <section id="kontakt" className="py-32 anthracite-bg text-white">
+      <section ref={contactRef} id="kontakt" className="py-32 anthracite-bg text-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
-            <h2 className="text-5xl lg:text-6xl font-serif text-white mb-8 sparkle-effect">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
+            <motion.h2 
+              className="text-5xl lg:text-6xl font-serif text-white mb-8 sparkle-effect"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={contactInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
+            >
               Alles <span className="gold-accent">blitzeblank</span> machen lassen?
-            </h2>
-            <p className="text-xl text-gray-300 max-w-2xl mx-auto">Sprechen Sie direkt mit unserem Team. Kostenlos, unverbindlich, und garantiert kristallklar.</p>
-          </div>
+            </motion.h2>
+            <motion.p 
+              className="text-xl text-gray-300 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+            >
+              Sprechen Sie direkt mit unserem Team. Kostenlos, unverbindlich, und garantiert kristallklar.
+            </motion.p>
+          </motion.div>
           
           <div className="grid lg:grid-cols-5 gap-16 items-start">
             {/* Contact Info */}
-            <div className="lg:col-span-2 space-y-10">
+            <motion.div 
+              className="lg:col-span-2 space-y-10"
+              initial={{ opacity: 0, x: -80 }}
+              animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -80 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+            >
               <div>
                 <h3 className="text-3xl font-serif font-bold text-white mb-8">Direkte Kontaktaufnahme</h3>
                 
                 <div className="space-y-6">
-                  <div className="p-8 bg-white/5 rounded-2xl border border-white/10">
+                  <motion.div 
+                    className="p-8 bg-white/5 rounded-2xl border border-white/10"
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={contactInView ? { 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1 
+                    } : { 
+                      opacity: 0, 
+                      y: 30, 
+                      scale: 0.95 
+                    }}
+                    transition={{ duration: 0.6, delay: 0.5 }}
+                    whileHover={{ 
+                      scale: 1.02, 
+                      y: -5,
+                      transition: { duration: 0.2 } 
+                    }}
+                  >
                     <div className="flex items-start space-x-4">
                       <div className="gold-bg p-3 rounded-full flex-shrink-0">
                         <Phone className="w-6 h-6 text-white" />
@@ -846,9 +993,27 @@ export default function Home() {
                         <p className="text-gray-400 text-sm mt-2">Mo-Fr: 8:00-18:00 Uhr • Sa: 9:00-14:00 Uhr</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                   
-                  <div className="p-8 bg-white/5 rounded-2xl border border-white/10">
+                  <motion.div 
+                    className="p-8 bg-white/5 rounded-2xl border border-white/10"
+                    initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                    animate={contactInView ? { 
+                      opacity: 1, 
+                      y: 0, 
+                      scale: 1 
+                    } : { 
+                      opacity: 0, 
+                      y: 30, 
+                      scale: 0.95 
+                    }}
+                    transition={{ duration: 0.6, delay: 0.7 }}
+                    whileHover={{ 
+                      scale: 1.02, 
+                      y: -5,
+                      transition: { duration: 0.2 } 
+                    }}
+                  >
                     <div className="flex items-start space-x-4">
                       <div className="gold-bg p-3 rounded-full flex-shrink-0">
                         <MapPin className="w-6 h-6 text-white" />
@@ -859,10 +1024,28 @@ export default function Home() {
                         <p className="text-gray-400 text-sm">Nordrhein-Westfalen</p>
                       </div>
                     </div>
-                  </div>
+                  </motion.div>
                 </div>
                 
-                <div className="mt-10 p-6 bg-yellow-600/20 rounded-2xl border border-yellow-600/30">
+                <motion.div 
+                  className="mt-10 p-6 bg-yellow-600/20 rounded-2xl border border-yellow-600/30"
+                  initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                  animate={contactInView ? { 
+                    opacity: 1, 
+                    y: 0, 
+                    scale: 1 
+                  } : { 
+                    opacity: 0, 
+                    y: 30, 
+                    scale: 0.95 
+                  }}
+                  transition={{ duration: 0.6, delay: 0.9 }}
+                  whileHover={{ 
+                    scale: 1.02, 
+                    y: -5,
+                    transition: { duration: 0.2 } 
+                  }}
+                >
                   <div className="flex items-center space-x-3 mb-3">
                     <CheckCircle className="w-6 h-6 gold-accent" />
                     <h4 className="text-lg font-serif font-bold text-white">Kostenlose Erstberatung</h4>
@@ -870,13 +1053,24 @@ export default function Home() {
                   <p className="text-gray-300 leading-relaxed">
                     Tanja und Ivana nehmen sich persönlich Zeit für Sie. Unverbindlich und kostenfrei.
                   </p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
             
             {/* Contact Form */}
-            <div className="lg:col-span-3">
-              <div className="bg-white/95 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl">
+            <motion.div 
+              className="lg:col-span-3"
+              initial={{ opacity: 0, x: 80 }}
+              animate={contactInView ? { opacity: 1, x: 0 } : { opacity: 0, x: 80 }}
+              transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
+            >
+              <motion.div 
+                className="bg-white/95 backdrop-blur-lg border border-white/20 rounded-2xl shadow-2xl"
+                initial={{ scale: 0.95, opacity: 0 }}
+                animate={contactInView ? { scale: 1, opacity: 1 } : { scale: 0.95, opacity: 0 }}
+                transition={{ duration: 0.8, delay: 0.6, ease: "easeOut" }}
+                whileHover={{ scale: 1.02, transition: { duration: 0.3 } }}
+              >
                 <div className="p-10">
                   <h3 className="text-3xl font-serif font-bold bg-gradient-to-r from-gray-800 to-gray-600 bg-clip-text text-transparent mb-8">Gespräch vereinbaren</h3>
                   
@@ -1019,33 +1213,38 @@ export default function Home() {
                     </form>
                   </Form>
                 </div>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* FAQ Section */}
-      <section id="faq" className="py-32 bg-gray-50">
+      <section ref={faqRef} id="faq" className="py-32 bg-gray-50">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-20">
+          <motion.div 
+            className="text-center mb-20"
+            initial={{ opacity: 0, y: 50 }}
+            animate={faqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+          >
             <motion.h2 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
               className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={faqInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               Häufige <span className="gold-accent">Fragen</span>
             </motion.h2>
             <motion.p 
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
               className="text-xl text-gray-600 max-w-2xl mx-auto"
+              initial={{ opacity: 0, y: 20 }}
+              animate={faqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
             >
               Alles was Sie über unsere professionelle Gebäudereinigung wissen möchten
             </motion.p>
-          </div>
+          </motion.div>
 
           <div className="space-y-6">
             {[
@@ -1076,7 +1275,22 @@ export default function Home() {
             ].map((faq, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 30 }}
+                initial={{ opacity: 0, y: 30, scale: 0.95 }}
+                animate={faqInView ? { 
+                  opacity: 1, 
+                  y: 0, 
+                  scale: 1 
+                } : { 
+                  opacity: 0, 
+                  y: 30, 
+                  scale: 0.95 
+                }}
+                transition={{ duration: 0.6, delay: 0.6 + (index * 0.1), ease: "easeOut" }}
+                whileHover={{ 
+                  scale: 1.02, 
+                  y: -5,
+                  transition: { duration: 0.2 } 
+                }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
