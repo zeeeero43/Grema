@@ -937,6 +937,118 @@ export default function Home() {
         </div>
       </section>
 
+      {/* FAQ Section */}
+      <section id="faq" className="py-32 bg-gray-50">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="text-center mb-20">
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+            >
+              Häufige <span className="gold-accent">Fragen</span>
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              Alles was Sie über unsere professionelle Gebäudereinigung wissen möchten
+            </motion.p>
+          </div>
+
+          <div className="space-y-6">
+            {[
+              {
+                question: "Welche Reinigungsleistungen bieten Sie an?",
+                answer: "Wir bieten ein umfassendes Spektrum professioneller Reinigungsdienstleistungen: Büroreinigung, Fensterreinigung mit modernster Osmose-Technik, Grundreinigung, Industriereinigung, Bauschlussreinigung und Hausmeisterservice. Alle Leistungen werden von unserem erfahrenen Team in höchster Qualität durchgeführt."
+              },
+              {
+                question: "Wie erhalte ich ein Angebot für meine Räumlichkeiten?",
+                answer: "Kontaktieren Sie uns einfach telefonisch unter 0176 34446399 oder nutzen Sie unser Kontaktformular. Wir beraten Sie kostenlos und unverbindlich, erstellen nach Ihren Wünschen ein maßgeschneidertes Angebot mit transparenten Preisen und detaillierter Leistungsbeschreibung."
+              },
+              {
+                question: "Sind Sie auch außerhalb von Moers tätig?",
+                answer: "Ja, neben unserem Hauptstandort Moers sind wir in der gesamten Region Niederrhein aktiv. Wir bedienen Kunden in Duisburg, Krefeld, Oberhausen und den umliegenden Gemeinden. Sprechen Sie uns gerne auf Ihren Standort an."
+              },
+              {
+                question: "Welche Qualitätsstandards gewährleisten Sie?",
+                answer: "Qualität steht bei uns an erster Stelle. Unser Team wird regelmäßig geschult, wir verwenden professionelle Reinigungsgeräte und umweltfreundliche Reinigungsmittel. Jede Reinigung wird nach unseren hohen Standards durchgeführt und kontrolliert. Bei Problemen stehen wir sofort zur Verfügung."
+              },
+              {
+                question: "Bieten Sie regelmäßige Reinigungsverträge an?",
+                answer: "Selbstverständlich! Wir bieten flexible Reinigungsverträge für regelmäßige Büroreinigung, Praxisreinigung und Objektbetreuung. Die Intervalle stimmen wir individuell auf Ihre Bedürfnisse ab – täglich, wöchentlich oder monatlich. Langfristige Verträge bieten attraktive Kostenvorteile."
+              },
+              {
+                question: "Sind Sie versichert und wie flexibel sind die Termine?",
+                answer: "Ja, wir sind vollständig versichert und verfügen über alle erforderlichen Gewerbegenehmigungen. Bei den Terminen sind wir sehr flexibel – auch Reinigungen außerhalb der regulären Geschäftszeiten, an Wochenenden oder Feiertagen sind nach Absprache möglich."
+              }
+            ].map((faq, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="group"
+              >
+                <details className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
+                  <summary className="cursor-pointer p-8 flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
+                    <h3 className="text-xl font-serif font-bold text-gray-900 pr-4">
+                      {faq.question}
+                    </h3>
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full gold-bg flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                      <ChevronRight className="w-5 h-5 text-white transform rotate-90" />
+                    </div>
+                  </summary>
+                  <div className="px-8 pb-8">
+                    <div className="border-t border-gray-100 pt-6">
+                      <p className="text-gray-700 leading-relaxed text-lg">
+                        {faq.answer}
+                      </p>
+                    </div>
+                  </div>
+                </details>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Call to Action */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.8 }}
+            className="text-center mt-16"
+          >
+            <div className="bg-white rounded-2xl p-8 shadow-lg">
+              <h4 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+                Ihre Frage war nicht dabei?
+              </h4>
+              <p className="text-gray-600 mb-6 text-lg">
+                Kein Problem! Rufen Sie uns an oder schreiben Sie uns – wir beantworten gerne alle Ihre Fragen.
+              </p>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <a 
+                  href="tel:017634446399"
+                  className="inline-flex items-center space-x-2 gold-bg text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
+                >
+                  <Phone className="w-5 h-5" />
+                  <span>0176 34446399</span>
+                </a>
+                <a 
+                  href="#kontakt"
+                  className="inline-flex items-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-gray-400 transition-colors duration-300"
+                >
+                  <Mail className="w-5 h-5" />
+                  <span>Nachricht senden</span>
+                </a>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer className="bg-gray-900 py-12">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
