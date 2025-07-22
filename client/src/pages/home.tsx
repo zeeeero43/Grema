@@ -221,14 +221,57 @@ export default function Home() {
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
-              <a href="#leistungen" className="text-gray-700 hover:gold-accent transition-colors font-medium">Leistungen</a>
-              <a href="#ueber-uns" className="text-gray-700 hover:gold-accent transition-colors font-medium">Über uns</a>
-              <a href="#referenzen" className="text-gray-700 hover:gold-accent transition-colors font-medium">Referenzen</a>
+              <a 
+                href="#services" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Leistungen
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Über uns
+              </a>
+              <a 
+                href="#process" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Ablauf
+              </a>
+              <a 
+                href="#reviews" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Bewertungen
+              </a>
               <Button 
                 asChild 
                 className="anthracite-bg text-white hover:gold-shine font-bold px-8 py-3 text-lg sparkle-effect"
               >
-                <a href="#kontakt">
+                <a 
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
                   <Sparkles className="w-5 h-5 mr-2" />
                   Jetzt kostenlos anrufen!
                 </a>
@@ -263,11 +306,59 @@ export default function Home() {
               animate={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.1 }}
             >
-              <a href="#leistungen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Leistungen</a>
-              <a href="#ueber-uns" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Über uns</a>
-              <a href="#referenzen" className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium">Referenzen</a>
+              <a 
+                href="#services" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Leistungen
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Über uns
+              </a>
+              <a 
+                href="#process" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Ablauf
+              </a>
+              <a 
+                href="#reviews" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Bewertungen
+              </a>
               <Button asChild className="w-full anthracite-bg hover:gold-shine text-white font-bold mt-4 sparkle-effect">
-                <a href="#kontakt">
+                <a 
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }}
+                >
                   <Sparkles className="w-5 h-5 mr-2" />
                   Jetzt kostenlos anrufen!
                 </a>
@@ -662,7 +753,7 @@ export default function Home() {
       </section>
 
       {/* About Us Section */}
-      <section ref={aboutRef} id="ueber-uns" className="py-32 bg-white">
+      <section ref={aboutRef} id="about" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-20 items-center">
             <motion.div
@@ -792,7 +883,7 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} id="prozess" className="py-32 bg-white">
+      <section ref={processRef} id="process" className="py-32 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <motion.div 
             className="text-center mb-20"
@@ -942,6 +1033,7 @@ export default function Home() {
       {/* Google Reviews Section */}
       <motion.div
         ref={reviewsRef}
+        id="reviews"
         initial={{ opacity: 0, y: 100 }}
         animate={reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
@@ -950,7 +1042,7 @@ export default function Home() {
       </motion.div>
 
       {/* Contact Section */}
-      <section ref={contactRef} id="kontakt" className="py-32 anthracite-bg text-white">
+      <section ref={contactRef} id="contact" className="py-32 anthracite-bg text-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <motion.div 
             className="text-center mb-20"
@@ -1365,8 +1457,12 @@ export default function Home() {
                   <span>0176 34446399</span>
                 </a>
                 <a 
-                  href="#kontakt"
-                  className="inline-flex items-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-gray-400 transition-colors duration-300"
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                  className="inline-flex items-center space-x-2 border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-full font-semibold hover:border-gray-400 transition-colors duration-300 cursor-pointer"
                 >
                   <Mail className="w-5 h-5" />
                   <span>Nachricht senden</span>
