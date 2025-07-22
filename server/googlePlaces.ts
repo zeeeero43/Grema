@@ -119,6 +119,38 @@ export async function getGooglePlaceDetails(placeId: string): Promise<GooglePlac
       console.log('New API details response:', newApiData);
       
       if (newApiData.id) {
+        // Function to translate English time descriptions to German
+        const translateTimeDescription = (englishTime: string): string => {
+          const translations: { [key: string]: string } = {
+            'a year ago': 'vor einem Jahr',
+            '2 years ago': 'vor 2 Jahren',
+            '3 years ago': 'vor 3 Jahren',
+            '4 years ago': 'vor 4 Jahren',
+            '5 years ago': 'vor 5 Jahren',
+            '9 months ago': 'vor 9 Monaten',
+            '8 months ago': 'vor 8 Monaten',
+            '7 months ago': 'vor 7 Monaten',
+            '6 months ago': 'vor 6 Monaten',
+            '5 months ago': 'vor 5 Monaten',
+            '4 months ago': 'vor 4 Monaten',
+            '3 months ago': 'vor 3 Monaten',
+            '2 months ago': 'vor 2 Monaten',
+            'a month ago': 'vor einem Monat',
+            '4 weeks ago': 'vor 4 Wochen',
+            '3 weeks ago': 'vor 3 Wochen',
+            '2 weeks ago': 'vor 2 Wochen',
+            'a week ago': 'vor einer Woche',
+            '6 days ago': 'vor 6 Tagen',
+            '5 days ago': 'vor 5 Tagen',
+            '4 days ago': 'vor 4 Tagen',
+            '3 days ago': 'vor 3 Tagen',
+            '2 days ago': 'vor 2 Tagen',
+            'a day ago': 'vor einem Tag',
+            'recently': 'kürzlich'
+          };
+          return translations[englishTime.toLowerCase()] || englishTime;
+        };
+
         // Convert new API format to our expected format
         const convertedReviews = (newApiData.reviews || []).map((review: any) => ({
           author_name: review.authorAttribution?.displayName || 'Anonymous',
@@ -126,7 +158,7 @@ export async function getGooglePlaceDetails(placeId: string): Promise<GooglePlac
           language: 'de',
           profile_photo_url: review.authorAttribution?.photoUri || 'https://ui-avatars.com/api/?name=' + encodeURIComponent(review.authorAttribution?.displayName || 'User') + '&background=0D8ABC&color=fff&size=128',
           rating: review.rating || 5,
-          relative_time_description: review.relativePublishTimeDescription || 'Recently',
+          relative_time_description: translateTimeDescription(review.relativePublishTimeDescription || 'Recently'),
           text: review.text?.text || review.originalText?.text || 'Great service!',
           time: new Date(review.publishTime).getTime() || Date.now()
         }));

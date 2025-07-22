@@ -43,15 +43,16 @@ const GoogleLogo = ({ className = "w-20 h-8" }) => (
 // Star rating component
 const StarRating = ({ rating, className = "" }: { rating: number; className?: string }) => {
   return (
-    <div className={`flex items-center ${className}`}>
+    <div className={`flex items-center ${className}`} style={{ position: 'relative', zIndex: 20 }}>
       {[1, 2, 3, 4, 5].map((star) => (
         <Star
           key={star}
-          className={`w-5 h-5 ${
+          className={`w-4 h-4 ${
             star <= rating
               ? "text-yellow-400 fill-current"
               : "text-gray-300"
           }`}
+          style={{ position: 'relative', zIndex: 20 }}
         />
       ))}
     </div>
@@ -59,36 +60,11 @@ const StarRating = ({ rating, className = "" }: { rating: number; className?: st
 };
 
 export function GoogleReviews() {
-  const [currentIndex, setCurrentIndex] = useState(0);
-
   const { data, isLoading, error } = useQuery<GoogleReviewsData>({
     queryKey: ['/api/google-reviews'],
     refetchOnWindowFocus: false,
     staleTime: 1000 * 60 * 30, // 30 minutes
   });
-
-  // Auto-advance carousel
-  useEffect(() => {
-    if (!data?.data?.reviews?.length) return;
-    
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % data.data.reviews.length);
-    }, 5000);
-
-    return () => clearInterval(timer);
-  }, [data?.data?.reviews?.length]);
-
-  const nextSlide = () => {
-    if (data?.data?.reviews?.length) {
-      setCurrentIndex((prev) => (prev + 1) % data.data.reviews.length);
-    }
-  };
-
-  const prevSlide = () => {
-    if (data?.data?.reviews?.length) {
-      setCurrentIndex((prev) => (prev - 1 + data.data.reviews.length) % data.data.reviews.length);
-    }
-  };
 
   if (isLoading) {
     return (
@@ -124,7 +100,6 @@ export function GoogleReviews() {
   }
 
   const { reviews, rating, user_ratings_total, name, url } = data.data;
-  const currentReview = reviews[currentIndex];
 
   return (
     <section id="bewertungen" className="py-32 bg-gray-50">
@@ -138,103 +113,48 @@ export function GoogleReviews() {
           </p>
         </div>
 
-        {/* Google Business Info */}
-        <div className="mb-12 text-center">
-          <div className="inline-flex items-center space-x-4 bg-white rounded-2xl p-6 shadow-lg">
-            <GoogleLogo />
-            <div className="text-left">
-              <h3 className="font-bold text-gray-900 text-lg">{name}</h3>
-              <div className="flex items-center space-x-2">
-                <StarRating rating={Math.round(rating)} />
-                <span className="font-bold text-gray-900">{rating}</span>
-                <span className="text-gray-600">({user_ratings_total} Bewertungen)</span>
-              </div>
-            </div>
-            <a
-              href={url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="text-blue-600 hover:text-blue-700 transition-colors"
+
+
+        {/* Reviews Grid */}
+        <div className="grid lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
+          {reviews.slice(0, 3).map((review, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.3, delay: index * 0.1 }}
+              className="bg-white rounded-2xl p-6 shadow-xl"
             >
-              <ExternalLink className="w-5 h-5" />
-            </a>
-          </div>
-        </div>
-
-        {/* Reviews Carousel */}
-        <div className="relative max-w-4xl mx-auto">
-          {/* Navigation Buttons */}
-          <Button
-            onClick={prevSlide}
-            className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
-            size="sm"
-          >
-            <ChevronLeft className="w-6 h-6" />
-          </Button>
-          
-          <Button
-            onClick={nextSlide}
-            className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
-            size="sm"
-          >
-            <ChevronRight className="w-6 h-6" />
-          </Button>
-
-          {/* Review Card */}
-          <div className="mx-12">
-            <AnimatePresence mode="wait">
-              <motion.div
-                key={currentIndex}
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, y: -20 }}
-                transition={{ duration: 0.3 }}
-                className="bg-white rounded-2xl p-8 lg:p-12 shadow-xl"
-              >
-                <div className="flex items-start space-x-6 mb-6">
+              <div className="flex items-start space-x-4 mb-4">
+                <div className="relative">
                   <img
-                    src={currentReview.profile_photo_url}
-                    alt={currentReview.author_name}
-                    className="w-16 h-16 rounded-full object-cover"
+                    src={review.profile_photo_url}
+                    alt={review.author_name}
+                    className="w-12 h-12 rounded-full object-cover"
                   />
-                  <div className="flex-1">
-                    <div className="flex items-center justify-between mb-2">
-                      <h4 className="font-bold text-gray-900 text-lg">
-                        {currentReview.author_name}
-                      </h4>
-                      <span className="text-sm text-gray-500">
-                        {currentReview.relative_time_description}
-                      </span>
-                    </div>
-                    <StarRating rating={currentReview.rating} className="mb-4" />
+                </div>
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center justify-between mb-2">
+                    <h4 className="font-bold text-gray-900 truncate">
+                      {review.author_name}
+                    </h4>
+                    <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
+                      {review.relative_time_description}
+                    </span>
                   </div>
+                  <StarRating rating={review.rating} className="mb-3 relative z-10" />
                 </div>
-                
-                <blockquote className="text-gray-700 text-lg leading-relaxed italic">
-                  "{currentReview.text}"
-                </blockquote>
-                
-                <div className="mt-6 flex justify-center">
-                  <GoogleLogo className="w-16 h-6 opacity-60" />
-                </div>
-              </motion.div>
-            </AnimatePresence>
-          </div>
-
-          {/* Indicators */}
-          <div className="flex justify-center mt-8 space-x-2">
-            {reviews.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => setCurrentIndex(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === currentIndex 
-                    ? 'gold-shine scale-125' 
-                    : 'bg-gray-300 hover:bg-gray-400'
-                }`}
-              />
-            ))}
-          </div>
+              </div>
+              
+              <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4">
+                "{review.text}"
+              </blockquote>
+              
+              <div className="flex justify-center">
+                <GoogleLogo className="w-12 h-5 opacity-60" />
+              </div>
+            </motion.div>
+          ))}
         </div>
 
         {/* Google Branding Footer */}
