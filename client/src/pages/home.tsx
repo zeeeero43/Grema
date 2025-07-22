@@ -388,71 +388,97 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Visual - Redesigned */}
+            {/* Right Visual - Professional Cleaning Image */}
             <div className="relative lg:col-span-5">
               <motion.div 
                 className="relative"
-                initial={{ opacity: 0, x: 50 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                initial={{ opacity: 0, scale: 0.9, x: 50 }}
+                animate={{ opacity: 1, scale: 1, x: 0 }}
+                transition={{ duration: 0.8, delay: 0.4 }}
               >
-                {/* Before/After Showcase */}
-                <div className="space-y-6">
-                  {/* Top Card - Before/After */}
-                  <div className="bg-white rounded-2xl p-6 shadow-xl">
-                    <div className="flex items-center justify-between mb-4">
-                      <h3 className="text-lg font-serif font-bold text-gray-900">Vorher vs. Nachher</h3>
-                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-                    </div>
-                    <div className="grid grid-cols-2 gap-4">
+                {/* Professional Cleaning Hero Image */}
+                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
+                  <div className="aspect-[4/5] bg-gradient-to-br from-blue-50 via-gray-50 to-blue-100 relative">
+                    {/* Professional cleaning scene background */}
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-gray-100/60"></div>
+                    
+                    {/* Central professional cleaning visual */}
+                    <div className="absolute inset-0 flex items-center justify-center">
                       <div className="text-center">
-                        <div className="w-full h-24 bg-gray-200 rounded-lg mb-2 relative overflow-hidden">
-                          <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 opacity-70"></div>
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <span className="text-xs text-gray-600">Stumpf & Fleckig</span>
+                        {/* Main cleaning icon */}
+                        <motion.div 
+                          className="relative mb-8"
+                          animate={{ rotate: [0, 5, -5, 0] }}
+                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                        >
+                          <div className="w-40 h-40 mx-auto bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl">
+                            <Sparkles className="w-20 h-20 text-yellow-600" />
                           </div>
-                        </div>
-                        <span className="text-xs text-gray-500">Vorher</span>
-                      </div>
-                      <div className="text-center">
-                        <div className="w-full h-24 bg-gradient-to-br from-blue-100 to-yellow-50 rounded-lg mb-2 relative overflow-hidden sparkle-effect">
-                          <div className="absolute inset-0 flex items-center justify-center">
-                            <Sparkles className="w-6 h-6 gold-accent" />
+                          
+                          {/* Floating quality elements */}
+                          <motion.div 
+                            className="absolute -top-2 -right-2 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center shadow-lg"
+                            animate={{ scale: [1, 1.1, 1] }}
+                            transition={{ duration: 2, repeat: Infinity }}
+                          >
+                            <Crown className="w-8 h-8 text-white" />
+                          </motion.div>
+                          
+                          <motion.div 
+                            className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
+                            animate={{ y: [-5, 5, -5] }}
+                            transition={{ duration: 3, repeat: Infinity }}
+                          >
+                            <CheckCircle className="w-6 h-6 text-white" />
+                          </motion.div>
+                        </motion.div>
+                        
+                        {/* Professional service badge */}
+                        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-sm mx-auto">
+                          <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3">
+                            Premium Gebäudereinigung
+                          </h3>
+                          <p className="text-gray-600 text-sm mb-4">
+                            Kristallklare Ergebnisse in Moers & Umgebung
+                          </p>
+                          <div className="flex items-center justify-center space-x-1 mb-3">
+                            {[1,2,3,4,5].map(star => (
+                              <div key={star} className="text-yellow-500 text-lg">⭐</div>
+                            ))}
+                            <span className="text-sm text-gray-600 ml-2 font-medium">5.0 Google</span>
                           </div>
+                          <div className="text-xs text-gray-500">15 authentische Bewertungen</div>
                         </div>
-                        <span className="text-xs text-green-600 font-medium">Kristallklar</span>
                       </div>
                     </div>
-                  </div>
 
-                  {/* Service Promise Cards */}
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
-                      <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                      <div className="text-sm font-medium text-gray-800">24h Service</div>
-                      <div className="text-xs text-gray-600">Schnell & zuverlässig</div>
-                    </div>
-                    <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 text-center">
-                      <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
-                      <div className="text-sm font-medium text-gray-800">100% Garantie</div>
-                      <div className="text-xs text-gray-600">Oder Geld zurück</div>
-                    </div>
-                  </div>
+                    {/* Floating trust elements */}
+                    <motion.div 
+                      className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg"
+                      initial={{ opacity: 0, x: 20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 0.8 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <ShieldCheck className="w-5 h-5 text-green-600" />
+                        <span className="text-sm font-medium text-gray-800">Versichert</span>
+                      </div>
+                    </motion.div>
 
-                  {/* Contact Card */}
-                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl p-6 text-center">
-                    <Phone className="w-10 h-10 mx-auto mb-3" />
-                    <div className="text-lg font-bold mb-1">Sofort erreichbar</div>
-                    <div className="text-2xl font-bold">0176 34446399</div>
-                    <div className="text-sm opacity-90 mt-2">Mo-Sa: 7:00-18:00 Uhr</div>
-                  </div>
-                </div>
+                    <motion.div 
+                      className="absolute bottom-6 left-6 bg-yellow-600/90 backdrop-blur-sm rounded-xl p-3 shadow-lg text-white"
+                      initial={{ opacity: 0, x: -20 }}
+                      animate={{ opacity: 1, x: 0 }}
+                      transition={{ duration: 0.6, delay: 1.0 }}
+                    >
+                      <div className="flex items-center space-x-2">
+                        <Clock className="w-5 h-5" />
+                        <span className="text-sm font-medium">24h Service</span>
+                      </div>
+                    </motion.div>
 
-                {/* Floating Trust Badge */}
-                <div className="absolute -top-4 -left-4 bg-white rounded-full p-3 shadow-lg border-4 border-green-500">
-                  <div className="text-center">
-                    <div className="text-2xl font-bold gold-accent">5.0</div>
-                    <div className="text-xs text-gray-600">⭐⭐⭐⭐⭐</div>
+                    {/* Premium glass overlay effect */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/10 pointer-events-none"></div>
                   </div>
                 </div>
               </motion.div>
