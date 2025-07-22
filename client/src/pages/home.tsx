@@ -278,7 +278,7 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1 className="text-6xl lg:text-8xl font-serif leading-[0.9] text-gray-900 mb-8">
+                <h1 className="text-5xl lg:text-6xl font-serif leading-[0.9] text-gray-900 mb-8">
                   Ihr Büro wird
                   <br />
                   <span className="gold-accent sparkle-effect relative">
@@ -286,16 +286,16 @@ export default function Home() {
                     <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
                   </span>
                   <br />
-                  <span className="text-5xl lg:text-6xl font-normal italic text-gray-700">in 24h bereit</span>
+                  <span className="text-4xl lg:text-5xl font-normal italic text-gray-700">in 24h bereit</span>
                 </h1>
                 
                 <div className="flex items-start space-x-4 mb-10">
-                  <div className="w-1 h-20 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
+                  <div className="w-1 h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
                   <div>
-                    <p className="text-2xl text-gray-700 leading-relaxed font-medium mb-4">
+                    <p className="text-xl text-gray-700 leading-relaxed font-medium mb-4">
                       Während Sie arbeiten, machen wir <span className="gold-accent font-bold">blitzeblank sauber</span>.
                     </p>
-                    <p className="text-lg text-gray-600 leading-relaxed">
+                    <p className="text-base text-gray-600 leading-relaxed">
                       Moers' führender Gebäudeservice für Büros, Praxen & Gewerbe. Garantiert streifenfrei, 
                       pünktlich und mit 5-Sterne-Service.
                     </p>
@@ -335,10 +335,10 @@ export default function Home() {
                   <Button 
                     asChild 
                     size="lg" 
-                    className="gold-shine hover:scale-105 text-white px-12 py-6 text-xl font-bold sparkle-effect shadow-2xl"
+                    className="gold-shine hover:scale-105 text-white px-10 py-5 text-lg font-bold sparkle-effect shadow-2xl"
                   >
                     <a href="tel:017634446399" className="flex items-center">
-                      <Phone className="w-6 h-6 mr-3" />
+                      <Phone className="w-5 h-5 mr-3" />
                       Sofort anrufen: 0176 34446399
                     </a>
                   </Button>
@@ -357,7 +357,7 @@ export default function Home() {
               </motion.div>
             </div>
 
-            {/* Right Visual - Enhanced */}
+            {/* Right Visual - Redesigned */}
             <div className="relative lg:col-span-5">
               <motion.div 
                 className="relative"
@@ -365,68 +365,63 @@ export default function Home() {
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.8, delay: 0.3 }}
               >
-                {/* Main Visual Card */}
-                <div className="aspect-[4/5] bg-gradient-to-br from-white/95 via-gray-50/90 to-yellow-50/80 backdrop-blur-sm rounded-3xl p-8 shadow-2xl border border-white/50 sparkle-effect relative overflow-hidden">
-                  {/* Cleaning Animation Elements */}
-                  <div className="absolute top-0 left-0 w-full h-full">
-                    <div className="absolute top-20 left-10 w-32 h-32 bg-gradient-to-br from-blue-200/30 to-transparent rounded-full blur-xl animate-pulse"></div>
-                    <div className="absolute bottom-20 right-10 w-24 h-24 bg-gradient-to-tl from-yellow-200/40 to-transparent rounded-full blur-lg animate-pulse delay-1000"></div>
-                  </div>
-                  
-                  {/* Content */}
-                  <div className="relative z-10 h-full flex flex-col justify-between">
-                    <div className="text-center">
-                      <motion.div
-                        className="w-24 h-24 mx-auto mb-6 bg-gradient-to-br from-yellow-400 to-yellow-600 rounded-full flex items-center justify-center shadow-lg"
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-                      >
-                        <Sparkles className="w-12 h-12 text-white" />
-                      </motion.div>
-                      
-                      <h3 className="text-3xl font-serif font-bold text-gray-900 mb-4">
-                        Perfekte Sauberkeit
-                      </h3>
-                      <p className="text-lg text-gray-700 leading-relaxed">
-                        Kristallklare Fenster, streifenfreie Oberflächen, makelloser Glanz
-                      </p>
+                {/* Before/After Showcase */}
+                <div className="space-y-6">
+                  {/* Top Card - Before/After */}
+                  <div className="bg-white rounded-2xl p-6 shadow-xl">
+                    <div className="flex items-center justify-between mb-4">
+                      <h3 className="text-lg font-serif font-bold text-gray-900">Vorher vs. Nachher</h3>
+                      <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
                     </div>
-                    
-                    <div className="grid grid-cols-2 gap-4 mt-8">
-                      <div className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-xl">
-                        <Droplets className="w-8 h-8 text-blue-600 mx-auto mb-2" />
-                        <div className="text-sm font-medium text-gray-800">Osmose-Technik</div>
+                    <div className="grid grid-cols-2 gap-4">
+                      <div className="text-center">
+                        <div className="w-full h-24 bg-gray-200 rounded-lg mb-2 relative overflow-hidden">
+                          <div className="absolute inset-0 bg-gradient-to-br from-gray-300 to-gray-400 opacity-70"></div>
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <span className="text-xs text-gray-600">Stumpf & Fleckig</span>
+                          </div>
+                        </div>
+                        <span className="text-xs text-gray-500">Vorher</span>
                       </div>
-                      <div className="text-center p-4 bg-white/70 backdrop-blur-sm rounded-xl">
-                        <Zap className="w-8 h-8 gold-accent mx-auto mb-2" />
-                        <div className="text-sm font-medium text-gray-800">Profi-Equipment</div>
+                      <div className="text-center">
+                        <div className="w-full h-24 bg-gradient-to-br from-blue-100 to-yellow-50 rounded-lg mb-2 relative overflow-hidden sparkle-effect">
+                          <div className="absolute inset-0 flex items-center justify-center">
+                            <Sparkles className="w-6 h-6 gold-accent" />
+                          </div>
+                        </div>
+                        <span className="text-xs text-green-600 font-medium">Kristallklar</span>
                       </div>
                     </div>
                   </div>
-                </div>
-                
-                {/* Trust Indicators */}
-                <div className="absolute -bottom-6 -left-6 bg-white rounded-2xl p-6 shadow-xl border border-gray-100 max-w-xs">
-                  <div className="flex items-center space-x-4 mb-3">
-                    <div className="w-12 h-12 bg-gradient-to-r from-green-500 to-green-600 rounded-full flex items-center justify-center">
-                      <ShieldCheck className="w-6 h-6 text-white" />
+
+                  {/* Service Promise Cards */}
+                  <div className="grid grid-cols-2 gap-4">
+                    <div className="bg-gradient-to-br from-blue-50 to-blue-100 rounded-xl p-4 text-center">
+                      <Clock className="w-8 h-8 text-blue-600 mx-auto mb-2" />
+                      <div className="text-sm font-medium text-gray-800">24h Service</div>
+                      <div className="text-xs text-gray-600">Schnell & zuverlässig</div>
                     </div>
-                    <div>
-                      <div className="font-bold text-gray-900">Vollversichert</div>
-                      <div className="text-sm text-gray-600">& Zertifiziert</div>
+                    <div className="bg-gradient-to-br from-green-50 to-green-100 rounded-xl p-4 text-center">
+                      <CheckCircle className="w-8 h-8 text-green-600 mx-auto mb-2" />
+                      <div className="text-sm font-medium text-gray-800">100% Garantie</div>
+                      <div className="text-xs text-gray-600">Oder Geld zurück</div>
                     </div>
                   </div>
-                  <div className="text-xs text-gray-500 flex items-center space-x-2">
-                    <Award className="w-3 h-3" />
-                    <span>Mitglied der Gebäudereiniger-Innung</span>
+
+                  {/* Contact Card */}
+                  <div className="bg-gradient-to-br from-yellow-400 to-yellow-500 text-white rounded-2xl p-6 text-center">
+                    <Phone className="w-10 h-10 mx-auto mb-3" />
+                    <div className="text-lg font-bold mb-1">Sofort erreichbar</div>
+                    <div className="text-2xl font-bold">0176 34446399</div>
+                    <div className="text-sm opacity-90 mt-2">Mo-Sa: 7:00-18:00 Uhr</div>
                   </div>
                 </div>
-                
-                {/* Urgency Badge */}
-                <div className="absolute -top-6 -right-6 bg-gradient-to-r from-red-500 to-red-600 text-white px-6 py-3 rounded-full shadow-lg transform rotate-12">
+
+                {/* Floating Trust Badge */}
+                <div className="absolute -top-4 -left-4 bg-white rounded-full p-3 shadow-lg border-4 border-green-500">
                   <div className="text-center">
-                    <div className="text-sm font-bold">Heute buchen</div>
-                    <div className="text-xs opacity-90">Morgen sauber!</div>
+                    <div className="text-2xl font-bold gold-accent">5.0</div>
+                    <div className="text-xs text-gray-600">⭐⭐⭐⭐⭐</div>
                   </div>
                 </div>
               </motion.div>
