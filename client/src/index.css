@@ -4,30 +4,32 @@
 
 :root {
   --background: hsl(0, 0%, 100%);
-  --foreground: hsl(222, 84%, 4.9%);
+  --foreground: hsl(211, 19%, 17%);
   --muted: hsl(210, 40%, 98%);
   --muted-foreground: hsl(215, 16%, 46.9%);
   --popover: hsl(0, 0%, 100%);
-  --popover-foreground: hsl(222, 84%, 4.9%);
+  --popover-foreground: hsl(211, 19%, 17%);
   --card: hsl(0, 0%, 100%);
-  --card-foreground: hsl(222, 84%, 4.9%);
+  --card-foreground: hsl(211, 19%, 17%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(221, 83%, 53%);
-  --primary-foreground: hsl(210, 40%, 98%);
+  --primary: hsl(211, 19%, 17%);
+  --primary-foreground: hsl(0, 0%, 100%);
   --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(222, 47%, 11%);
+  --secondary-foreground: hsl(211, 19%, 17%);
   --accent: hsl(210, 40%, 96%);
-  --accent-foreground: hsl(222, 47%, 11%);
+  --accent-foreground: hsl(211, 19%, 17%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
-  --ring: hsl(221, 83%, 53%);
+  --ring: hsl(211, 19%, 17%);
   --radius: 0.5rem;
   
-  /* Custom brand colors */
-  --slate-900: hsl(222, 84%, 4.9%);
-  --blue-600: hsl(221, 83%, 53%);
-  --emerald-500: hsl(160, 84%, 39%);
+  /* Custom brand colors - Anthracite & Gold */
+  --anthracite: hsl(211, 19%, 17%);  /* #2d3748 */
+  --gold: hsl(35, 52%, 51%);         /* #c17f3e */
+  --gold-light: hsl(35, 52%, 65%);
+  --warm-gray: hsl(220, 9%, 46%);
+  --warm-gray-light: hsl(220, 14%, 96%);
 }
 
 .dark {
@@ -65,10 +67,40 @@
   html {
     scroll-behavior: smooth;
   }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', 'Georgia', serif;
+  }
 }
 
 @layer components {
   .hero-gradient {
-    background: linear-gradient(135deg, hsl(222, 84%, 4.9%) 0%, hsl(221, 83%, 53%) 50%, hsl(221, 83%, 53%) 100%);
+    background: linear-gradient(135deg, var(--anthracite) 0%, hsl(211, 19%, 25%) 100%);
+  }
+  
+  .gold-accent {
+    color: var(--gold);
+  }
+  
+  .gold-bg {
+    background-color: var(--gold);
+  }
+  
+  .anthracite-bg {
+    background-color: var(--anthracite);
+  }
+  
+  .warm-gray-bg {
+    background-color: var(--warm-gray-light);
+  }
+  
+  .timeline-line::before {
+    content: '';
+    position: absolute;
+    left: 2rem;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--gold), transparent);
   }
 }

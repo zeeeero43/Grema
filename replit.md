@@ -2,11 +2,25 @@
 
 ## Overview
 
-This is a modern, conversion-optimized website for Grema Gebäudeservice GmbH, a professional building cleaning company from Moers, Germany. The project is built as a full-stack web application with a React frontend and Express.js backend, designed to showcase cleaning services and capture leads through contact forms.
+This is a premium, conversion-optimized website for Grema Gebäudeservice GmbH, a professional building cleaning company from Moers, Germany. The project is built as a full-stack web application with a React frontend and Express.js backend, designed to look like an individually designed law firm website - premium, established, and locally rooted rather than a generic service provider template.
 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
+Design aesthetic: Premium, law firm-style with local focus
+Avoid generic service provider templates; emphasize established, trustworthy appearance
+
+## Recent Changes (January 2025)
+
+✓ Complete homepage redesign with premium aesthetic transformation
+✓ New color scheme: Anthracite (#2d3748) + Gold (#c17f3e) replacing blue
+✓ Typography upgrade: Playfair Display serif + Inter sans-serif  
+✓ Asymmetrical hero layout with personal owner focus
+✓ Timeline-based services section replacing icon grid
+✓ Premium testimonials section with authentic local references
+✓ Single CTA approach: "Persönliches Gespräch vereinbaren"
+✓ Enhanced local Moers identity throughout content
+✓ Personal branding highlighting owners Tanja Scheurenberg & Ivana Grejic
 
 ## System Architecture
 
