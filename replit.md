@@ -14,7 +14,7 @@ Avoid generic service provider templates; emphasize established, trustworthy app
 
 ✓ Complete homepage redesign with premium aesthetic transformation
 ✓ New color scheme: Anthracite (#2d3748) + Gold (#c17f3e) replacing blue
-✓ Typography upgrade: Crimson Text serif + Work Sans sans-serif  
+✓ Typography standardization: Only 2 fonts - Crimson Text (serif) + Work Sans (sans-serif)  
 ✓ Removed personal names from hero section per user feedback
 ✓ Strengthened header CTA to "Jetzt kostenlos anrufen!" 
 ✓ Premium carousel services section with real cleaning photos
