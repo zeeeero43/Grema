@@ -19,6 +19,8 @@ import {
   Loader2,
   CheckCircle,
   Calendar,
+  Menu,
+  X,
   Quote,
   Sparkles,
   Crown,
@@ -45,6 +47,7 @@ import { GoogleReviews } from "../components/GoogleReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 
 export default function Home() {
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
   
   // Carousel setup  
@@ -206,7 +209,7 @@ export default function Home() {
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center h-20">
+          <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
               <div className="w-12 h-12 anthracite-bg flex items-center justify-center">
                 <Crown className="w-6 h-6 gold-accent" />
@@ -216,10 +219,153 @@ export default function Home() {
                 <p className="text-sm text-gray-600 tracking-wide">GEBÄUDESERVICE GMBH</p>
               </div>
             </div>
+            
+            <div className="hidden md:flex items-center space-x-8">
+              <a 
+                href="#services" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Leistungen
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Über uns
+              </a>
+              <a 
+                href="#process" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Ablauf
+              </a>
+              <a 
+                href="#reviews" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Bewertungen
+              </a>
+              <Button 
+                asChild 
+                className="anthracite-bg text-white hover:gold-shine font-bold px-8 py-3 text-lg sparkle-effect"
+              >
+                <a 
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                  }}
+                >
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Jetzt kostenlos anrufen!
+                </a>
+              </Button>
+            </div>
+            
+            <Button
+              variant="ghost"
+              size="icon"
+              className="md:hidden"
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            >
+              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </Button>
           </div>
         </div>
 
-
+        {/* Mobile Menu */}
+        <motion.div
+          initial={{ height: 0, opacity: 0 }}
+          animate={{ 
+            height: mobileMenuOpen ? "auto" : 0,
+            opacity: mobileMenuOpen ? 1 : 0 
+          }}
+          transition={{ duration: 0.3, ease: "easeInOut" }}
+          className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
+        >
+          {mobileMenuOpen && (
+            <motion.div 
+              className="px-6 py-4 space-y-4"
+              initial={{ y: -20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.1 }}
+            >
+              <a 
+                href="#services" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Leistungen
+              </a>
+              <a 
+                href="#about" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Über uns
+              </a>
+              <a 
+                href="#process" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Ablauf
+              </a>
+              <a 
+                href="#reviews" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
+                  setMobileMenuOpen(false);
+                }}
+                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+              >
+                Bewertungen
+              </a>
+              <Button asChild className="w-full anthracite-bg hover:gold-shine text-white font-bold mt-4 sparkle-effect">
+                <a 
+                  href="#contact"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }}
+                >
+                  <Sparkles className="w-5 h-5 mr-2" />
+                  Jetzt kostenlos anrufen!
+                </a>
+              </Button>
+            </motion.div>
+          )}
+        </motion.div>
       </motion.nav>
 
       {/* Hero Section */}
@@ -1264,6 +1410,7 @@ export default function Home() {
                   transition: { duration: 0.2 } 
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
                 <details className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
