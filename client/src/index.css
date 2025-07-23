@@ -70,7 +70,7 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    font-family: 'Inter Variable', 'Inter', system-ui, -apple-system, sans-serif;
+    font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
   }
 
   html {
@@ -78,7 +78,7 @@
   }
 
   h1, h2, h3, .font-serif {
-    font-family: 'Playfair Display', 'Georgia', serif;
+    font-family: 'Crimson Text', 'Georgia', serif;
   }
 }
 
