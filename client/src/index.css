@@ -223,6 +223,63 @@
   display: flex;
 }
 
+/* Mobile Optimizations */
+@media (max-width: 768px) {
+  /* Better touch targets */
+  button, .btn, a {
+    min-height: 44px;
+  }
+  
+  /* Better spacing for mobile */
+  .container {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  /* Mobile form improvements */
+  input, textarea, select {
+    font-size: 16px; /* Prevents zoom on iOS */
+    padding: 12px;
+  }
+}
+
+/* Sticky Mobile Phone Button */
+.sticky-phone-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 50;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, #c17f3e 0%, #d4a761 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  animation: pulse-phone 2s infinite;
+  color: white;
+  text-decoration: none;
+}
+
+@keyframes pulse-phone {
+  0% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(193, 127, 62, 0.7);
+  }
+  70% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 0 10px rgba(193, 127, 62, 0);
+  }
+  100% {
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15), 0 0 0 0 rgba(193, 127, 62, 0);
+  }
+}
+
+.sticky-phone-btn:hover {
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+  color: white;
+}
+
 .embla__slide {
   flex: 0 0 100%;
   min-width: 0;

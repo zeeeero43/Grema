@@ -55,12 +55,14 @@ export default function Home() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
   // Animation refs for scroll-triggered effects
+  const servicesRef = useRef(null);
   const aboutRef = useRef(null);
   const processRef = useRef(null);
   const reviewsRef = useRef(null);
   const faqRef = useRef(null);
   const contactRef = useRef(null);
   
+  const servicesInView = useInView(servicesRef, { once: true, margin: "-100px" });
   const aboutInView = useInView(aboutRef, { once: true, margin: "-100px" });
   const processInView = useInView(processRef, { once: true, margin: "-100px" });
   const reviewsInView = useInView(reviewsRef, { once: true, margin: "-100px" });
@@ -400,24 +402,22 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1 className="text-5xl lg:text-6xl font-serif leading-[0.9] text-gray-900 mb-8">
-                  Deutschlands führende
-                  <br />
-                  <span className="gold-accent sparkle-effect relative">
+                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[0.9] text-gray-900 mb-6 md:mb-8 px-4 md:px-0">
+                  <span className="block">Deutschlands führende</span>
+                  <span className="gold-accent sparkle-effect relative block">
                     Reinigungsexperten
                     <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
                   </span>
-                  <br />
-                  <span className="text-4xl lg:text-5xl font-normal italic text-gray-700">für Ihr Unternehmen</span>
+                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-2">für Ihr Unternehmen</span>
                 </h1>
                 
-                <div className="flex items-start space-x-4 mb-10">
-                  <div className="w-1 h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
+                <div className="flex items-start space-x-3 md:space-x-4 mb-8 md:mb-10 px-4 md:px-0">
+                  <div className="w-1 h-12 md:h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
                   <div>
-                    <p className="text-xl text-gray-700 leading-relaxed font-medium mb-4">
+                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium mb-3 md:mb-4">
                       Über 500 Großkunden vertrauen auf unsere <span className="gold-accent font-bold">Premium-Reinigungsstandards</span>.
                     </p>
-                    <p className="text-base text-gray-600 leading-relaxed">
+                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
                       Von Bürogebäuden bis Industrieanlagen - wir setzen neue Maßstäbe in der professionellen Gebäudereinigung. 
                       Zertifiziert, versichert und mit 15 Jahren Branchenerfahrung.
                     </p>
@@ -427,22 +427,22 @@ export default function Home() {
 
               {/* Enhanced Stats */}
               <motion.div 
-                className="flex flex-wrap gap-6"
+                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 md:px-0"
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
-                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
-                  <div className="text-sm font-medium text-gray-600">Jahre Marktführung</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                  <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
+                  <div className="text-xs md:text-sm font-medium text-gray-600">Jahre Marktführung</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
-                  <div className="text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
-                  <div className="text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                  <div className="text-3xl md:text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
+                  <div className="text-xs md:text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
                 </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
-                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
-                  <div className="text-sm font-medium text-gray-600">Geschäftskunden</div>
+                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                  <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
+                  <div className="text-xs md:text-sm font-medium text-gray-600">Geschäftskunden</div>
                 </div>
               </motion.div>
 
@@ -457,21 +457,21 @@ export default function Home() {
                   <Button 
                     asChild 
                     size="lg" 
-                    className="gold-shine hover:scale-105 text-white px-10 py-5 text-lg font-bold sparkle-effect shadow-2xl"
+                    className="gold-shine hover:scale-105 text-white px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold sparkle-effect shadow-2xl w-full sm:w-auto"
                   >
-                    <a href="tel:017634446399" className="flex items-center">
-                      <Phone className="w-5 h-5 mr-3" />
-                      Sofort anrufen: 0176 34446399
+                    <a href="tel:017634446399" className="flex items-center justify-center">
+                      <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
+                      <span className="hidden sm:inline">Sofort anrufen: </span>0176 34446399
                     </a>
                   </Button>
                   
-                  <div className="flex items-center space-x-4 text-sm text-gray-600">
+                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
                     <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
                       <span>Kostenlose Beratung</span>
                     </div>
                     <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-4 h-4 text-green-500" />
+                      <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
                       <span>Angebot in 24h</span>
                     </div>
                   </div>
@@ -579,7 +579,7 @@ export default function Home() {
       </section>
 
       {/* Services Section with Premium Carousel */}
-      <section id="services" className="py-20 bg-[hsl(220,13%,97%)] relative overflow-hidden">
+      <section ref={servicesRef} id="services" className="py-16 md:py-20 bg-[hsl(220,13%,97%)] relative overflow-hidden">
         {/* Subtle Background */}
         <div className="absolute inset-0 z-0">
           <div className="absolute top-10 left-10 w-32 h-32 bg-[hsl(187,96%,43%)]/5 rounded-full blur-xl"></div>
@@ -588,22 +588,22 @@ export default function Home() {
 
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <motion.div 
-            className="text-center mb-16"
+            className="text-center mb-12 md:mb-16"
             initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-6"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-4 md:mb-6 px-4 md:px-0"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="inline-block">Deutschlands führende</span>{" "}
-              <span className="gold-accent inline-block">Gebäudereinigungs-Experten</span>
+              <span className="block sm:inline-block">Deutschlands führende</span>{" "}
+              <span className="gold-accent block sm:inline-block">Gebäudereinigungs-Experten</span>
             </motion.h2>
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 md:px-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
@@ -883,24 +883,24 @@ export default function Home() {
       </section>
 
       {/* Process Section */}
-      <section ref={processRef} id="process" className="py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+      <section ref={processRef} id="process" className="py-16 md:py-32 bg-white">
+        <div className="max-w-7xl mx-auto px-4 md:px-6 lg:px-12">
           <motion.div 
-            className="text-center mb-20"
+            className="text-center mb-12 md:mb-20"
             initial={{ opacity: 0, y: 50 }}
             animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 md:mb-8 px-4 md:px-0"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={processInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Ihr Weg zu <span className="gold-accent">Premium-Sauberkeit</span> in 3 Schritten
+              Ihr Weg zu <span className="gold-accent block sm:inline">Premium-Sauberkeit</span> in 3 Schritten
             </motion.h2>
             <motion.p 
-              className="text-xl text-gray-600 max-w-3xl mx-auto"
+              className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 md:px-0 leading-relaxed"
               initial={{ opacity: 0, y: 20 }}
               animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
@@ -909,7 +909,7 @@ export default function Home() {
             </motion.p>
           </motion.div>
 
-          <div className="grid lg:grid-cols-3 gap-12 relative">
+          <div className="grid md:grid-cols-3 gap-8 md:gap-12 relative">
             {/* Step 1: Contact */}
             <motion.div
               initial={{ opacity: 0, y: 50 }}
@@ -917,11 +917,11 @@ export default function Home() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-center relative"
             >
-              <div className="relative mb-8">
-                <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
-                  <Phone className="w-16 h-16 text-gray-700" />
+              <div className="relative mb-6 md:mb-8">
+                <div className="w-24 h-24 md:w-32 md:h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
+                  <Phone className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-20">
                   1
                 </div>
               </div>
@@ -1410,7 +1410,6 @@ export default function Home() {
                   transition: { duration: 0.2 } 
                 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="group"
               >
                 <details className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
