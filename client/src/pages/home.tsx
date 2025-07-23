@@ -380,200 +380,101 @@ export default function Home() {
           <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-gray-600/5 to-transparent rounded-full blur-3xl"></div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-6 lg:px-12 py-32 relative z-10">
-          <div className="grid lg:grid-cols-12 gap-16 items-center">
-            {/* Left Content - Enhanced */}
-            <div className="lg:col-span-7 space-y-12">
-              {/* Premium Badge */}
-              <motion.div 
-                className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-              >
-                <Crown className="w-5 h-5 gold-accent" />
-                <span className="text-sm font-medium text-gray-800">Marktführer für Premium-Gebäudereinigung • 15 Jahre Expertise • 5.0⭐ bei Google</span>
-                <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-              </motion.div>
+        <div className="max-w-4xl mx-auto px-6 lg:px-12 py-32 relative z-10">
+          <div className="text-center space-y-12">
+            {/* Premium Badge */}
+            <motion.div 
+              className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+            >
+              <Crown className="w-5 h-5 gold-accent" />
+              <span className="text-sm font-medium text-gray-800">Marktführer für Premium-Gebäudereinigung • 15 Jahre Expertise • 5.0⭐ bei Google</span>
+              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
+            </motion.div>
+            
+            {/* Main Headline */}
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+            >
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[0.9] text-gray-900 mb-6 md:mb-8 px-4 md:px-0">
+                <span className="block">Deutschlands führende</span>
+                <span className="gold-accent sparkle-effect relative block">
+                  Reinigungsexperten
+                  <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
+                </span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-2">für Ihr Unternehmen</span>
+              </h1>
               
-              {/* Main Headline */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.2 }}
-              >
-                <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[0.9] text-gray-900 mb-6 md:mb-8 px-4 md:px-0">
-                  <span className="block">Deutschlands führende</span>
-                  <span className="gold-accent sparkle-effect relative block">
-                    Reinigungsexperten
-                    <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
-                  </span>
-                  <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-2">für Ihr Unternehmen</span>
-                </h1>
+              <div className="flex items-start space-x-3 md:space-x-4 mb-8 md:mb-10 px-4 md:px-0">
+                <div className="w-1 h-12 md:h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
+                <div>
+                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium mb-3 md:mb-4">
+                    Über 500 Großkunden vertrauen auf unsere <span className="gold-accent font-bold">Premium-Reinigungsstandards</span>.
+                  </p>
+                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+                    Von Bürogebäuden bis Industrieanlagen - wir setzen neue Maßstäbe in der professionellen Gebäudereinigung. 
+                    Zertifiziert, versichert und mit 15 Jahren Branchenerfahrung.
+                  </p>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Enhanced Stats */}
+            <motion.div 
+              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 md:px-0"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+            >
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
+                <div className="text-xs md:text-sm font-medium text-gray-600">Jahre Marktführung</div>
+              </div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                <div className="text-3xl md:text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
+                <div className="text-xs md:text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
+              </div>
+              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
+                <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
+                <div className="text-xs md:text-sm font-medium text-gray-600">Geschäftskunden</div>
+              </div>
+            </motion.div>
+
+            {/* Enhanced CTA Section */}
+            <motion.div 
+              className="flex flex-col items-center space-y-4 pt-4"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.7 }}
+            >
+              <div className="flex flex-col space-y-4">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="gold-shine hover:scale-105 text-white px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold sparkle-effect shadow-2xl w-full sm:w-auto"
+                >
+                  <a href="tel:017634446399" className="flex items-center justify-center">
+                    <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
+                    <span className="hidden sm:inline">Sofort anrufen: </span>0176 34446399
+                  </a>
+                </Button>
                 
-                <div className="flex items-start space-x-3 md:space-x-4 mb-8 md:mb-10 px-4 md:px-0">
-                  <div className="w-1 h-12 md:h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
-                  <div>
-                    <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium mb-3 md:mb-4">
-                      Über 500 Großkunden vertrauen auf unsere <span className="gold-accent font-bold">Premium-Reinigungsstandards</span>.
-                    </p>
-                    <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                      Von Bürogebäuden bis Industrieanlagen - wir setzen neue Maßstäbe in der professionellen Gebäudereinigung. 
-                      Zertifiziert, versichert und mit 15 Jahren Branchenerfahrung.
-                    </p>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
+                    <span>Kostenlose Beratung</span>
+                  </div>
+                  <div className="flex items-center space-x-2">
+                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
+                    <span>Angebot in 24h</span>
                   </div>
                 </div>
-              </motion.div>
-
-              {/* Enhanced Stats */}
-              <motion.div 
-                className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 md:px-0"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-              >
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                  <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
-                  <div className="text-xs md:text-sm font-medium text-gray-600">Jahre Marktführung</div>
-                </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                  <div className="text-3xl md:text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
-                  <div className="text-xs md:text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
-                </div>
-                <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                  <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
-                  <div className="text-xs md:text-sm font-medium text-gray-600">Geschäftskunden</div>
-                </div>
-              </motion.div>
-
-              {/* Enhanced CTA Section */}
-              <motion.div 
-                className="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6 pt-4"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.7 }}
-              >
-                <div className="flex flex-col space-y-4">
-                  <Button 
-                    asChild 
-                    size="lg" 
-                    className="gold-shine hover:scale-105 text-white px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold sparkle-effect shadow-2xl w-full sm:w-auto"
-                  >
-                    <a href="tel:017634446399" className="flex items-center justify-center">
-                      <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                      <span className="hidden sm:inline">Sofort anrufen: </span>0176 34446399
-                    </a>
-                  </Button>
-                  
-                  <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
-                      <span>Kostenlose Beratung</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
-                      <span>Angebot in 24h</span>
-                    </div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
-
-            {/* Right Visual - Professional Cleaning Image */}
-            <div className="relative lg:col-span-5">
-              <motion.div 
-                className="relative"
-                initial={{ opacity: 0, scale: 0.9, x: 50 }}
-                animate={{ opacity: 1, scale: 1, x: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-              >
-                {/* Professional Cleaning Hero Image */}
-                <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                  <div className="aspect-[4/5] bg-gradient-to-br from-blue-50 via-gray-50 to-blue-100 relative">
-                    {/* Professional cleaning scene background */}
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-100/40 to-gray-100/60"></div>
-                    
-                    {/* Central professional cleaning visual */}
-                    <div className="absolute inset-0 flex items-center justify-center">
-                      <div className="text-center">
-                        {/* Main cleaning icon */}
-                        <motion.div 
-                          className="relative mb-8"
-                          animate={{ rotate: [0, 5, -5, 0] }}
-                          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-                        >
-                          <div className="w-40 h-40 mx-auto bg-white/90 backdrop-blur-sm rounded-full flex items-center justify-center shadow-xl">
-                            <Sparkles className="w-20 h-20 text-yellow-600" />
-                          </div>
-                          
-                          {/* Floating quality elements */}
-                          <motion.div 
-                            className="absolute -top-2 -right-2 w-16 h-16 bg-yellow-600 rounded-full flex items-center justify-center shadow-lg"
-                            animate={{ scale: [1, 1.1, 1] }}
-                            transition={{ duration: 2, repeat: Infinity }}
-                          >
-                            <Crown className="w-8 h-8 text-white" />
-                          </motion.div>
-                          
-                          <motion.div 
-                            className="absolute -bottom-4 -left-4 w-12 h-12 bg-green-500 rounded-full flex items-center justify-center shadow-lg"
-                            animate={{ y: [-5, 5, -5] }}
-                            transition={{ duration: 3, repeat: Infinity }}
-                          >
-                            <CheckCircle className="w-6 h-6 text-white" />
-                          </motion.div>
-                        </motion.div>
-                        
-                        {/* Professional service badge */}
-                        <div className="bg-white/95 backdrop-blur-sm rounded-2xl p-6 shadow-2xl max-w-sm mx-auto">
-                          <h3 className="text-2xl font-serif font-bold text-gray-900 mb-3">
-                            Premium Gebäudereinigung
-                          </h3>
-                          <p className="text-gray-600 text-sm mb-4">
-                            Kristallklare Ergebnisse in Moers & Umgebung
-                          </p>
-                          <div className="flex items-center justify-center space-x-1 mb-3">
-                            {[1,2,3,4,5].map(star => (
-                              <div key={star} className="text-yellow-500 text-lg">⭐</div>
-                            ))}
-                            <span className="text-sm text-gray-600 ml-2 font-medium">5.0 Google</span>
-                          </div>
-                          <div className="text-xs text-gray-500">15 authentische Bewertungen</div>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Floating trust elements */}
-                    <motion.div 
-                      className="absolute top-6 right-6 bg-white/90 backdrop-blur-sm rounded-xl p-3 shadow-lg"
-                      initial={{ opacity: 0, x: 20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 0.8 }}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <ShieldCheck className="w-5 h-5 text-green-600" />
-                        <span className="text-sm font-medium text-gray-800">Versichert</span>
-                      </div>
-                    </motion.div>
-
-                    <motion.div 
-                      className="absolute bottom-6 left-6 bg-yellow-600/90 backdrop-blur-sm rounded-xl p-3 shadow-lg text-white"
-                      initial={{ opacity: 0, x: -20 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ duration: 0.6, delay: 1.0 }}
-                    >
-                      <div className="flex items-center space-x-2">
-                        <Clock className="w-5 h-5" />
-                        <span className="text-sm font-medium">24h Service</span>
-                      </div>
-                    </motion.div>
-
-                    {/* Premium glass overlay effect */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-transparent via-white/5 to-white/10 pointer-events-none"></div>
-                  </div>
-                </div>
-              </motion.div>
-            </div>
+              </div>
+            </motion.div>
           </div>
         </div>
       </section>
