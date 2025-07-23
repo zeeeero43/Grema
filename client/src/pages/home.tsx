@@ -400,13 +400,13 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[0.9] text-gray-900 mb-6 md:mb-8 px-4 md:px-0">
+              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[1.1] text-gray-900 mb-8 md:mb-10 px-4 md:px-0">
                 <span className="block">Deutschlands führende</span>
-                <span className="gold-accent sparkle-effect relative block">
+                <span className="gold-accent sparkle-effect relative block py-2">
                   Reinigungsexperten
                   <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
                 </span>
-                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-2">für Ihr Unternehmen</span>
+                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-4">für Ihr Unternehmen</span>
               </h1>
               
               <div className="flex items-start space-x-3 md:space-x-4 mb-8 md:mb-10 px-4 md:px-0">
@@ -463,7 +463,7 @@ export default function Home() {
                   </a>
                 </Button>
                 
-                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
+                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
                   <div className="flex items-center space-x-2">
                     <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
                     <span>Kostenlose Beratung</span>
