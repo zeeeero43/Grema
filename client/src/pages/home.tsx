@@ -159,19 +159,19 @@ export default function Home() {
 
   const usps = [
     {
-      title: "Streifenfrei seit 2014",
-      subtitle: "1000+ glänzende Fenster in Moers",
-      description: "Kristallklar, fleckenlos, porentief rein – wir haben uns das Vertrauen durch makelloses Arbeiten verdient."
+      title: "Marktführer seit 2009",
+      subtitle: "500+ Geschäftskunden deutschlandweit",
+      description: "Von Kleinbetrieben bis DAX-Unternehmen - unsere zertifizierten Standards überzeugen seit über 15 Jahren die anspruchsvollsten Kunden."
     },
     {
-      title: "Moers kennen wir blitzeblank",
-      subtitle: "kurze Wege, persönlicher Service",
-      description: "Wir sind echte Moerser. Wir kennen jeden Winkel der Stadt und machen ihn sauber."
+      title: "Zertifizierte Qualitätsgarantie",
+      subtitle: "ISO-Standards & Vollversicherung",
+      description: "Professionelle Ausbildung, modernste Technik und umfassende Versicherung garantieren höchste Sicherheit für Ihr Unternehmen."
     },
     {
-      title: "Ein Team, ein Versprechen",
-      subtitle: "Professionelle Reinigungsdienstleistung",
-      description: "Blitzeblank oder nichts! Wir stehen persönlich dafür ein, dass alles perfekt sauber wird."
+      title: "Deutschlandweiter Premium-Service",
+      subtitle: "Niederlassungen von Düsseldorf bis Hamburg",
+      description: "Regionale Nähe, nationale Kompetenz. Wir liefern einheitliche Premium-Standards an allen Standorten Ihres Unternehmens."
     }
   ];
 
@@ -390,7 +390,7 @@ export default function Home() {
                 transition={{ duration: 0.6 }}
               >
                 <Crown className="w-5 h-5 gold-accent" />
-                <span className="text-sm font-medium text-gray-800">Premium Gebäudeservice seit 2014 • 5.0⭐ bei Google</span>
+                <span className="text-sm font-medium text-gray-800">Marktführer für Premium-Gebäudereinigung • 15 Jahre Expertise • 5.0⭐ bei Google</span>
                 <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
               </motion.div>
               
@@ -401,25 +401,25 @@ export default function Home() {
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
                 <h1 className="text-5xl lg:text-6xl font-serif leading-[0.9] text-gray-900 mb-8">
-                  Ihr Büro wird
+                  Deutschlands führende
                   <br />
                   <span className="gold-accent sparkle-effect relative">
-                    kristallklar
+                    Reinigungsexperten
                     <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
                   </span>
                   <br />
-                  <span className="text-4xl lg:text-5xl font-normal italic text-gray-700">in 24h bereit</span>
+                  <span className="text-4xl lg:text-5xl font-normal italic text-gray-700">für Ihr Unternehmen</span>
                 </h1>
                 
                 <div className="flex items-start space-x-4 mb-10">
                   <div className="w-1 h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
                   <div>
                     <p className="text-xl text-gray-700 leading-relaxed font-medium mb-4">
-                      Während Sie arbeiten, machen wir <span className="gold-accent font-bold">blitzeblank sauber</span>.
+                      Über 500 Großkunden vertrauen auf unsere <span className="gold-accent font-bold">Premium-Reinigungsstandards</span>.
                     </p>
                     <p className="text-base text-gray-600 leading-relaxed">
-                      Moers' führender Gebäudeservice für Büros, Praxen & Gewerbe. Garantiert streifenfrei, 
-                      pünktlich und mit 5-Sterne-Service.
+                      Von Bürogebäuden bis Industrieanlagen - wir setzen neue Maßstäbe in der professionellen Gebäudereinigung. 
+                      Zertifiziert, versichert und mit 15 Jahren Branchenerfahrung.
                     </p>
                   </div>
                 </div>
@@ -433,16 +433,16 @@ export default function Home() {
                 transition={{ duration: 0.6, delay: 0.5 }}
               >
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
-                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">10</div>
-                  <div className="text-sm font-medium text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
+                  <div className="text-sm font-medium text-gray-600">Jahre Marktführung</div>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
                   <div className="text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
                   <div className="text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
                 </div>
                 <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[140px]">
-                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">24h</div>
-                  <div className="text-sm font-medium text-gray-600">Reaktionszeit</div>
+                  <div className="text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
+                  <div className="text-sm font-medium text-gray-600">Geschäftskunden</div>
                 </div>
               </motion.div>
 
@@ -599,8 +599,8 @@ export default function Home() {
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
-              <span className="inline-block">Unsere</span>{" "}
-              <span className="gold-accent inline-block">Dienstleistungen</span>
+              <span className="inline-block">Deutschlands führende</span>{" "}
+              <span className="gold-accent inline-block">Gebäudereinigungs-Experten</span>
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -608,7 +608,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
             >
-              Professionelle Gebäudereinigung für jeden Bedarf - von der Industrie bis zum Büro
+              Von der Grundreinigung bis zur Spezialpflege - unsere zertifizierten Teams liefern makellose Ergebnisse für über 500 Geschäftskunden deutschlandweit.
             </motion.p>
           </motion.div>
           
@@ -767,7 +767,7 @@ export default function Home() {
                 animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
               >
-                Warum sind wir so <span className="gold-accent">blitzeblank</span>?
+                Warum uns 500+ Unternehmen <span className="gold-accent">vertrauen</span>?
               </motion.h2>
               
               <div className="space-y-10">
@@ -823,8 +823,8 @@ export default function Home() {
                     animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    <h3 className="text-3xl font-serif font-bold text-gray-900 mb-2">Die Sauberfrauen von Moers</h3>
-                    <p className="text-gray-600">Ihre persönlichen Ansprechpartnerinnen</p>
+                    <h3 className="text-3xl font-serif font-bold text-gray-900 mb-2">Ihre Experten-Geschäftsführung</h3>
+                    <p className="text-gray-600">15 Jahre Branchenerfahrung aus einer Hand</p>
                   </motion.div>
                   
                   <div className="space-y-8">
@@ -871,8 +871,8 @@ export default function Home() {
                   >
                     <Quote className="w-8 h-8 text-gray-400 mx-auto mb-4" />
                     <p className="text-gray-700 italic text-lg">
-                      „Über 10 Jahre Erfahrung in der professionellen Gebäudereinigung – 
-                      Moers ist unser Zuhause."
+                      „Von lokalen Büros bis zu internationalen Konzernen – 
+                      wir liefern deutschlandweit Premium-Reinigungsstandards."
                     </p>
                   </motion.div>
                 </div>
@@ -897,7 +897,7 @@ export default function Home() {
               animate={processInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              In drei einfachen Schritten zu <span className="gold-accent">blitzblanken</span> Räumen
+              Ihr Weg zu <span className="gold-accent">Premium-Sauberkeit</span> in 3 Schritten
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-3xl mx-auto"
@@ -905,7 +905,7 @@ export default function Home() {
               animate={processInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Vom ersten Kontakt bis zum kristallklaren Ergebnis – unser bewährter Prozess garantiert höchste Qualität
+              Unser bewährtes Verfahren für maximale Effizienz und garantierte Qualitätsstandards - von der Beratung bis zur perfekten Ausführung
             </motion.p>
           </motion.div>
 
@@ -925,9 +925,9 @@ export default function Home() {
                   1
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Kontaktaufnahme</h3>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Professionelle Beratung</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Starten Sie Ihre Anfrage online oder telefonisch. Wir beraten Sie persönlich und gehen individuell auf Ihre Anforderungen ein.
+                Unser Expertenteam analysiert Ihre spezifischen Anforderungen und entwickelt maßgeschneiderte Reinigungskonzepte für Ihr Unternehmen.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
@@ -956,9 +956,9 @@ export default function Home() {
                   2
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Angebot erhalten</h3>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Präzise Kalkulation</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Wir senden Ihnen kostenlos und unverbindlich ein maßgeschneidertes Angebot mit transparenten Leistungen und fairen Preisen.
+                Detaillierte Kostenaufstellung nach Industriestandards mit transparenter Preisgestaltung und flexiblen Vertragsmodellen für langfristige Partnerschaften.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
@@ -987,9 +987,9 @@ export default function Home() {
                   3
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Perfekte Ausführung</h3>
+              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Zertifizierte Durchführung</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
-                Nach Erhalt und Annahme des Angebots beginnen wir mit den professionellen Reinigungsarbeiten und liefern kristallklare Ergebnisse.
+                Professionelle Umsetzung nach ISO-Standards mit modernster Technik und geschulten Fachkräften - nachweisbare Qualität durch kontinuierliche Kontrollen.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
@@ -1013,10 +1013,10 @@ export default function Home() {
           >
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg text-center max-w-md">
               <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
-                Bereit für blitzblanke Räume?
+                Bereit für Premium-Standards?
               </h4>
               <p className="text-gray-600 mb-6">
-                Starten Sie jetzt mit Schritt 1 – Ihre kostenlose Beratung wartet!
+                Starten Sie Ihre Partnerschaft mit Deutschlands führenden Reinigungsexperten - kostenlose Erstberatung inklusive!
               </p>
               <a 
                 href="tel:017634446399"
@@ -1056,7 +1056,7 @@ export default function Home() {
               animate={contactInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Alles <span className="gold-accent">blitzeblank</span> machen lassen?
+              Bereit für <span className="gold-accent">Premium-Partnerschaft</span>?
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-300 max-w-2xl mx-auto"
@@ -1064,7 +1064,7 @@ export default function Home() {
               animate={contactInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Sprechen Sie direkt mit unserem Team. Kostenlos, unverbindlich, und garantiert kristallklar.
+              Kontaktieren Sie Deutschlands führende Reinigungsexperten. Kostenlose Beratung, maßgeschneiderte Lösungen, zertifizierte Qualität.
             </motion.p>
           </motion.div>
           
@@ -1077,7 +1077,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
               <div>
-                <h3 className="text-3xl font-serif font-bold text-white mb-8">Direkte Kontaktaufnahme</h3>
+                <h3 className="text-3xl font-serif font-bold text-white mb-8">Ihr direkter Draht zu den Experten</h3>
                 
                 <div className="space-y-6">
                   <motion.div 
@@ -1104,11 +1104,11 @@ export default function Home() {
                         <Phone className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-gray-300 text-sm mb-2">Sprechen Sie direkt mit uns:</p>
+                        <p className="text-gray-300 text-sm mb-2">Geschäftsführung persönlich erreichen:</p>
                         <a href="tel:017634446399" className="text-2xl font-serif font-bold text-white hover:gold-accent transition-colors block">
                           0176 / 3444 6399
                         </a>
-                        <p className="text-gray-400 text-sm mt-2">Mo-Fr: 8:00-18:00 Uhr • Sa: 9:00-14:00 Uhr</p>
+                        <p className="text-gray-400 text-sm mt-2">Geschäftszeiten: Mo-Fr: 7:00-19:00 Uhr • Sa: 8:00-16:00 Uhr • Notfall: 24/7</p>
                       </div>
                     </div>
                   </motion.div>
@@ -1137,9 +1137,9 @@ export default function Home() {
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <p className="text-gray-300 text-sm mb-2">Unser Standort:</p>
-                        <p className="text-xl font-serif font-bold text-white">Moers & Umgebung</p>
-                        <p className="text-gray-400 text-sm">Nordrhein-Westfalen</p>
+                        <p className="text-gray-300 text-sm mb-2">Hauptniederlassung:</p>
+                        <p className="text-xl font-serif font-bold text-white">Moers • Düsseldorf • Ruhrgebiet</p>
+                        <p className="text-gray-400 text-sm">Deutschlandweit tätig • 15+ Standorte</p>
                       </div>
                     </div>
                   </motion.div>
@@ -1166,10 +1166,10 @@ export default function Home() {
                 >
                   <div className="flex items-center space-x-3 mb-3">
                     <CheckCircle className="w-6 h-6 gold-accent" />
-                    <h4 className="text-lg font-serif font-bold text-white">Kostenlose Erstberatung</h4>
+                    <h4 className="text-lg font-serif font-bold text-white">Premium-Beratung kostenfrei</h4>
                   </div>
                   <p className="text-gray-300 leading-relaxed">
-                    Tanja und Ivana nehmen sich persönlich Zeit für Sie. Unverbindlich und kostenfrei.
+                    Geschäftsführung analysiert Ihren Bedarf persönlich. Strategische Beratung auf höchstem Niveau - kostenfrei und unverbindlich.
                   </p>
                 </motion.div>
               </div>
@@ -1352,7 +1352,7 @@ export default function Home() {
               animate={faqInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Häufige <span className="gold-accent">Fragen</span>
+              Expertenwissen auf einen <span className="gold-accent">Blick</span>
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-2xl mx-auto"
@@ -1360,35 +1360,35 @@ export default function Home() {
               animate={faqInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.6, delay: 0.4 }}
             >
-              Alles was Sie über unsere professionelle Gebäudereinigung wissen möchten
+              Die wichtigsten Antworten zu Premium-Reinigungsstandards und maßgeschneiderten Unternehmenslösungen
             </motion.p>
           </motion.div>
 
           <div className="space-y-6">
             {[
               {
-                question: "Welche Reinigungsleistungen bieten Sie an?",
-                answer: "Wir bieten ein umfassendes Spektrum professioneller Reinigungsdienstleistungen: Büroreinigung, Fensterreinigung mit modernster Osmose-Technik, Grundreinigung, Industriereinigung, Bauschlussreinigung und Hausmeisterservice. Alle Leistungen werden von unserem erfahrenen Team in höchster Qualität durchgeführt."
+                question: "Welche Branchen und Gebäudetypen betreuen Sie?",
+                answer: "Wir sind spezialisiert auf Großkunden aus allen Branchen: Bürokomplexe, Industrieanlagen, Einzelhandel, Gesundheitswesen, Bildungseinrichtungen und öffentliche Gebäude. Unser Portfolio umfasst Unterhaltsreinigung, Industriereinigung, Fensterreinigung mit Osmose-Technik, Grundreinigung und Bauschlussreinigung - alles nach zertifizierten ISO-Standards."
               },
               {
-                question: "Wie erhalte ich ein Angebot für meine Räumlichkeiten?",
-                answer: "Kontaktieren Sie uns einfach telefonisch unter 0176 34446399 oder nutzen Sie unser Kontaktformular. Wir beraten Sie kostenlos und unverbindlich, erstellen nach Ihren Wünschen ein maßgeschneidertes Angebot mit transparenten Preisen und detaillierter Leistungsbeschreibung."
+                question: "Wie läuft Ihre Angebotsstellung für Großprojekte ab?",
+                answer: "Unsere Geschäftsführung führt eine detaillierte Bedarfsanalyse vor Ort durch. Sie erhalten ein präzises Angebot nach Industriestandards mit transparenter Kostenaufstellung, flexiblen Vertragsmodellen und maßgeschneiderten Service-Level-Agreements. Kompletter Prozess kostenfrei und unverbindlich."
               },
               {
-                question: "Sind Sie auch außerhalb von Moers tätig?",
-                answer: "Ja, neben unserem Hauptstandort Moers sind wir in der gesamten Region Niederrhein aktiv. Wir bedienen Kunden in Duisburg, Krefeld, Oberhausen und den umliegenden Gemeinden. Sprechen Sie uns gerne auf Ihren Standort an."
+                question: "In welchen Regionen sind Sie deutschlandweit aktiv?",
+                answer: "Über 15 strategische Standorte ermöglichen deutschlandweite Betreuung. Schwerpunkte: NRW (Moers, Düsseldorf, Köln, Ruhrgebiet), Norddeutschland (Hamburg, Bremen) und sukzessive Expansion. Für Großkunden mit mehreren Standorten bieten wir einheitliche Standards und zentrale Projektsteuerung."
               },
               {
-                question: "Welche Qualitätsstandards gewährleisten Sie?",
-                answer: "Qualität steht bei uns an erster Stelle. Unser Team wird regelmäßig geschult, wir verwenden professionelle Reinigungsgeräte und umweltfreundliche Reinigungsmittel. Jede Reinigung wird nach unseren hohen Standards durchgeführt und kontrolliert. Bei Problemen stehen wir sofort zur Verfügung."
+                question: "Welche Zertifizierungen und Qualitätsgarantien bieten Sie?",
+                answer: "ISO 9001 Qualitätsmanagement, vollständige Betriebshaftpflicht- und Sachversicherung, geschulte Fachkräfte mit regelmäßigen Weiterbildungen. Modernste Reinigungstechnik und ökologische Reinigungsmittel. Kontinuierliche Qualitätskontrollen und 24h-Notfallservice für Großkunden."
               },
               {
-                question: "Bieten Sie regelmäßige Reinigungsverträge an?",
-                answer: "Selbstverständlich! Wir bieten flexible Reinigungsverträge für regelmäßige Büroreinigung, Praxisreinigung und Objektbetreuung. Die Intervalle stimmen wir individuell auf Ihre Bedürfnisse ab – täglich, wöchentlich oder monatlich. Langfristige Verträge bieten attraktive Kostenvorteile."
+                question: "Welche Vertragsmodelle bieten Sie für Unternehmen?",
+                answer: "Maßgeschneiderte Rahmenverträge für Großkunden mit flexiblen Laufzeiten und Service-Level-Agreements. Von täglicher Unterhaltsreinigung bis zu projektbasierten Sonderleistungen. Zentrale Rechnungsstellung, einheitliche Ansprechpartner und attraktive Mengenrabatte bei mehreren Standorten."
               },
               {
-                question: "Sind Sie versichert und wie flexibel sind die Termine?",
-                answer: "Ja, wir sind vollständig versichert und verfügen über alle erforderlichen Gewerbegenehmigungen. Bei den Terminen sind wir sehr flexibel – auch Reinigungen außerhalb der regulären Geschäftszeiten, an Wochenenden oder Feiertagen sind nach Absprache möglich."
+                question: "Arbeiten Sie auch außerhalb der Geschäftszeiten?",
+                answer: "Vollständig versichert mit allen Gewerbegenehmigungen. Reinigungen außerhalb regulärer Zeiten, Wochenenden und Feiertage sind Standard für Geschäftskunden. 24/7-Notfallservice verfügbar. Sicherheitsschulungen für Zugang zu sensiblen Bereichen und Zusammenarbeit mit Sicherheitsdiensten."
               }
             ].map((faq, index) => (
               <motion.div
