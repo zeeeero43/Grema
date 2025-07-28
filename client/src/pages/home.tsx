@@ -386,13 +386,6 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-2 lg:order-1"
             >
-              <div className="mb-6">
-                <img 
-                  src={logoImage} 
-                  alt="Grema Gebäudeservice GmbH" 
-                  className="h-10 sm:h-12 w-auto"
-                />
-              </div>
               
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
                 Reinigungsservice<br />
