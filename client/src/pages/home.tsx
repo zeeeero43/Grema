@@ -46,6 +46,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { GoogleReviews } from "../components/GoogleReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
+import logoImage from "@assets/logo-grema-high_1753727835385.webp";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -213,14 +214,12 @@ export default function Home() {
       >
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
-            <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 bg-primary flex items-center justify-center rounded">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-gray-900">Grema</h1>
-                <p className="text-sm text-gray-600 tracking-wide">GEBÄUDESERVICE GMBH</p>
-              </div>
+            <div className="flex items-center">
+              <img 
+                src={logoImage} 
+                alt="Grema Gebäudeservice GmbH" 
+                className="h-12 sm:h-14 w-auto"
+              />
             </div>
             
             <div className="hidden md:flex items-center space-x-8">
@@ -387,14 +386,12 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
               className="order-2 lg:order-1"
             >
-              <div className="flex items-center mb-6">
-                <div className="w-12 h-12 bg-primary flex items-center justify-center rounded mr-4">
-                  <Building2 className="w-6 h-6 text-white" />
-                </div>
-                <div>
-                  <h1 className="text-2xl font-bold text-gray-900">Grema Gebäudeservice GmbH</h1>
-                  <p className="text-sm text-gray-600">Professionelle Gebäudereinigung</p>
-                </div>
+              <div className="mb-6">
+                <img 
+                  src={logoImage} 
+                  alt="Grema Gebäudeservice GmbH" 
+                  className="h-10 sm:h-12 w-auto"
+                />
               </div>
               
               <h2 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">
