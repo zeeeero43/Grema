@@ -12,42 +12,23 @@ Avoid generic service provider templates; emphasize established, trustworthy app
 
 ## Recent Changes (January 2025)
 
-✓ Complete homepage redesign with premium aesthetic transformation
-✓ New color scheme: Anthracite (#2d3748) + Gold (#c17f3e) replacing blue
-✓ Typography standardization: Only 2 fonts - Crimson Text (serif) + Work Sans (sans-serif)  
-✓ Removed personal names from hero section per user feedback
-✓ Strengthened header CTA to "Jetzt kostenlos anrufen!" 
-✓ Premium carousel services section with real cleaning photos
-✓ Professional image overlays with gradient effects and hover animations
-✓ Framer Motion animations for smooth interactions
-✓ Authentic Google reviews from real customers
-✓ Single CTA approach: "Persönliches Gespräch vereinbaren"
-✓ Enhanced local Moers identity throughout content
-✓ Consistent gold/anthracite color scheme throughout carousel
-✓ Authentic Google Reviews integration with Places API
-✓ Professional carousel with Google branding and trust elements
-✓ Real-time reviews fetching with proper error handling
-✓ Animated 3-step process section with premium brand styling
-✓ Infinite carousel with all 15 authentic Google reviews
-✓ German localization for review content and timestamps
-✓ Comprehensive FAQ section with 6 professional questions and answers
-✓ Interactive accordion design with hover animations and gold accents
-✓ Comprehensive 2025-style movement effects with useInView animations
-✓ Hero section simplified to single professional image on right side
-✓ Complete navigation overhaul with smooth scrolling to all sections
-✓ Professional header with all important sections: Services, About, Process, Reviews, Contact
-✓ Mobile navigation with auto-close functionality
-✓ All section IDs properly linked to navigation elements
-✓ Complete professional text transformation - all website content rewritten for large enterprise positioning
-✓ Hero section: Enhanced to reflect market leadership with "500+ Geschäftskunden" and 15 years expertise
-✓ Services section: Repositioned as "Deutschlands führende Gebäudereinigungs-Experten"
-✓ About Us: Transformed to emphasize enterprise trust with "Warum uns 500+ Unternehmen vertrauen"
-✓ Process section: Elevated to "Premium-Sauberkeit in 3 Schritten" with professional terminology
-✓ Contact section: Upgraded to "Premium-Partnerschaft" focus with nationwide service emphasis
-✓ FAQ section: Complete overhaul as "Expertenwissen auf einen Blick" with enterprise-focused Q&A
-✓ All USPs rewritten to reflect nationwide presence, ISO standards, and enterprise-grade services
-✓ Statistics updated: 15 years experience, 500+ business clients, nationwide coverage
-✓ Professional terminology: From local cleaning service to enterprise solution provider
+**MAJOR DESIGN OVERHAUL - Classic Style (January 28, 2025)**
+✓ Complete website redesign from modern to classic/traditional style per customer feedback
+✓ NEW Color scheme: Classic Blue (#1e4a72) + Orange (#e67e22) replacing modern anthracite/gold
+✓ Traditional layout: Clean header with clear navigation, large hero sections, structured content blocks
+✓ Classic business website aesthetic: Inspired by professional cleaning company references
+✓ Typography maintained: Crimson Text (serif) + Work Sans (sans-serif) for readability
+✓ Simplified animations: Reduced modern effects, maintained subtle transitions
+✓ Professional service cards with authentic cleaning images
+✓ Classic contact section with split layout (info + form)
+✓ Traditional footer with company information and service overview
+✓ Authentic Google Reviews integration maintained (15 real reviews, 5.0⭐)
+✓ Mobile responsiveness preserved with classic styling
+✓ Hero section: Classic two-column layout with company intro and professional image
+✓ Services: Clean grid layout with service icons and descriptions
+✓ About section: Traditional company presentation with USPs in structured boxes
+✓ Removed: Modern premium effects, complex animations, enterprise-focused language
+✓ Added: Classic blue gradient backgrounds, orange accent buttons, structured layout
 
 ## System Architecture
 

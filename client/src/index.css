@@ -15,23 +15,23 @@
   --card-foreground: hsl(211, 19%, 17%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(211, 19%, 17%);
+  --primary: hsl(213, 78%, 32%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(210, 40%, 96%);
-  --secondary-foreground: hsl(211, 19%, 17%);
-  --accent: hsl(210, 40%, 96%);
-  --accent-foreground: hsl(211, 19%, 17%);
+  --secondary: hsl(213, 50%, 95%);
+  --secondary-foreground: hsl(213, 78%, 32%);
+  --accent: hsl(32, 95%, 44%);
+  --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
   --destructive-foreground: hsl(210, 40%, 98%);
   --ring: hsl(211, 19%, 17%);
   --radius: 0.5rem;
   
-  /* Custom brand colors - Cleaning Theme */
-  --anthracite: hsl(211, 19%, 17%);  /* #2d3748 */
-  --gold: hsl(35, 52%, 51%);         /* #c17f3e */
-  --gold-light: hsl(35, 52%, 65%);
-  --warm-gray: hsl(220, 9%, 46%);
-  --warm-gray-light: hsl(220, 14%, 96%);
+  /* Classic brand colors - Traditional Style */
+  --classic-blue: hsl(213, 78%, 32%);   /* #1e4a72 */
+  --classic-orange: hsl(32, 95%, 44%);  /* #e67e22 */
+  --classic-gray: hsl(210, 8%, 50%);    /* #7a8591 */
+  --light-blue: hsl(213, 50%, 95%);     /* #f4f7fb */
+  --light-gray: hsl(220, 14%, 96%);     /* #f8f9fa */
   
   /* Cleaning-specific colors */
   --crystal-white: hsl(0, 0%, 100%);
@@ -172,6 +172,27 @@
     right: -5px;
     font-size: 12px;
     animation: bubbleFloat 2s infinite;
+  }
+
+  /* Classic Color Classes */
+  .classic-blue {
+    color: hsl(var(--classic-blue)) !important;
+  }
+
+  .classic-orange {
+    color: hsl(var(--classic-orange)) !important;
+  }
+
+  .classic-blue-bg {
+    background-color: hsl(var(--classic-blue)) !important;
+  }
+
+  .classic-orange-bg {
+    background-color: hsl(var(--classic-orange)) !important;
+  }
+
+  .classic-gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--classic-blue)), hsl(213, 78%, 40%));
   }
 
   .clean-hover:hover {
