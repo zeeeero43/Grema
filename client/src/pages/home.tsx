@@ -453,13 +453,13 @@ export default function Home() {
             transition={{ duration: 0.8 }}
           >
             <motion.h2 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-4 md:mb-6 px-4 md:px-0"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-4 md:mb-6 px-4 md:px-0"
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1, delay: 0.2 }}
             >
               <span className="block sm:inline-block">Deutschlands führende</span>{" "}
-              <span className="gold-accent block sm:inline-block">Gebäudereinigungs-Experten</span>
+              <span className="text-primary block sm:inline-block">Gebäudereinigungs-Experten</span>
             </motion.h2>
             <motion.p 
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 md:px-0 leading-relaxed"
