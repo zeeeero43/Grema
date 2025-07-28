@@ -96,8 +96,8 @@ export function GoogleReviews() {
       <section id="bewertungen" className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-16">
-            <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8">
-              So <span className="gold-accent">blitzeblank</span> arbeiten wir
+            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+              So <span className="text-primary">blitzeblank</span> arbeiten wir
             </h2>
             <div className="animate-pulse">
               <div className="h-8 bg-gray-200 rounded w-64 mx-auto mb-4"></div>
@@ -114,8 +114,8 @@ export function GoogleReviews() {
       <section id="bewertungen" className="py-32 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center">
-            <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8">
-              So <span className="gold-accent">blitzeblank</span> arbeiten wir
+            <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+              So <span className="text-primary">blitzeblank</span> arbeiten wir
             </h2>
             <p className="text-gray-600">Google-Bewertungen werden geladen...</p>
           </div>
@@ -130,8 +130,8 @@ export function GoogleReviews() {
     <section id="bewertungen" className="py-32 bg-gray-50">
       <div className="max-w-7xl mx-auto px-6 lg:px-12">
         <div className="text-center mb-16">
-          <h2 className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8 sparkle-effect">
-            So <span className="gold-accent">blitzeblank</span> arbeiten wir
+          <h2 className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8">
+            So <span className="text-primary">blitzeblank</span> arbeiten wir
           </h2>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
             Echte Google-Bewertungen von unseren zufriedenen Kunden aus Moers und Umgebung
@@ -218,7 +218,7 @@ export function GoogleReviews() {
                 onClick={() => setCurrentIndex(index)}
                 className={`w-3 h-3 rounded-full transition-all duration-300 ${
                   index === currentIndex 
-                    ? 'gold-shine scale-125' 
+                    ? 'bg-primary scale-125' 
                     : 'bg-gray-300 hover:bg-gray-400'
                 }`}
               />

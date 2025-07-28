@@ -553,7 +553,7 @@ export default function Home() {
                     onClick={() => setCurrentIndex(index)}
                     className={`w-3 h-3 rounded-full transition-all duration-300 ${
                       index === currentIndex 
-                        ? 'gold-shine scale-125' 
+                        ? 'bg-primary scale-125' 
                         : 'bg-gray-300 hover:bg-gray-400'
                     }`}
                   />
@@ -621,7 +621,7 @@ export default function Home() {
               transition={{ duration: 0.8, ease: "easeOut" }}
             >
               <motion.h2 
-                className="text-5xl lg:text-6xl font-serif text-gray-900 mb-12 sparkle-effect"
+                className="text-5xl lg:text-6xl font-bold text-gray-900 mb-12"
                 initial={{ opacity: 0, y: 50 }}
                 animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 }}
                 transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -682,7 +682,7 @@ export default function Home() {
                     animate={aboutInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
                     transition={{ duration: 0.6, delay: 0.5 }}
                   >
-                    <h3 className="text-3xl font-serif font-bold text-gray-900 mb-2">Ihre Experten-Geschäftsführung</h3>
+                    <h3 className="text-3xl font-bold text-gray-900 mb-2">Ihre Experten-Geschäftsführung</h3>
                     <p className="text-gray-600">15 Jahre Branchenerfahrung aus einer Hand</p>
                   </motion.div>
                   
@@ -714,8 +714,8 @@ export default function Home() {
                           <Users className="w-16 h-16 text-gray-400" />
                         </motion.div>
                         <div>
-                          <h4 className="text-xl font-serif font-bold text-gray-900">{person.name}</h4>
-                          <p className="gold-accent font-medium mb-2">{person.role}</p>
+                          <h4 className="text-xl font-bold text-gray-900">{person.name}</h4>
+                          <p className="text-primary font-medium mb-2">{person.role}</p>
                           <p className="text-sm text-gray-600">{person.dept}</p>
                         </div>
                       </motion.div>
@@ -751,12 +751,12 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 md:mb-8 px-4 md:px-0"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 md:mb-8 px-4 md:px-0"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={processInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Ihr Weg zu <span className="gold-accent block sm:inline">Premium-Sauberkeit</span> in 3 Schritten
+              Ihr Weg zu <span className="text-primary block sm:inline">Premium-Sauberkeit</span> in 3 Schritten
             </motion.h2>
             <motion.p 
               className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto px-4 md:px-0 leading-relaxed"
@@ -780,21 +780,21 @@ export default function Home() {
                 <div className="w-24 h-24 md:w-32 md:h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
                   <Phone className="w-12 h-12 md:w-16 md:h-16 text-gray-700" />
                 </div>
-                <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-20">
+                <div className="absolute -top-1 -right-1 md:-top-2 md:-right-2 w-6 h-6 md:w-8 md:h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-xs md:text-sm z-20">
                   1
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Professionelle Beratung</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Professionelle Beratung</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Unser Expertenteam analysiert Ihre spezifischen Anforderungen und entwickelt maßgeschneiderte Reinigungskonzepte für Ihr Unternehmen.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Kostenlose Beratung</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Individuelle Lösungen</span>
                 </div>
               </div>
@@ -811,21 +811,21 @@ export default function Home() {
                 <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
                   <Calendar className="w-16 h-16 text-gray-700" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
                   2
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Präzise Kalkulation</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Präzise Kalkulation</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Detaillierte Kostenaufstellung nach Industriestandards mit transparenter Preisgestaltung und flexiblen Vertragsmodellen für langfristige Partnerschaften.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Transparente Preise</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Detaillierte Leistungsbeschreibung</span>
                 </div>
               </div>
@@ -842,21 +842,21 @@ export default function Home() {
                 <div className="w-32 h-32 mx-auto bg-gradient-to-br from-gray-100 to-gray-200 rounded-full flex items-center justify-center shadow-lg relative z-10">
                   <Sparkles className="w-16 h-16 text-gray-700" />
                 </div>
-                <div className="absolute -top-2 -right-2 w-8 h-8 gold-bg rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
+                <div className="absolute -top-2 -right-2 w-8 h-8 bg-primary rounded-full flex items-center justify-center text-white font-bold text-sm z-20">
                   3
                 </div>
               </div>
-              <h3 className="text-2xl font-serif font-bold text-gray-900 mb-4">Zertifizierte Durchführung</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Zertifizierte Durchführung</h3>
               <p className="text-gray-600 leading-relaxed mb-6">
                 Professionelle Umsetzung nach ISO-Standards mit modernster Technik und geschulten Fachkräften - nachweisbare Qualität durch kontinuierliche Kontrollen.
               </p>
               <div className="space-y-3">
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Pünktliche Ausführung</span>
                 </div>
                 <div className="flex items-center justify-center space-x-2 text-sm text-gray-500">
-                  <CheckCircle className="w-4 h-4 gold-accent" />
+                  <CheckCircle className="w-4 h-4 text-primary" />
                   <span>Garantierte Qualität</span>
                 </div>
               </div>
@@ -871,7 +871,7 @@ export default function Home() {
             className="flex justify-center mt-16"
           >
             <div className="bg-gray-50 rounded-2xl p-8 shadow-lg text-center max-w-md">
-              <h4 className="text-xl font-serif font-bold text-gray-900 mb-2">
+              <h4 className="text-xl font-bold text-gray-900 mb-2">
                 Bereit für Premium-Standards?
               </h4>
               <p className="text-gray-600 mb-6">
@@ -1161,7 +1161,7 @@ export default function Home() {
                       <div className="pt-4">
                         <Button 
                           type="submit" 
-                          className="w-full gold-bg hover:bg-yellow-700 text-white font-serif font-bold py-4 text-lg rounded-xl transition-all duration-300"
+                          className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-4 text-lg rounded-xl transition-all duration-300"
                           disabled={contactMutation.isPending}
                         >
                           {contactMutation.isPending ? (
