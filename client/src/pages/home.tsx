@@ -414,9 +414,9 @@ export default function Home() {
                   size="lg" 
                   className="bg-primary text-white hover:bg-primary/90 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-semibold transition-colors"
                 >
-                  <a href="tel:017634446399" className="flex items-center justify-center">
-                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                    <span className="hidden sm:inline">Jetzt anrufen: </span>0176 34446399
+                  <a href="#contact" className="flex items-center justify-center">
+                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                    Kostenlose Beratung
                   </a>
                 </Button>
                 <Button 
@@ -425,9 +425,9 @@ export default function Home() {
                   variant="outline"
                   className="border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-semibold transition-colors"
                 >
-                  <a href="#contact" className="flex items-center justify-center">
-                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                    Kostenlose Beratung
+                  <a href="tel:017634446399" className="flex items-center justify-center">
+                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                    <span className="hidden sm:inline">Jetzt anrufen: </span>0176 34446399
                   </a>
                 </Button>
               </div>
