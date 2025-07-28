@@ -98,9 +98,9 @@ export default function Home() {
           <div className="flex items-center justify-between h-16">
             {/* Logo */}
             <div className="flex items-center space-x-2">
-              <Building2 className="h-8 w-8 classic-blue" />
+              <Building2 className="h-8 w-8 brand-blue" />
               <div>
-                <h1 className="text-xl font-bold classic-blue">GREMA</h1>
+                <h1 className="text-xl font-bold brand-blue">GREMA</h1>
                 <p className="text-xs text-gray-500 leading-none">Gebäudeservice GmbH</p>
               </div>
             </div>
@@ -109,31 +109,31 @@ export default function Home() {
             <nav className="hidden md:flex items-center space-x-8">
               <button 
                 onClick={() => scrollToSection('home')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:brand-blue font-medium transition-colors"
               >
                 Home
               </button>
               <button 
                 onClick={() => scrollToSection('services')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:brand-blue font-medium transition-colors"
               >
                 Leistungen
               </button>
               <button 
                 onClick={() => scrollToSection('about')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:brand-blue font-medium transition-colors"
               >
                 Über uns
               </button>
               <button 
                 onClick={() => scrollToSection('reviews')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:brand-blue font-medium transition-colors"
               >
                 Bewertungen
               </button>
               <button 
                 onClick={() => scrollToSection('contact')}
-                className="text-gray-700 hover:text-blue-600 font-medium transition-colors"
+                className="text-gray-700 hover:brand-blue font-medium transition-colors"
               >
                 Kontakt
               </button>
@@ -158,11 +158,11 @@ export default function Home() {
           {mobileMenuOpen && (
             <div className="md:hidden bg-white border-t py-4">
               <div className="flex flex-col space-y-3">
-                <button onClick={() => scrollToSection('home')} className="text-left text-gray-700 hover:text-blue-600 font-medium">Home</button>
-                <button onClick={() => scrollToSection('services')} className="text-left text-gray-700 hover:text-blue-600 font-medium">Leistungen</button>
-                <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:text-blue-600 font-medium">Über uns</button>
-                <button onClick={() => scrollToSection('reviews')} className="text-left text-gray-700 hover:text-blue-600 font-medium">Bewertungen</button>
-                <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:text-blue-600 font-medium">Kontakt</button>
+                <button onClick={() => scrollToSection('home')} className="text-left text-gray-700 hover:brand-blue font-medium">Home</button>
+                <button onClick={() => scrollToSection('services')} className="text-left text-gray-700 hover:brand-blue font-medium">Leistungen</button>
+                <button onClick={() => scrollToSection('about')} className="text-left text-gray-700 hover:brand-blue font-medium">Über uns</button>
+                <button onClick={() => scrollToSection('reviews')} className="text-left text-gray-700 hover:brand-blue font-medium">Bewertungen</button>
+                <button onClick={() => scrollToSection('contact')} className="text-left text-gray-700 hover:brand-blue font-medium">Kontakt</button>
               </div>
             </div>
           )}
@@ -170,7 +170,7 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="classic-gradient-bg text-white">
+      <section id="home" className="brand-gradient-bg text-white">
         <div className="container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
@@ -194,7 +194,7 @@ export default function Home() {
                 <Button 
                   size="lg" 
                   variant="outline" 
-                  className="border-white text-white hover:bg-white hover:text-blue-800 px-8 py-4"
+                  className="border-white text-white hover:bg-white hover:brand-blue px-8 py-4"
                   onClick={() => scrollToSection('contact')}
                 >
                   Kostenvoranschlag anfordern
@@ -237,7 +237,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl font-bold classic-blue mb-4">Unsere Leistungen</h2>
+            <h2 className="text-4xl font-bold brand-blue mb-4">Unsere Leistungen</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               Von der regelmäßigen Unterhaltsreinigung bis zur Grundreinigung - 
               wir bieten professionelle Lösungen für jeden Bedarf.
@@ -247,37 +247,37 @@ export default function Home() {
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
               {
-                icon: <Building2 className="h-12 w-12 classic-blue" />,
+                icon: <Building2 className="h-12 w-12 brand-blue" />,
                 title: "Büroreinigung",
                 description: "Regelmäßige professionelle Reinigung von Büroräumen, Besprechungsräumen und Gemeinschaftsbereichen.",
                 image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
-                icon: <Sparkles className="h-12 w-12 classic-blue" />,
+                icon: <Sparkles className="h-12 w-12 brand-blue" />,
                 title: "Grundreinigung",
                 description: "Tiefenreinigung für Wohnungen, Büros und Gewerberäume mit modernsten Reinigungsverfahren.",
                 image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
-                icon: <Camera className="h-12 w-12 classic-blue" />,
+                icon: <Camera className="h-12 w-12 brand-blue" />,
                 title: "Fensterreinigung",
                 description: "Professionelle Glasreinigung mit Osmose-Technik für streifenfreie Ergebnisse.",
                 image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
-                icon: <Shield className="h-12 w-12 classic-blue" />,
+                icon: <Shield className="h-12 w-12 brand-blue" />,
                 title: "Praxisreinigung",
                 description: "Spezialisierte Reinigung für Arztpraxen und medizinische Einrichtungen nach höchsten Hygienestandards.",
                 image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
-                icon: <Users className="h-12 w-12 classic-blue" />,
+                icon: <Users className="h-12 w-12 brand-blue" />,
                 title: "Industriereinigung",
                 description: "Professionelle Reinigung von Produktionsstätten und Industrieanlagen.",
                 image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
               },
               {
-                icon: <Award className="h-12 w-12 classic-blue" />,
+                icon: <Award className="h-12 w-12 brand-blue" />,
                 title: "Bauschlussreinigung",
                 description: "Gründliche Endreinigung nach Bau- oder Renovierungsarbeiten.",
                 image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
@@ -297,7 +297,7 @@ export default function Home() {
                       className="w-full h-48 object-cover rounded-lg mb-6"
                     />
                     <div className="mb-4">{service.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 classic-blue">{service.title}</h3>
+                    <h3 className="text-xl font-bold mb-3 brand-blue">{service.title}</h3>
                     <p className="text-gray-600">{service.description}</p>
                   </CardContent>
                 </Card>
@@ -316,7 +316,7 @@ export default function Home() {
               animate={aboutInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
               transition={{ duration: 0.6 }}
             >
-              <h2 className="text-4xl font-bold classic-blue mb-6">
+              <h2 className="text-4xl font-bold brand-blue mb-6">
                 Über Grema Gebäudeservice
               </h2>
               <p className="text-lg text-gray-600 mb-6">
@@ -328,22 +328,22 @@ export default function Home() {
               <div className="grid grid-cols-2 gap-6 mb-8">
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Clock className="h-8 w-8 classic-orange mx-auto mb-2" />
-                  <h4 className="font-bold classic-blue">Zuverlässig</h4>
+                  <h4 className="font-bold brand-blue">Zuverlässig</h4>
                   <p className="text-sm text-gray-600">Pünktlich und verlässlich</p>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Shield className="h-8 w-8 classic-orange mx-auto mb-2" />
-                  <h4 className="font-bold classic-blue">Versichert</h4>
+                  <h4 className="font-bold brand-blue">Versichert</h4>
                   <p className="text-sm text-gray-600">Vollständig versichert</p>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Leaf className="h-8 w-8 classic-orange mx-auto mb-2" />
-                  <h4 className="font-bold classic-blue">Umweltfreundlich</h4>
+                  <h4 className="font-bold brand-blue">Umweltfreundlich</h4>
                   <p className="text-sm text-gray-600">Ökologische Reinigungsmittel</p>
                 </div>
                 <div className="text-center p-4 bg-gray-50 rounded-lg">
                   <Award className="h-8 w-8 classic-orange mx-auto mb-2" />
-                  <h4 className="font-bold classic-blue">Qualität</h4>
+                  <h4 className="font-bold brand-blue">Qualität</h4>
                   <p className="text-sm text-gray-600">Höchste Standards</p>
                 </div>
               </div>
@@ -378,7 +378,7 @@ export default function Home() {
       <section id="reviews" className="py-20 bg-gray-50">
         <div className="container mx-auto px-4">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold classic-blue mb-4">Was unsere Kunden sagen</h2>
+            <h2 className="text-4xl font-bold brand-blue mb-4">Was unsere Kunden sagen</h2>
             <p className="text-xl text-gray-600">Echte Bewertungen von zufriedenen Kunden</p>
           </div>
           <GoogleReviews />
@@ -394,7 +394,7 @@ export default function Home() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <h2 className="text-4xl font-bold classic-blue mb-4">Kontakt aufnehmen</h2>
+            <h2 className="text-4xl font-bold brand-blue mb-4">Kontakt aufnehmen</h2>
             <p className="text-xl text-gray-600">
               Rufen Sie uns an oder senden Sie uns eine Nachricht für ein kostenloses Angebot
             </p>
@@ -409,7 +409,7 @@ export default function Home() {
               className="space-y-8"
             >
               <div>
-                <h3 className="text-2xl font-bold classic-blue mb-6">Kontaktinformationen</h3>
+                <h3 className="text-2xl font-bold brand-blue mb-6">Kontaktinformationen</h3>
                 <div className="space-y-4">
                   <div className="flex items-center space-x-4">
                     <Phone className="h-6 w-6 classic-orange" />
@@ -435,7 +435,7 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="classic-gradient-bg p-6 rounded-lg text-white">
+              <div className="brand-gradient-bg p-6 rounded-lg text-white">
                 <h4 className="text-xl font-bold mb-4">Warum Grema wählen?</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center space-x-2">
@@ -466,7 +466,7 @@ export default function Home() {
             >
               <Card>
                 <CardContent className="p-6">
-                  <h3 className="text-xl font-bold classic-blue mb-6">Kostenvoranschlag anfordern</h3>
+                  <h3 className="text-xl font-bold brand-blue mb-6">Kostenvoranschlag anfordern</h3>
                   <Form {...form}>
                     <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
                       <div className="grid grid-cols-2 gap-4">
@@ -581,7 +581,7 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="classic-gradient-bg text-white py-12">
+      <footer className="brand-gradient-bg text-white py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>

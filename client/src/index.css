@@ -15,10 +15,10 @@
   --card-foreground: hsl(211, 19%, 17%);
   --border: hsl(214, 32%, 91%);
   --input: hsl(214, 32%, 91%);
-  --primary: hsl(213, 78%, 32%);
+  --primary: hsl(219, 96%, 33%);
   --primary-foreground: hsl(0, 0%, 100%);
-  --secondary: hsl(213, 50%, 95%);
-  --secondary-foreground: hsl(213, 78%, 32%);
+  --secondary: hsl(219, 50%, 95%);
+  --secondary-foreground: hsl(219, 96%, 33%);
   --accent: hsl(32, 95%, 44%);
   --accent-foreground: hsl(0, 0%, 100%);
   --destructive: hsl(0, 84%, 60%);
@@ -26,11 +26,11 @@
   --ring: hsl(211, 19%, 17%);
   --radius: 0.5rem;
   
-  /* Classic brand colors - Traditional Style */
-  --classic-blue: hsl(213, 78%, 32%);   /* #1e4a72 */
+  /* Brand colors - Customer's Main Color */
+  --brand-blue: hsl(219, 96%, 33%);     /* #0844A9 */
   --classic-orange: hsl(32, 95%, 44%);  /* #e67e22 */
   --classic-gray: hsl(210, 8%, 50%);    /* #7a8591 */
-  --light-blue: hsl(213, 50%, 95%);     /* #f4f7fb */
+  --light-blue: hsl(219, 50%, 95%);     /* #f0f4fb */
   --light-gray: hsl(220, 14%, 96%);     /* #f8f9fa */
   
   /* Cleaning-specific colors */
@@ -71,6 +71,7 @@
   body {
     @apply font-sans antialiased bg-background text-foreground;
     font-family: 'Work Sans', system-ui, -apple-system, sans-serif;
+    color: hsl(0, 0%, 20%);
   }
 
   html {
@@ -174,25 +175,34 @@
     animation: bubbleFloat 2s infinite;
   }
 
-  /* Classic Color Classes */
-  .classic-blue {
-    color: hsl(var(--classic-blue)) !important;
+  /* Brand Color Classes */
+  .brand-blue {
+    color: hsl(var(--brand-blue)) !important;
   }
 
   .classic-orange {
     color: hsl(var(--classic-orange)) !important;
   }
 
-  .classic-blue-bg {
-    background-color: hsl(var(--classic-blue)) !important;
+  .brand-blue-bg {
+    background-color: hsl(var(--brand-blue)) !important;
   }
 
   .classic-orange-bg {
     background-color: hsl(var(--classic-orange)) !important;
   }
 
-  .classic-gradient-bg {
-    background: linear-gradient(135deg, hsl(var(--classic-blue)), hsl(213, 78%, 40%));
+  .brand-gradient-bg {
+    background: linear-gradient(135deg, hsl(var(--brand-blue)), hsl(219, 96%, 40%));
+  }
+
+  /* Text Color Fixes */
+  .text-readable {
+    color: hsl(0, 0%, 20%) !important;
+  }
+
+  .text-white-safe {
+    color: hsl(0, 0%, 100%) !important;
   }
 
   .clean-hover:hover {
