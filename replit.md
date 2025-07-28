@@ -7,11 +7,27 @@ This is a premium, conversion-optimized website for Grema Gebäudeservice GmbH, 
 ## User Preferences
 
 Preferred communication style: Simple, everyday language.
-Design aesthetic: Premium, law firm-style with local focus
+Design aesthetic: **CLASSICAL/TRADITIONAL APPROACH ONLY** - Customer explicitly rejected modern premium design
+Brand color: Use #0844A9 (logo blue) throughout website design
+Typography: Inter font family for consistency 
 Avoid generic service provider templates; emphasize established, trustworthy appearance
+Keep services section unchanged; simplify all other sections for better overview
 
 ## Recent Changes (January 2025)
 
+### Classical Design Transformation (Latest)
+✓ **MAJOR DESIGN PIVOT**: Customer explicitly rejected modern premium aesthetics
+✓ **Font standardization**: Complete switch to Inter font family for all text elements
+✓ **Brand color implementation**: Full website conversion to logo blue (#0844A9) 
+✓ **Text readability fixes**: All unreadable white/gray text issues resolved in "Premium-Partnerschaft" section
+✓ **Hero section simplification**: Classical approach with gray background, Building2 icon, local focus
+✓ **Removed all modern effects**: Glassmorphism, sparkle effects, and premium animations eliminated
+✓ **Typography**: Inter replaces Georgia/system-ui for consistent classical appearance
+✓ **Color scheme**: Gold/anthracite completely replaced with primary blue (#0844A9)
+✓ **Layout simplification**: Simple white cards with subtle shadows instead of modern backdrop effects
+✓ **CTA buttons**: Classical blue styling with opacity hover instead of scale animations
+
+### Previous Premium Design Phase (Archived)
 ✓ Complete homepage redesign with premium aesthetic transformation
 ✓ New color scheme: Anthracite (#2d3748) + Gold (#c17f3e) replacing blue
 ✓ Typography standardization: Only 2 fonts - Crimson Text (serif) + Work Sans (sans-serif)  

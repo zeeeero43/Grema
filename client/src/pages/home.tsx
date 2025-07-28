@@ -879,7 +879,7 @@ export default function Home() {
               </p>
               <a 
                 href="tel:017634446399"
-                className="inline-flex items-center space-x-2 gold-bg text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
+                className="inline-flex items-center space-x-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300"
               >
                 <span>Jetzt kostenlos anrufen!</span>
                 <ArrowRight className="w-5 h-5" />
@@ -901,7 +901,7 @@ export default function Home() {
       </motion.div>
 
       {/* Contact Section */}
-      <section ref={contactRef} id="contact" className="py-32 anthracite-bg text-white">
+      <section ref={contactRef} id="contact" className="py-32 bg-gray-900 text-white">
         <div className="max-w-6xl mx-auto px-6 lg:px-12">
           <motion.div 
             className="text-center mb-20"
@@ -910,12 +910,12 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="text-5xl lg:text-6xl font-serif text-white mb-8 sparkle-effect"
+              className="text-5xl lg:text-6xl font-serif text-white mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={contactInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Bereit für <span className="gold-accent">Premium-Partnerschaft</span>?
+              Bereit für <span className="text-primary">Premium-Partnerschaft</span>?
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-300 max-w-2xl mx-auto"
@@ -959,12 +959,12 @@ export default function Home() {
                     }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="gold-bg p-3 rounded-full flex-shrink-0">
+                      <div className="bg-primary p-3 rounded-full flex-shrink-0">
                         <Phone className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-300 text-sm mb-2">Geschäftsführung persönlich erreichen:</p>
-                        <a href="tel:017634446399" className="text-2xl font-serif font-bold text-white hover:gold-accent transition-colors block">
+                        <a href="tel:017634446399" className="text-2xl font-serif font-bold text-white hover:text-primary transition-colors block">
                           0176 / 3444 6399
                         </a>
                         <p className="text-gray-400 text-sm mt-2">Geschäftszeiten: Mo-Fr: 7:00-19:00 Uhr • Sa: 8:00-16:00 Uhr • Notfall: 24/7</p>
@@ -992,7 +992,7 @@ export default function Home() {
                     }}
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="gold-bg p-3 rounded-full flex-shrink-0">
+                      <div className="bg-primary p-3 rounded-full flex-shrink-0">
                         <MapPin className="w-6 h-6 text-white" />
                       </div>
                       <div className="flex-1">
@@ -1183,7 +1183,7 @@ export default function Home() {
                         </Button>
                         
                         <p className="text-sm text-gray-600 text-center mt-4 leading-relaxed">
-                          <ShieldCheck className="w-4 h-4 mr-1 inline gold-accent" />
+                          <ShieldCheck className="w-4 h-4 mr-1 inline text-primary" />
                           Ihre Daten werden streng vertraulich behandelt. Wir melden uns innerhalb von 24 Stunden bei Ihnen.
                         </p>
                       </div>
@@ -1211,7 +1211,7 @@ export default function Home() {
               animate={faqInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
-              Expertenwissen auf einen <span className="gold-accent">Blick</span>
+              Expertenwissen auf einen <span className="text-primary">Blick</span>
             </motion.h2>
             <motion.p 
               className="text-xl text-gray-600 max-w-2xl mx-auto"
@@ -1276,7 +1276,7 @@ export default function Home() {
                     <h3 className="text-xl font-serif font-bold text-gray-900 pr-4">
                       {faq.question}
                     </h3>
-                    <div className="flex-shrink-0 w-8 h-8 rounded-full gold-bg flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
+                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
                       <ChevronRight className="w-5 h-5 text-white transform rotate-90" />
                     </div>
                   </summary>
@@ -1401,8 +1401,7 @@ export default function Home() {
         >
           <Phone className="w-7 h-7 group-hover:scale-110 transition-transform duration-300" />
           
-          {/* Ripple Effect */}
-          <div className="absolute inset-0 rounded-full bg-yellow-400 opacity-30 animate-ping"></div>
+
           
           {/* Tooltip */}
           <div className="absolute right-full mr-3 px-4 py-2 bg-gray-900 text-white text-sm rounded-lg whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none">
