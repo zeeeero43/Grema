@@ -170,14 +170,14 @@ export default function Home() {
       </header>
 
       {/* Hero Section */}
-      <section id="home" className="brand-gradient-bg text-white">
+      <section id="home" className="brand-gradient-bg">
         <div className="container mx-auto px-4 py-20">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight">
+              <h1 className="text-4xl lg:text-5xl font-bold mb-6 leading-tight text-white">
                 Professionelle Gebäudereinigung in Moers
               </h1>
-              <p className="text-xl mb-8 opacity-90">
+              <p className="text-xl mb-8 text-white opacity-90">
                 Über 15 Jahre Erfahrung in der professionellen Reinigung von Büros, 
                 Praxen und Gewerbeimmobilien. Vertrauen Sie auf unsere Expertise.
               </p>
@@ -201,7 +201,7 @@ export default function Home() {
                 </Button>
               </div>
 
-              <div className="grid grid-cols-3 gap-6 text-center">
+              <div className="grid grid-cols-3 gap-6 text-center text-white">
                 <div>
                   <div className="text-3xl font-bold">15+</div>
                   <div className="text-sm opacity-75">Jahre Erfahrung</div>
@@ -244,43 +244,27 @@ export default function Home() {
             </p>
           </motion.div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: <Building2 className="h-12 w-12 brand-blue" />,
-                title: "Büroreinigung",
-                description: "Regelmäßige professionelle Reinigung von Büroräumen, Besprechungsräumen und Gemeinschaftsbereichen.",
-                image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                icon: <Building2 className="h-8 w-8 brand-blue" />,
+                title: "Unterhalts- & Gewerbereinigung",
+                description: "Regelmäßige Reinigung für Büros, Praxen und Geschäfte"
               },
               {
-                icon: <Sparkles className="h-12 w-12 brand-blue" />,
+                icon: <Sparkles className="h-8 w-8 brand-blue" />,
                 title: "Grundreinigung",
-                description: "Tiefenreinigung für Wohnungen, Büros und Gewerberäume mit modernsten Reinigungsverfahren.",
-                image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                description: "Tiefenreinigung mit professioneller Dampfreinigung"
               },
               {
-                icon: <Camera className="h-12 w-12 brand-blue" />,
-                title: "Fensterreinigung",
-                description: "Professionelle Glasreinigung mit Osmose-Technik für streifenfreie Ergebnisse.",
-                image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                icon: <Camera className="h-8 w-8 brand-blue" />,
+                title: "Fenster- & Glasreinigung",
+                description: "Streifenfreie Reinigung mit Osmose-Technik"
               },
               {
-                icon: <Shield className="h-12 w-12 brand-blue" />,
-                title: "Praxisreinigung",
-                description: "Spezialisierte Reinigung für Arztpraxen und medizinische Einrichtungen nach höchsten Hygienestandards.",
-                image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-              },
-              {
-                icon: <Users className="h-12 w-12 brand-blue" />,
-                title: "Industriereinigung",
-                description: "Professionelle Reinigung von Produktionsstätten und Industrieanlagen.",
-                image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
-              },
-              {
-                icon: <Award className="h-12 w-12 brand-blue" />,
-                title: "Bauschlussreinigung",
-                description: "Gründliche Endreinigung nach Bau- oder Renovierungsarbeiten.",
-                image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=400&q=80"
+                icon: <Shield className="h-8 w-8 brand-blue" />,
+                title: "Treppenhaus- & Hausflurreinigung",
+                description: "Saubere Eingangsbereiche für einen guten ersten Eindruck"
               }
             ].map((service, index) => (
               <motion.div
@@ -288,17 +272,13 @@ export default function Home() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={servicesInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="text-center"
               >
-                <Card className="h-full hover:shadow-lg transition-shadow">
+                <Card className="h-full hover:shadow-lg transition-shadow bg-white">
                   <CardContent className="p-6">
-                    <img 
-                      src={service.image} 
-                      alt={service.title}
-                      className="w-full h-48 object-cover rounded-lg mb-6"
-                    />
-                    <div className="mb-4">{service.icon}</div>
-                    <h3 className="text-xl font-bold mb-3 brand-blue">{service.title}</h3>
-                    <p className="text-gray-600">{service.description}</p>
+                    <div className="mb-4 flex justify-center">{service.icon}</div>
+                    <h3 className="text-lg font-bold mb-3 brand-blue">{service.title}</h3>
+                    <p className="text-gray-600 text-sm">{service.description}</p>
                   </CardContent>
                 </Card>
               </motion.div>
@@ -435,24 +415,24 @@ export default function Home() {
                 </div>
               </div>
 
-              <div className="brand-gradient-bg p-6 rounded-lg text-white">
-                <h4 className="text-xl font-bold mb-4">Warum Grema wählen?</h4>
+              <div className="brand-gradient-bg p-6 rounded-lg">
+                <h4 className="text-xl font-bold mb-4 text-white">Warum Grema wählen?</h4>
                 <ul className="space-y-2">
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-orange-300" />
-                    <span>15+ Jahre Erfahrung</span>
+                    <span className="text-white">15+ Jahre Erfahrung</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-orange-300" />
-                    <span>500+ zufriedene Kunden</span>
+                    <span className="text-white">500+ zufriedene Kunden</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-orange-300" />
-                    <span>Vollständig versichert</span>
+                    <span className="text-white">Vollständig versichert</span>
                   </li>
                   <li className="flex items-center space-x-2">
                     <CheckCircle className="h-4 w-4 text-orange-300" />
-                    <span>Kostenlose Beratung</span>
+                    <span className="text-white">Kostenlose Beratung</span>
                   </li>
                 </ul>
               </div>
@@ -581,25 +561,25 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="brand-gradient-bg text-white py-12">
+      <footer className="brand-gradient-bg py-12">
         <div className="container mx-auto px-4">
           <div className="grid md:grid-cols-3 gap-8">
             <div>
               <div className="flex items-center space-x-2 mb-4">
-                <Building2 className="h-8 w-8" />
+                <Building2 className="h-8 w-8 text-white" />
                 <div>
-                  <h3 className="text-xl font-bold">GREMA</h3>
-                  <p className="text-sm opacity-75">Gebäudeservice GmbH</p>
+                  <h3 className="text-xl font-bold text-white">GREMA</h3>
+                  <p className="text-sm text-white opacity-75">Gebäudeservice GmbH</p>
                 </div>
               </div>
-              <p className="opacity-75">
+              <p className="text-white opacity-75">
                 Ihr zuverlässiger Partner für professionelle Gebäudereinigung in Moers und Umgebung.
               </p>
             </div>
             
             <div>
-              <h4 className="text-lg font-bold mb-4">Kontakt</h4>
-              <div className="space-y-2 opacity-75">
+              <h4 className="text-lg font-bold mb-4 text-white">Kontakt</h4>
+              <div className="space-y-2 text-white opacity-75">
                 <p>📞 0176 34446399</p>
                 <p>✉️ info@grema-gebaeudeservice.de</p>
                 <p>📍 Moers und Umgebung</p>
@@ -607,8 +587,8 @@ export default function Home() {
             </div>
             
             <div>
-              <h4 className="text-lg font-bold mb-4">Leistungen</h4>
-              <div className="space-y-1 opacity-75">
+              <h4 className="text-lg font-bold mb-4 text-white">Leistungen</h4>
+              <div className="space-y-1 text-white opacity-75">
                 <p>• Büroreinigung</p>
                 <p>• Grundreinigung</p>
                 <p>• Fensterreinigung</p>
@@ -617,7 +597,7 @@ export default function Home() {
             </div>
           </div>
           
-          <div className="border-t border-blue-600 mt-8 pt-8 text-center opacity-75">
+          <div className="border-t border-blue-600 mt-8 pt-8 text-center text-white opacity-75">
             <p>&copy; 2025 Grema Gebäudeservice GmbH. Alle Rechte vorbehalten.</p>
           </div>
         </div>
