@@ -21,6 +21,20 @@ const reviews: Review[] = [
     text: "Das Team war pünktlich, freundlich und äußerst gründlich. Besonders beeindruckt hat mich die Sorgfalt, mit der jedes Detail beachtet wurde. Unsere KiTa glänzen förmlich und alle Ecken und Winkel wurden sorgfältig gereinigt."
   },
   {
+    author_name: "Ismail Z.",
+    profile_photo_url: "https://ui-avatars.com/api/?name=Ismail+Z&background=0844A9&color=fff&size=128",
+    rating: 5,
+    relative_time_description: "vor 8 Monaten",
+    text: "Haben ein zuverlässiges Team gebraucht in Raum NRW und sind direkt auf Grema gestoßen durch Empfehlungen. Wir konnten den Auftrag ohne Schwierigkeiten dem Team übergeben. Die Arbeit war klasse und der Kunde war zufrieden. Freut uns ein starken Partner in der Region gefunden zu haben. Würde und könnte ich auf jeden Fall weiter empfehlen."
+  },
+  {
+    author_name: "Ronja K.",
+    profile_photo_url: "https://ui-avatars.com/api/?name=Ronja+K&background=0844A9&color=fff&size=128",
+    rating: 5,
+    relative_time_description: "vor 6 Monaten",
+    text: "Ein absolutes Lob an diese Firma und an das gesamte Team. Wir mussten das gesamte Haus meines Vaters auflösen und haben Grema Gebäudeservice GmbH damit beauftragt. Erst wurden wir absolut kundenfreundlich und kompetent beraten, dann haben wir auch ziemlich schnell den Termin bekommen. Die komplette Auflösung verlief einwandfrei und sauber. Anschließend wurde das Haus noch grundgereinigt und alles war blitzeblank."
+  },
+  {
     author_name: "Sandra K.",
     profile_photo_url: "https://ui-avatars.com/api/?name=Sandra+K&background=0844A9&color=fff&size=128",
     rating: 5,
@@ -204,7 +218,7 @@ export function StaticReviews() {
             rel="noopener noreferrer"
             className="inline-flex items-center space-x-2 text-primary hover:text-primary/80 transition-colors font-medium"
           >
-            <span>5,0 ⭐ • 15 Bewertungen</span>
+            <span>5,0 ⭐ • 17 Bewertungen</span>
           </a>
         </div>
       </div>
