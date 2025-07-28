@@ -45,6 +45,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { GoogleReviews } from "../components/GoogleReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
+import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
 
 export default function Home() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -213,11 +214,11 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="flex justify-between items-center h-20">
             <div className="flex items-center space-x-4">
-              <div className="w-12 h-12 anthracite-bg flex items-center justify-center">
-                <Crown className="w-6 h-6 gold-accent" />
+              <div className="w-12 h-12 bg-primary flex items-center justify-center rounded">
+                <Building2 className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-serif font-bold text-gray-900">Grema</h1>
+                <h1 className="text-2xl font-bold text-gray-900">Grema</h1>
                 <p className="text-sm text-gray-600 tracking-wide">GEBÄUDESERVICE GMBH</p>
               </div>
             </div>
@@ -229,7 +230,7 @@ export default function Home() {
                   e.preventDefault();
                   document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Leistungen
               </a>
@@ -239,7 +240,7 @@ export default function Home() {
                   e.preventDefault();
                   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Über uns
               </a>
@@ -249,7 +250,7 @@ export default function Home() {
                   e.preventDefault();
                   document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Ablauf
               </a>
@@ -259,13 +260,13 @@ export default function Home() {
                   e.preventDefault();
                   document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
                 }}
-                className="text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Bewertungen
               </a>
               <Button 
                 asChild 
-                className="anthracite-bg text-white hover:gold-shine font-bold px-8 py-3 text-lg sparkle-effect"
+                className="bg-primary text-white hover:bg-primary/90 font-semibold px-6 py-2"
               >
                 <a 
                   href="#contact"
@@ -274,8 +275,8 @@ export default function Home() {
                     document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
                   }}
                 >
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  Jetzt kostenlos anrufen!
+                  <Phone className="w-4 h-4 mr-2" />
+                  Kostenlos beraten
                 </a>
               </Button>
             </div>
@@ -315,7 +316,7 @@ export default function Home() {
                   document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
                   setMobileMenuOpen(false);
                 }}
-                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Leistungen
               </a>
@@ -326,7 +327,7 @@ export default function Home() {
                   document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
                   setMobileMenuOpen(false);
                 }}
-                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Über uns
               </a>
@@ -337,7 +338,7 @@ export default function Home() {
                   document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
                   setMobileMenuOpen(false);
                 }}
-                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Ablauf
               </a>
@@ -348,11 +349,11 @@ export default function Home() {
                   document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
                   setMobileMenuOpen(false);
                 }}
-                className="block py-2 text-gray-700 hover:gold-accent transition-colors font-medium cursor-pointer"
+                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
               >
                 Bewertungen
               </a>
-              <Button asChild className="w-full anthracite-bg hover:gold-shine text-white font-bold mt-4 sparkle-effect">
+              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-semibold mt-4">
                 <a 
                   href="#contact"
                   onClick={(e) => {
@@ -361,8 +362,8 @@ export default function Home() {
                     setMobileMenuOpen(false);
                   }}
                 >
-                  <Sparkles className="w-5 h-5 mr-2" />
-                  Jetzt kostenlos anrufen!
+                  <Phone className="w-4 h-4 mr-2" />
+                  Kostenlos beraten
                 </a>
               </Button>
             </motion.div>
@@ -370,66 +371,114 @@ export default function Home() {
         </motion.div>
       </motion.nav>
 
-      {/* Hero Section - Clean Professional Style */}
-      <section className="relative bg-gradient-to-br from-primary to-primary/90 min-h-[70vh] flex items-center text-white">
-        <div className="absolute inset-0 bg-black/20"></div>
-        <div className="relative z-10 max-w-6xl mx-auto px-6 lg:px-12 py-20">
-          <div className="max-w-3xl">
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              GREMA GEBÄUDESERVICE
-            </h1>
-            <h2 className="text-2xl sm:text-3xl font-normal mb-6 opacity-90">
-              Professionelle Gebäudereinigung mit Erfahrung
-            </h2>
-            <p className="text-lg mb-8 opacity-90 leading-relaxed">
-              Seit 2014 vertrauen über 500 Geschäftskunden in Moers und bundesweit 
-              auf unsere zuverlässigen Reinigungsdienstleistungen nach höchsten Qualitätsstandards.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                asChild 
-                size="lg" 
-                className="bg-white text-primary hover:bg-gray-100 px-8 py-3 text-lg font-semibold"
-              >
-                <a href="tel:017634446399" className="flex items-center justify-center">
-                  <Phone className="w-5 h-5 mr-2" />
-                  Jetzt anrufen: 0176 34446399
-                </a>
-              </Button>
-              <Button 
-                asChild 
-                size="lg" 
-                variant="outline"
-                className="border-white text-white hover:bg-white hover:text-primary px-8 py-3 text-lg font-semibold"
-              >
-                <a href="#contact" className="flex items-center justify-center">
-                  <Mail className="w-5 h-5 mr-2" />
-                  Kostenlose Beratung
-                </a>
-              </Button>
-            </div>
+      {/* Hero Section - Classical Layout with Image */}
+      <motion.section 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.8 }}
+        className="py-16 md:py-20 bg-gray-50"
+      >
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Left Column - Text Content */}
+            <motion.div 
+              initial={{ x: -50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              className="order-2 lg:order-1"
+            >
+              <div className="flex items-center mb-6">
+                <div className="w-12 h-12 bg-primary flex items-center justify-center rounded mr-4">
+                  <Building2 className="w-6 h-6 text-white" />
+                </div>
+                <div>
+                  <h1 className="text-2xl font-bold text-gray-900">Grema Gebäudeservice GmbH</h1>
+                  <p className="text-sm text-gray-600">Professionelle Gebäudereinigung</p>
+                </div>
+              </div>
+              
+              <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+                Reinigungsservice<br />
+                für Moers und Umgebung
+              </h2>
+              
+              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
+                Seit 2014 vertrauen Unternehmen in Moers auf unsere zuverlässigen 
+                Reinigungsdienstleistungen. Professionell, termintreu und mit 
+                höchsten Qualitätsstandards.
+              </p>
+              
+              <div className="flex flex-col sm:flex-row gap-4">
+                <Button 
+                  asChild 
+                  size="lg" 
+                  className="bg-primary text-white hover:bg-primary/90 px-8 py-3 text-lg font-semibold transition-colors"
+                >
+                  <a href="tel:017634446399" className="flex items-center justify-center">
+                    <Phone className="w-5 h-5 mr-2" />
+                    Jetzt anrufen: 0176 34446399
+                  </a>
+                </Button>
+                <Button 
+                  asChild 
+                  size="lg" 
+                  variant="outline"
+                  className="border-primary text-primary hover:bg-primary hover:text-white px-8 py-3 text-lg font-semibold transition-colors"
+                >
+                  <a href="#contact" className="flex items-center justify-center">
+                    <Mail className="w-5 h-5 mr-2" />
+                    Kostenlose Beratung
+                  </a>
+                </Button>
+              </div>
+            </motion.div>
+            
+            {/* Right Column - Professional Image */}
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              animate={{ x: 0, opacity: 1 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              className="order-1 lg:order-2"
+            >
+              <div className="relative">
+                <img 
+                  src={heroImage}
+                  alt="Professioneller Reinigungsservice - Grema Gebäudeservice"
+                  className="w-full h-[500px] object-cover rounded-lg shadow-lg"
+                />
+                <div className="absolute inset-0 bg-primary/10 rounded-lg"></div>
+              </div>
+            </motion.div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      {/* Services Section - Simple Grid */}
+      {/* Services Section - Simple Grid with Animations */}
       <section ref={servicesRef} id="services" className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="text-center mb-12">
+          <motion.div 
+            initial={{ y: 50, opacity: 0 }}
+            animate={servicesInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
               Unsere Leistungen
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
               Professionelle Reinigungsdienstleistungen für Unternehmen, Praxen und Gewerbeobjekte
             </p>
-          </div>
+          </motion.div>
           
           {/* Simple Service Grid */}
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div
+              <motion.div
                 key={service.title}
-                className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow"
+                initial={{ y: 50, opacity: 0 }}
+                animate={servicesInView ? { y: 0, opacity: 1 } : { y: 50, opacity: 0 }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-all duration-300 hover:-translate-y-1"
               >
                 <img 
                   src={service.image} 
@@ -445,12 +494,12 @@ export default function Home() {
                   </p>
                   <Button 
                     size="sm"
-                    className="bg-primary text-white hover:bg-primary/90"
+                    className="bg-primary text-white hover:bg-primary/90 transition-colors"
                   >
                     Mehr erfahren
                   </Button>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>
@@ -460,7 +509,11 @@ export default function Home() {
       <section ref={aboutRef} id="about" className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
+            <motion.div
+              initial={{ x: -50, opacity: 0 }}
+              animate={aboutInView ? { x: 0, opacity: 1 } : { x: -50, opacity: 0 }}
+              transition={{ duration: 0.6 }}
+            >
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
                 Warum uns 500+ Unternehmen vertrauen
               </h2>
@@ -470,58 +523,83 @@ export default function Home() {
               </p>
               
               <div className="grid sm:grid-cols-2 gap-6">
-                <div className="bg-white p-6 rounded-lg shadow-sm">
+                <motion.div 
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.1 }}
+                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                >
                   <Shield className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-bold text-gray-900 mb-2">ISO-Zertifiziert</h3>
                   <p className="text-sm text-gray-600">Qualitätsstandards nach DIN ISO 9001</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
+                </motion.div>
+                <motion.div 
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                >
                   <Users className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-bold text-gray-900 mb-2">Geschulte Teams</h3>
                   <p className="text-sm text-gray-600">Regelmäßige Weiterbildung und Zertifizierung</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
+                </motion.div>
+                <motion.div 
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.3 }}
+                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                >
                   <Clock className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-bold text-gray-900 mb-2">Termingenau</h3>
                   <p className="text-sm text-gray-600">Pünktlich und zuverlässig seit 2014</p>
-                </div>
-                <div className="bg-white p-6 rounded-lg shadow-sm">
+                </motion.div>
+                <motion.div 
+                  initial={{ y: 30, opacity: 0 }}
+                  animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 }}
+                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                >
                   <Leaf className="w-8 h-8 text-primary mb-3" />
                   <h3 className="font-bold text-gray-900 mb-2">Umweltfreundlich</h3>
                   <p className="text-sm text-gray-600">Nachhaltige Reinigungsmittel</p>
-                </div>
+                </motion.div>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="bg-primary rounded-lg p-8 text-white">
-              <h3 className="text-2xl font-bold mb-6">Unser Leistungsversprechen</h3>
+            <motion.div 
+              initial={{ x: 50, opacity: 0 }}
+              animate={aboutInView ? { x: 0, opacity: 1 } : { x: 50, opacity: 0 }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+              className="bg-white rounded-lg p-8 border shadow-lg"
+            >
+              <h3 className="text-2xl font-bold mb-6 text-gray-900">Kostenlose Beratung</h3>
               <div className="space-y-4">
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  <span>Kostenlose Beratung und Angebotserstellung</span>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 text-primary" />
+                  <span className="text-gray-700">Kostenlose Beratung und Angebotserstellung</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  <span>Antwort innerhalb von 24 Stunden</span>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 text-primary" />
+                  <span className="text-gray-700">Antwort innerhalb von 24 Stunden</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  <span>Flexible Vertragsgestaltung</span>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 text-primary" />
+                  <span className="text-gray-700">Flexible Vertragsgestaltung</span>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <CheckCircle className="w-5 h-5 flex-shrink-0" />
-                  <span>Qualitätsgarantie bei allen Leistungen</span>
+                  <CheckCircle className="w-5 h-5 flex-shrink-0 text-primary" />
+                  <span className="text-gray-700">Qualitätsgarantie bei allen Leistungen</span>
                 </div>
               </div>
               
-              <div className="mt-8 pt-6 border-t border-white/20">
+              <div className="mt-8 pt-6 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-3xl font-bold">5.0 ⭐</div>
-                  <div className="text-sm opacity-90">Google Bewertung</div>
-                  <div className="text-sm opacity-90">15 Kundenbewertungen</div>
+                  <div className="text-3xl font-bold text-gray-900">5.0 ⭐</div>
+                  <div className="text-sm text-gray-600">Google Bewertung</div>
+                  <div className="text-sm text-gray-600">15 Kundenbewertungen</div>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
