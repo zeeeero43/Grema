@@ -3,8 +3,6 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
-import { getGoogleReviews } from "./googlePlaces";
-
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
@@ -48,8 +46,7 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Get Google Reviews
-  app.get("/api/google-reviews", getGoogleReviews);
+
 
   const httpServer = createServer(app);
   return httpServer;

@@ -43,7 +43,7 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
-import { GoogleReviews } from "../components/GoogleReviews";
+import { StaticReviews } from "../components/StaticReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
@@ -674,7 +674,7 @@ export default function Home() {
         animate={reviewsInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 100 }}
         transition={{ duration: 0.8, ease: "easeOut" }}
       >
-        <GoogleReviews />
+        <StaticReviews />
       </motion.div>
 
       {/* Contact Section - Clean Professional */}
