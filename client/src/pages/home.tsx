@@ -371,110 +371,68 @@ export default function Home() {
       </motion.nav>
 
       {/* Hero Section */}
-      <section className="relative crystal-bg min-h-[95vh] flex items-center overflow-hidden">
-        <div className="absolute inset-0 wipe-animation opacity-20"></div>
-        
-        {/* Premium Background Elements */}
-        <div className="absolute inset-0">
-          <div className="absolute top-20 left-10 w-96 h-96 bg-gradient-to-br from-yellow-400/10 to-transparent rounded-full blur-3xl"></div>
-          <div className="absolute bottom-20 right-10 w-80 h-80 bg-gradient-to-tl from-gray-600/5 to-transparent rounded-full blur-3xl"></div>
-        </div>
-
-        <div className="max-w-4xl mx-auto px-6 lg:px-12 py-32 relative z-10">
-          <div className="text-center space-y-12">
-            {/* Premium Badge */}
-            <motion.div 
-              className="inline-flex items-center space-x-3 bg-white/80 backdrop-blur-sm rounded-full px-6 py-3 shadow-lg"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-            >
-              <Crown className="w-5 h-5 gold-accent" />
-              <span className="text-sm font-medium text-gray-800">Marktführer für Premium-Gebäudereinigung • 15 Jahre Expertise • 5.0⭐ bei Google</span>
-              <div className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></div>
-            </motion.div>
+      <section className="relative bg-gray-50 min-h-[90vh] flex items-center">
+        <div className="max-w-6xl mx-auto px-6 lg:px-12 py-20">
+          <div className="text-center space-y-8">
+            {/* Simple Badge */}
+            <div className="inline-flex items-center space-x-2 bg-white rounded-full px-6 py-2 shadow-sm border">
+              <Building2 className="w-4 h-4 text-primary" />
+              <span className="text-sm font-medium text-gray-700">Professionelle Gebäudereinigung seit 2014</span>
+            </div>
             
             {/* Main Headline */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-serif leading-tight md:leading-[1.1] text-gray-900 mb-8 md:mb-10 px-4 md:px-0">
-                <span className="block">Deutschlands führende</span>
-                <span className="gold-accent sparkle-effect relative block py-2">
-                  Reinigungsexperten
-                  <div className="absolute -inset-2 gold-shine opacity-20 blur-sm"></div>
-                </span>
-                <span className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-normal italic text-gray-700 block mt-4">für Ihr Unternehmen</span>
+            <div>
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 leading-tight">
+                <span className="block">Grema Gebäudeservice GmbH</span>
+                <span className="text-primary block">Ihr Partner für Sauberkeit</span>
               </h1>
               
-              <div className="flex items-start space-x-3 md:space-x-4 mb-8 md:mb-10 px-4 md:px-0">
-                <div className="w-1 h-12 md:h-16 gold-shine sparkle-effect flex-shrink-0 mt-2"></div>
-                <div>
-                  <p className="text-lg md:text-xl text-gray-700 leading-relaxed font-medium mb-3 md:mb-4">
-                    Über 500 Großkunden vertrauen auf unsere <span className="gold-accent font-bold">Premium-Reinigungsstandards</span>.
-                  </p>
-                  <p className="text-sm md:text-base text-gray-600 leading-relaxed">
-                    Von Bürogebäuden bis Industrieanlagen - wir setzen neue Maßstäbe in der professionellen Gebäudereinigung. 
-                    Zertifiziert, versichert und mit 15 Jahren Branchenerfahrung.
-                  </p>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+                Professionelle Gebäudereinigung in Moers und Umgebung. 
+                Seit 2014 vertrauen über 500 Kunden auf unsere zuverlässigen Reinigungsdienstleistungen.
+              </p>
+            </div>
+
+            {/* Simple Stats */}
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-6 text-center">
+              <div className="bg-white rounded-lg p-6 shadow-sm border">
+                <div className="text-3xl font-bold text-gray-900 mb-1">15</div>
+                <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+              </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm border">
+                <div className="text-3xl font-bold text-primary mb-1">5.0</div>
+                <div className="text-sm text-gray-600">⭐ Google Bewertung</div>
+              </div>
+              <div className="bg-white rounded-lg p-6 shadow-sm border">
+                <div className="text-3xl font-bold text-gray-900 mb-1">500+</div>
+                <div className="text-sm text-gray-600">Zufriedene Kunden</div>
+              </div>
+            </div>
+
+            {/* Simple CTA Section */}
+            <div className="flex flex-col items-center space-y-4">
+              <Button 
+                asChild 
+                size="lg" 
+                className="bg-primary text-white px-8 py-3 text-lg font-semibold hover:opacity-90"
+              >
+                <a href="tel:017634446399" className="flex items-center">
+                  <Phone className="w-5 h-5 mr-2" />
+                  Jetzt anrufen: 0176 34446399
+                </a>
+              </Button>
+              
+              <div className="flex items-center gap-6 text-sm text-gray-600">
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                  <span>Kostenlose Beratung</span>
+                </div>
+                <div className="flex items-center space-x-2">
+                  <CheckCircle className="w-4 h-4 text-green-500" />
+                  <span>Angebot in 24h</span>
                 </div>
               </div>
-            </motion.div>
-
-            {/* Enhanced Stats */}
-            <motion.div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 md:px-0"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
-            >
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">15</div>
-                <div className="text-xs md:text-sm font-medium text-gray-600">Jahre Marktführung</div>
-              </div>
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                <div className="text-3xl md:text-4xl font-serif font-bold gold-accent mb-1">5.0</div>
-                <div className="text-xs md:text-sm font-medium text-gray-600">⭐ Google Bewertung</div>
-              </div>
-              <div className="bg-white/90 backdrop-blur-sm rounded-2xl p-4 md:p-6 shadow-lg hover:shadow-xl transition-all duration-300 min-w-[120px] md:min-w-[140px] text-center">
-                <div className="text-3xl md:text-4xl font-serif font-bold text-gray-900 mb-1">500+</div>
-                <div className="text-xs md:text-sm font-medium text-gray-600">Geschäftskunden</div>
-              </div>
-            </motion.div>
-
-            {/* Enhanced CTA Section */}
-            <motion.div 
-              className="flex flex-col items-center space-y-4 pt-4"
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.7 }}
-            >
-              <div className="flex flex-col space-y-4">
-                <Button 
-                  asChild 
-                  size="lg" 
-                  className="gold-shine hover:scale-105 text-white px-6 md:px-10 py-4 md:py-5 text-base md:text-lg font-bold sparkle-effect shadow-2xl w-full sm:w-auto"
-                >
-                  <a href="tel:017634446399" className="flex items-center justify-center">
-                    <Phone className="w-4 h-4 md:w-5 md:h-5 mr-2 md:mr-3" />
-                    <span className="hidden sm:inline">Sofort anrufen: </span>0176 34446399
-                  </a>
-                </Button>
-                
-                <div className="flex flex-col sm:flex-row items-center justify-center gap-2 sm:gap-4 text-xs md:text-sm text-gray-600">
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
-                    <span>Kostenlose Beratung</span>
-                  </div>
-                  <div className="flex items-center space-x-2">
-                    <CheckCircle className="w-3 h-3 md:w-4 md:h-4 text-green-500" />
-                    <span>Angebot in 24h</span>
-                  </div>
-                </div>
-              </div>
-            </motion.div>
+            </div>
           </div>
         </div>
       </section>
@@ -1351,7 +1309,7 @@ export default function Home() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
                 <a 
                   href="tel:017634446399"
-                  className="inline-flex items-center space-x-2 gold-bg text-white px-8 py-4 rounded-full font-semibold hover:scale-105 transition-transform duration-300"
+                  className="inline-flex items-center space-x-2 bg-primary text-white px-8 py-4 rounded-full font-semibold hover:opacity-90 transition-opacity duration-300"
                 >
                   <Phone className="w-5 h-5" />
                   <span>0176 34446399</span>
@@ -1378,8 +1336,8 @@ export default function Home() {
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center border-t border-gray-700 pt-8">
             <div className="flex items-center justify-center space-x-3 mb-4">
-              <div className="w-8 h-8 anthracite-bg flex items-center justify-center">
-                <Crown className="w-4 h-4 gold-accent" />
+              <div className="w-8 h-8 bg-primary flex items-center justify-center rounded">
+                <Crown className="w-4 h-4 text-white" />
               </div>
               <div>
                 <h3 className="text-xl font-serif font-bold text-white">Grema Gebäudeservice GmbH</h3>
@@ -1393,11 +1351,11 @@ export default function Home() {
             
             <div className="flex justify-center items-center space-x-8 text-gray-400 text-sm mb-6">
               <div className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 gold-accent" />
+                <Phone className="w-4 h-4 text-primary" />
                 <a href="tel:017634446399" className="hover:text-white transition-colors">0176/3444 6399</a>
               </div>
               <div className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 gold-accent" />
+                <MapPin className="w-4 h-4 text-primary" />
                 <span>Moers, NRW</span>
               </div>
             </div>
@@ -1423,7 +1381,7 @@ export default function Home() {
       >
         <motion.a
           href="tel:017634446399"
-          className="flex items-center justify-center w-16 h-16 bg-gradient-to-r from-yellow-500 to-yellow-600 text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
+          className="flex items-center justify-center w-16 h-16 bg-primary text-white rounded-full shadow-2xl hover:shadow-3xl transition-all duration-300 group"
           whileHover={{ 
             scale: 1.1, 
             rotate: [0, -10, 10, 0],
