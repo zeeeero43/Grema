@@ -382,7 +382,7 @@ export default function Home() {
             
             {/* Main Headline */}
             <div>
-              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-serif text-gray-900 mb-6 leading-tight">
+              <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 leading-tight">
                 <span className="block">Grema Gebäudeservice GmbH</span>
                 <span className="text-primary block">Ihr Partner für Sauberkeit</span>
               </h1>
@@ -910,7 +910,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="text-5xl lg:text-6xl font-serif text-white mb-8"
+              className="text-5xl lg:text-6xl font-bold text-white mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={contactInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -936,7 +936,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             >
               <div>
-                <h3 className="text-3xl font-serif font-bold text-white mb-8">Ihr direkter Draht zu den Experten</h3>
+                <h3 className="text-3xl font-bold text-white mb-8">Ihr direkter Draht zu den Experten</h3>
                 
                 <div className="space-y-6">
                   <motion.div 
@@ -964,7 +964,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-300 text-sm mb-2">Geschäftsführung persönlich erreichen:</p>
-                        <a href="tel:017634446399" className="text-2xl font-serif font-bold text-white hover:text-primary transition-colors block">
+                        <a href="tel:017634446399" className="text-2xl font-bold text-white hover:text-primary transition-colors block">
                           0176 / 3444 6399
                         </a>
                         <p className="text-gray-400 text-sm mt-2">Geschäftszeiten: Mo-Fr: 7:00-19:00 Uhr • Sa: 8:00-16:00 Uhr • Notfall: 24/7</p>
@@ -997,7 +997,7 @@ export default function Home() {
                       </div>
                       <div className="flex-1">
                         <p className="text-gray-300 text-sm mb-2">Hauptniederlassung:</p>
-                        <p className="text-xl font-serif font-bold text-white">Moers • Düsseldorf • Ruhrgebiet</p>
+                        <p className="text-xl font-bold text-white">Moers • Düsseldorf • Ruhrgebiet</p>
                         <p className="text-gray-400 text-sm">Deutschlandweit tätig • 15+ Standorte</p>
                       </div>
                     </div>
@@ -1206,7 +1206,7 @@ export default function Home() {
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
             <motion.h2 
-              className="text-5xl lg:text-6xl font-serif text-gray-900 mb-8"
+              className="text-5xl lg:text-6xl font-bold text-gray-900 mb-8"
               initial={{ opacity: 0, scale: 0.9 }}
               animate={faqInView ? { opacity: 1, scale: 1 } : { opacity: 0, scale: 0.9 }}
               transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
@@ -1273,7 +1273,7 @@ export default function Home() {
               >
                 <details className="bg-white rounded-2xl shadow-lg overflow-hidden transition-all duration-300 hover:shadow-xl">
                   <summary className="cursor-pointer p-8 flex items-center justify-between hover:bg-gray-50 transition-colors duration-300">
-                    <h3 className="text-xl font-serif font-bold text-gray-900 pr-4">
+                    <h3 className="text-xl font-bold text-gray-900 pr-4">
                       {faq.question}
                     </h3>
                     <div className="flex-shrink-0 w-8 h-8 rounded-full bg-primary flex items-center justify-center transition-transform duration-300 group-open:rotate-180">
@@ -1300,7 +1300,7 @@ export default function Home() {
             className="text-center mt-16"
           >
             <div className="bg-white rounded-2xl p-8 shadow-lg">
-              <h4 className="text-2xl font-serif font-bold text-gray-900 mb-4">
+              <h4 className="text-2xl font-bold text-gray-900 mb-4">
                 Ihre Frage war nicht dabei?
               </h4>
               <p className="text-gray-600 mb-6 text-lg">
@@ -1340,7 +1340,7 @@ export default function Home() {
                 <Crown className="w-4 h-4 text-white" />
               </div>
               <div>
-                <h3 className="text-xl font-serif font-bold text-white">Grema Gebäudeservice GmbH</h3>
+                <h3 className="text-xl font-bold text-white">Grema Gebäudeservice GmbH</h3>
               </div>
             </div>
             
