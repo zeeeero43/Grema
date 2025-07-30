@@ -725,7 +725,7 @@ export default function Home() {
                     </div>
                   </div>
                   
-                  <div className="bg-primary/5 p-6 rounded-lg border border-primary/20">
+                  <div className="bg-white p-6 rounded-lg shadow-sm border">
                     <div className="flex items-center space-x-3 mb-3">
                       <CheckCircle className="w-6 h-6 text-primary" />
                       <h4 className="font-bold text-gray-900">Kostenlose Beratung</h4>
