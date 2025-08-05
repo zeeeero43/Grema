@@ -45,6 +45,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { StaticReviews } from "../components/StaticReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
+import { Link } from "wouter";
 import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
 
@@ -110,38 +111,31 @@ export default function Home() {
   const services = [
     {
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Unterhalts- & Gewerbereinigung",
-      description: "Regelmäßige Reinigung für Büros, Praxen und Geschäfte. Flexible Zeiten und individuelle Reinigungspläne.",
-      href: "/services/unterhaltsreinigung",
+      title: "Büro- & Praxisreinigung",
+      description: "Regelmäßige Unterhaltsreinigung für Büros, Praxen und Geschäfte. Flexible Zeiten und individuelle Reinigungspläne.",
+      href: "/unterhaltsreinigung",
       icon: "🏢"
     },
     {
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Grundreinigung",
-      description: "Tiefenreinigung für Wohnungen, Büros und Gewerbe. Professionelle Dampfreinigung für makellose Sauberkeit.",
-      href: "/services/grundreinigung",
-      icon: "✨"
-    },
-    {
       image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Fenster- & Glasreinigung",
-      description: "Streifenfreie Ergebnisse durch Osmose-Technik und professionelle Steiger-Ausrüstung. Auch schwer erreichbare Bereiche.",
-      href: "/services/fensterreinigung",
+      title: "Fenster & Glas",
+      description: "Streifenfreie Ergebnisse durch modernste Osmose-Technik. Auch für schwer erreichbare Bereiche und Glasfassaden.",
+      href: "/fensterreinigung",
       icon: "🪟"
     },
     {
-      image: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Industriereinigung",
-      description: "Maschinenreinigung, Produktionsanlagen, Chemie-/Säurebehandlungen. Hochdruck- und Heißreinigung für optimale Betriebseffizienz.",
-      href: "/services/industriereinigung",
-      icon: "🏭"
+      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Bauabschlussreinigung",
+      description: "Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustäuben und baustellenbedingten Verschmutzungen.",
+      href: "/bauabschlussreinigung",
+      icon: "🏗️"
     },
     {
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Bauschlussreinigung",
-      description: "Komplette Bauschlussreinigung inklusive Wertstofftrennung und fachgerechter Entsorgung. Übergabebereit in kürzester Zeit.",
-      href: "/services/bauschlussreinigung",
-      icon: "🏗️"
+      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Entrümpelung",
+      description: "Komplette Hausauflösungen und Entrümpelungen. Umweltgerechte Entsorgung und professionelle Abwicklung.",
+      href: "/entruempelung",
+      icon: "🚛"
     }
   ];
 
@@ -482,11 +476,11 @@ export default function Home() {
                   <p className="text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </p>
-                  <Button 
+                  <Button asChild
                     size="sm"
                     className="bg-primary text-white hover:bg-primary/90 transition-colors"
                   >
-                    Mehr erfahren
+                    <Link href={service.href}>Mehr erfahren</Link>
                   </Button>
                 </div>
               </motion.div>
