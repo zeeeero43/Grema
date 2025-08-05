@@ -364,14 +364,133 @@ Eine professionelle Bauabschlussreinigung ist unverzichtbar für eine erfolgreic
   }
 ];
 
+// Zusätzliche Blog-Posts - hier können neue Artikel einfach hinzugefügt werden
+const additionalBlogPosts: BlogPost[] = [
+  {
+    id: "4",
+    slug: "umweltgerechte-entruempelung",
+    title: "Umweltgerechte Entrümpelung: Nachhaltigkeit bei Hausauflösungen",
+    excerpt: "Wie wir bei Entrümpelungen auf Nachhaltigkeit achten. Vom Sortieren wiederverwertbarer Gegenstände bis zur fachgerechten Entsorgung.",
+    content: `
+# Umweltgerechte Entrümpelung: Nachhaltigkeit bei Hausauflösungen
+
+Nachhaltigkeit und Umweltschutz gewinnen auch bei Entrümpelungen und Hausauflösungen zunehmend an Bedeutung. Als zertifizierter Entsorgungsfachbetrieb legen wir großen Wert auf eine umweltgerechte Abwicklung aller Entrümpelungsarbeiten.
+
+## Nachhaltigkeit bei Entrümpelungen
+
+### Der Sortierungsprozess
+
+**Systematische Trennung von Materialien:**
+- Wiederverwertbare Gegenstände identifizieren
+- Wertvolle Materialien separieren
+- Sondermüll fachgerecht sammeln
+- Spendenfähige Artikel aussortieren
+
+**Wertgegenstand-Erkennung:**
+- Antike Möbel und Sammlerobjekte
+- Elektronische Geräte mit Restwert
+- Schmuck und Wertsachen
+- Bücher und Medien
+
+### Fachgerechte Entsorgung
+
+**Verschiedene Entsorgungswege:**
+- Recyclinghöfe für Wertstoffe
+- Sperrmüll ordnungsgemäß anmelden
+- Elektronikschrott zu zertifizierten Sammelstellen
+- Sondermüll umweltgerecht entsorgen
+
+## Fazit
+
+Umweltgerechte Entrümpelung ist nicht nur ein Beitrag zum Klimaschutz, sondern oft auch wirtschaftlich sinnvoll. Durch fachgerechte Sortierung und Verwertung lassen sich Kosten reduzieren und gleichzeitig die Umwelt schonen.
+
+**Planen Sie eine nachhaltige Entrümpelung?** Kontaktieren Sie uns für eine umweltgerechte und kostenoptimierte Lösung.
+    `,
+    date: "5. Januar 2025",
+    author: "Grema Team",
+    category: "Entrümpelung",
+    readTime: "7 Min.",
+    image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    metaDescription: "Umweltgerechte Entrümpelung: Nachhaltige Hausauflösung mit Recycling, Spenden und fachgerechter Entsorgung. Entsorgungsfachbetrieb Moers.",
+    keywords: ["umweltgerechte Entrümpelung", "nachhaltige Hausauflösung", "Recycling", "Entsorgungsfachbetrieb", "Wertstofftrennung"]
+  },
+  {
+    id: "5",
+    slug: "hygienestandards-praxen",
+    title: "Hygienestandards in Praxen: Reinigung im Gesundheitswesen",
+    excerpt: "Besondere Anforderungen an die Reinigung in Arztpraxen und medizinischen Einrichtungen. Desinfektionsprotokolle und Compliance-Standards.",
+    content: `
+# Hygienestandards in Praxen: Reinigung im Gesundheitswesen
+
+Die Reinigung in medizinischen Einrichtungen unterliegt besonderen Hygienevorschriften und erfordert speziell geschultes Personal. Als erfahrener Dienstleister für Praxisreinigung kennen wir die strengen Anforderungen des Gesundheitswesens.
+
+## Gesetzliche Grundlagen
+
+### Wichtige Regelwerke
+
+**Rechtliche Basis für Praxishygiene:**
+- Infektionsschutzgesetz (IfSG)
+- TRBA 250 (Biologische Arbeitsstoffe im Gesundheitswesen)
+- RKI-Richtlinien für Krankenhaushygiene
+- KRINKO-Empfehlungen
+- Medizinproduktegesetz (MPG)
+
+## Fazit
+
+Die Reinigung in medizinischen Einrichtungen erfordert höchste Fachkompetenz und strenge Qualitätskontrollen. Nur durch speziell geschultes Personal und die Einhaltung aller Hygienevorschriften kann ein sicheres Umfeld für Patienten und Personal gewährleistet werden.
+
+**Sie benötigen professionelle Praxisreinigung?** Vertrauen Sie auf unsere Expertise im Gesundheitswesen und jahrelange Erfahrung mit Hygienestandards.
+    `,
+    date: "2. Januar 2025",
+    author: "Grema Team",
+    category: "Praxisreinigung",
+    readTime: "8 Min.",
+    image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    metaDescription: "Hygienestandards Praxisreinigung: Desinfektionsprotokolle, Compliance, IfSG-konforme Reinigung. Professionelle Praxishygiene in Moers.",
+    keywords: ["Praxisreinigung", "Hygienestandards", "Desinfektion", "IfSG", "Medizinische Einrichtungen", "TRBA 250"]
+  },
+  {
+    id: "6",
+    slug: "winterreinigung-herausforderungen",
+    title: "Winterreinigung: Besondere Herausforderungen in der kalten Jahreszeit",
+    excerpt: "Salz, Schneematsch und erhöhter Reinigungsaufwand. Wie wir Ihre Räume auch im Winter makellos sauber halten.",
+    content: `
+# Winterreinigung: Besondere Herausforderungen in der kalten Jahreszeit
+
+Die Wintermonate stellen besondere Anforderungen an die Gebäudereinigung. Streusalz, Schneematsch und erhöhter Schmutzauftrag erfordern angepasste Reinigungsstrategien und spezielle Materialien.
+
+## Typische Winter-Herausforderungen
+
+### Salz und Streumittel
+
+**Aggressive Verschmutzungen:**
+- Streusalz hinterlässt weiße Flecken
+- Korrosive Wirkung auf Bodenbeläge
+- Verstopfung von Abflüssen durch Granulat
+- Fleckenbildung auf Teppichen und Polstern
+
+## Fazit
+
+Winterreinigung erfordert spezielles Know-how und angepasste Strategien. Mit der richtigen Vorbereitung und professionellen Durchführung bleiben Ihre Räume auch in der kalten Jahreszeit einladend und sicher.
+
+**Bereiten Sie Ihr Gebäude optimal auf den Winter vor?** Lassen Sie sich von unseren Winterreinigungs-Spezialisten beraten und profitieren Sie von unserer langjährigen Erfahrung.
+    `,
+    date: "28. Dezember 2024",
+    author: "Grema Team",
+    category: "Winterservice",
+    readTime: "5 Min.",
+    image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+    metaDescription: "Winterreinigung: Salz, Schneematsch und Feuchtigkeit professionell behandeln. Spezielle Reinigungsstrategien für die kalte Jahreszeit in Moers.",
+    keywords: ["Winterreinigung", "Salzflecken", "Schneematsch", "Feuchtigkeit", "Eingangsbereiche", "Winterdienst"]
+  }
+];
+
 export function getBlogPostBySlug(slug: string): BlogPost | undefined {
   const allPosts = getAllBlogPosts();
   return allPosts.find(post => post.slug === slug);
 }
 
 export function getAllBlogPosts(): BlogPost[] {
-  // Import additional posts and combine with main posts
-  const { additionalBlogPosts } = require('./additionalBlogPosts');
   const allPosts = [...blogPosts, ...additionalBlogPosts];
   return allPosts.sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
