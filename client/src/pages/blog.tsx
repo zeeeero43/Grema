@@ -13,6 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
+import { getAllBlogPosts } from "@/data/blogPosts";
 
 export default function Blog() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -22,68 +23,7 @@ export default function Blog() {
     window.scrollTo(0, 0);
   }, []);
 
-  const blogPosts = [
-    {
-      id: 1,
-      title: "Professionelle Büroreinigung in Moers: Was Sie beachten sollten",
-      excerpt: "Erfahren Sie, worauf es bei der Auswahl eines Reinigungsdienstleisters für Ihr Büro ankommt. Von Qualitätsstandards bis zur optimalen Reinigungsfrequenz.",
-      date: "15. Januar 2025",
-      author: "Grema Team",
-      category: "Büroreinigung",
-      readTime: "5 Min.",
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 2,
-      title: "Fensterreinigung mit Osmose-Technik: Streifenfreie Ergebnisse garantiert",
-      excerpt: "Die modernste Technik für kristallklare Fenster. Wie die Osmose-Methode funktioniert und warum sie herkömmlichen Methoden überlegen ist.",
-      date: "12. Januar 2025",
-      author: "Grema Team",
-      category: "Fensterreinigung",
-      readTime: "4 Min.",
-      image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 3,
-      title: "Bauabschlussreinigung: Checkliste für perfekte Abnahme",
-      excerpt: "Nach dem Bau ist vor der Übergabe. Mit unserer Checkliste stellen Sie sicher, dass Ihr Bauprojekt abnahmebereit ist und alle Baustaub-Rückstände entfernt sind.",
-      date: "8. Januar 2025",
-      author: "Grema Team",
-      category: "Baureinigung",
-      readTime: "6 Min.",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 4,
-      title: "Umweltgerechte Entrümpelung: Nachhaltigkeit bei Hausauflösungen",
-      excerpt: "Wie wir bei Entrümpelungen auf Nachhaltigkeit achten. Vom Sortieren wiederverwertbarer Gegenstände bis zur fachgerechten Entsorgung.",
-      date: "5. Januar 2025",
-      author: "Grema Team",
-      category: "Entrümpelung",
-      readTime: "7 Min.",
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 5,
-      title: "Hygienestandards in Praxen: Reinigung im Gesundheitswesen",
-      excerpt: "Besondere Anforderungen an die Reinigung in Arztpraxen und medizinischen Einrichtungen. Desinfektionsprotokolle und Compliance-Standards.",
-      date: "2. Januar 2025",
-      author: "Grema Team",
-      category: "Praxisreinigung",
-      readTime: "8 Min.",
-      image: "https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    },
-    {
-      id: 6,
-      title: "Winterreinigung: Besondere Herausforderungen in der kalten Jahreszeit",
-      excerpt: "Salz, Schneematsch und erhöhter Reinigungsaufwand. Wie wir Ihre Räume auch im Winter makellos sauber halten.",
-      date: "28. Dezember 2024",
-      author: "Grema Team",
-      category: "Winterservice",
-      readTime: "5 Min.",
-      image: "https://images.unsplash.com/photo-1578662996442-48f60103fc96?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-    }
-  ];
+  const blogPosts = getAllBlogPosts();
 
   return (
     <div className="min-h-screen bg-white">
@@ -214,9 +154,11 @@ export default function Blog() {
                       <User className="w-4 h-4 text-gray-400" />
                       <span className="text-sm text-gray-500">{post.author}</span>
                     </div>
-                    <Button variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
-                      Weiterlesen
-                      <ArrowRight className="w-4 h-4 ml-1" />
+                    <Button asChild variant="outline" size="sm" className="border-primary text-primary hover:bg-primary hover:text-white">
+                      <Link href={`/blog/${post.slug}`} className="flex items-center">
+                        Weiterlesen
+                        <ArrowRight className="w-4 h-4 ml-1" />
+                      </Link>
                     </Button>
                   </div>
                 </div>
