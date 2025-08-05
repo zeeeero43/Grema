@@ -88,25 +88,43 @@ export class BlogAutomationService {
 
       console.log(`✅ Content generated in ${Date.now() - contentStartTime}ms`);
 
-      // Generate hero image with DALL-E
-      console.log('🎨 Generating hero image with DALL-E...');
-      const imageStartTime = Date.now();
-      
-      const heroImageUrl = await this.dalleService.generateBlogHeroImage(
-        blogContent.imagePrompt,
-        selectedIdea.category
-      );
+      // Generate hero image with DALL-E (with fallback)
+      let heroImageUrl = '';
+      try {
+        console.log('🎨 Generating hero image with DALL-E...');
+        const imageStartTime = Date.now();
+        
+        heroImageUrl = await this.dalleService.generateBlogHeroImage(
+          blogContent.imagePrompt,
+          selectedIdea.category
+        );
 
-      // Log successful image generation
-      await storage.createAiGenerationLog({
-        type: 'image',
-        prompt: blogContent.imagePrompt,
-        response: heroImageUrl,
-        model: 'dall-e',
-        success: true
-      });
+        // Log successful image generation
+        await storage.createAiGenerationLog({
+          type: 'image',
+          prompt: blogContent.imagePrompt,
+          response: heroImageUrl,
+          model: 'dall-e',
+          success: true
+        });
 
-      console.log(`✅ Image generated in ${Date.now() - imageStartTime}ms`);
+        console.log(`✅ Image generated in ${Date.now() - imageStartTime}ms`);
+      } catch (imageError) {
+        console.warn('⚠️ Image generation failed, continuing without image:', imageError instanceof Error ? imageError.message : imageError);
+        
+        // Log failed image generation
+        await storage.createAiGenerationLog({
+          type: 'image',
+          prompt: blogContent.imagePrompt,
+          response: '',
+          model: 'dall-e',
+          success: false,
+          error: imageError instanceof Error ? imageError.message : 'Unknown error'
+        });
+        
+        // Use a fallback placeholder image or empty string
+        heroImageUrl = '';
+      }
 
       // Create the blog post in database
       const newBlogPost: InsertAutoBlogPost = {
