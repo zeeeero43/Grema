@@ -8,6 +8,7 @@ import Unterhaltsreinigung from "@/pages/unterhaltsreinigung";
 import Fensterreinigung from "@/pages/fensterreinigung";
 import Bauabschlussreinigung from "@/pages/bauabschlussreinigung";
 import Entruempelung from "@/pages/entruempelung";
+import Blog from "@/pages/blog";
 import NotFound from "@/pages/not-found";
 
 const base = import.meta.env.PROD ? "/Grema" : "";
@@ -21,6 +22,7 @@ function Router() {
         <Route path="/fensterreinigung" component={Fensterreinigung} />
         <Route path="/bauabschlussreinigung" component={Bauabschlussreinigung} />
         <Route path="/entruempelung" component={Entruempelung} />
+        <Route path="/blog" component={Blog} />
         <Route component={NotFound} />
       </Switch>
     </WouterRouter>

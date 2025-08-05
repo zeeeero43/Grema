@@ -87,7 +87,7 @@ export default function Unterhaltsreinigung() {
               <img 
                 src={logoImage}
                 alt="Grema Gebäudeservice GmbH Logo" 
-                className="h-10 w-auto"
+                className="h-12 w-auto"
               />
             </Link>
             
@@ -98,6 +98,7 @@ export default function Unterhaltsreinigung() {
               <Link href="/fensterreinigung" className="text-gray-700 hover:text-primary font-medium">Fensterreinigung</Link>
               <Link href="/bauabschlussreinigung" className="text-gray-700 hover:text-primary font-medium">Baureinigung</Link>
               <Link href="/entruempelung" className="text-gray-700 hover:text-primary font-medium">Entrümpelung</Link>
+              <Link href="/blog" className="text-gray-700 hover:text-primary font-medium">Blog</Link>
             </nav>
 
             <div className="hidden md:flex items-center space-x-4">
@@ -127,6 +128,7 @@ export default function Unterhaltsreinigung() {
                 <Link href="/fensterreinigung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Fensterreinigung</Link>
                 <Link href="/bauabschlussreinigung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Baureinigung</Link>
                 <Link href="/entruempelung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Entrümpelung</Link>
+                <Link href="/blog" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
                 <Button asChild className="bg-primary text-white hover:bg-primary/90 w-full">
                   <a href="tel:017634446399" className="flex items-center justify-center">
                     <Phone className="w-4 h-4 mr-2" />

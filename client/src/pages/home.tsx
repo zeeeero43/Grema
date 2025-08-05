@@ -257,6 +257,9 @@ export default function Home() {
               >
                 Bewertungen
               </a>
+              <Link href="/blog" className="text-gray-700 hover:text-primary transition-colors font-medium">
+                Blog
+              </Link>
               <Button 
                 asChild 
                 className="bg-primary text-white hover:bg-primary/90 font-semibold px-6 py-2"
@@ -346,6 +349,13 @@ export default function Home() {
               >
                 Bewertungen
               </a>
+              <Link 
+                href="/blog" 
+                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium" 
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Blog
+              </Link>
               <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-semibold mt-4">
                 <a 
                   href="#contact"
