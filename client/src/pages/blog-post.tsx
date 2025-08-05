@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { useRoute } from "wouter";
+import { useQuery } from "@tanstack/react-query";
 import { 
   Building2, 
   Phone, 
@@ -20,6 +21,23 @@ import { Link } from "wouter";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
 import { getBlogPostBySlug, getAllBlogPosts, type BlogPost } from "@/data/blogPosts";
 
+interface AutoBlogPost {
+  id: number;
+  slug: string;
+  title: string;
+  excerpt: string;
+  content: string;
+  metaDescription: string;
+  keywords: string[];
+  category: string;
+  author: string;
+  readTime: string;
+  image: string;
+  isPublished: boolean;
+  publishedAt: string | null;
+  createdAt: string;
+}
+
 export default function BlogPost() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [match, params] = useRoute("/blog/:slug");
@@ -29,8 +47,38 @@ export default function BlogPost() {
     window.scrollTo(0, 0);
   }, []);
 
-  const post = params?.slug ? getBlogPostBySlug(params.slug) : null;
+  // Try to get automated blog post first
+  const { data: autoData, isLoading: autoLoading } = useQuery({
+    queryKey: ['/api/blog', params?.slug],
+    queryFn: async (): Promise<{ success: boolean; post: AutoBlogPost }> => {
+      const response = await fetch(`/api/blog/${params?.slug}`);
+      if (!response.ok) {
+        throw new Error('Blog post not found');
+      }
+      return response.json();
+    },
+    enabled: !!params?.slug,
+    retry: false,
+  });
+
+  // Get manual blog post as fallback
+  const manualPost = params?.slug ? getBlogPostBySlug(params.slug) : null;
   const otherPosts = getAllBlogPosts().filter(p => p.slug !== params?.slug).slice(0, 3);
+
+  const autoPost = autoData?.success ? autoData.post : null;
+  const post = autoPost || manualPost;
+  const isAutoPost = !!autoPost;
+
+  if (autoLoading) {
+    return (
+      <div className="min-h-screen bg-white flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-primary mx-auto mb-4"></div>
+          <p className="text-gray-600">Artikel wird geladen...</p>
+        </div>
+      </div>
+    );
+  }
 
   if (!post) {
     return (
@@ -174,7 +222,7 @@ export default function BlogPost() {
           <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>{post.date}</span>
+              <span>{isAutoPost ? new Date(post.createdAt).toLocaleDateString('de-DE') : post.date}</span>
             </div>
             <div className="flex items-center space-x-2">
               <User className="w-4 h-4" />
@@ -182,18 +230,23 @@ export default function BlogPost() {
             </div>
             <div className="flex items-center space-x-2">
               <Clock className="w-4 h-4" />
-              <span>{post.readTime} Lesezeit</span>
+              <span>{post.readTime}{isAutoPost ? '' : ' Lesezeit'}</span>
             </div>
           </div>
 
           {/* Hero Image */}
-          <div className="mb-12">
-            <img 
-              src={post.image}
-              alt={post.title}
-              className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-lg"
-            />
-          </div>
+          {post.image && (
+            <div className="mb-12">
+              <img 
+                src={post.image}
+                alt={post.title}
+                className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-lg"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
+            </div>
+          )}
         </div>
       </section>
 
@@ -202,7 +255,9 @@ export default function BlogPost() {
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           <div className="prose prose-lg max-w-none">
             <div 
-              dangerouslySetInnerHTML={{ __html: formatContent(post.content) }}
+              dangerouslySetInnerHTML={{ 
+                __html: isAutoPost ? post.content : formatContent(post.content) 
+              }}
               className="article-content"
             />
           </div>

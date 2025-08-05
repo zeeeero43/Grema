@@ -50,6 +50,12 @@ export default function Blog() {
             </nav>
 
             <div className="hidden md:flex items-center space-x-4">
+              <Link href="/admin/auto-blog">
+                <Button variant="outline" size="sm" className="flex items-center gap-2">
+                  <span>🤖</span>
+                  KI-System
+                </Button>
+              </Link>
               <Button asChild className="bg-primary text-white hover:bg-primary/90">
                 <a href="tel:017634446399" className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
