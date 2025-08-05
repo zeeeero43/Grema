@@ -44,6 +44,7 @@ Keep services section unchanged; simplify all other sections for better overview
 ✓ **Consistent branding**: Brand color #0844A9 and classical design maintained across all pages
 ✓ **Professional imagery**: Hero images and service-specific icons integrated
 ✓ **LSP error resolution**: All TypeScript compilation errors fixed
+✓ **Scroll-to-top functionality**: Pages automatically scroll to top when navigating between service pages
 
 ### Google API Removal & Static Reviews (COMPLETED - January 28, 2025)  
 ✓ **Professional logo integration**: Official Grema logo implemented in header navigation
