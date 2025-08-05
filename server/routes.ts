@@ -3,6 +3,7 @@ import { createServer, type Server } from "http";
 import { storage } from "./storage";
 import { insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
+import { blogScheduler } from "./ai/blogScheduler";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
@@ -46,7 +47,95 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
+  // ========== AUTOMATED BLOG SYSTEM ROUTES ==========
+  
+  // Get all published blog posts
+  app.get("/api/blog", async (req, res) => {
+    try {
+      const limit = parseInt(req.query.limit as string) || 50;
+      const posts = await storage.getAutoBlogPosts(limit);
+      res.json({ success: true, posts });
+    } catch (error) {
+      console.error("Get blog posts error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Fehler beim Laden der Blog-Artikel" 
+      });
+    }
+  });
 
+  // Get single blog post by slug
+  app.get("/api/blog/:slug", async (req, res) => {
+    try {
+      const { slug } = req.params;
+      const post = await storage.getAutoBlogPostBySlug(slug);
+      
+      if (!post) {
+        return res.status(404).json({ 
+          success: false, 
+          message: "Blog-Artikel nicht gefunden" 
+        });
+      }
+      
+      res.json({ success: true, post });
+    } catch (error) {
+      console.error("Get blog post error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Fehler beim Laden des Blog-Artikels" 
+      });
+    }
+  });
+
+  // Manual blog generation trigger (admin only)
+  app.post("/api/admin/generate-blog", async (req, res) => {
+    try {
+      console.log("📝 Manual blog generation requested via API");
+      const result = await blogScheduler.triggerManualGeneration();
+      
+      if (result.success) {
+        res.json({ 
+          success: true, 
+          message: "Blog-Artikel erfolgreich generiert",
+          postId: result.postId 
+        });
+      } else {
+        res.status(500).json({ 
+          success: false, 
+          message: result.error || "Fehler bei der Blog-Generierung" 
+        });
+      }
+    } catch (error) {
+      console.error("Manual blog generation error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Fehler bei der manuellen Blog-Generierung" 
+      });
+    }
+  });
+
+  // Get blog automation status and stats
+  app.get("/api/admin/blog-status", async (req, res) => {
+    try {
+      const status = await blogScheduler.getStatus();
+      res.json({ success: true, ...status });
+    } catch (error) {
+      console.error("Get blog status error:", error);
+      res.status(500).json({ 
+        success: false, 
+        message: "Fehler beim Laden des Blog-Status" 
+      });
+    }
+  });
+
+  // Start the blog automation scheduler
+  console.log("🚀 Initializing automated blog system...");
+  try {
+    await blogScheduler.start();
+    console.log("✅ Blog automation scheduler started successfully");
+  } catch (error) {
+    console.error("❌ Failed to start blog scheduler:", error);
+  }
 
   const httpServer = createServer(app);
   return httpServer;

@@ -1,0 +1,219 @@
+import { DeepSeekService } from './deepseekService';
+import { DalleService } from './dalleService';
+import { storage } from '../storage';
+import { getRandomBlogTopic, getUnusedTopics } from './blogTopics';
+import type { InsertAutoBlogPost, InsertBlogIdea, InsertAiGenerationLog } from '@shared/schema';
+
+export class BlogAutomationService {
+  private deepseekService: DeepSeekService;
+  private dalleService: DalleService;
+  private isGenerating = false;
+
+  constructor() {
+    this.deepseekService = new DeepSeekService();
+    this.dalleService = new DalleService();
+  }
+
+  async initializeBlogIdeas(): Promise<void> {
+    console.log('🌱 Initializing blog topic ideas...');
+    
+    try {
+      const { blogTopicPool } = await import('./blogTopics');
+      
+      // Get existing used topics to avoid duplicates
+      const existingIdeas = await storage.getUnusedBlogIdeas(1000);
+      const existingTopics = existingIdeas.map(idea => idea.topic);
+      
+      // Add new topics that don't exist yet
+      let addedCount = 0;
+      for (const topicIdea of blogTopicPool) {
+        if (!existingTopics.includes(topicIdea.topic)) {
+          const blogIdea: InsertBlogIdea = {
+            topic: topicIdea.topic,
+            category: topicIdea.category,
+            keywords: topicIdea.keywords,
+            isUsed: false
+          };
+          
+          await storage.createBlogIdea(blogIdea);
+          addedCount++;
+        }
+      }
+      
+      console.log(`✅ Added ${addedCount} new blog topic ideas to database`);
+    } catch (error) {
+      console.error('❌ Failed to initialize blog ideas:', error);
+      throw error;
+    }
+  }
+
+  async generateBlogPost(): Promise<{ success: boolean; postId?: number; error?: string }> {
+    if (this.isGenerating) {
+      return { success: false, error: 'Blog generation already in progress' };
+    }
+
+    this.isGenerating = true;
+    console.log('🤖 Starting automated blog post generation...');
+
+    try {
+      // Get an unused blog topic
+      const unusedIdeas = await storage.getUnusedBlogIdeas(1);
+      if (unusedIdeas.length === 0) {
+        console.log('🔄 No unused topics found, reinitializing topic pool...');
+        await this.initializeBlogIdeas();
+        return { success: false, error: 'No unused topics available, please try again' };
+      }
+
+      const selectedIdea = unusedIdeas[0];
+      console.log(`📝 Selected topic: ${selectedIdea.topic}`);
+
+      // Generate blog content with DeepSeek
+      console.log('⚡ Generating content with DeepSeek...');
+      const contentStartTime = Date.now();
+      
+      const blogContent = await this.deepseekService.generateBlogContent({
+        topic: selectedIdea.topic,
+        category: selectedIdea.category,
+        keywords: selectedIdea.keywords
+      });
+
+      // Log successful content generation
+      await storage.createAiGenerationLog({
+        type: 'content',
+        prompt: `Topic: ${selectedIdea.topic}, Category: ${selectedIdea.category}`,
+        response: JSON.stringify(blogContent),
+        model: 'deepseek',
+        success: true
+      });
+
+      console.log(`✅ Content generated in ${Date.now() - contentStartTime}ms`);
+
+      // Generate hero image with DALL-E
+      console.log('🎨 Generating hero image with DALL-E...');
+      const imageStartTime = Date.now();
+      
+      const heroImageUrl = await this.dalleService.generateBlogHeroImage(
+        blogContent.imagePrompt,
+        selectedIdea.category
+      );
+
+      // Log successful image generation
+      await storage.createAiGenerationLog({
+        type: 'image',
+        prompt: blogContent.imagePrompt,
+        response: heroImageUrl,
+        model: 'dall-e',
+        success: true
+      });
+
+      console.log(`✅ Image generated in ${Date.now() - imageStartTime}ms`);
+
+      // Create the blog post in database
+      const newBlogPost: InsertAutoBlogPost = {
+        slug: blogContent.slug,
+        title: blogContent.title,
+        excerpt: blogContent.excerpt,
+        content: blogContent.content,
+        metaDescription: blogContent.metaDescription,
+        keywords: blogContent.keywords,
+        category: selectedIdea.category,
+        author: 'Grema Team',
+        readTime: blogContent.readTime,
+        image: heroImageUrl,
+        imagePrompt: blogContent.imagePrompt,
+        isPublished: false // Will be published after review
+      };
+
+      const createdPost = await storage.createAutoBlogPost(newBlogPost);
+      
+      // Mark the blog idea as used
+      await storage.markBlogIdeaAsUsed(selectedIdea.id);
+
+      console.log(`🎉 Blog post created successfully with ID: ${createdPost.id}`);
+      console.log(`📄 Title: ${createdPost.title}`);
+      console.log(`🔗 Slug: ${createdPost.slug}`);
+
+      return { success: true, postId: createdPost.id };
+
+    } catch (error) {
+      console.error('❌ Blog generation failed:', error);
+      
+      // Log the error
+      await storage.createAiGenerationLog({
+        type: 'content',
+        prompt: 'Automated blog generation',
+        response: '',
+        model: 'automation',
+        success: false,
+        error: error instanceof Error ? error.message : 'Unknown error'
+      });
+
+      return { 
+        success: false, 
+        error: error instanceof Error ? error.message : 'Unknown error occurred' 
+      };
+    } finally {
+      this.isGenerating = false;
+    }
+  }
+
+  async publishPendingPosts(): Promise<number> {
+    try {
+      // Get unpublished posts (basic query, we'll enhance this later)
+      const unpublishedPosts = await storage.getAutoBlogPosts(10);
+      // Note: This is a placeholder - we need to modify the storage method to get unpublished posts
+      
+      let publishedCount = 0;
+      // For now, we'll auto-publish all generated posts
+      // In production, you might want manual review before publishing
+      
+      console.log(`📤 Auto-publishing ${unpublishedPosts.length} pending posts...`);
+      publishedCount = unpublishedPosts.length;
+      
+      return publishedCount;
+    } catch (error) {
+      console.error('❌ Failed to publish pending posts:', error);
+      return 0;
+    }
+  }
+
+  async getGenerationStats(): Promise<{
+    totalGenerated: number;
+    totalPublished: number;
+    todayGenerated: number;
+    lastGeneration?: Date;
+    unusedTopics: number;
+  }> {
+    try {
+      const unusedIdeas = await storage.getUnusedBlogIdeas(1000);
+      const allPosts = await storage.getAutoBlogPosts(1000);
+      
+      // Calculate today's generated posts (simplified)
+      const today = new Date();
+      today.setHours(0, 0, 0, 0);
+      const todayGenerated = allPosts.filter(post => 
+        post.createdAt && new Date(post.createdAt) >= today
+      ).length;
+
+      return {
+        totalGenerated: allPosts.length,
+        totalPublished: allPosts.filter(post => post.isPublished).length,
+        todayGenerated,
+        lastGeneration: allPosts[0]?.createdAt,
+        unusedTopics: unusedIdeas.length
+      };
+    } catch (error) {
+      console.error('❌ Failed to get generation stats:', error);
+      return {
+        totalGenerated: 0,
+        totalPublished: 0,
+        todayGenerated: 0,
+        unusedTopics: 0
+      };
+    }
+  }
+
+  isCurrentlyGenerating(): boolean {
+    return this.isGenerating;
+  }
+}
