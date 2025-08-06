@@ -124,28 +124,79 @@ export function StaticReviews() {
           </p>
         </div>
 
-        {/* Reviews Carousel */}
+        {/* Reviews Carousel - Mobile Optimized */}
         <div className="relative max-w-6xl mx-auto pb-8">
-          {/* Navigation Buttons */}
+          {/* Navigation Buttons - Hidden on mobile, visible on desktop */}
           <Button
             onClick={prevSlide}
-            className="absolute left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="absolute left-2 lg:left-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 lg:w-12 lg:h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300 hidden sm:flex items-center justify-center"
             size="sm"
           >
-            <ChevronLeft className="w-6 h-6" />
+            <ChevronLeft className="w-5 h-5 lg:w-6 lg:h-6" />
           </Button>
           
           <Button
             onClick={nextSlide}
-            className="absolute right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-12 h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300"
+            className="absolute right-2 lg:right-4 top-1/2 -translate-y-1/2 z-20 bg-white/90 hover:bg-white text-gray-900 rounded-full w-10 h-10 lg:w-12 lg:h-12 p-0 shadow-lg hover:shadow-xl transition-all duration-300 hidden sm:flex items-center justify-center"
             size="sm"
           >
-            <ChevronRight className="w-6 h-6" />
+            <ChevronRight className="w-5 h-5 lg:w-6 lg:h-6" />
           </Button>
 
-          {/* Carousel Container */}
-          <div className="mx-8">
-            <div className="flex gap-6 items-start">
+          {/* Carousel Container - Responsive Layout */}
+          <div className="mx-2 sm:mx-8">
+            {/* Mobile: Single Card Layout */}
+            <div className="block sm:hidden">
+              <AnimatePresence mode="wait" key={currentIndex}>
+                <motion.div
+                  initial={{ opacity: 0, x: 100 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  exit={{ opacity: 0, x: -100 }}
+                  transition={{ duration: 0.5 }}
+                  className="bg-white rounded-2xl p-4 shadow-xl"
+                >
+                  {(() => {
+                    const review = reviews[currentIndex];
+                    return (
+                      <>
+                        <div className="flex items-start space-x-3 mb-4">
+                          <div className="relative">
+                            <img
+                              src={review.profile_photo_url}
+                              alt={review.author_name}
+                              className="w-10 h-10 rounded-full object-cover"
+                              loading="lazy"
+                            />
+                          </div>
+                          <div className="flex-1 min-w-0">
+                            <div className="flex items-center justify-between mb-2">
+                              <h4 className="font-bold text-gray-900 text-sm">
+                                {review.author_name}
+                              </h4>
+                              <span className="text-xs text-gray-500">
+                                {review.relative_time_description}
+                              </span>
+                            </div>
+                            <StarRating rating={review.rating} className="mb-2" />
+                          </div>
+                        </div>
+                        
+                        <blockquote className="text-gray-700 text-sm leading-relaxed mb-4 line-clamp-4">
+                          "{review.text}"
+                        </blockquote>
+                        
+                        <div className="flex justify-center">
+                          <GoogleLogo className="w-10 h-4 opacity-60" />
+                        </div>
+                      </>
+                    );
+                  })()}
+                </motion.div>
+              </AnimatePresence>
+            </div>
+
+            {/* Desktop: Three Cards Layout */}
+            <div className="hidden sm:flex gap-4 lg:gap-6 items-start">
               {[0, 1, 2].map((offset) => {
                 const reviewIndex = (currentIndex + offset) % reviews.length;
                 const review = reviews[reviewIndex];
@@ -157,35 +208,36 @@ export function StaticReviews() {
                       animate={{ opacity: 1, x: 0 }}
                       exit={{ opacity: 0, x: -100 }}
                       transition={{ duration: 0.5, delay: offset * 0.1 }}
-                      className="bg-white rounded-2xl p-6 shadow-xl w-1/3 z-10"
+                      className="bg-white rounded-2xl p-4 lg:p-6 shadow-xl w-1/3 z-10"
                     >
-                      <div className="flex items-start space-x-4 mb-4">
+                      <div className="flex items-start space-x-3 lg:space-x-4 mb-4">
                         <div className="relative">
                           <img
                             src={review.profile_photo_url}
                             alt={review.author_name}
-                            className="w-12 h-12 rounded-full object-cover"
+                            className="w-10 h-10 lg:w-12 lg:h-12 rounded-full object-cover"
+                            loading="lazy"
                           />
                         </div>
                         <div className="flex-1 min-w-0">
                           <div className="flex items-center justify-between mb-2">
-                            <h4 className="font-bold text-gray-900 truncate">
+                            <h4 className="font-bold text-gray-900 truncate text-sm lg:text-base">
                               {review.author_name}
                             </h4>
                             <span className="text-xs text-gray-500 whitespace-nowrap ml-2">
                               {review.relative_time_description}
                             </span>
                           </div>
-                          <StarRating rating={review.rating} className="mb-3" />
+                          <StarRating rating={review.rating} className="mb-2 lg:mb-3" />
                         </div>
                       </div>
                       
-                      <blockquote className="text-gray-700 text-sm leading-relaxed italic mb-4">
+                      <blockquote className="text-gray-700 text-xs lg:text-sm leading-relaxed italic mb-4 line-clamp-4">
                         "{review.text}"
                       </blockquote>
                       
                       <div className="flex justify-center">
-                        <GoogleLogo className="w-12 h-5 opacity-60" />
+                        <GoogleLogo className="w-10 h-4 lg:w-12 lg:h-5 opacity-60" />
                       </div>
                     </motion.div>
                   </AnimatePresence>

@@ -254,21 +254,21 @@ export default function Home() {
                 <Button 
                   asChild 
                   size="lg" 
-                  className="bg-primary text-white hover:bg-primary/90 px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-semibold transition-colors"
+                  className="bg-primary text-white hover:bg-primary/90 px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold transition-colors min-h-[48px] touch-manipulation"
                 >
                   <a href="tel:017634446399" className="flex items-center justify-center">
-                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
-                    Jetzt anrufen: 0176 34446399
+                    <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2 flex-shrink-0" />
+                    <span className="truncate">Jetzt anrufen: 0176 34446399</span>
                   </a>
                 </Button>
                 <Button 
                   asChild 
                   size="lg" 
                   variant="outline"
-                  className="border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 lg:px-8 py-2 sm:py-3 text-sm sm:text-base lg:text-lg font-semibold transition-colors"
+                  className="border-primary text-primary hover:bg-primary hover:text-white px-4 sm:px-6 lg:px-8 py-3 sm:py-4 text-sm sm:text-base lg:text-lg font-semibold transition-colors min-h-[48px] touch-manipulation"
                 >
                   <a href="#contact" className="flex items-center justify-center">
-                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mr-2" />
+                    <Mail className="w-4 sm:w-5 h-4 sm:h-5 mr-2 flex-shrink-0" />
                     Kostenlose Beratung
                   </a>
                 </Button>
@@ -314,8 +314,8 @@ export default function Home() {
             </p>
           </motion.div>
           
-          {/* Simple Service Grid */}
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+          {/* Mobile Optimized Service Grid */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
             {services.map((service, index) => (
               <motion.div
                 key={service.title}
@@ -331,16 +331,16 @@ export default function Home() {
                   loading="lazy"
                   decoding="async"
                 />
-                <div className="p-6">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="p-4 sm:p-6">
+                  <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-3">
                     {service.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-sm sm:text-base text-gray-600 mb-4 leading-relaxed">
                     {service.description}
                   </p>
                   <Button asChild
                     size="sm"
-                    className="bg-primary text-white hover:bg-primary/90 transition-colors"
+                    className="bg-primary text-white hover:bg-primary/90 transition-colors min-h-[40px] touch-manipulation"
                   >
                     <Link href={service.href}>Mehr erfahren</Link>
                   </Button>
@@ -373,21 +373,21 @@ export default function Home() {
                   initial={{ y: 30, opacity: 0 }}
                   animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.1 }}
-                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <Shield className="w-8 h-8 text-primary mb-3" />
-                  <h3 className="font-bold text-gray-900 mb-2">ISO-Zertifiziert</h3>
-                  <p className="text-sm text-gray-600">Qualitätsstandards nach DIN ISO 9001</p>
+                  <Shield className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3" />
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">ISO-Zertifiziert</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">Qualitätsstandards nach DIN ISO 9001</p>
                 </motion.div>
                 <motion.div 
                   initial={{ y: 30, opacity: 0 }}
                   animate={aboutInView ? { y: 0, opacity: 1 } : { y: 30, opacity: 0 }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="bg-white p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
+                  className="bg-white p-4 sm:p-6 rounded-lg shadow-sm hover:shadow-md transition-shadow"
                 >
-                  <Users className="w-8 h-8 text-primary mb-3" />
-                  <h3 className="font-bold text-gray-900 mb-2">Geschulte Teams</h3>
-                  <p className="text-sm text-gray-600">Regelmäßige Weiterbildung und Zertifizierung</p>
+                  <Users className="w-6 h-6 sm:w-8 sm:h-8 text-primary mb-3" />
+                  <h3 className="font-bold text-gray-900 mb-2 text-sm sm:text-base">Geschulte Teams</h3>
+                  <p className="text-xs sm:text-sm text-gray-600">Regelmäßige Weiterbildung und Zertifizierung</p>
                 </motion.div>
                 <motion.div 
                   initial={{ y: 30, opacity: 0 }}
@@ -511,11 +511,11 @@ export default function Home() {
             <Button 
               asChild 
               size="lg" 
-              className="bg-primary text-white hover:bg-primary/90 px-8 py-3 text-lg"
+              className="bg-primary text-white hover:bg-primary/90 px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg min-h-[48px] touch-manipulation"
             >
-              <a href="tel:017634446399" className="flex items-center">
-                <Phone className="w-5 h-5 mr-2" />
-                Jetzt anrufen: 0176 34446399
+              <a href="tel:017634446399" className="flex items-center justify-center">
+                <Phone className="w-4 sm:w-5 h-4 sm:h-5 mr-2 flex-shrink-0" />
+                <span className="truncate">Jetzt anrufen: 0176 34446399</span>
               </a>
             </Button>
           </div>
@@ -545,24 +545,24 @@ export default function Home() {
             </p>
           </div>
           
-          <div className="grid lg:grid-cols-2 gap-12">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12">
             {/* Contact Info */}
-            <div className="space-y-8">
+            <div className="space-y-6 lg:space-y-8">
               <div>
                 <h3 className="text-2xl font-bold text-gray-900 mb-6">Kontakt & Anfahrt</h3>
                 
                 <div className="space-y-6">
-                  <div className="bg-white p-6 rounded-lg shadow-sm border">
-                    <div className="flex items-start space-x-4">
-                      <div className="bg-primary p-3 rounded-full flex-shrink-0">
-                        <Phone className="w-6 h-6 text-white" />
+                  <div className="bg-white p-4 sm:p-6 rounded-lg shadow-sm border">
+                    <div className="flex items-start space-x-3 sm:space-x-4">
+                      <div className="bg-primary p-2 sm:p-3 rounded-full flex-shrink-0">
+                        <Phone className="w-4 sm:w-6 h-4 sm:h-6 text-white" />
                       </div>
                       <div className="flex-1">
-                        <h4 className="font-bold text-gray-900 mb-1">Telefon</h4>
-                        <a href="tel:017634446399" className="text-xl font-bold text-primary hover:underline">
+                        <h4 className="font-bold text-gray-900 mb-1 text-sm sm:text-base">Telefon</h4>
+                        <a href="tel:017634446399" className="text-lg sm:text-xl font-bold text-primary hover:underline touch-manipulation">
                           0176 / 3444 6399
                         </a>
-                        <p className="text-sm text-gray-600 mt-1">Mo-Fr: 7:00-19:00 • Sa: 8:00-16:00</p>
+                        <p className="text-xs sm:text-sm text-gray-600 mt-1">Mo-Fr: 7:00-19:00 • Sa: 8:00-16:00</p>
                       </div>
                     </div>
                   </div>
@@ -711,7 +711,7 @@ export default function Home() {
                     
                     <Button 
                       type="submit" 
-                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3"
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 min-h-[48px] touch-manipulation"
                       disabled={contactMutation.isPending}
                     >
                       {contactMutation.isPending ? (
@@ -785,17 +785,17 @@ export default function Home() {
             ].map((faq, index) => (
               <div key={index} className="bg-white rounded-lg shadow-sm border">
                 <details className="group">
-                  <summary className="cursor-pointer p-6 flex items-center justify-between hover:bg-gray-50">
-                    <h3 className="font-bold text-gray-900">
+                  <summary className="cursor-pointer p-4 sm:p-6 flex items-start sm:items-center justify-between hover:bg-gray-50 touch-manipulation min-h-[56px]">
+                    <h3 className="font-bold text-gray-900 text-sm sm:text-base leading-tight pr-4">
                       {faq.question}
                     </h3>
-                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center transition-transform group-open:rotate-180">
-                      <ChevronRight className="w-4 h-4 text-white transform rotate-90" />
+                    <div className="w-6 h-6 rounded-full bg-primary flex items-center justify-center transition-transform group-open:rotate-180 flex-shrink-0 mt-1 sm:mt-0">
+                      <ChevronRight className="w-3 h-3 sm:w-4 sm:h-4 text-white transform rotate-90" />
                     </div>
                   </summary>
-                  <div className="px-6 pb-6">
+                  <div className="px-4 sm:px-6 pb-4 sm:pb-6">
                     <div className="border-t border-gray-100 pt-4">
-                      <p className="text-gray-600 leading-relaxed">
+                      <p className="text-gray-600 leading-relaxed text-sm sm:text-base">
                         {faq.answer}
                       </p>
                     </div>
@@ -807,27 +807,27 @@ export default function Home() {
 
           {/* Simple CTA */}
           <div className="text-center mt-12">
-            <div className="bg-gray-50 rounded-lg p-8">
-              <h4 className="text-xl font-bold text-gray-900 mb-4">
+            <div className="bg-gray-50 rounded-lg p-6 sm:p-8">
+              <h4 className="text-lg sm:text-xl font-bold text-gray-900 mb-4">
                 Weitere Fragen?
               </h4>
-              <p className="text-gray-600 mb-6">
+              <p className="text-sm sm:text-base text-gray-600 mb-6">
                 Rufen Sie uns an oder schreiben Sie uns – wir helfen gerne weiter.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button asChild className="bg-primary text-white hover:bg-primary/90">
-                  <a href="tel:017634446399" className="flex items-center">
-                    <Phone className="w-4 h-4 mr-2" />
-                    0176 34446399
+              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center">
+                <Button asChild className="bg-primary text-white hover:bg-primary/90 min-h-[44px] touch-manipulation">
+                  <a href="tel:017634446399" className="flex items-center justify-center">
+                    <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
+                    <span className="truncate">0176 34446399</span>
                   </a>
                 </Button>
                 <Button 
                   variant="outline" 
                   asChild 
-                  className="border-gray-300 text-gray-700 hover:bg-gray-50"
+                  className="border-primary text-primary hover:bg-primary hover:text-white min-h-[44px] touch-manipulation"
                 >
-                  <a href="#contact" className="flex items-center">
-                    <Mail className="w-4 h-4 mr-2" />
+                  <a href="#contact" className="flex items-center justify-center">
+                    <Mail className="w-4 h-4 mr-2 flex-shrink-0" />
                     Nachricht senden
                   </a>
                 </Button>
