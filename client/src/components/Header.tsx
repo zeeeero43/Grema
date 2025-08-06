@@ -51,29 +51,34 @@ export function Header({ currentPage }: HeaderProps) {
               Startseite
             </Link>
             
-            {/* Services Dropdown */}
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <button 
-                  className={`flex items-center font-medium ${isServicePage ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}
-                >
-                  Dienstleistungen
-                  <ChevronDown className="w-4 h-4 ml-1" />
-                </button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent align="start" className="w-48">
-                {services.map((service) => (
-                  <DropdownMenuItem key={service.href} asChild>
+            {/* Services Dropdown - Hover Based */}
+            <div className="relative group">
+              <button 
+                className={`flex items-center font-medium ${isServicePage ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}
+              >
+                Dienstleistungen
+                <ChevronDown className="w-4 h-4 ml-1 transition-transform group-hover:rotate-180" />
+              </button>
+              
+              {/* Dropdown Menu */}
+              <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
+                <div className="py-2">
+                  {services.map((service) => (
                     <Link 
+                      key={service.href}
                       href={service.href}
-                      className={`w-full font-medium ${location === service.href ? 'text-primary bg-primary/10' : 'text-gray-700 hover:text-primary'}`}
+                      className={`block px-4 py-3 text-sm font-medium transition-colors ${
+                        location === service.href 
+                          ? 'text-primary bg-primary/10' 
+                          : 'text-gray-700 hover:text-primary hover:bg-gray-50'
+                      }`}
                     >
                       {service.label}
                     </Link>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
+                  ))}
+                </div>
+              </div>
+            </div>
             
             <Link 
               href="/blog" 

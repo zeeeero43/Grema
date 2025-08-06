@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
-import { Phone, Mail, CheckCircle, Zap, Shield, Settings, Users, ArrowRight } from "lucide-react";
+import { Phone, Mail, CheckCircle, Zap, Shield, Settings, Users, ArrowRight, MapPin, Loader2 } from "lucide-react";
 import { Link } from "wouter";
 
 export default function Sonderreinigung() {
@@ -189,131 +189,209 @@ export default function Sonderreinigung() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-16 md:py-20 bg-white">
-        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+      <section id="contact" className="py-16 md:py-20 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
-              Kostenloses Angebot anfordern
+            <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
+              Kontakt aufnehmen
             </h2>
-            <p className="text-lg text-gray-600">
-              Schildern Sie uns Ihr Reinigungsproblem - wir finden die passende Lösung für Ihre Sonderreinigung.
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+              Haben Sie Fragen oder benötigen Sie ein Angebot? Wir sind gerne für Sie da.
             </p>
           </div>
-
-          <div className="bg-gray-50 rounded-xl p-8">
-            <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <FormField
-                    control={form.control}
-                    name="name"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-700 font-medium">Name *</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            placeholder="Ihr vollständiger Name"
-                            className="bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                          />
-                        </FormControl>
-                        <FormMessage className="text-red-500" />
-                      </FormItem>
-                    )}
-                  />
-
-                  <FormField
-                    control={form.control}
-                    name="email"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel className="text-gray-700 font-medium">E-Mail *</FormLabel>
-                        <FormControl>
-                          <Input
-                            {...field}
-                            type="email"
-                            placeholder="ihre.email@beispiel.de"
-                            className="bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                          />
-                        </FormControl>
-                        <FormMessage className="text-red-500" />
-                      </FormItem>
-                    )}
-                  />
-                </div>
-
-                <FormField
-                  control={form.control}
-                  name="phone"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Telefon (optional)</FormLabel>
-                      <FormControl>
-                        <Input
-                          {...field}
-                          value={field.value || ""}
-                          type="tel"
-                          placeholder="Ihre Telefonnummer für Rückfragen"
-                          className="bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
-
-                <FormField
-                  control={form.control}
-                  name="message"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Beschreibung der Reinigungsaufgabe</FormLabel>
-                      <FormControl>
-                        <Textarea
-                          {...field}
-                          placeholder="Beschreiben Sie detailliert Art und Umfang der benötigten Sonderreinigung..."
-                          rows={4}
-                          className="bg-white border border-gray-300 focus:border-primary focus:ring-2 focus:ring-primary/20"
-                        />
-                      </FormControl>
-                      <FormMessage className="text-red-500" />
-                    </FormItem>
-                  )}
-                />
-
-                <div className="flex flex-col sm:flex-row gap-4">
-                  <Button 
-                    type="submit" 
-                    size="lg" 
-                    disabled={isSubmitting}
-                    className="flex-1 bg-primary text-white hover:bg-primary/90 disabled:opacity-50"
-                  >
-                    {isSubmitting ? "Wird gesendet..." : "Angebot anfordern"}
-                    {!isSubmitting && <ArrowRight className="w-5 h-5 ml-2" />}
-                  </Button>
+          
+          <div className="grid lg:grid-cols-2 gap-12">
+            {/* Contact Info */}
+            <div className="space-y-8">
+              <div>
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Kontakt & Anfahrt</h3>
+                
+                <div className="space-y-6">
+                  <div className="bg-white p-6 rounded-lg shadow-sm border">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-primary p-3 rounded-full flex-shrink-0">
+                        <Phone className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900 mb-1">Telefon</h4>
+                        <a href="tel:017634446399" className="text-xl font-bold text-primary hover:underline">
+                          0176 / 3444 6399
+                        </a>
+                        <p className="text-sm text-gray-600 mt-1">Mo-Fr: 7:00-19:00 • Sa: 8:00-16:00</p>
+                      </div>
+                    </div>
+                  </div>
                   
-                  <Button asChild size="lg" variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-white">
-                    <a href="tel:017634446399" className="flex items-center justify-center">
-                      <Phone className="w-5 h-5 mr-2" />
-                      Sofort anrufen
-                    </a>
-                  </Button>
+                  <div className="bg-white p-6 rounded-lg shadow-sm border">
+                    <div className="flex items-start space-x-4">
+                      <div className="bg-primary p-3 rounded-full flex-shrink-0">
+                        <MapPin className="w-6 h-6 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <h4 className="font-bold text-gray-900 mb-1">Standort</h4>
+                        <p className="text-gray-900">Grema Gebäudeservice GmbH</p>
+                        <p className="text-gray-600">Moers, Düsseldorf & Ruhrgebiet</p>
+                        <p className="text-sm text-gray-600">Deutschlandweit tätig</p>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="bg-white p-6 rounded-lg shadow-sm border">
+                    <div className="flex items-center space-x-3 mb-3">
+                      <CheckCircle className="w-6 h-6 text-primary" />
+                      <h4 className="font-bold text-gray-900">Kostenlose Beratung</h4>
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">
+                      Lassen Sie sich unverbindlich beraten. Wir analysieren Ihren Bedarf 
+                      und erstellen Ihnen ein maßgeschneidertes Angebot.
+                    </p>
+                  </div>
                 </div>
-              </form>
-            </Form>
-          </div>
-
-          {/* Contact Info */}
-          <div className="mt-12 text-center">
-            <h3 className="text-xl font-bold text-gray-900 mb-4">Direkter Kontakt</h3>
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center">
-              <div className="flex items-center text-gray-600">
-                <Phone className="w-5 h-5 mr-2 text-primary" />
-                <span className="font-medium">0176 34446399</span>
               </div>
-              <div className="flex items-center text-gray-600">
-                <Mail className="w-5 h-5 mr-2 text-primary" />
-                <span className="font-medium">info@grema-gebaeudeservice.de</span>
+            </div>
+            
+            {/* Contact Form */}
+            <div>
+              <div className="bg-white rounded-lg shadow-sm border p-8">
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">Angebot anfordern</h3>
+                  
+                <Form {...form}>
+                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="name"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-gray-700 font-medium">Name *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                placeholder="Max Mustermann" 
+                                className="border-gray-300 focus:border-primary focus:ring-primary"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="email"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-gray-700 font-medium">E-Mail *</FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="email"
+                                placeholder="mail@beispiel.de" 
+                                className="border-gray-300 focus:border-primary focus:ring-primary"
+                                {...field} 
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <div className="grid md:grid-cols-2 gap-6">
+                      <FormField
+                        control={form.control}
+                        name="phone"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-gray-700 font-medium">Telefon</FormLabel>
+                            <FormControl>
+                              <Input 
+                                type="tel"
+                                placeholder="0123 456789" 
+                                className="border-gray-300 focus:border-primary focus:ring-primary"
+                                {...field}
+                                value={field.value || ""}
+                              />
+                            </FormControl>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                      
+                      <FormField
+                        control={form.control}
+                        name="service"
+                        render={({ field }) => (
+                          <FormItem>
+                            <FormLabel className="text-gray-700 font-medium">Interesse</FormLabel>
+                            <Select onValueChange={field.onChange} defaultValue={field.value}>
+                              <FormControl>
+                                <SelectTrigger className="border-gray-300 focus:border-primary focus:ring-primary">
+                                  <SelectValue placeholder="Bitte auswählen..." />
+                                </SelectTrigger>
+                              </FormControl>
+                              <SelectContent>
+                                <SelectItem value="unterhaltsreinigung">Unterhaltsreinigung</SelectItem>
+                                <SelectItem value="glas-rahmenreinigung">Glas- & Rahmenreinigung</SelectItem>
+                                <SelectItem value="sonderreinigung">Sonderreinigung</SelectItem>
+                                <SelectItem value="bauabschlussreinigung">Bauabschlussreinigung</SelectItem>
+                                <SelectItem value="entruempelung">Entrümpelung</SelectItem>
+                                <SelectItem value="treppenhausreinigung">Treppenhausreinigung</SelectItem>
+                                <SelectItem value="beratung">Persönliche Beratung</SelectItem>
+                              </SelectContent>
+                            </Select>
+                            <FormMessage />
+                          </FormItem>
+                        )}
+                      />
+                    </div>
+                    
+                    <FormField
+                      control={form.control}
+                      name="message"
+                      render={({ field }) => (
+                        <FormItem>
+                          <FormLabel className="text-gray-700 font-medium">Nachricht</FormLabel>
+                          <FormControl>
+                            <Textarea 
+                              placeholder="Beschreiben Sie uns gerne Ihr Anliegen..."
+                              rows={4}
+                              className="border-gray-300 focus:border-primary focus:ring-primary" 
+                              {...field}
+                            />
+                          </FormControl>
+                          <FormMessage />
+                        </FormItem>
+                      )}
+                    />
+                    
+                    <div className="flex flex-col sm:flex-row gap-4">
+                      <Button 
+                        type="submit" 
+                        disabled={contactMutation.isPending} 
+                        className="flex-1 bg-primary text-white hover:bg-primary/90 transition-colors"
+                      >
+                        {contactMutation.isPending ? (
+                          <>
+                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                            Wird gesendet...
+                          </>
+                        ) : (
+                          <>
+                            Kostenloses Angebot anfordern
+                            <ArrowRight className="w-4 h-4 ml-2" />
+                          </>
+                        )}
+                      </Button>
+                      
+                      <Button asChild variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-white">
+                        <a href="tel:017634446399" className="flex items-center justify-center">
+                          <Phone className="w-4 h-4 mr-2" />
+                          Jetzt anrufen
+                        </a>
+                      </Button>
+                    </div>
+                  </form>
+                </Form>
               </div>
             </div>
           </div>
