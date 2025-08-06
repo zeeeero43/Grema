@@ -431,7 +431,13 @@ export default function BlogPost() {
                     <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
                       <div className="flex items-center space-x-1">
                         <Calendar className="w-4 h-4" />
-                        <span>{relatedPost.date}</span>
+                        <span>{
+                          isAutoPost && 'publishedAt' in relatedPost 
+                            ? new Date(relatedPost.publishedAt || relatedPost.createdAt).toLocaleDateString('de-DE')
+                            : 'date' in relatedPost 
+                            ? relatedPost.date 
+                            : new Date().toLocaleDateString('de-DE')
+                        }</span>
                       </div>
                       <div className="flex items-center space-x-1">
                         <Clock className="w-4 h-4" />
