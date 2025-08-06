@@ -43,36 +43,47 @@ export class TopicGenerationService {
   }
 
   private buildTopicGenerationPrompt(usedTopics: string[], usedCategories: Record<string, number>, count: number): string {
+    const cities = ['Moers', 'Duisburg', 'Mülheim an der Ruhr', 'Krefeld', 'Essen', 'Düsseldorf'];
+    const selectedCities = cities.slice(0, Math.min(3, cities.length)).join(', ');
+    
     return `
-Du bist ein SEO-Experte für eine deutsche Gebäudereinigungsfirma (Grema Gebäudeservice GmbH aus Moers).
+Du bist ein lokaler SEO-Experte für eine deutsche Gebäudereinigungsfirma (Grema Gebäudeservice GmbH aus Moers).
 
-FIRMEN-SERVICES:
+🏢 FIRMEN-SERVICES:
 1. Unterhaltsreinigung (Büro & Praxis)
 2. Fensterreinigung (mit Osmose-Technik)
 3. Bauabschlussreinigung 
 4. Entrümpelung & Haushaltsauflösung
 
+🌍 LOKALE SEO-GEBIETE (FÜR BESSERE RANKINGS):
+${cities.join(', ')}
+
 BEREITS VERWENDETE THEMEN (DIESE NICHT WIEDERHOLEN):
 ${usedTopics.slice(0, 20).map(topic => `- ${topic}`).join('\n')}
 
-KATEGORIEN-VERTEILUNG:
+📊 KATEGORIEN-VERTEILUNG OPTIMIEREN:
 ${Object.entries(usedCategories).map(([cat, count]) => `${cat}: ${count} Artikel`).join(', ')}
 
-AUFGABE: Generiere ${count} völlig neue, noch nicht behandelte Blog-Themen.
+🎯 AUFGABE: Generiere ${count} völlig neue Blog-Themen mit lokalem SEO-Fokus.
 
-TITEL-ANFORDERUNGEN:
+🔍 TITEL-ANFORDERUNGEN:
 ⚠️ SCHREIBE TITEL WIE MENSCHEN SIE BEI GOOGLE SUCHEN ⚠️
 
-VERWENDE DIESE FORMATE:
-✅ "Was kostet [Service]?" 
-✅ "Wie [Problem lösen]?"
-✅ "[Service] Tipps für [Zielgruppe]"
-✅ "Wann sollte man [Service] beauftragen?"
-✅ "[Problem] - So geht's richtig"
+✅ VERWENDE DIESE SUCHFREUNDLICHEN FORMATE:
+• "Was kostet [Service] in [Stadt]?" 
+• "Wie [Problem lösen] in [Region]?"
+• "[Service] [Stadt] - Tipps für [Zielgruppe]"
+• "Wann sollte man [Service] in [Stadt] beauftragen?"
+• "[Problem] [Stadt] - So geht's richtig"
+• "[Service] Anbieter [Stadt] - Worauf achten?"
 
-KONKRETE BEISPIELE:
-"Büroreinigung Kosten - Was zahlt man pro Quadratmeter?"
-"Fenster putzen ohne Streifen - Welche Methode ist am besten?"
+🏆 LOKALE SEO-BEISPIELE:
+"Büroreinigung Moers - Was kostet professionelle Reinigung?"
+"Fensterreinigung Duisburg - Welche Methode ist streifenfrei?"
+"Bauabschlussreinigung Essen - Wann den Profi beauftragen?"
+"Entrümpelung Krefeld - Kosten und Ablauf im Überblick"
+"Praxisreinigung Düsseldorf - Hygiene-Standards einhalten"
+"Haushaltsauflösung Mülheim - Was kostet der Service?"
 "Baustaub entfernen nach Renovierung - Tipps vom Profi"
 "Wohnung entrümpeln lassen - Ablauf und Kosten"
 "Praxisreinigung - Wie oft ist Desinfektion nötig?"

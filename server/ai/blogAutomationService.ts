@@ -39,7 +39,17 @@ export class BlogAutomationService {
 
     try {
       // Ensure we have enough topics available (generate new ones if needed)
-      await this.topicGenerationService.ensureTopicAvailability(3);
+      await this.topicGenerationService.ensureTopicAvailability(5);
+      
+      console.log('📊 Checking topic pool status...');
+      const allUnusedTopics = await storage.getUnusedBlogIdeas(20);
+      console.log(`📝 Available topics: ${allUnusedTopics.length} unused (including ${allUnusedTopics.filter(t => t.topic.includes('Moers') || t.topic.includes('Duisburg') || t.topic.includes('Essen')).length} with local SEO)`);
+      
+      // If we're running low on topics (less than 8), generate a larger batch
+      if (allUnusedTopics.length < 8) {
+        console.log('🔄 Topic pool running low, generating fresh batch with local SEO...');
+        await this.topicGenerationService.ensureTopicAvailability(12);
+      }
       
       // Get an unused blog topic
       const unusedIdeas = await storage.getUnusedBlogIdeas(1);
