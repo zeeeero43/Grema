@@ -30,7 +30,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
-import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
+import heroImage from "@assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg";
 
 export default function Unterhaltsreinigung() {
   const { toast } = useToast();
@@ -133,7 +133,7 @@ export default function Unterhaltsreinigung() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg"
+                src={heroImage}
                 alt="Professionelle Büroreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

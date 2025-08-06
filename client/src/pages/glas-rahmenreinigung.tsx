@@ -13,6 +13,7 @@ import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
+import heroImage from "@assets/person-taking-care-office-cleaning-min_1754484125992.jpg";
 
 export default function GlasRahmenreinigung() {
   const { toast } = useToast();
@@ -118,7 +119,7 @@ export default function GlasRahmenreinigung() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/person-taking-care-office-cleaning-min_1754484125992.jpg"
+                src={heroImage}
                 alt="Professionelle Glas- und Rahmenreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

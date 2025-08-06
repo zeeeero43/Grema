@@ -33,7 +33,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
-import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
+import heroImage from "@assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg";
 
 export default function Entruempelung() {
   const { toast } = useToast();
@@ -136,7 +136,7 @@ export default function Entruempelung() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg"
+                src={heroImage}
                 alt="Professionelle Entrümpelung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

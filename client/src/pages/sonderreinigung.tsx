@@ -13,6 +13,7 @@ import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Zap, Shield, Settings, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
+import heroImage from "@assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg";
 
 export default function Sonderreinigung() {
   const { toast } = useToast();
@@ -118,7 +119,7 @@ export default function Sonderreinigung() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg"
+                src={heroImage}
                 alt="Professionelle Sonderreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

@@ -48,6 +48,12 @@ import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/s
 import { Link } from "wouter";
 import { Header } from "../components/Header";
 import heroImage from "@assets/medium-shot-people-cleaning-building-min_1754484111418.jpg";
+import unterhaltsreinigungImage from "@assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg";
+import glasreinigungImage from "@assets/person-taking-care-office-cleaning-min_1754484125992.jpg";
+import sonderreinigungImage from "@assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg";
+import bauabschlussreinigungImage from "@assets/working-metal-processing-factory-min_1754484137126.jpg";
+import entruempelungImage from "@assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg";
+import treppenhausreinigungImage from "@assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg";
 
 export default function Home() {
   const { toast } = useToast();
@@ -109,42 +115,42 @@ export default function Home() {
 
   const services = [
     {
-      image: "/attached_assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg",
+      image: unterhaltsreinigungImage,
       title: "Unterhaltsreinigung",
       description: "Saubere und hygienische Arbeitsplätze. Desinfektion von Geräten und gemeinsamen Bereichen mit umweltfreundlichen Reinigungsmitteln.",
       href: "/unterhaltsreinigung",
       icon: "🏢"
     },
     {
-      image: "/attached_assets/person-taking-care-office-cleaning-min_1754484125992.jpg",
+      image: glasreinigungImage,
       title: "Glas- & Rahmenreinigung",
       description: "Streifenfreie Reinigung für alle Höhen und Schwierigkeitsgrade. Verlängert die Lebensdauer Ihrer Fenster durch regelmäßige professionelle Reinigung.",
       href: "/glas-rahmenreinigung",
       icon: "🪟"
     },
     {
-      image: "/attached_assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg",
+      image: sonderreinigungImage,
       title: "Sonderreinigung",
       description: "Entfernung hartnäckiger Verschmutzungen und Graffitis. Reinigung mit hochwertigen Geräten auch an schwer zugänglichen Flächen.",
       href: "/sonderreinigung",
       icon: "⚡"
     },
     {
-      image: "/attached_assets/working-metal-processing-factory-min_1754484137126.jpg",
+      image: bauabschlussreinigungImage,
       title: "Bauabschlussreinigung",
       description: "Professionelle Grob- und Feinreinigung nach Umbau oder Neubau. Entfernung von Mörtelresten, Bauschutt und Verpackungsmaterialien.",
       href: "/bauabschlussreinigung",
       icon: "🏗️"
     },
     {
-      image: "/attached_assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg",
+      image: entruempelungImage,
       title: "Entrümpelung",
       description: "Haushaltsauflösung und Nachlassräumung mit langjähriger Erfahrung. Faires Preis-Leistungsverhältnis und professionelle Organisation.",
       href: "/entruempelung",
       icon: "🚛"
     },
     {
-      image: "/attached_assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg",
+      image: treppenhausreinigungImage,
       title: "Treppenhausreinigung",
       description: "Gründliche Reinigung von Treppenhäusern und Fluren. Sorgfältige Reinigung von Handläufen, Treppenstufen und schwer zugänglichen Bereichen.",
       href: "/treppenhausreinigung",

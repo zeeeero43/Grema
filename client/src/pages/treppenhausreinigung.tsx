@@ -13,6 +13,7 @@ import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Shield, Clock, Users, ArrowRight, Building, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
+import heroImage from "@assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg";
 
 export default function Treppenhausreinigung() {
   const { toast } = useToast();
@@ -118,7 +119,7 @@ export default function Treppenhausreinigung() {
             
             <div className="relative">
               <img 
-                src="/attached_assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg"
+                src={heroImage}
                 alt="Professionelle Treppenhausreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />
