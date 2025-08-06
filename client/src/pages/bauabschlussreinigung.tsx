@@ -32,11 +32,10 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
-import logoImage from "@assets/logo-grema-high_1753727835385.webp";
+import { Header } from "../components/Header";
 import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
 
 export default function Bauabschlussreinigung() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
 
   // Scroll to top when component mounts
@@ -83,66 +82,7 @@ export default function Bauabschlussreinigung() {
   return (
     <div className="min-h-screen bg-white">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex items-center justify-between h-20">
-            <Link href="/" className="flex items-center space-x-3">
-              <img 
-                src={logoImage}
-                alt="Grema Gebäudeservice GmbH Logo" 
-                className="h-12 w-auto"
-              />
-            </Link>
-            
-            {/* Desktop Navigation */}
-            <nav className="hidden md:flex items-center space-x-8">
-              <Link href="/" className="text-gray-700 hover:text-primary font-medium">Startseite</Link>
-              <Link href="/unterhaltsreinigung" className="text-gray-700 hover:text-primary font-medium">Büroreinigung</Link>
-              <Link href="/fensterreinigung" className="text-gray-700 hover:text-primary font-medium">Fensterreinigung</Link>
-              <Link href="/bauabschlussreinigung" className="text-primary font-medium">Baureinigung</Link>
-              <Link href="/entruempelung" className="text-gray-700 hover:text-primary font-medium">Entrümpelung</Link>
-              <Link href="/blog" className="text-gray-700 hover:text-primary font-medium">Blog</Link>
-            </nav>
-
-            <div className="hidden md:flex items-center space-x-4">
-              <Button asChild className="bg-primary text-white hover:bg-primary/90">
-                <a href="tel:017634446399" className="flex items-center">
-                  <Phone className="w-4 h-4 mr-2" />
-                  0176 34446399
-                </a>
-              </Button>
-            </div>
-
-            {/* Mobile menu button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="md:hidden p-2"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <div className="md:hidden border-t bg-white py-4">
-              <div className="flex flex-col space-y-4">
-                <Link href="/" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Startseite</Link>
-                <Link href="/unterhaltsreinigung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Büroreinigung</Link>
-                <Link href="/fensterreinigung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Fensterreinigung</Link>
-                <Link href="/bauabschlussreinigung" className="text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Baureinigung</Link>
-                <Link href="/entruempelung" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Entrümpelung</Link>
-                <Link href="/blog" className="text-gray-700 hover:text-primary font-medium" onClick={() => setMobileMenuOpen(false)}>Blog</Link>
-                <Button asChild className="bg-primary text-white hover:bg-primary/90 w-full">
-                  <a href="tel:017634446399" className="flex items-center justify-center">
-                    <Phone className="w-4 h-4 mr-2" />
-                    0176 34446399
-                  </a>
-                </Button>
-              </div>
-            </div>
-          )}
-        </div>
-      </header>
+      <Header currentPage="bauabschlussreinigung" />
 
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-gray-50">

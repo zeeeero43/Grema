@@ -46,11 +46,10 @@ import { apiRequest } from "@/lib/queryClient";
 import { StaticReviews } from "../components/StaticReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
+import { Header } from "../components/Header";
 import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
-import logoImage from "@assets/logo-grema-high_1753727835385.webp";
 
 export default function Home() {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const { toast } = useToast();
   
   // Carousel setup  
@@ -200,179 +199,8 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white">
       {/* Navigation */}
-      <motion.nav 
-        className="bg-white/95 backdrop-blur-sm border-b border-gray-100 sticky top-0 z-50"
-        initial={{ y: -100, opacity: 0 }}
-        animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="flex justify-between items-center h-20">
-            <div className="flex items-center">
-              <img 
-                src={logoImage} 
-                alt="Grema Gebäudeservice GmbH" 
-                className="h-12 sm:h-14 w-auto"
-              />
-            </div>
-            
-            <div className="hidden md:flex items-center space-x-8">
-              <a 
-                href="#services" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Leistungen
-              </a>
-              <a 
-                href="#about" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Über uns
-              </a>
-              <a 
-                href="#process" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Ablauf
-              </a>
-              <a 
-                href="#reviews" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
-                }}
-                className="text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Bewertungen
-              </a>
-              <Link href="/blog" className="text-gray-700 hover:text-primary transition-colors font-medium">
-                Blog
-              </Link>
-              <Button 
-                asChild 
-                className="bg-primary text-white hover:bg-primary/90 font-semibold px-6 py-2"
-              >
-                <a 
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                  }}
-                >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Kostenlos beraten
-                </a>
-              </Button>
-            </div>
-            
-            <Button
-              variant="ghost"
-              size="icon"
-              className="md:hidden"
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </Button>
-          </div>
-        </div>
+      <Header currentPage="home" />
 
-        {/* Mobile Menu */}
-        <motion.div
-          initial={{ height: 0, opacity: 0 }}
-          animate={{ 
-            height: mobileMenuOpen ? "auto" : 0,
-            opacity: mobileMenuOpen ? 1 : 0 
-          }}
-          transition={{ duration: 0.3, ease: "easeInOut" }}
-          className="md:hidden bg-white border-t border-gray-100 overflow-hidden"
-        >
-          {mobileMenuOpen && (
-            <motion.div 
-              className="px-6 py-4 space-y-4"
-              initial={{ y: -20, opacity: 0 }}
-              animate={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.4, delay: 0.1 }}
-            >
-              <a 
-                href="#services" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('services')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Leistungen
-              </a>
-              <a 
-                href="#about" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Über uns
-              </a>
-              <a 
-                href="#process" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('process')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Ablauf
-              </a>
-              <a 
-                href="#reviews" 
-                onClick={(e) => {
-                  e.preventDefault();
-                  document.getElementById('reviews')?.scrollIntoView({ behavior: 'smooth' });
-                  setMobileMenuOpen(false);
-                }}
-                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium cursor-pointer"
-              >
-                Bewertungen
-              </a>
-              <Link 
-                href="/blog" 
-                className="block py-2 text-gray-700 hover:text-primary transition-colors font-medium" 
-                onClick={() => setMobileMenuOpen(false)}
-              >
-                Blog
-              </Link>
-              <Button asChild className="w-full bg-primary hover:bg-primary/90 text-white font-semibold mt-4">
-                <a 
-                  href="#contact"
-                  onClick={(e) => {
-                    e.preventDefault();
-                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-                    setMobileMenuOpen(false);
-                  }}
-                >
-                  <Phone className="w-4 h-4 mr-2" />
-                  Kostenlos beraten
-                </a>
-              </Button>
-            </motion.div>
-          )}
-        </motion.div>
-      </motion.nav>
 
       {/* Hero Section - Classical Layout with Image */}
       <motion.section 
