@@ -1,17 +1,17 @@
 import { DeepSeekService } from './deepseekService';
-import { DalleService } from './dalleService';
+import { RunwareService } from './runwareService';
 import { storage } from '../storage';
 import { getRandomBlogTopic, getUnusedTopics } from './blogTopics';
 import type { InsertAutoBlogPost, InsertBlogIdea, InsertAiGenerationLog } from '@shared/schema';
 
 export class BlogAutomationService {
   private deepseekService: DeepSeekService;
-  private dalleService: DalleService;
+  private runwareService: RunwareService;
   private isGenerating = false;
 
   constructor() {
     this.deepseekService = new DeepSeekService();
-    this.dalleService = new DalleService();
+    this.runwareService = new RunwareService();
   }
 
   async initializeBlogIdeas(): Promise<void> {
@@ -88,13 +88,13 @@ export class BlogAutomationService {
 
       console.log(`✅ Content generated in ${Date.now() - contentStartTime}ms`);
 
-      // Generate hero image with DALL-E (with fallback)
+      // Generate hero image with Runware (with fallback)
       let heroImageUrl = '';
       try {
-        console.log('🎨 Generating hero image with DALL-E...');
+        console.log('🎨 Generating hero image with Runware...');
         const imageStartTime = Date.now();
         
-        heroImageUrl = await this.dalleService.generateBlogHeroImage(
+        heroImageUrl = await this.runwareService.generateBlogHeroImage(
           blogContent.imagePrompt,
           selectedIdea.category
         );
@@ -104,7 +104,7 @@ export class BlogAutomationService {
           type: 'image',
           prompt: blogContent.imagePrompt,
           response: heroImageUrl,
-          model: 'dall-e',
+          model: 'runware-flux',
           success: true
         });
 
@@ -117,7 +117,7 @@ export class BlogAutomationService {
           type: 'image',
           prompt: blogContent.imagePrompt,
           response: '',
-          model: 'dall-e',
+          model: 'runware-flux',
           success: false,
           error: imageError instanceof Error ? imageError.message : 'Unknown error'
         });

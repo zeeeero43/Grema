@@ -1,64 +1,80 @@
-import OpenAI from 'openai';
+import { randomUUID } from 'crypto';
 
-export class DalleService {
-  private openai: OpenAI | null = null;
+export class RunwareService {
+  private apiKey: string;
+  private apiUrl = 'https://api.runware.ai/v1';
 
   constructor() {
-    const apiKey = process.env.OPENAI_API_KEY;
+    const apiKey = process.env.RUNWARE_API_KEY;
     if (apiKey) {
-      // the newest OpenAI model is "gpt-4o" which was released May 13, 2024. do not change this unless explicitly requested by the user
-      this.openai = new OpenAI({ apiKey });
+      this.apiKey = apiKey;
     } else {
-      console.warn('OPENAI_API_KEY not set - DALL-E functionality will be disabled');
+      throw new Error('RUNWARE_API_KEY not set - Runware functionality will be disabled');
     }
   }
 
   async generateImage(prompt: string): Promise<string> {
-    const apiKey = process.env.OPENAI_API_KEY;
-    console.log('🔑 OpenAI API Key check:', {
-      exists: !!apiKey,
-      length: apiKey?.length || 0,
-      prefix: apiKey?.substring(0, 10) || 'none'
+    console.log('🎨 Runware API Key check:', {
+      exists: !!this.apiKey,
+      length: this.apiKey?.length || 0,
+      prefix: this.apiKey?.substring(0, 6) || 'none'
     });
-    
-    if (!apiKey) {
-      throw new Error('OpenAI API key not configured');
-    }
 
     try {
       // Enhance the prompt for better professional results
       const enhancedPrompt = this.enhancePrompt(prompt);
+      const taskUUID = randomUUID();
 
-      // Use direct fetch API call with proper Authorization header
-      const response = await fetch('https://api.openai.com/v1/images/generations', {
+      console.log('🚀 Generating image with Runware...');
+      console.log('📝 Enhanced prompt:', enhancedPrompt.substring(0, 100) + '...');
+
+      // Use Runware API with task-based architecture
+      const requestBody = [
+        {
+          taskType: "imageInference",
+          taskUUID: taskUUID,
+          positivePrompt: enhancedPrompt,
+          model: "runware:101@1", // FLUX.1 Dev - fast and high quality
+          width: 1024,
+          height: 1024,
+          steps: 20, // Good balance of quality and speed
+          numberResults: 1
+        }
+      ];
+
+      const response = await fetch(this.apiUrl, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${apiKey}`
+          'Authorization': `Bearer ${this.apiKey}`
         },
-        body: JSON.stringify({
-          prompt: enhancedPrompt,
-          n: 1,
-          size: '1024x1024',
-          quality: 'standard',
-          style: 'natural'
-        })
+        body: JSON.stringify(requestBody)
       });
 
       if (!response.ok) {
         const errorData = await response.text();
-        throw new Error(`OpenAI API error: ${response.status} ${errorData}`);
+        throw new Error(`Runware API error: ${response.status} ${errorData}`);
       }
 
       const data = await response.json();
-      const imageUrl = data.data?.[0]?.url;
-      if (!imageUrl) {
-        throw new Error('No image URL received from DALL-E');
+      
+      // Check for errors in response
+      if (data.errors && data.errors.length > 0) {
+        const error = data.errors[0];
+        throw new Error(`Runware API error: ${error.message}`);
       }
 
-      return imageUrl;
+      // Get the image URL from successful response
+      const result = data.data?.[0];
+      if (!result || !result.imageURL) {
+        throw new Error('No image URL received from Runware');
+      }
+
+      console.log('✅ Image generated successfully:', result.imageURL);
+      return result.imageURL;
+
     } catch (error) {
-      console.error('DALL-E API error:', error);
+      console.error('Runware API error:', error);
       throw new Error(`Failed to generate image: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }
