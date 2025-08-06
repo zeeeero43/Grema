@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
-import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2 } from "lucide-react";
+import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck } from "lucide-react";
 import { Link } from "wouter";
 
 export default function GlasRahmenreinigung() {
@@ -328,16 +328,15 @@ export default function GlasRahmenreinigung() {
                             <Select onValueChange={field.onChange} defaultValue={field.value}>
                               <FormControl>
                                 <SelectTrigger className="border-gray-300 focus:border-primary focus:ring-primary">
-                                  <SelectValue placeholder="Bitte auswählen..." />
+                                  <SelectValue placeholder="Glas- & Rahmenreinigung" />
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="unterhaltsreinigung">Unterhaltsreinigung</SelectItem>
                                 <SelectItem value="glas-rahmenreinigung">Glas- & Rahmenreinigung</SelectItem>
-                                <SelectItem value="sonderreinigung">Sonderreinigung</SelectItem>
+                                <SelectItem value="unterhaltsreinigung">Büro-/Praxisreinigung</SelectItem>
                                 <SelectItem value="bauabschlussreinigung">Bauabschlussreinigung</SelectItem>
+                                <SelectItem value="sonderreinigung">Sonderreinigung</SelectItem>
                                 <SelectItem value="entruempelung">Entrümpelung</SelectItem>
-                                <SelectItem value="treppenhausreinigung">Treppenhausreinigung</SelectItem>
                                 <SelectItem value="beratung">Persönliche Beratung</SelectItem>
                               </SelectContent>
                             </Select>
@@ -366,32 +365,33 @@ export default function GlasRahmenreinigung() {
                       )}
                     />
                     
-                    <div className="flex flex-col sm:flex-row gap-4">
-                      <Button 
-                        type="submit" 
-                        disabled={contactMutation.isPending} 
-                        className="flex-1 bg-primary text-white hover:bg-primary/90 transition-colors"
-                      >
-                        {contactMutation.isPending ? (
-                          <>
-                            <Loader2 className="w-4 h-4 mr-2 animate-spin" />
-                            Wird gesendet...
-                          </>
-                        ) : (
-                          <>
-                            Kostenloses Angebot anfordern
-                            <ArrowRight className="w-4 h-4 ml-2" />
-                          </>
-                        )}
-                      </Button>
-                      
-                      <Button asChild variant="outline" className="flex-1 border-primary text-primary hover:bg-primary hover:text-white">
-                        <a href="tel:017634446399" className="flex items-center justify-center">
-                          <Phone className="w-4 h-4 mr-2" />
-                          Jetzt anrufen
-                        </a>
-                      </Button>
-                    </div>
+                    <Button 
+                      type="submit" 
+                      className="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3"
+                      disabled={contactMutation.isPending}
+                    >
+                      {contactMutation.isPending ? (
+                        <>
+                          <Loader2 className="w-4 h-4 mr-2 animate-spin" />
+                          Wird gesendet...
+                        </>
+                      ) : contactMutation.isSuccess ? (
+                        <>
+                          <CheckCircle className="w-4 h-4 mr-2" />
+                          Erfolgreich gesendet!
+                        </>
+                      ) : (
+                        <>
+                          <Mail className="w-4 h-4 mr-2" />
+                          Nachricht senden
+                        </>
+                      )}
+                    </Button>
+                    
+                    <p className="text-sm text-gray-600 text-center">
+                      <ShieldCheck className="w-4 h-4 mr-1 inline text-primary" />
+                      Vertrauliche Behandlung. Antwort binnen 24h.
+                    </p>
                   </form>
                 </Form>
               </div>
@@ -399,6 +399,55 @@ export default function GlasRahmenreinigung() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="w-8 h-8 bg-primary flex items-center justify-center rounded">
+                <Building2 className="w-4 h-4 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Grema Gebäudeservice GmbH</h3>
+            </div>
+            
+            <p className="text-gray-400 mb-6">
+              Professionelle Gebäudereinigung in Moers seit 2014
+            </p>
+            
+            <div className="flex justify-center items-center space-x-8 text-gray-400 text-sm mb-6">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4 text-primary" />
+                <a href="tel:017634446399" className="hover:text-white">0176/3444 6399</a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Moers, NRW</span>
+              </div>
+            </div>
+            
+            <div className="text-gray-500 text-sm">
+              <p>&copy; 2025 Grema Gebäudeservice GmbH. Alle Rechte vorbehalten.</p>
+              <div className="flex justify-center space-x-6 mt-3">
+                <Link href="/" className="hover:text-white">Startseite</Link>
+                <a href="#" className="hover:text-white">Impressum</a>
+                <a href="#" className="hover:text-white">Datenschutz</a>
+                <a href="#" className="hover:text-white">AGB</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Simple Phone Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="tel:017634446399"
+          className="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-colors"
+        >
+          <Phone className="w-5 h-5" />
+        </a>
+      </div>
     </div>
   );
 }
