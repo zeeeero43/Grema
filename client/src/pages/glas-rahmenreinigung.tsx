@@ -118,7 +118,7 @@ export default function GlasRahmenreinigung() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/attached_assets/person-taking-care-office-cleaning-min_1754484125992.jpg"
                 alt="Professionelle Glas- und Rahmenreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

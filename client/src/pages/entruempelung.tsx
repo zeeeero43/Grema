@@ -136,7 +136,7 @@ export default function Entruempelung() {
             
             <div className="relative">
               <img 
-                src={heroImage}
+                src="/attached_assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg"
                 alt="Professionelle Entrümpelung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

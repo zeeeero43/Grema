@@ -136,7 +136,7 @@ export default function Bauabschlussreinigung() {
             
             <div className="relative">
               <img 
-                src={heroImage}
+                src="/attached_assets/working-metal-processing-factory-min_1754484137126.jpg"
                 alt="Professionelle Bauabschlussreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

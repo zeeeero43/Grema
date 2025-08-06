@@ -118,7 +118,7 @@ export default function Treppenhausreinigung() {
             
             <div className="relative">
               <img 
-                src="https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="/attached_assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg"
                 alt="Professionelle Treppenhausreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />

@@ -47,7 +47,7 @@ import { StaticReviews } from "../components/StaticReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
-import heroImage from "@assets/view-professional-cleaning-service-person-holding-supplies_1753726946244.jpg";
+import heroImage from "@assets/medium-shot-people-cleaning-building-min_1754484111418.jpg";
 
 export default function Home() {
   const { toast } = useToast();
@@ -109,42 +109,42 @@ export default function Home() {
 
   const services = [
     {
-      image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg",
       title: "Unterhaltsreinigung",
       description: "Saubere und hygienische Arbeitsplätze. Desinfektion von Geräten und gemeinsamen Bereichen mit umweltfreundlichen Reinigungsmitteln.",
       href: "/unterhaltsreinigung",
       icon: "🏢"
     },
     {
-      image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/person-taking-care-office-cleaning-min_1754484125992.jpg",
       title: "Glas- & Rahmenreinigung",
       description: "Streifenfreie Reinigung für alle Höhen und Schwierigkeitsgrade. Verlängert die Lebensdauer Ihrer Fenster durch regelmäßige professionelle Reinigung.",
       href: "/glas-rahmenreinigung",
       icon: "🪟"
     },
     {
-      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg",
       title: "Sonderreinigung",
       description: "Entfernung hartnäckiger Verschmutzungen und Graffitis. Reinigung mit hochwertigen Geräten auch an schwer zugänglichen Flächen.",
       href: "/sonderreinigung",
       icon: "⚡"
     },
     {
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/working-metal-processing-factory-min_1754484137126.jpg",
       title: "Bauabschlussreinigung",
       description: "Professionelle Grob- und Feinreinigung nach Umbau oder Neubau. Entfernung von Mörtelresten, Bauschutt und Verpackungsmaterialien.",
       href: "/bauabschlussreinigung",
       icon: "🏗️"
     },
     {
-      image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg",
       title: "Entrümpelung",
       description: "Haushaltsauflösung und Nachlassräumung mit langjähriger Erfahrung. Faires Preis-Leistungsverhältnis und professionelle Organisation.",
       href: "/entruempelung",
       icon: "🚛"
     },
     {
-      image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      image: "/attached_assets/man-cleaning-staircase-handrail-gloves-min_1754484146749.jpg",
       title: "Treppenhausreinigung",
       description: "Gründliche Reinigung von Treppenhäusern und Fluren. Sorgfältige Reinigung von Handläufen, Treppenstufen und schwer zugänglichen Bereichen.",
       href: "/treppenhausreinigung",

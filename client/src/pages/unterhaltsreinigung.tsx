@@ -133,7 +133,7 @@ export default function Unterhaltsreinigung() {
             
             <div className="relative">
               <img 
-                src={heroImage}
+                src="/attached_assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg"
                 alt="Professionelle Büroreinigung von Grema Gebäudeservice" 
                 className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />
