@@ -20,6 +20,7 @@ interface BlogContent {
   content: string;
   metaDescription: string;
   keywords: string[];
+  tags: string[];
   readTime: string;
   imagePrompt: string;
 }
@@ -114,6 +115,7 @@ ANTWORTE AUSSCHLIESSLICH IM FOLGENDEN JSON-FORMAT:
   "content": "Vollständiger HTML-formatierter Artikel mit Tabellen und responsivem Design",
   "metaDescription": "SEO Meta Description (max 160 Zeichen)",
   "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
+  "tags": ["seo-tag1", "seo-tag2", "seo-tag3", "seo-tag4", "seo-tag5"],
   "readTime": "X min",
   "imagePrompt": "Detaillierte DALL-E Prompt für Hero-Bild (englisch)"
 }`;
