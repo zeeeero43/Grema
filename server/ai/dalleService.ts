@@ -15,6 +15,12 @@ export class DalleService {
 
   async generateImage(prompt: string): Promise<string> {
     const apiKey = process.env.OPENAI_API_KEY;
+    console.log('🔑 OpenAI API Key check:', {
+      exists: !!apiKey,
+      length: apiKey?.length || 0,
+      prefix: apiKey?.substring(0, 10) || 'none'
+    });
+    
     if (!apiKey) {
       throw new Error('OpenAI API key not configured');
     }

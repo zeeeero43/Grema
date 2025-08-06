@@ -29,6 +29,7 @@ export const autoBlogPosts = pgTable("auto_blog_posts", {
   content: text("content").notNull(),
   metaDescription: text("meta_description").notNull(),
   keywords: jsonb("keywords").$type<string[]>().notNull(),
+  tags: jsonb("tags").$type<string[]>().default([]).notNull(),
   category: text("category").notNull(),
   author: text("author").default("Grema Team").notNull(),
   readTime: text("read_time").notNull(),

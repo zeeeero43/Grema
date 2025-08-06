@@ -134,6 +134,7 @@ export class BlogAutomationService {
         content: blogContent.content,
         metaDescription: blogContent.metaDescription,
         keywords: blogContent.keywords,
+        tags: blogContent.tags, // Added tags field that was missing
         category: selectedIdea.category,
         author: 'Grema Team',
         readTime: blogContent.readTime,

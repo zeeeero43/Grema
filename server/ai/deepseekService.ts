@@ -134,9 +134,10 @@ Der Artikel soll:
 2. Praktischen Mehrwert und allgemeine Brancheninfos bieten
 3. Weniger Werbung, mehr Fachwissen und Standards
 4. SEO-optimiert sein für die angegebenen Keywords
-5. Tabellen für Vergleiche, Kosten, Standards verwenden
-6. Mobile-optimiert mit responsive Design
-7. KEINE Kontaktdaten am Ende (wird automatisch hinzugefügt)
+5. SEO-Tags generieren (deutsch, relevant für das Thema)
+6. Tabellen für Vergleiche, Kosten, Standards verwenden
+7. Mobile-optimiert mit responsive Design
+8. KEINE Kontaktdaten am Ende (wird automatisch hinzugefügt)
 
 WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt!`;
   }
@@ -154,6 +155,14 @@ WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt
       }
 
       const parsed = JSON.parse(jsonStr);
+
+      // Debug log to check what DeepSeek is returning
+      console.log('🔍 DeepSeek response parsed:', {
+        title: parsed.title?.substring(0, 50) + '...',
+        hasKeywords: Array.isArray(parsed.keywords),
+        hasTags: Array.isArray(parsed.tags),
+        tags: parsed.tags
+      });
 
       // Validate required fields
       if (!parsed.title || !parsed.content || !parsed.slug) {
@@ -174,6 +183,7 @@ WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt
         content: parsed.content,
         metaDescription: parsed.metaDescription || parsed.excerpt || '',
         keywords: Array.isArray(parsed.keywords) ? parsed.keywords : [],
+        tags: Array.isArray(parsed.tags) ? parsed.tags : [],
         readTime: parsed.readTime || '5 min',
         imagePrompt: parsed.imagePrompt || 'Professional office cleaning service, modern business environment, high quality, professional photography style'
       };
