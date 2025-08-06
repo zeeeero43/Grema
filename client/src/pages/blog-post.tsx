@@ -320,7 +320,7 @@ export default function BlogPost() {
 
       {/* FAQ Section for Auto Posts */}
       {isAutoPost && 'faqData' in post && (post as any).faqData && (post as any).faqData.length > 0 && (
-        <section className="py-12 bg-gray-50">
+        <section className="py-12 bg-white">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
               Häufig gestellte Fragen
@@ -328,7 +328,7 @@ export default function BlogPost() {
             
             <div className="space-y-4">
               {(post as any).faqData.map((faq: {question: string, answer: string}, index: number) => (
-                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                <div key={index} className="bg-gray-50 rounded-lg shadow-sm border border-gray-200 overflow-hidden">
                   <div className="p-6">
                     <h3 className="text-lg font-semibold text-gray-900 mb-3">
                       {faq.question}
