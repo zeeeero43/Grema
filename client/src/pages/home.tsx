@@ -287,6 +287,8 @@ export default function Home() {
                   src={heroImage}
                   alt="Professioneller Reinigungsservice - Grema Gebäudeservice"
                   className="w-full h-[300px] sm:h-[400px] lg:h-[450px] object-cover rounded-lg shadow-lg"
+                  loading="eager"
+                  decoding="async"
                 />
                 <div className="absolute inset-0 bg-primary/10 rounded-lg"></div>
               </div>
@@ -326,6 +328,8 @@ export default function Home() {
                   src={service.image} 
                   alt={service.title}
                   className="w-full h-48 object-cover rounded-t-lg"
+                  loading="lazy"
+                  decoding="async"
                 />
                 <div className="p-6">
                   <h3 className="text-xl font-bold text-gray-900 mb-3">
