@@ -276,12 +276,15 @@ export default function BlogPost() {
       {/* Article Content */}
       <article className="py-0 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
-          {/* Reading Progress Indicator */}
-          <div className="flex items-center gap-4 mb-8 p-4 bg-blue-50 border-l-4 border-primary rounded-r-lg">
-            <BookOpen className="w-5 h-5 text-primary" />
-            <div className="text-sm">
-              <span className="font-medium text-gray-900">Lesezeit: {post.readTime}</span>
-              <span className="text-gray-600 ml-2">• Von {post.author}</span>
+          {/* Article Meta */}
+          <div className="flex items-center gap-6 mb-8 pb-4 border-b border-gray-200">
+            <div className="flex items-center gap-2 text-gray-600">
+              <Eye className="w-4 h-4" />
+              <span className="text-sm">{post.readTime}</span>
+            </div>
+            <div className="flex items-center gap-2 text-gray-600">
+              <User className="w-4 h-4" />
+              <span className="text-sm">{post.author}</span>
             </div>
           </div>
 
@@ -295,6 +298,51 @@ export default function BlogPost() {
           </div>
         </div>
       </article>
+
+      {/* Share Section */}
+      <section className="py-8 bg-gray-50 border-t">
+        <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-semibold text-gray-900 mb-1">War dieser Artikel hilfreich?</h3>
+              <p className="text-sm text-gray-600">Teilen Sie ihn mit anderen!</p>
+            </div>
+            
+            <div className="flex items-center gap-3">
+              <button
+                onClick={() => {
+                  if (navigator.share) {
+                    navigator.share({
+                      title: post.title,
+                      text: post.excerpt || post.metaDescription,
+                      url: window.location.href
+                    });
+                  } else {
+                    navigator.clipboard.writeText(window.location.href);
+                    alert('Link kopiert!');
+                  }
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors"
+              >
+                <Share2 className="w-4 h-4" />
+                <span className="text-sm">Teilen</span>
+              </button>
+              
+              <button
+                onClick={() => {
+                  const subject = encodeURIComponent(`Interessanter Artikel: ${post.title}`);
+                  const body = encodeURIComponent(`Ich habe diesen interessanten Artikel gefunden:\n\n${post.title}\n\n${window.location.href}\n\nViele Grüße`);
+                  window.open(`mailto:?subject=${subject}&body=${body}`);
+                }}
+                className="flex items-center gap-2 px-4 py-2 bg-white border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                <Mail className="w-4 h-4" />
+                <span className="text-sm">E-Mail</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* CTA Section */}
       <section className="py-16 bg-gray-50">

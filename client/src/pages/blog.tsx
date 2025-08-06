@@ -8,15 +8,21 @@ import {
   X,
   ArrowRight,
   MapPin,
-  Clock
+  Clock,
+  BookOpen,
+  Search,
+  Filter
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
 import { useQuery } from "@tanstack/react-query";
+import { Input } from "@/components/ui/input";
 
 export default function Blog() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+  const [selectedCategory, setSelectedCategory] = useState("");
 
   // Scroll to top when component mounts
   useEffect(() => {
@@ -33,7 +39,22 @@ export default function Blog() {
     }
   });
 
-  const blogPosts = blogData?.posts || [];
+  const allPosts = blogData?.posts || [];
+  
+  // Filter and search posts
+  const filteredPosts = allPosts.filter((post: any) => {
+    const matchesSearch = searchTerm === "" || 
+      post.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchTerm.toLowerCase());
+    
+    const matchesCategory = selectedCategory === "" || post.category === selectedCategory;
+    
+    return matchesSearch && matchesCategory;
+  });
+
+  // Get unique categories for filter
+  const categories = [...new Set(allPosts.map((post: any) => post.category))];
+  const blogPosts = filteredPosts;
 
   return (
     <div className="min-h-screen bg-white">
@@ -116,7 +137,77 @@ export default function Blog() {
               Professionelle Tipps, Branchenwissen und Einblicke in die Welt der Gebäudereinigung. 
               Von Experten für Experten und alle, die Wert auf Sauberkeit legen.
             </p>
+            
+            {/* Blog Stats */}
+            {!isLoading && allPosts.length > 0 && (
+              <div className="flex items-center justify-center gap-8 text-sm text-gray-500 mb-8">
+                <div className="flex items-center gap-2">
+                  <BookOpen className="w-4 h-4" />
+                  <span>{allPosts.length} Fachbeiträge</span>
+                </div>
+                <div className="flex items-center gap-2">
+                  <Calendar className="w-4 h-4" />
+                  <span>Täglich neue Inhalte</span>
+                </div>
+              </div>
+            )}
           </div>
+        </div>
+      </section>
+
+      {/* Search and Filter */}
+      <section className="py-8 bg-gray-50">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="flex flex-col md:flex-row gap-4 items-center justify-between">
+            {/* Search */}
+            <div className="relative w-full md:w-96">
+              <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
+              <Input
+                type="text"
+                placeholder="Artikel durchsuchen..."
+                value={searchTerm}
+                onChange={(e) => setSearchTerm(e.target.value)}
+                className="pl-10"
+              />
+            </div>
+
+            {/* Category Filter */}
+            <div className="flex items-center gap-2 flex-wrap">
+              <Filter className="w-4 h-4 text-gray-600" />
+              <button
+                onClick={() => setSelectedCategory("")}
+                className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                  selectedCategory === "" 
+                    ? "bg-primary text-white" 
+                    : "bg-white text-gray-600 hover:bg-gray-100"
+                }`}
+              >
+                Alle
+              </button>
+              {categories.map((category) => (
+                <button
+                  key={category}
+                  onClick={() => setSelectedCategory(category)}
+                  className={`px-3 py-1 rounded-full text-sm transition-colors ${
+                    selectedCategory === category 
+                      ? "bg-primary text-white" 
+                      : "bg-white text-gray-600 hover:bg-gray-100"
+                  }`}
+                >
+                  {category}
+                </button>
+              ))}
+            </div>
+          </div>
+
+          {/* Results Counter */}
+          {(searchTerm || selectedCategory) && (
+            <div className="mt-4 text-sm text-gray-600">
+              {blogPosts.length} {blogPosts.length === 1 ? 'Artikel gefunden' : 'Artikel gefunden'}
+              {searchTerm && ` für "${searchTerm}"`}
+              {selectedCategory && ` in "${selectedCategory}"`}
+            </div>
+          )}
         </div>
       </section>
 
