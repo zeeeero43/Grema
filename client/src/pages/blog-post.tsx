@@ -85,10 +85,11 @@ export default function BlogPost() {
     enabled: !!params?.slug && !!autoPost,
   });
   
-  const manualOtherPosts = getAllBlogPosts().filter(p => p.slug !== params?.slug).slice(0, 3);
-  const otherPosts = isAutoPost && otherAutoData?.success ? otherAutoData.posts : manualOtherPosts;
   const post = autoPost || manualPost;
   const isAutoPost = !!autoPost;
+  
+  const manualOtherPosts = getAllBlogPosts().filter(p => p.slug !== params?.slug).slice(0, 3);
+  const otherPosts = isAutoPost && otherAutoData?.success ? otherAutoData.posts : manualOtherPosts;
 
   if (autoLoading) {
     return (
