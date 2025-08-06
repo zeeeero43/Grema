@@ -261,7 +261,7 @@ export default function BlogPost() {
             <div className="mb-4">
               <img 
                 src={post.image}
-                alt={post.title}
+                alt={'imageAlt' in post ? (post as any).imageAlt : `Professionelle ${post.category} - ${post.title}`}
                 className="w-full h-64 md:h-80 lg:h-96 object-cover rounded-xl shadow-lg"
                 onError={(e) => {
                   e.currentTarget.style.display = 'none';
@@ -317,6 +317,32 @@ export default function BlogPost() {
           </div>
         </div>
       </article>
+
+      {/* FAQ Section for Auto Posts */}
+      {isAutoPost && 'faqData' in post && (post as any).faqData && (post as any).faqData.length > 0 && (
+        <section className="py-12 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-8 text-center">
+              Häufig gestellte Fragen
+            </h2>
+            
+            <div className="space-y-4">
+              {(post as any).faqData.map((faq: {question: string, answer: string}, index: number) => (
+                <div key={index} className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden">
+                  <div className="p-6">
+                    <h3 className="text-lg font-semibold text-gray-900 mb-3">
+                      {faq.question}
+                    </h3>
+                    <p className="text-gray-700 leading-relaxed">
+                      {faq.answer}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
 
       {/* Share Section */}
       <section className="py-8 bg-gray-50 border-t">

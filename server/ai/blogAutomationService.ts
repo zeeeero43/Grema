@@ -138,7 +138,9 @@ export class BlogAutomationService {
         author: 'Grema Team',
         readTime: blogContent.readTime,
         image: heroImageUrl,
+        imageAlt: blogContent.imageAlt,
         imagePrompt: blogContent.imagePrompt,
+        faqData: blogContent.faqData,
         isPublished: true, // Auto-publish automated posts
         publishedAt: new Date()
       };

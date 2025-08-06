@@ -23,6 +23,8 @@ interface BlogContent {
   tags: string[];
   readTime: string;
   imagePrompt: string;
+  imageAlt: string;
+  faqData: Array<{question: string, answer: string}>;
 }
 
 export class DeepSeekService {
@@ -177,17 +179,35 @@ KONKRETE BEISPIELE FÜR JEDE KATEGORIE:
 ❌ "Moderne Verfahren der..."
 ❌ Doppelte Kategorien im Titel
 
+KEYWORD-DICHTE OPTIMIERUNG:
+- Hauptkeyword: 1-2% Dichte (natürlich eingebaut)
+- Nebenkeywords: 0.5-1% Dichte 
+- LSI-Keywords einbauen für semantische Relevanz
+- Keywords NATÜRLICH verwenden, keine Überoptimierung
+
+FAQ-BEREICH ERSTELLEN:
+- 3-5 häufige Fragen zum Thema
+- Kurze, präzise Antworten (2-3 Sätze)
+- Keywords in Fragen einbauen
+- Praktische, hilfreiche Antworten
+
 ANTWORTE AUSSCHLIESSLICH IM FOLGENDEN JSON-FORMAT:
 {
   "title": "Natürlicher, suchfreundlicher Titel wie Menschen suchen würden (max 60 Zeichen)",
   "slug": "url-freundlicher-slug",
   "excerpt": "Kurze Zusammenfassung (max 160 Zeichen)",
-  "content": "Vollständiger HTML-formatierter Artikel mit Tabellen und responsivem Design",
+  "content": "Vollständiger HTML-formatierter Artikel mit optimaler Keyword-Dichte",
   "metaDescription": "SEO Meta Description (max 160 Zeichen)",
   "keywords": ["keyword1", "keyword2", "keyword3", "keyword4", "keyword5"],
   "tags": ["seo-tag1", "seo-tag2", "seo-tag3", "seo-tag4", "seo-tag5"],
   "readTime": "X min",
-  "imagePrompt": "Detaillierte DALL-E Prompt für Hero-Bild (englisch)"
+  "imagePrompt": "Detaillierte Bildprompt für Hero-Bild (englisch)",
+  "imageAlt": "SEO-optimierter ALT-Text für das Bild (deutsch, mit Keywords)",
+  "faqData": [
+    {"question": "Häufige Frage 1?", "answer": "Kurze Antwort mit Keywords"},
+    {"question": "Häufige Frage 2?", "answer": "Kurze Antwort mit Keywords"},
+    {"question": "Häufige Frage 3?", "answer": "Kurze Antwort mit Keywords"}
+  ]
 }`;
   }
 
@@ -256,7 +276,9 @@ WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt
         keywords: Array.isArray(parsed.keywords) ? parsed.keywords : [],
         tags: Array.isArray(parsed.tags) ? parsed.tags : [],
         readTime: parsed.readTime || '5 min',
-        imagePrompt: parsed.imagePrompt || 'Professional office cleaning service, modern business environment, high quality, professional photography style'
+        imagePrompt: parsed.imagePrompt || 'Professional office cleaning service, modern business environment, high quality, professional photography style',
+        imageAlt: parsed.imageAlt || `Professionelle Reinigungsdienstleistung - ${parsed.title}`,
+        faqData: Array.isArray(parsed.faqData) ? parsed.faqData : []
       };
     } catch (error) {
       console.error('Failed to parse DeepSeek response:', error);
