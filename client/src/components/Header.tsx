@@ -19,10 +19,12 @@ export function Header({ currentPage }: HeaderProps) {
   const [location] = useLocation();
 
   const services = [
-    { href: "/unterhaltsreinigung", label: "Büroreinigung" },
-    { href: "/fensterreinigung", label: "Fensterreinigung" },
-    { href: "/bauabschlussreinigung", label: "Baureinigung" },
-    { href: "/entruempelung", label: "Entrümpelung" }
+    { href: "/unterhaltsreinigung", label: "Unterhaltsreinigung" },
+    { href: "/glas-rahmenreinigung", label: "Glas- & Rahmenreinigung" },
+    { href: "/sonderreinigung", label: "Sonderreinigung" },
+    { href: "/bauabschlussreinigung", label: "Bauabschlussreinigung" },
+    { href: "/entruempelung", label: "Entrümpelung" },
+    { href: "/treppenhausreinigung", label: "Treppenhausreinigung" }
   ];
 
   const isServicePage = services.some(service => location === service.href);

@@ -110,31 +110,45 @@ export default function Home() {
   const services = [
     {
       image: "https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Büro- & Praxisreinigung",
-      description: "Regelmäßige Unterhaltsreinigung für Büros, Praxen und Geschäfte. Flexible Zeiten und individuelle Reinigungspläne.",
+      title: "Unterhaltsreinigung",
+      description: "Saubere und hygienische Arbeitsplätze. Desinfektion von Geräten und gemeinsamen Bereichen mit umweltfreundlichen Reinigungsmitteln.",
       href: "/unterhaltsreinigung",
       icon: "🏢"
     },
     {
       image: "https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
-      title: "Fenster & Glas",
-      description: "Streifenfreie Ergebnisse durch modernste Osmose-Technik. Auch für schwer erreichbare Bereiche und Glasfassaden.",
-      href: "/fensterreinigung",
+      title: "Glas- & Rahmenreinigung",
+      description: "Streifenfreie Reinigung für alle Höhen und Schwierigkeitsgrade. Verlängert die Lebensdauer Ihrer Fenster durch regelmäßige professionelle Reinigung.",
+      href: "/glas-rahmenreinigung",
       icon: "🪟"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Sonderreinigung",
+      description: "Entfernung hartnäckiger Verschmutzungen und Graffitis. Reinigung mit hochwertigen Geräten auch an schwer zugänglichen Flächen.",
+      href: "/sonderreinigung",
+      icon: "⚡"
     },
     {
       image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       title: "Bauabschlussreinigung",
-      description: "Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustäuben und baustellenbedingten Verschmutzungen.",
+      description: "Professionelle Grob- und Feinreinigung nach Umbau oder Neubau. Entfernung von Mörtelresten, Bauschutt und Verpackungsmaterialien.",
       href: "/bauabschlussreinigung",
       icon: "🏗️"
     },
     {
       image: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
       title: "Entrümpelung",
-      description: "Komplette Hausauflösungen und Entrümpelungen. Umweltgerechte Entsorgung und professionelle Abwicklung.",
+      description: "Haushaltsauflösung und Nachlassräumung mit langjähriger Erfahrung. Faires Preis-Leistungsverhältnis und professionelle Organisation.",
       href: "/entruempelung",
       icon: "🚛"
+    },
+    {
+      image: "https://images.unsplash.com/photo-1563453392212-326f5e854473?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80",
+      title: "Treppenhausreinigung",
+      description: "Gründliche Reinigung von Treppenhäusern und Fluren. Sorgfältige Reinigung von Handläufen, Treppenstufen und schwer zugänglichen Bereichen.",
+      href: "/treppenhausreinigung",
+      icon: "🏢"
     }
   ];
 
@@ -629,7 +643,8 @@ export default function Home() {
                                 type="tel"
                                 placeholder="0123 456789" 
                                 className="border-gray-300 focus:border-primary focus:ring-primary"
-                                {...field} 
+                                {...field}
+                                value={field.value || ""}
                               />
                             </FormControl>
                             <FormMessage />
@@ -650,11 +665,12 @@ export default function Home() {
                                 </SelectTrigger>
                               </FormControl>
                               <SelectContent>
-                                <SelectItem value="unterhaltsreinigung">Büro-/Praxisreinigung</SelectItem>
-                                <SelectItem value="fensterreinigung">Fenster & Glas</SelectItem>
-                                <SelectItem value="bauabschlussreinigung">Bauabschlussreinigung</SelectItem>
+                                <SelectItem value="unterhaltsreinigung">Unterhaltsreinigung</SelectItem>
+                                <SelectItem value="glas-rahmenreinigung">Glas- & Rahmenreinigung</SelectItem>
                                 <SelectItem value="sonderreinigung">Sonderreinigung</SelectItem>
+                                <SelectItem value="bauabschlussreinigung">Bauabschlussreinigung</SelectItem>
                                 <SelectItem value="entruempelung">Entrümpelung</SelectItem>
+                                <SelectItem value="treppenhausreinigung">Treppenhausreinigung</SelectItem>
                                 <SelectItem value="beratung">Persönliche Beratung</SelectItem>
                               </SelectContent>
                             </Select>
