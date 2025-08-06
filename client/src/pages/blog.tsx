@@ -13,7 +13,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import logoImage from "@assets/logo-grema-high_1753727835385.webp";
-import { getAllBlogPosts } from "@/data/blogPosts";
+import { useQuery } from "@tanstack/react-query";
 
 export default function Blog() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,7 +23,17 @@ export default function Blog() {
     window.scrollTo(0, 0);
   }, []);
 
-  const blogPosts = getAllBlogPosts();
+  // Query for auto-generated blog posts from API
+  const { data: blogData, isLoading } = useQuery({
+    queryKey: ['/api/blog'],
+    queryFn: async () => {
+      const response = await fetch('/api/blog');
+      const data = await response.json();
+      return data;
+    }
+  });
+
+  const blogPosts = blogData?.posts || [];
 
   return (
     <div className="min-h-screen bg-white">
@@ -50,12 +60,6 @@ export default function Blog() {
             </nav>
 
             <div className="hidden md:flex items-center space-x-4">
-              <Link href="/admin/auto-blog">
-                <Button variant="outline" size="sm" className="flex items-center gap-2">
-                  <span>🤖</span>
-                  KI-System
-                </Button>
-              </Link>
               <Button asChild className="bg-primary text-white hover:bg-primary/90">
                 <a href="tel:017634446399" className="flex items-center">
                   <Phone className="w-4 h-4 mr-2" />
@@ -119,8 +123,22 @@ export default function Blog() {
       {/* Blog Posts */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
-            {blogPosts.map((post) => (
+          {isLoading ? (
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+              {[1,2,3,4,5,6].map((i) => (
+                <div key={i} className="bg-white rounded-lg shadow-sm border">
+                  <div className="w-full h-48 bg-gray-200 rounded-t-lg animate-pulse"></div>
+                  <div className="p-6">
+                    <div className="h-4 bg-gray-200 rounded animate-pulse mb-3"></div>
+                    <div className="h-6 bg-gray-200 rounded animate-pulse mb-3"></div>
+                    <div className="h-16 bg-gray-200 rounded animate-pulse"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          ) : (
+            <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-8">
+              {blogPosts.map((post: any) => (
               <article key={post.id} className="bg-white rounded-lg shadow-sm border hover:shadow-md transition-shadow duration-300">
                 <div className="relative">
                   <img 
@@ -139,7 +157,7 @@ export default function Blog() {
                   <div className="flex items-center space-x-4 text-sm text-gray-500 mb-3">
                     <div className="flex items-center space-x-1">
                       <Calendar className="w-4 h-4" />
-                      <span>{post.date}</span>
+                      <span>{new Date(post.publishedAt || post.createdAt).toLocaleDateString('de-DE')}</span>
                     </div>
                     <div className="flex items-center space-x-1">
                       <Clock className="w-4 h-4" />
@@ -170,7 +188,8 @@ export default function Blog() {
                 </div>
               </article>
             ))}
-          </div>
+            </div>
+          )}
           
           {/* Load More Button */}
           <div className="text-center mt-12">
