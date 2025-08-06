@@ -107,9 +107,22 @@ FORMATTING-RICHTLINIEN:
 - Verwenden Sie <h2>, <h3> für Struktur
 - Listen mit <ul> und <li> für bessere Lesbarkeit
 
+TITEL-RICHTLINIEN:
+- NATURLICHE SUCHANFRAGEN: Titel die Menschen wirklich bei Google eingeben würden
+- PRAKTISCH & ALLTAGSNAH: "Wie reinigt man...", "Was kostet...", "Tipps für..."
+- KONKRETE PROBLEME: "Flecken entfernen", "Reinigung nach Renovierung"
+- FRAGEN-STIL: "Wie oft sollte man...", "Welche Methode ist am besten..."
+- VERMEIDEN: Formale Fachbegriffe, doppelte Kategorien wie "Industriereinigung: Spezialreinigung"
+
+BEISPIELE GUTER TITEL:
+✓ "Büroreinigung - Was kostet professionelle Gebäudereinigung?"
+✓ "Fenster streifenfrei putzen - Profi Tipps für Glasreinigung"
+✓ "Teppichreinigung nach Wasserschaden - So geht's richtig"
+✓ "Wie oft sollte man Büroräume professionell reinigen lassen?"
+
 ANTWORTE AUSSCHLIESSLICH IM FOLGENDEN JSON-FORMAT:
 {
-  "title": "SEO-optimierter Titel (max 60 Zeichen)",
+  "title": "Natürlicher, suchfreundlicher Titel wie Menschen suchen würden (max 60 Zeichen)",
   "slug": "url-freundlicher-slug",
   "excerpt": "Kurze Zusammenfassung (max 160 Zeichen)",
   "content": "Vollständiger HTML-formatierter Artikel mit Tabellen und responsivem Design",
@@ -130,14 +143,15 @@ KEYWORDS: ${request.keywords.join(', ')}
 ${request.targetAudience ? `ZIELGRUPPE: ${request.targetAudience}` : ''}
 
 Der Artikel soll:
-1. Das Thema umfassend und sachlich behandeln
-2. Praktischen Mehrwert und allgemeine Brancheninfos bieten
-3. Weniger Werbung, mehr Fachwissen und Standards
-4. SEO-optimiert sein für die angegebenen Keywords
-5. SEO-Tags generieren (deutsch, relevant für das Thema)
-6. Tabellen für Vergleiche, Kosten, Standards verwenden
-7. Mobile-optimiert mit responsive Design
-8. KEINE Kontaktdaten am Ende (wird automatisch hinzugefügt)
+1. NATÜRLICHEN, suchfreundlichen Titel verwenden (wie echte Google-Suchanfragen)
+2. Das Thema umfassend und sachlich behandeln
+3. Praktischen Mehrwert und allgemeine Brancheninfos bieten
+4. Weniger Werbung, mehr Fachwissen und Standards
+5. SEO-optimiert sein für die angegebenen Keywords
+6. SEO-Tags generieren (deutsch, relevant für das Thema)
+7. Tabellen für Vergleiche, Kosten, Standards verwenden
+8. Mobile-optimiert mit responsive Design
+9. KEINE Kontaktdaten am Ende (wird automatisch hinzugefügt)
 
 WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt!`;
   }

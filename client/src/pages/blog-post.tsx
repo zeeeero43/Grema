@@ -255,7 +255,7 @@ export default function BlogPost() {
 
       {/* Tags for Auto Posts */}
       {isAutoPost && (post as AutoBlogPost).keywords && (post as AutoBlogPost).keywords.length > 0 && (
-        <section className="py-6 bg-gray-50">
+        <section className="py-6 bg-gray-50 mt-8">
           <div className="max-w-4xl mx-auto px-6 lg:px-12">
             <div className="flex items-center gap-2 flex-wrap">
               <Tag className="w-4 h-4 text-gray-600" />
@@ -277,7 +277,7 @@ export default function BlogPost() {
       <article className="py-0 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           {/* Article Meta */}
-          <div className="flex items-center gap-6 mb-8 pb-4 border-b border-gray-200">
+          <div className="flex items-center justify-center gap-6 mb-8 pb-4 border-b border-gray-200">
             <div className="flex items-center gap-2 text-gray-600">
               <Eye className="w-4 h-4" />
               <span className="text-sm">{post.readTime}</span>
