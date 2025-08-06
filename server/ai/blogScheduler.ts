@@ -5,8 +5,9 @@ export class BlogScheduler {
   private intervalId: NodeJS.Timeout | null = null;
   private isRunning = false;
 
-  // Schedule: Every 12 hours (2 posts per day)
-  private readonly SCHEDULE_INTERVAL = 12 * 60 * 60 * 1000; // 12 hours in milliseconds
+  // Schedule: Every 80 hours (~3.3 days) with slight random variation
+  private readonly BASE_INTERVAL = 80 * 60 * 60 * 1000; // 80 hours in milliseconds
+  private readonly RANDOM_VARIATION = 4 * 60 * 60 * 1000; // ±4 hours random variation
   
   constructor() {
     this.automationService = new BlogAutomationService();
@@ -19,7 +20,7 @@ export class BlogScheduler {
     }
 
     console.log('🚀 Starting automated blog scheduler...');
-    console.log(`⏰ Will generate blog posts every ${this.SCHEDULE_INTERVAL / (60 * 60 * 1000)} hours`);
+    console.log(`⏰ Will generate blog posts every ~${this.BASE_INTERVAL / (60 * 60 * 1000)} hours (with random variation)`);
 
     // Initialize blog topics on startup
     try {
@@ -32,10 +33,8 @@ export class BlogScheduler {
     // Generate first post immediately (optional - remove if you don't want immediate generation)
     this.generatePostSafely();
 
-    // Set up recurring generation
-    this.intervalId = setInterval(() => {
-      this.generatePostSafely();
-    }, this.SCHEDULE_INTERVAL);
+    // Set up recurring generation with random interval
+    this.scheduleNextGeneration();
 
     this.isRunning = true;
     console.log('✅ Blog scheduler started successfully');
@@ -54,6 +53,27 @@ export class BlogScheduler {
 
     this.isRunning = false;
     console.log('🛑 Blog scheduler stopped');
+  }
+
+  private getRandomInterval(): number {
+    // Generate random variation: BASE_INTERVAL ± RANDOM_VARIATION
+    const variation = (Math.random() - 0.5) * 2 * this.RANDOM_VARIATION;
+    const interval = this.BASE_INTERVAL + variation;
+    console.log(`🎯 Next blog generation in ${(interval / (60 * 60 * 1000)).toFixed(1)} hours`);
+    return interval;
+  }
+
+  private scheduleNextGeneration(): void {
+    if (this.intervalId) {
+      clearTimeout(this.intervalId);
+    }
+    
+    const interval = this.getRandomInterval();
+    this.intervalId = setTimeout(() => {
+      this.generatePostSafely();
+      // Schedule the next one after this completes
+      this.scheduleNextGeneration();
+    }, interval) as NodeJS.Timeout;
   }
 
   private async generatePostSafely(): Promise<void> {
@@ -89,7 +109,7 @@ export class BlogScheduler {
     let nextGeneration: Date | undefined;
     if (this.isRunning && this.intervalId) {
       // Calculate next generation time (approximate)
-      nextGeneration = new Date(Date.now() + this.SCHEDULE_INTERVAL);
+      nextGeneration = new Date(Date.now() + this.getRandomInterval());
     }
 
     return {
