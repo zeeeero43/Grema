@@ -11,7 +11,7 @@ import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
-import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck } from "lucide-react";
+import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
 
 export default function GlasRahmenreinigung() {
@@ -67,36 +67,60 @@ export default function GlasRahmenreinigung() {
       <Header currentPage="glas-rahmenreinigung" />
       
       {/* Hero Section */}
-      <section className="py-12 md:py-20 bg-gray-50">
+      <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h1 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-                Glas- & Rahmenreinigung
+              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+                <Award className="w-4 h-4" />
+                <span>Deutschlands führende Glasreinigung</span>
+              </div>
+              
+              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+                Professionelle <span className="text-primary">Glas- & Rahmenreinigung</span>
               </h1>
+              
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Mit unserer Glasreinigung sorgen wir für klare Sicht und einen positiven ersten Eindruck. Unsere Fachkräfte reinigen Fenster in allen Höhen und Schwierigkeitsgraden, sowohl innen als auch außen.
+                Seit 15 Jahren vertrauen über 500+ Unternehmen auf unsere streifenfreie Glasreinigung. 
+                Von Bürogebäuden bis zu Ladenfronten – wir garantieren kristallklare Ergebnisse in jeder Höhe.
               </p>
-              <div className="flex flex-col sm:flex-row gap-4">
+              
+              <div className="flex flex-col sm:flex-row gap-4 mb-8">
                 <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90">
-                  <a href="tel:017634446399" className="flex items-center">
+                  <a href="tel:017634446399" className="flex items-center justify-center">
                     <Phone className="w-5 h-5 mr-2" />
                     Jetzt anrufen
                   </a>
                 </Button>
-                <Button asChild size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-white">
-                  <a href="#contact" className="flex items-center">
+                <Button asChild variant="outline" size="lg" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                  <a href="#contact" className="flex items-center justify-center">
                     <Mail className="w-5 h-5 mr-2" />
                     Kostenlose Beratung
                   </a>
                 </Button>
               </div>
+
+              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
+                  <div className="text-sm text-gray-600">Geschäftskunden</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary mb-1">15</div>
+                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-primary mb-1">24/7</div>
+                  <div className="text-sm text-gray-600">Service</div>
+                </div>
+              </div>
             </div>
-            <div>
+            
+            <div className="relative">
               <img 
                 src="https://images.unsplash.com/photo-1628177142898-93e36e4e3a50?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Professionelle Glas- und Rahmenreinigung"
-                className="w-full h-96 object-cover rounded-lg shadow-lg"
+                alt="Professionelle Glas- und Rahmenreinigung von Grema Gebäudeservice" 
+                className="w-full h-[500px] object-cover rounded-2xl shadow-2xl"
               />
             </div>
           </div>
