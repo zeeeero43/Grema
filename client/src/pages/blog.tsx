@@ -52,7 +52,7 @@ export default function Blog() {
   });
 
   // Get unique categories for filter
-  const categories = [...new Set(allPosts.map((post: any) => post.category))];
+  const categories = Array.from(new Set(allPosts.map((post: any) => post.category)));
   const blogPosts = filteredPosts;
 
   return (

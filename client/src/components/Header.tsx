@@ -79,6 +79,23 @@ export function Header({ currentPage }: HeaderProps) {
             >
               Blog
             </Link>
+            
+            {currentPage === "home" ? (
+              <a 
+                href="#contact" 
+                onClick={(e) => {
+                  e.preventDefault();
+                  document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                }}
+                className="font-medium text-gray-700 hover:text-primary transition-colors cursor-pointer"
+              >
+                Kontakt
+              </a>
+            ) : (
+              <Link href="/#contact" className="font-medium text-gray-700 hover:text-primary transition-colors">
+                Kontakt
+              </Link>
+            )}
           </nav>
 
           <div className="hidden md:flex items-center space-x-4">
@@ -135,6 +152,28 @@ export function Header({ currentPage }: HeaderProps) {
               >
                 Blog
               </Link>
+              
+              {currentPage === "home" ? (
+                <a 
+                  href="#contact" 
+                  onClick={(e) => {
+                    e.preventDefault();
+                    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
+                    setMobileMenuOpen(false);
+                  }}
+                  className="font-medium text-gray-700 hover:text-primary transition-colors cursor-pointer"
+                >
+                  Kontakt
+                </a>
+              ) : (
+                <Link 
+                  href="/#contact" 
+                  className="font-medium text-gray-700 hover:text-primary transition-colors"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  Kontakt
+                </Link>
+              )}
               
               <Button asChild className="bg-primary text-white hover:bg-primary/90 w-full">
                 <a href="tel:017634446399" className="flex items-center justify-center">
