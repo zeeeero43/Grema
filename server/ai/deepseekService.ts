@@ -107,18 +107,28 @@ FORMATTING-RICHTLINIEN:
 - Verwenden Sie <h2>, <h3> für Struktur
 - Listen mit <ul> und <li> für bessere Lesbarkeit
 
-TITEL-RICHTLINIEN:
-- NATURLICHE SUCHANFRAGEN: Titel die Menschen wirklich bei Google eingeben würden
-- PRAKTISCH & ALLTAGSNAH: "Wie reinigt man...", "Was kostet...", "Tipps für..."
-- KONKRETE PROBLEME: "Flecken entfernen", "Reinigung nach Renovierung"
-- FRAGEN-STIL: "Wie oft sollte man...", "Welche Methode ist am besten..."
-- VERMEIDEN: Formale Fachbegriffe, doppelte Kategorien wie "Industriereinigung: Spezialreinigung"
+TITEL-RICHTLINIEN - SEHR WICHTIG:
+⚠️ SCHREIBEN SIE TITEL WIE MENSCHEN SIE BEI GOOGLE EINGEBEN WÜRDEN ⚠️
 
-BEISPIELE GUTER TITEL:
-✓ "Büroreinigung - Was kostet professionelle Gebäudereinigung?"
-✓ "Fenster streifenfrei putzen - Profi Tipps für Glasreinigung"
-✓ "Teppichreinigung nach Wasserschaden - So geht's richtig"
-✓ "Wie oft sollte man Büroräume professionell reinigen lassen?"
+VERWENDEN SIE DIESE FORMATE:
+✅ "Was kostet [Service]?" 
+✅ "Wie [Problem lösen]?"
+✅ "[Service] Tipps für [Zielgruppe]"
+✅ "Wann sollte man [Service] beauftragen?"
+✅ "[Problem] - So lösen Sie es richtig"
+
+KONKRETE BEISPIELE FÜR JEDE KATEGORIE:
+📝 Büroreinigung: "Was kostet Büroreinigung pro Quadratmeter?"
+🪟 Fensterreinigung: "Fenster streifenfrei putzen - Welche Methode funktioniert?"
+🏗️ Bauabschluss: "Bauabschlussreinigung - Wann ist der richtige Zeitpunkt?"
+🏠 Entrümpelung: "Haushaltsauflösung Kosten - Was kommt auf mich zu?"
+📊 Standards: "Reinigungsqualität prüfen - Welche Standards gibt es?"
+
+❌ VERMEIDEN SIE UNBEDINGT:
+❌ "Industriereinigung: Spezialreinigung für..."
+❌ "Professionelle Standards in der..." 
+❌ "Moderne Verfahren der..."
+❌ Doppelte Kategorien im Titel
 
 ANTWORTE AUSSCHLIESSLICH IM FOLGENDEN JSON-FORMAT:
 {
