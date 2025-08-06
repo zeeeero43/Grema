@@ -52,7 +52,7 @@ export default function Blog() {
   });
 
   // Get unique categories for filter
-  const categories = Array.from(new Set(allPosts.map((post: any) => post.category)));
+  const categories = Array.from(new Set(allPosts.map((post: any) => post.category as string))) as string[];
   const blogPosts = filteredPosts;
 
   return (
@@ -124,7 +124,7 @@ export default function Blog() {
               >
                 Alle
               </button>
-              {categories.map((category) => (
+              {categories.map((category: string) => (
                 <button
                   key={category}
                   onClick={() => setSelectedCategory(category)}

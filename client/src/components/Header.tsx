@@ -36,7 +36,7 @@ export function Header({ currentPage }: HeaderProps) {
             <img 
               src={logoImage}
               alt="Grema Gebäudeservice GmbH Logo" 
-              className="h-12 w-auto"
+              className="h-14 w-auto"
             />
           </Link>
           
@@ -102,7 +102,7 @@ export function Header({ currentPage }: HeaderProps) {
             <Button asChild className="bg-primary text-white hover:bg-primary/90">
               <a href="tel:017634446399" className="flex items-center">
                 <Phone className="w-4 h-4 mr-2" />
-                0176 34446399
+                Kostenloses Angebot anfordern
               </a>
             </Button>
           </div>
@@ -178,7 +178,7 @@ export function Header({ currentPage }: HeaderProps) {
               <Button asChild className="bg-primary text-white hover:bg-primary/90 w-full">
                 <a href="tel:017634446399" className="flex items-center justify-center">
                   <Phone className="w-4 h-4 mr-2" />
-                  0176 34446399
+                  Kostenloses Angebot anfordern
                 </a>
               </Button>
             </div>
