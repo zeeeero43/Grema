@@ -154,9 +154,16 @@ WICHTIG: Antworten Sie ausschließlich mit dem JSON-Format aus dem System-Prompt
         throw new Error('Missing required fields in generated content');
       }
 
+      // Generate unique slug to avoid duplicates
+      const timestamp = Date.now();
+      const replacements: Record<string, string> = { ä: 'ae', ö: 'oe', ü: 'ue', ß: 'ss' };
+      const uniqueSlug = parsed.slug && parsed.slug !== 'url-freundlicher-slug' 
+        ? `${parsed.slug}-${timestamp.toString().slice(-6)}`
+        : `${parsed.title.toLowerCase().replace(/[äöüß]/g, (m: string) => replacements[m] || m).replace(/[^a-z0-9]+/g, '-').replace(/^-+|-+$/g, '')}-${timestamp.toString().slice(-6)}`;
+
       return {
         title: parsed.title,
-        slug: parsed.slug,
+        slug: uniqueSlug,
         excerpt: parsed.excerpt || '',
         content: parsed.content,
         metaDescription: parsed.metaDescription || parsed.excerpt || '',

@@ -14,7 +14,8 @@ export class DalleService {
   }
 
   async generateImage(prompt: string): Promise<string> {
-    if (!this.openai) {
+    const apiKey = process.env.OPENAI_API_KEY;
+    if (!apiKey) {
       throw new Error('OpenAI API key not configured');
     }
 
@@ -22,16 +23,29 @@ export class DalleService {
       // Enhance the prompt for better professional results
       const enhancedPrompt = this.enhancePrompt(prompt);
 
-      const response = await this.openai.images.generate({
-        model: 'dall-e-3',
-        prompt: enhancedPrompt,
-        n: 1,
-        size: '1792x1024', // Wide format for blog hero images
-        quality: 'standard',
-        style: 'natural'
+      // Use direct fetch API call with proper Authorization header
+      const response = await fetch('https://api.openai.com/v1/images/generations', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${apiKey}`
+        },
+        body: JSON.stringify({
+          prompt: enhancedPrompt,
+          n: 1,
+          size: '1024x1024',
+          quality: 'standard',
+          style: 'natural'
+        })
       });
 
-      const imageUrl = response.data?.[0]?.url;
+      if (!response.ok) {
+        const errorData = await response.text();
+        throw new Error(`OpenAI API error: ${response.status} ${errorData}`);
+      }
+
+      const data = await response.json();
+      const imageUrl = data.data?.[0]?.url;
       if (!imageUrl) {
         throw new Error('No image URL received from DALL-E');
       }

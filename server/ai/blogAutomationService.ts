@@ -139,7 +139,8 @@ export class BlogAutomationService {
         readTime: blogContent.readTime,
         image: heroImageUrl,
         imagePrompt: blogContent.imagePrompt,
-        isPublished: false // Will be published after review
+        isPublished: true, // Auto-publish automated posts
+        publishedAt: new Date()
       };
 
       const createdPost = await storage.createAutoBlogPost(newBlogPost);
