@@ -66,9 +66,27 @@ export default function BlogPost() {
 
   // Get manual blog post as fallback
   const manualPost = params?.slug ? getBlogPostBySlug(params.slug) : null;
-  const otherPosts = getAllBlogPosts().filter(p => p.slug !== params?.slug).slice(0, 3);
-
   const autoPost = autoData?.success ? autoData.post : null;
+  
+  // Get other automated blog posts for related articles
+  const { data: otherAutoData } = useQuery({
+    queryKey: ['/api/blog/other', params?.slug],
+    queryFn: async (): Promise<{ success: boolean; posts: AutoBlogPost[] }> => {
+      const response = await fetch('/api/blog');
+      if (!response.ok) {
+        throw new Error('Failed to fetch blog posts');
+      }
+      const data = await response.json();
+      return {
+        success: true,
+        posts: data.posts.filter((p: AutoBlogPost) => p.slug !== params?.slug).slice(0, 3)
+      };
+    },
+    enabled: !!params?.slug && !!autoPost,
+  });
+  
+  const manualOtherPosts = getAllBlogPosts().filter(p => p.slug !== params?.slug).slice(0, 3);
+  const otherPosts = isAutoPost && otherAutoData?.success ? otherAutoData.posts : manualOtherPosts;
   const post = autoPost || manualPost;
   const isAutoPost = !!autoPost;
 
@@ -277,7 +295,7 @@ export default function BlogPost() {
       <article className="py-0 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
           {/* Article Meta */}
-          <div className="flex items-center justify-center gap-6 mb-8 pb-4 border-b border-gray-200 mt-12">
+          <div className="flex items-center justify-center gap-6 mb-8 pb-4 border-b border-gray-200 mt-6">
             <div className="flex items-center gap-2 text-gray-600">
               <Eye className="w-4 h-4" />
               <span className="text-sm">{post.readTime}</span>
