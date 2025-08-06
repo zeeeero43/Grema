@@ -14,7 +14,10 @@ import {
   Share2,
   Mail,
   ArrowRight,
-  CheckCircle
+  CheckCircle,
+  Tag,
+  Eye,
+  BookOpen
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
@@ -94,24 +97,24 @@ export default function BlogPost() {
     );
   }
 
-  // Simple markdown-to-HTML converter for content
+  // Enhanced markdown-to-HTML converter for content
   const formatContent = (content: string) => {
     return content
-      .replace(/^# (.+)$/gm, '<h1 class="text-3xl font-bold text-gray-900 mb-6 mt-8">$1</h1>')
-      .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-gray-900 mb-4 mt-6">$1</h2>')
-      .replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold text-gray-900 mb-3 mt-5">$1</h3>')
-      .replace(/^\*\*(.+):\*\*$/gm, '<h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4">$1:</h4>')
-      .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-gray-900">$1</strong>')
-      .replace(/^- (.+)$/gm, '<li class="mb-1">$1</li>')
-      .replace(/(<li.*<\/li>)/g, '<ul class="list-disc ml-6 mb-4 space-y-1 text-gray-700">$1</ul>')
-      .replace(/^- \[ \] (.+)$/gm, '<li class="flex items-center mb-2"><span class="w-4 h-4 border border-gray-300 rounded mr-3"></span>$1</li>')
-      .replace(/^- \[x\] (.+)$/gm, '<li class="flex items-center mb-2"><span class="w-4 h-4 bg-primary rounded mr-3 flex items-center justify-center"><svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>$1</li>')
-      .replace(/\n\n/g, '</p><p class="text-gray-700 leading-relaxed mb-4">')
+      .replace(/^# (.+)$/gm, '<h1 class="text-3xl font-bold text-gray-900 mb-6 mt-8 border-b-2 border-gray-200 pb-3">$1</h1>')
+      .replace(/^## (.+)$/gm, '<h2 class="text-2xl font-bold text-gray-900 mb-4 mt-8 border-l-4 border-primary pl-4">$1</h2>')
+      .replace(/^### (.+)$/gm, '<h3 class="text-xl font-bold text-gray-900 mb-3 mt-6">$1</h3>')
+      .replace(/^\*\*(.+):\*\*$/gm, '<h4 class="text-lg font-semibold text-gray-900 mb-2 mt-4 bg-gray-50 p-3 rounded-lg">$1:</h4>')
+      .replace(/\*\*(.+?)\*\*/g, '<strong class="font-semibold text-primary">$1</strong>')
+      .replace(/^- (.+)$/gm, '<li class="mb-2 flex items-start"><span class="w-2 h-2 bg-primary rounded-full mt-2 mr-3 flex-shrink-0"></span><span>$1</span></li>')
+      .replace(/(<li.*<\/li>)/g, '<ul class="mb-6 space-y-2 text-gray-700">$1</ul>')
+      .replace(/^- \[ \] (.+)$/gm, '<li class="flex items-center mb-2 p-2 bg-gray-50 rounded"><span class="w-4 h-4 border border-gray-300 rounded mr-3"></span>$1</li>')
+      .replace(/^- \[x\] (.+)$/gm, '<li class="flex items-center mb-2 p-2 bg-green-50 rounded"><span class="w-4 h-4 bg-primary rounded mr-3 flex items-center justify-center"><svg class="w-2 h-2 text-white" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"></path></svg></span>$1</li>')
+      .replace(/\n\n/g, '</p><p class="text-gray-700 leading-relaxed mb-6 text-lg">')
       .replace(/^(.+)$/gm, (match, content) => {
         if (content.startsWith('<h') || content.startsWith('<ul') || content.startsWith('<li') || content.startsWith('</')) {
           return content;
         }
-        return `<p class="text-gray-700 leading-relaxed mb-4">${content}</p>`;
+        return `<p class="text-gray-700 leading-relaxed mb-6 text-lg">${content}</p>`;
       });
   };
 
@@ -222,7 +225,7 @@ export default function BlogPost() {
           <div className="flex flex-wrap items-center gap-6 text-gray-600 mb-8">
             <div className="flex items-center space-x-2">
               <Calendar className="w-4 h-4" />
-              <span>{isAutoPost ? new Date(post.createdAt).toLocaleDateString('de-DE') : post.date}</span>
+              <span>{isAutoPost ? new Date((post as AutoBlogPost).publishedAt || (post as AutoBlogPost).createdAt).toLocaleDateString('de-DE') : (post as any).date}</span>
             </div>
             <div className="flex items-center space-x-2">
               <User className="w-4 h-4" />
@@ -236,7 +239,7 @@ export default function BlogPost() {
 
           {/* Hero Image */}
           {post.image && (
-            <div className="mb-12">
+            <div className="mb-8">
               <img 
                 src={post.image}
                 alt={post.title}
@@ -250,15 +253,44 @@ export default function BlogPost() {
         </div>
       </section>
 
+      {/* Tags for Auto Posts */}
+      {isAutoPost && (post as AutoBlogPost).keywords && (post as AutoBlogPost).keywords.length > 0 && (
+        <section className="py-6 bg-gray-50">
+          <div className="max-w-4xl mx-auto px-6 lg:px-12">
+            <div className="flex items-center gap-2 flex-wrap">
+              <Tag className="w-4 h-4 text-gray-600" />
+              <span className="text-sm text-gray-600 font-medium">Tags:</span>
+              {(post as AutoBlogPost).keywords.map((tag, index) => (
+                <span 
+                  key={index} 
+                  className="bg-primary/10 text-primary px-3 py-1 rounded-full text-sm font-medium"
+                >
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        </section>
+      )}
+
       {/* Article Content */}
-      <article className="py-8 bg-white">
+      <article className="py-0 bg-white">
         <div className="max-w-4xl mx-auto px-6 lg:px-12">
+          {/* Reading Progress Indicator */}
+          <div className="flex items-center gap-4 mb-8 p-4 bg-blue-50 border-l-4 border-primary rounded-r-lg">
+            <BookOpen className="w-5 h-5 text-primary" />
+            <div className="text-sm">
+              <span className="font-medium text-gray-900">Lesezeit: {post.readTime}</span>
+              <span className="text-gray-600 ml-2">• Von {post.author}</span>
+            </div>
+          </div>
+
           <div className="prose prose-lg max-w-none">
             <div 
               dangerouslySetInnerHTML={{ 
                 __html: isAutoPost ? post.content : formatContent(post.content) 
               }}
-              className="article-content"
+              className="article-content text-gray-800 leading-relaxed"
             />
           </div>
         </div>
