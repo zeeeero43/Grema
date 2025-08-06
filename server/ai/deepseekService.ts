@@ -36,6 +36,53 @@ export class DeepSeekService {
     }
   }
 
+  async generateTopicIdeas(prompt: string): Promise<string> {
+    if (!this.apiKey) {
+      throw new Error('DeepSeek API key not configured');
+    }
+
+    try {
+      const response = await fetch(this.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${this.apiKey}`,
+        },
+        body: JSON.stringify({
+          model: 'deepseek-chat',
+          messages: [
+            {
+              role: 'system',
+              content: 'Du bist ein SEO-Experte für deutsche Gebäudereinigungsfirmen. Antworte ausschließlich im angeforderten JSON-Format.'
+            },
+            {
+              role: 'user', 
+              content: prompt
+            }
+          ],
+          max_tokens: 2000,
+          temperature: 0.8, // Higher creativity for topic generation
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`DeepSeek API error: ${response.status} ${response.statusText}`);
+      }
+
+      const data: DeepSeekResponse = await response.json();
+      const content = data.choices[0]?.message?.content;
+
+      if (!content) {
+        throw new Error('No content received from DeepSeek API');
+      }
+
+      return content;
+    } catch (error) {
+      console.error('DeepSeek Topic Generation API error:', error);
+      throw new Error(`Failed to generate topic ideas: ${error instanceof Error ? error.message : 'Unknown error'}`);
+    }
+  }
+
   async generateBlogContent(request: BlogContentRequest): Promise<BlogContent> {
     if (!this.apiKey) {
       throw new Error('DeepSeek API key not configured');

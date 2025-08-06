@@ -1,48 +1,30 @@
 import { DeepSeekService } from './deepseekService';
 import { RunwareService } from './runwareService';
+import { TopicGenerationService } from './topicGenerationService';
 import { storage } from '../storage';
-import { getRandomBlogTopic, getUnusedTopics } from './blogTopics';
 import type { InsertAutoBlogPost, InsertBlogIdea, InsertAiGenerationLog } from '@shared/schema';
 
 export class BlogAutomationService {
   private deepseekService: DeepSeekService;
   private runwareService: RunwareService;
+  private topicGenerationService: TopicGenerationService;
   private isGenerating = false;
 
   constructor() {
     this.deepseekService = new DeepSeekService();
     this.runwareService = new RunwareService();
+    this.topicGenerationService = new TopicGenerationService();
   }
 
   async initializeBlogIdeas(): Promise<void> {
-    console.log('🌱 Initializing blog topic ideas...');
+    console.log('🌱 Initializing dynamic blog topic system...');
     
     try {
-      const { blogTopicPool } = await import('./blogTopics');
-      
-      // Get existing used topics to avoid duplicates
-      const existingIdeas = await storage.getUnusedBlogIdeas(1000);
-      const existingTopics = existingIdeas.map(idea => idea.topic);
-      
-      // Add new topics that don't exist yet
-      let addedCount = 0;
-      for (const topicIdea of blogTopicPool) {
-        if (!existingTopics.includes(topicIdea.topic)) {
-          const blogIdea: InsertBlogIdea = {
-            topic: topicIdea.topic,
-            category: topicIdea.category,
-            keywords: topicIdea.keywords,
-            isUsed: false
-          };
-          
-          await storage.createBlogIdea(blogIdea);
-          addedCount++;
-        }
-      }
-      
-      console.log(`✅ Added ${addedCount} new blog topic ideas to database`);
+      // Use intelligent topic generation instead of hardcoded topics
+      await this.topicGenerationService.ensureTopicAvailability(5);
+      console.log('✅ Dynamic topic generation system initialized');
     } catch (error) {
-      console.error('❌ Failed to initialize blog ideas:', error);
+      console.error('❌ Failed to initialize dynamic topic system:', error);
       throw error;
     }
   }
@@ -56,12 +38,19 @@ export class BlogAutomationService {
     console.log('🤖 Starting automated blog post generation...');
 
     try {
+      // Ensure we have enough topics available (generate new ones if needed)
+      await this.topicGenerationService.ensureTopicAvailability(3);
+      
       // Get an unused blog topic
       const unusedIdeas = await storage.getUnusedBlogIdeas(1);
       if (unusedIdeas.length === 0) {
-        console.log('🔄 No unused topics found, reinitializing topic pool...');
-        await this.initializeBlogIdeas();
-        return { success: false, error: 'No unused topics available, please try again' };
+        console.log('🔄 No unused topics found, generating new ones...');
+        await this.topicGenerationService.ensureTopicAvailability(5);
+        const retryUnusedIdeas = await storage.getUnusedBlogIdeas(1);
+        if (retryUnusedIdeas.length === 0) {
+          return { success: false, error: 'Failed to generate new topics' };
+        }
+        return this.generateBlogPost(); // Retry with new topics
       }
 
       const selectedIdea = unusedIdeas[0];

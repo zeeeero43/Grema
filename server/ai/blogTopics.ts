@@ -1,4 +1,6 @@
-// Blog topic ideas pool for automated content generation
+// This file is deprecated - we now use dynamic AI-generated topics
+// Legacy file kept for reference only
+
 export interface BlogTopicIdea {
   topic: string;
   category: string;
@@ -6,6 +8,7 @@ export interface BlogTopicIdea {
   targetAudience?: string;
 }
 
+// DEPRECATED: Hardcoded topics replaced by dynamic AI generation
 export const blogTopicPool: BlogTopicIdea[] = [
   // Unterhaltsreinigung Topics
   {
