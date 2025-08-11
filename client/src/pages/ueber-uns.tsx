@@ -31,118 +31,112 @@ export default function UeberUns() {
       {/* Hero Section */}
       <section className="py-16 md:py-20 bg-gray-50">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
-                <Award className="w-4 h-4" />
-                <span>Über Grema Gebäudeservice</span>
-              </div>
-              
-              <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-                Ihr Partner für <span className="text-primary">professionelle Gebäudereinigung</span>
-              </h1>
-              
-              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Als regionaler Marktführer aus Moers setzen wir seit der Gründung Maßstäbe in der Gebäudereinigung. 
-                Vertrauen, Qualität und Zuverlässigkeit stehen im Mittelpunkt unserer Arbeit.
-              </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-8">
-                <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90">
-                  <a href="tel:017634446399" className="flex items-center justify-center">
-                    <Phone className="w-5 h-5 mr-2" />
-                    Jetzt anrufen
-                  </a>
-                </Button>
-                <Button asChild variant="outline" size="lg" className="border-gray-300 text-gray-700 hover:bg-gray-50">
-                  <a href="#kontakt" className="flex items-center justify-center">
-                    <Mail className="w-5 h-5 mr-2" />
-                    Kontakt aufnehmen
-                  </a>
-                </Button>
-              </div>
-
-              <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
-                  <div className="text-sm text-gray-600">Regional</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
-                  <div className="text-sm text-gray-600">Zuverlässig</div>
-                </div>
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">24/7</div>
-                  <div className="text-sm text-gray-600">Service</div>
-                </div>
-              </div>
+          <div className="text-center">
+            <div className="inline-flex items-center space-x-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-medium mb-6">
+              <Building2 className="w-4 h-4" />
+              <span>Über Grema Gebäudeservice GmbH</span>
             </div>
             
-            <div className="relative">
-              <img 
-                src={teamImage}
-                alt="Das Team von Grema Gebäudeservice bei der Arbeit" 
-                className="w-full h-[400px] object-cover rounded-2xl shadow-2xl"
-                loading="eager"
-                decoding="async"
-              />
+            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+              Ihr Partner für professionelle <span className="text-primary">Gebäudereinigung</span>
+            </h1>
+            
+            <p className="text-xl text-gray-600 mb-12 leading-relaxed max-w-4xl mx-auto">
+              Aus Moers für ganz NRW - wir setzen seit 2014 Maßstäbe in der professionellen Gebäudereinigung. 
+              Vertrauen, Qualität und Zuverlässigkeit stehen im Mittelpunkt unserer Arbeit.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12">
+              <Button asChild size="lg" className="bg-primary text-white hover:bg-primary/90">
+                <a href="tel:017634446399" className="flex items-center justify-center">
+                  <Phone className="w-5 h-5 mr-2" />
+                  0176 34446399
+                </a>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="border-gray-300 text-gray-700 hover:bg-gray-50">
+                <a href="#kontakt" className="flex items-center justify-center">
+                  <Mail className="w-5 h-5 mr-2" />
+                  Kontakt aufnehmen
+                </a>
+              </Button>
+            </div>
+
+            <div className="bg-white rounded-lg p-8 shadow-sm max-w-4xl mx-auto">
+              <div className="grid md:grid-cols-4 gap-8 text-center">
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">✓</div>
+                  <div className="text-sm text-gray-600">Regional verwurzelt</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">✓</div>
+                  <div className="text-sm text-gray-600">Zuverlässig</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">✓</div>
+                  <div className="text-sm text-gray-600">Professionell</div>
+                </div>
+                <div>
+                  <div className="text-3xl font-bold text-primary mb-2">24/7</div>
+                  <div className="text-sm text-gray-600">Erreichbar</div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Unternehmensgeschichte */}
+      {/* Unternehmensphilosophie */}
       <section className="py-16 md:py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6 lg:px-12">
           <div className="text-center mb-12">
             <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-              Unsere Geschichte
+              Unsere Philosophie
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Vom lokalen Familienbetrieb zum regionalen Marktführer
+              Regional verwurzelt, professionell ausgerichtet
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Tradition und Innovation
+                Aus Moers für ganz NRW
               </h3>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Grema Gebäudeservice wurde als lokaler Familienbetrieb in Moers gegründet. 
-                Was mit einem kleinen Team und großem Engagement begann, hat sich zu einem 
-                der führenden Gebäudereinigungsunternehmen in der Region entwickelt.
+                Als regionaler Gebäudereiniger aus Moers verstehen wir die besonderen 
+                Anforderungen unserer Kunden in Nordrhein-Westfalen. Seit 2014 setzen 
+                wir auf persönlichen Service, faire Preise und höchste Qualität.
               </p>
               <p className="text-gray-600 mb-6 leading-relaxed">
-                Unser Erfolgsgeheimnis liegt in der perfekten Balance zwischen bewährten 
-                Traditionen und innovativen Reinigungstechnologien. Dabei stehen unsere 
-                Kunden und ihre individuellen Bedürfnisse immer im Mittelpunkt.
+                Unser Erfolg basiert auf Vertrauen, Zuverlässigkeit und der Fähigkeit, 
+                individuelle Reinigungslösungen für jeden Kunden zu entwickeln. Dabei 
+                kombinieren wir bewährte Arbeitsmethoden mit modernsten Technologien.
               </p>
             </div>
             
             <div className="space-y-4">
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center mb-3">
-                  <Crown className="w-6 h-6 text-primary mr-3" />
-                  <h4 className="font-bold text-gray-900">2009</h4>
+                  <MapPin className="w-6 h-6 text-primary mr-3" />
+                  <h4 className="font-bold text-gray-900">Regional</h4>
                 </div>
-                <p className="text-gray-600">Gründung in Moers als Familienbetrieb</p>
+                <p className="text-gray-600">Verwurzelt in Moers, aktiv in ganz NRW</p>
               </div>
               
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center mb-3">
-                  <Building2 className="w-6 h-6 text-primary mr-3" />
-                  <h4 className="font-bold text-gray-900">2015</h4>
+                  <Heart className="w-6 h-6 text-primary mr-3" />
+                  <h4 className="font-bold text-gray-900">Persönlich</h4>
                 </div>
-                <p className="text-gray-600">Expansion in das Rheinland und NRW</p>
+                <p className="text-gray-600">Direkter Kontakt und individuelle Betreuung</p>
               </div>
               
               <div className="bg-gray-50 rounded-lg p-6">
                 <div className="flex items-center mb-3">
-                  <Star className="w-6 h-6 text-primary mr-3" />
-                  <h4 className="font-bold text-gray-900">2025</h4>
+                  <Sparkles className="w-6 h-6 text-primary mr-3" />
+                  <h4 className="font-bold text-gray-900">Modern</h4>
                 </div>
-                <p className="text-gray-600">Regionaler Marktführer mit modernster Technik</p>
+                <p className="text-gray-600">Neueste Technologien und Reinigungsverfahren</p>
               </div>
             </div>
           </div>
@@ -396,6 +390,54 @@ export default function UeberUns() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="w-8 h-8 bg-primary flex items-center justify-center rounded">
+                <Building2 className="w-4 h-4 text-white" />
+              </div>
+              <h3 className="text-xl font-bold text-white">Grema Gebäudeservice GmbH</h3>
+            </div>
+            
+            <p className="text-gray-400 mb-6">
+              Professionelle Gebäudereinigung in Moers seit 2014
+            </p>
+            
+            <div className="flex justify-center items-center space-x-8 text-gray-400 text-sm mb-6">
+              <div className="flex items-center space-x-2">
+                <Phone className="w-4 h-4 text-primary" />
+                <a href="tel:017634446399" className="hover:text-white">0176/3444 6399</a>
+              </div>
+              <div className="flex items-center space-x-2">
+                <MapPin className="w-4 h-4 text-primary" />
+                <span>Moers, NRW</span>
+              </div>
+            </div>
+            
+            <div className="text-gray-500 text-sm">
+              <p>&copy; 2025 Grema Gebäudeservice GmbH. Alle Rechte vorbehalten.</p>
+              <div className="flex justify-center space-x-6 mt-3">
+                <a href="#" className="hover:text-white">Impressum</a>
+                <a href="#" className="hover:text-white">Datenschutz</a>
+                <a href="#" className="hover:text-white">AGB</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      {/* Phone Button */}
+      <div className="fixed bottom-6 right-6 z-50">
+        <a
+          href="tel:017634446399"
+          className="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-colors"
+        >
+          <Phone className="w-5 h-5" />
+        </a>
+      </div>
     </div>
   );
 }
