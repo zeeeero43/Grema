@@ -10,6 +10,7 @@ import Sonderreinigung from "@/pages/sonderreinigung";
 import Bauabschlussreinigung from "@/pages/bauabschlussreinigung";
 import Entruempelung from "@/pages/entruempelung";
 import Treppenhausreinigung from "@/pages/treppenhausreinigung";
+import UeberUns from "@/pages/ueber-uns";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 
@@ -28,6 +29,7 @@ function Router() {
         <Route path="/bauabschlussreinigung" component={Bauabschlussreinigung} />
         <Route path="/entruempelung" component={Entruempelung} />
         <Route path="/treppenhausreinigung" component={Treppenhausreinigung} />
+        <Route path="/ueber-uns" component={UeberUns} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
 

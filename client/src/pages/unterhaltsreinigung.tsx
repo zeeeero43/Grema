@@ -177,7 +177,7 @@ export default function Unterhaltsreinigung() {
               <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Flexible Zeiten</h3>
               <p className="text-gray-600">
-                Reinigung außerhalb Ihrer Geschäftszeiten, abends oder am Wochenende ohne Störung Ihres Betriebsablaufs.
+                Reinigung außerhalb Ihrer Geschäftszeiten, abends oder am Wochenende. Keine Störung Ihres Betriebsablaufs.
               </p>
             </div>
 
@@ -374,10 +374,11 @@ export default function Unterhaltsreinigung() {
                             <FormLabel className="text-gray-700 font-medium">Telefon</FormLabel>
                             <FormControl>
                               <Input 
+                                {...field}
+                                value={field.value || ""}
                                 type="tel"
                                 placeholder="0123 456789" 
                                 className="border-gray-300 focus:border-primary focus:ring-primary"
-                                {...field} 
                               />
                             </FormControl>
                             <FormMessage />

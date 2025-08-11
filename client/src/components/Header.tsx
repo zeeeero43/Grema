@@ -29,6 +29,7 @@ export function Header({ currentPage }: HeaderProps) {
 
   const isServicePage = services.some(service => location === service.href);
   const isBlogPage = location.startsWith('/blog');
+  const isUeberUnsPage = location === '/ueber-uns';
 
   return (
     <header className="bg-white shadow-sm sticky top-0 z-50">
@@ -79,6 +80,13 @@ export function Header({ currentPage }: HeaderProps) {
                 </div>
               </div>
             </div>
+            
+            <Link 
+              href="/ueber-uns" 
+              className={`font-medium ${isUeberUnsPage ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}
+            >
+              Über uns
+            </Link>
             
             <Link 
               href="/blog" 
@@ -151,6 +159,14 @@ export function Header({ currentPage }: HeaderProps) {
                   ))}
                 </div>
               </div>
+              
+              <Link 
+                href="/ueber-uns" 
+                className={`font-medium ${isUeberUnsPage ? 'text-primary' : 'text-gray-700 hover:text-primary'}`}
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Über uns
+              </Link>
               
               <Link 
                 href="/blog" 
