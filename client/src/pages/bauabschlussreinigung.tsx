@@ -120,12 +120,12 @@ export default function Bauabschlussreinigung() {
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">  
-                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Bauprojekte</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Qualität</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">15</div>
-                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Erfahren</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">100%</div>
@@ -159,101 +159,53 @@ export default function Bauabschlussreinigung() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <HardHat className="w-6 h-6 text-white" />
-              </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <HardHat className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Bauabschlussreinigung</h3>
-              <p className="text-gray-600 mb-4">
-                Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustäuben, 
-                Klebstoffresten und allen baustellenbedingten Verschmutzungen.
+              <p className="text-gray-600">
+                Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustäuben, Klebstoffresten und allen baustellenbedingten Verschmutzungen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Baustaubentfernung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Klebstoffreste</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Fensterreinigung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Hammer className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Hammer className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Baustellenreinigung</h3>
-              <p className="text-gray-600 mb-4">
-                Zwischenreinigung während der Bauphase. Sicherstellung sauberer 
-                Arbeitsbedingungen und Schutz vor Verunreinigungen.
+              <p className="text-gray-600">
+                Zwischenreinigung während der Bauphase. Sicherstellung sauberer Arbeitsbedingungen und Schutz vor Verunreinigungen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Zwischenreinigung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Sicherheitsreinigung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Termingerecht</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Renovierungsreinigung</h3>
-              <p className="text-gray-600 mb-4">
-                Gründliche Reinigung nach Renovierung, Modernisierung oder Umbau. 
-                Für perfekte Sauberkeit bei der Schlüsselübergabe.
+              <p className="text-gray-600">
+                Gründliche Reinigung nach Renovierung, Modernisierung oder Umbau. Für perfekte Sauberkeit bei der Schlüsselübergabe.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Nach Renovierung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Grundreinigung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Schlüsselfertig</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Gewerbebau</h3>
-              <p className="text-gray-600 mb-4">
-                Spezialisiert auf Bürogebäude, Industrieanlagen und Gewerbeobjekte. 
-                Erfahrung mit Großprojekten und komplexen Anforderungen.
+              <p className="text-gray-600">
+                Spezialisiert auf Bürogebäude, Industrieanlagen und Gewerbeobjekte. Erfahrung mit Großprojekten und komplexen Anforderungen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Bürogebäude</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Industrieanlagen</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Großprojekte</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Termingerechte Abwicklung</h3>
-              <p className="text-gray-600 mb-4">
-                Koordination mit Bauzeitplänen und anderen Gewerken. 
-                Zuverlässige Einhaltung von Übergabeterminen.
+              <p className="text-gray-600">
+                Koordination mit Bauzeitplänen und anderen Gewerken. Zuverlässige Einhaltung von Übergabeterminen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Bauplanung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Koordination</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Pünktlich</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Sicherheit & Qualität</h3>
-              <p className="text-gray-600 mb-4">
-                Geschultes Personal mit Baustellensicherheitsschulung. 
-                Modernste Ausrüstung für professionelle Ergebnisse.
+              <p className="text-gray-600">
+                Geschultes Personal mit Baustellensicherheitsschulung. Modernste Ausrüstung für professionelle Ergebnisse.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Sicherheitsschulung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Moderne Ausrüstung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Vollversichert</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -267,7 +219,7 @@ export default function Bauabschlussreinigung() {
               Warum Grema für Ihre Baureinigung?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Vertrauen Sie auf über 500 erfolgreich abgeschlossene Bauprojekte
+              Vertrauen Sie auf unsere Erfahrung mit Bauprojekten aller Größenordnungen
             </p>
           </div>
 
@@ -278,7 +230,7 @@ export default function Bauabschlussreinigung() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">Bauerfahrung</h3>
               <p className="text-gray-600">
-                15 Jahre Erfahrung mit Bauprojekten aller Größenordnungen. 
+                Langjährige Erfahrung mit Bauprojekten aller Größenordnungen. 
                 Von Privatbau bis zu Gewerbeobjekten.
               </p>
             </div>

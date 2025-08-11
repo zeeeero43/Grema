@@ -361,10 +361,10 @@ export default function Home() {
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-6">
-                Warum uns 500+ Unternehmen vertrauen
+                Warum Unternehmen auf uns vertrauen
               </h2>
               <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Mit 15 Jahren Erfahrung in der professionellen Gebäudereinigung sind wir Ihr 
+                Mit langjähriger Erfahrung in der professionellen Gebäudereinigung sind wir Ihr 
                 zuverlässiger Partner für höchste Sauberkeitsstandards in Moers und deutschlandweit.
               </p>
               

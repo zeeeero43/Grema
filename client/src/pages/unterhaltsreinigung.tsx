@@ -156,101 +156,53 @@ export default function Unterhaltsreinigung() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Tägliche Unterhaltsreinigung</h3>
-              <p className="text-gray-600 mb-4">
-                Regelmäßige Reinigung von Büros, Konferenzräumen, Sanitäranlagen und Gemeinschaftsbereichen 
-                nach individuellen Plänen.
+              <p className="text-gray-600">
+                Regelmäßige Reinigung von Büros, Konferenzräumen, Sanitäranlagen und Gemeinschaftsbereichen nach individuellen Plänen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Staubsaugen & Wischen</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Papierkorb-Entleerung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Sanitärreinigung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Shield className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Shield className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Praxis & Medizin</h3>
-              <p className="text-gray-600 mb-4">
-                Spezialisierte Hygienereinigung für Arztpraxen, Kliniken und medizinische Einrichtungen 
-                nach strengsten Standards.
+              <p className="text-gray-600">
+                Spezialisierte Hygienereinigung für Arztpraxen, Kliniken und medizinische Einrichtungen nach strengsten Standards.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Desinfektion</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Behandlungsräume</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Hygienestandards</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Flexible Zeiten</h3>
-              <p className="text-gray-600 mb-4">
-                Reinigung außerhalb Ihrer Geschäftszeiten, abends oder am Wochenende. 
-                Kein Störung Ihres Betriebsablaufs.
+              <p className="text-gray-600">
+                Reinigung außerhalb Ihrer Geschäftszeiten, abends oder am Wochenende ohne Störung Ihres Betriebsablaufs.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Abends & Wochenende</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Individuelle Termine</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Keine Betriebsstörung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Users className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Users className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Geschultes Personal</h3>
-              <p className="text-gray-600 mb-4">
-                Erfahrene und geschulte Reinigungskräfte mit Sicherheitsschulung für 
-                sensible Unternehmensbereiche.
+              <p className="text-gray-600">
+                Erfahrene und geschulte Reinigungskräfte mit Sicherheitsschulung für sensible Unternehmensbereiche.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Fachausbildung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Sicherheitsschulung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Zuverlässig</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Sparkles className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Sparkles className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Grundreinigung</h3>
-              <p className="text-gray-600 mb-4">
-                Intensive Tiefenreinigung für Teppiche, Polster und schwer zugängliche Bereiche. 
-                Perfekt für Umzüge oder Renovierungen.
+              <p className="text-gray-600">
+                Intensive Tiefenreinigung für Teppiche, Polster und schwer zugängliche Bereiche. Perfekt für Umzüge oder Renovierungen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Teppichreinigung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Polsterreinigung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Tiefenreinigung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Qualitätskontrolle</h3>
-              <p className="text-gray-600 mb-4">
-                Regelmäßige Qualitätskontrollen und direkter Ansprechpartner für 
-                kontinuierlich hohe Standards.
+              <p className="text-gray-600">
+                Regelmäßige Qualitätskontrollen und direkter Ansprechpartner für kontinuierlich hohe Standards.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Qualitätschecks</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Fester Ansprechpartner</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Zufriedenheitsgarantie</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -264,7 +216,7 @@ export default function Unterhaltsreinigung() {
               Warum Grema für Ihre Büroreinigung?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Über 500 Unternehmen vertrauen bereits auf unsere professionelle Reinigung
+              Vertrauen Sie auf unsere professionelle und zuverlässige Reinigung
             </p>
           </div>
 
@@ -273,10 +225,10 @@ export default function Unterhaltsreinigung() {
               <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center mx-auto mb-4">
                 <Star className="w-8 h-8 text-white" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">15 Jahre Erfahrung</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Langjährige Erfahrung</h3>
               <p className="text-gray-600">
-                Seit 2014 reinigen wir Büros und Praxen in NRW. Unsere Erfahrung 
-                garantiert professionelle Ergebnisse.
+                Wir reinigen Büros und Praxen in NRW mit bewährten Methoden. 
+                Unsere Erfahrung garantiert professionelle Ergebnisse.
               </p>
             </div>
 

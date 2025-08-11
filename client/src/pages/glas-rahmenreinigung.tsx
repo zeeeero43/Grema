@@ -103,12 +103,12 @@ export default function GlasRahmenreinigung() {
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Geschäftskunden</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Qualität</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">15</div>
-                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Erfahren</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">24/7</div>

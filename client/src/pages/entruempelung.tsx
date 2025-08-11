@@ -120,12 +120,12 @@ export default function Entruempelung() {
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Entrümpelungen</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Qualität</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">15</div>
-                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Erfahren</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">100%</div>
@@ -159,101 +159,53 @@ export default function Entruempelung() {
             </p>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Package className="w-6 h-6 text-white" />
-              </div>
+          <div className="grid md:grid-cols-3 gap-8">
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Package className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Hausauflösung</h3>
-              <p className="text-gray-600 mb-4">
-                Komplette Hausauflösungen nach Erbfall oder Umzug. Wertgegenstände werden 
-                sortiert und sicher verwahrt, alles andere fachgerecht entsorgt.
+              <p className="text-gray-600">
+                Komplette Hausauflösungen nach Erbfall oder Umzug. Wertgegenstände werden sortiert und sicher verwahrt, alles andere fachgerecht entsorgt.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Komplette Auflösung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Wertgegenstände sortieren</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Fachgerechte Entsorgung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Trash2 className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Trash2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Kellerentrümpelung</h3>
-              <p className="text-gray-600 mb-4">
-                Entrümpelung von Kellern, Dachböden und Garagen. Professionelle 
-                Sortierung und umweltgerechte Entsorgung aller Materialien.
+              <p className="text-gray-600">
+                Entrümpelung von Kellern, Dachböden und Garagen. Professionelle Sortierung und umweltgerechte Entsorgung aller Materialien.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Keller & Dachboden</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Garagen</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Schuppen</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Building2 className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Building2 className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Geschäftsauflösung</h3>
-              <p className="text-gray-600 mb-4">
-                Entrümpelung von Büros, Geschäften und Gewerbeobjekten. 
-                Vertrauliche Aktenvernichtung und fachgerechte IT-Entsorgung.
+              <p className="text-gray-600">
+                Entrümpelung von Büros, Geschäften und Gewerbeobjekten. Vertrauliche Aktenvernichtung und fachgerechte IT-Entsorgung.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Büroauflösung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Aktenvernichtung</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />IT-Entsorgung</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Truck className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Truck className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Transport & Entsorgung</h3>
-              <p className="text-gray-600 mb-4">
-                Kompletter Service mit eigenem Fuhrpark. Von der Demontage bis zur 
-                umweltgerechten Entsorgung - alles aus einer Hand.
+              <p className="text-gray-600">
+                Kompletter Service mit eigenem Fuhrpark. Von der Demontage bis zur umweltgerechten Entsorgung - alles aus einer Hand.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Eigener Fuhrpark</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Demontage</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Umweltgerecht</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <Clock className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <Clock className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Termine nach Wunsch</h3>
-              <p className="text-gray-600 mb-4">
-                Flexible Terminplanung nach Ihren Bedürfnissen. Auch kurzfristige 
-                Termine und Wochenendarbeiten möglich.
+              <p className="text-gray-600">
+                Flexible Terminplanung nach Ihren Bedürfnissen. Auch kurzfristige Termine und Wochenendarbeiten möglich.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Kurzfristig</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Wochenende</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Flexibel</li>
-              </ul>
             </div>
 
-            <div className="bg-white rounded-lg shadow-sm border p-6">
-              <div className="w-12 h-12 bg-primary rounded-lg flex items-center justify-center mb-4">
-                <ShieldCheck className="w-6 h-6 text-white" />
-              </div>
+            <div className="bg-gray-50 rounded-lg p-8 text-center">
+              <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Versichert & Zertifiziert</h3>
-              <p className="text-gray-600 mb-4">
-                Vollversichert mit Entsorgungsfachbetrieb-Zertifikat. 
-                Rechtssichere Entsorgung mit Nachweisen.
+              <p className="text-gray-600">
+                Vollversichert mit Entsorgungsfachbetrieb-Zertifikat. Rechtssichere Entsorgung mit Nachweisen.
               </p>
-              <ul className="space-y-2 text-sm text-gray-600">
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Vollversichert</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Zertifiziert</li>
-                <li className="flex items-center"><CheckCircle className="w-4 h-4 text-primary mr-2" />Rechtssicher</li>
-              </ul>
             </div>
           </div>
         </div>
@@ -267,7 +219,7 @@ export default function Entruempelung() {
               Warum Grema für Ihre Entrümpelung?
             </h2>
             <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-              Über 500 erfolgreiche Entrümpelungen - vertrauensvoll und umweltgerecht
+              Vertrauensvolle und umweltgerechte Entrümpelungen mit Qualitätsgarantie
             </p>
           </div>
 
@@ -278,7 +230,7 @@ export default function Entruempelung() {
               </div>
               <h3 className="text-xl font-bold text-gray-900 mb-3">5-Sterne Service</h3>
               <p className="text-gray-600">
-                Über 15 authentische Google-Bewertungen mit 5 Sternen. 
+                Authentische Google-Bewertungen mit 5 Sternen bestätigen unsere Qualität. 
                 Kunden schätzen unsere zuverlässige Arbeit.
               </p>
             </div>
