@@ -177,8 +177,8 @@ export default function Home() {
   const usps = [
     {
       title: "Marktführer seit 2009",
-      subtitle: "500+ Geschäftskunden deutschlandweit",
-      description: "Von Kleinbetrieben bis DAX-Unternehmen - unsere zertifizierten Standards überzeugen seit über 15 Jahren die anspruchsvollsten Kunden."
+      subtitle: "Geschäftskunden deutschlandweit",
+      description: "Von Kleinbetrieben bis DAX-Unternehmen - unsere zertifizierten Standards überzeugen die anspruchsvollsten Kunden."
     },
     {
       title: "Zertifizierte Qualitätsgarantie",

@@ -96,7 +96,7 @@ export default function Unterhaltsreinigung() {
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Seit 15 Jahren vertrauen über 500+ Unternehmen auf unsere zuverlässige Unterhaltsreinigung. 
+                Unternehmen vertrauen auf unsere zuverlässige Unterhaltsreinigung. 
                 Von Großraumbüros bis zu medizinischen Praxen – wir garantieren höchste Hygienestandards.
               </p>
               
@@ -117,12 +117,12 @@ export default function Unterhaltsreinigung() {
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Geschäftskunden</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Zuverlässig</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">15</div>
-                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Professionell</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">24/7</div>

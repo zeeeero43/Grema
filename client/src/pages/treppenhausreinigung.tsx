@@ -82,7 +82,7 @@ export default function Treppenhausreinigung() {
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Seit 15 Jahren vertrauen über 500+ Unternehmen auf unsere gründliche Treppenhausreinigung. 
+                Unternehmen vertrauen auf unsere gründliche Treppenhausreinigung. 
                 Von Wohnkomplexen bis zu Bürogebäuden – wir sorgen für saubere und sichere Verkehrswege.
               </p>
               
@@ -103,12 +103,12 @@ export default function Treppenhausreinigung() {
 
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">500+</div>
-                  <div className="text-sm text-gray-600">Geschäftskunden</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Rutschfest</div>
                 </div>
                 <div className="text-center">
-                  <div className="text-2xl font-bold text-primary mb-1">15</div>
-                  <div className="text-sm text-gray-600">Jahre Erfahrung</div>
+                  <div className="text-2xl font-bold text-primary mb-1">✓</div>
+                  <div className="text-sm text-gray-600">Gründlich</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">24/7</div>

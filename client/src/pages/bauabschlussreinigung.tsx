@@ -164,7 +164,7 @@ export default function Bauabschlussreinigung() {
               <HardHat className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Bauabschlussreinigung</h3>
               <p className="text-gray-600">
-                Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustäuben, Klebstoffresten und allen baustellenbedingten Verschmutzungen.
+                Professionelle Endreinigung nach Fertigstellung. Entfernung von Baustaub, Klebstoffresten und allen baustellenbedingten Verschmutzungen.
               </p>
             </div>
 

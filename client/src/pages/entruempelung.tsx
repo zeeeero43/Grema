@@ -188,7 +188,7 @@ export default function Entruempelung() {
               <Truck className="w-12 h-12 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-bold text-gray-900 mb-3">Transport & Entsorgung</h3>
               <p className="text-gray-600">
-                Kompletter Service mit eigenem Fuhrpark. Von der Demontage bis zur umweltgerechten Entsorgung - alles aus einer Hand.
+                Kompletter Service. Von der Demontage bis zur umweltgerechten Entsorgung - alles aus einer Hand.
               </p>
             </div>
 
@@ -202,9 +202,9 @@ export default function Entruempelung() {
 
             <div className="bg-gray-50 rounded-lg p-8 text-center">
               <ShieldCheck className="w-12 h-12 text-primary mx-auto mb-4" />
-              <h3 className="text-xl font-bold text-gray-900 mb-3">Versichert & Zertifiziert</h3>
+              <h3 className="text-xl font-bold text-gray-900 mb-3">Vollversichert</h3>
               <p className="text-gray-600">
-                Vollversichert mit Entsorgungsfachbetrieb-Zertifikat. Rechtssichere Entsorgung mit Nachweisen.
+                Vollversichert für alle Entrümpelungsarbeiten. Rechtssichere Entsorgung mit Nachweisen.
               </p>
             </div>
           </div>

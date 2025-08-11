@@ -82,7 +82,7 @@ export default function GlasRahmenreinigung() {
               </h1>
               
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Seit 15 Jahren vertrauen über 500+ Unternehmen auf unsere streifenfreie Glasreinigung. 
+                Unternehmen vertrauen auf unsere streifenfreie Glasreinigung. 
                 Von Bürogebäuden bis zu Ladenfronten – wir garantieren kristallklare Ergebnisse in jeder Höhe.
               </p>
               
@@ -104,11 +104,11 @@ export default function GlasRahmenreinigung() {
               <div className="grid grid-cols-3 gap-6 pt-8 border-t border-gray-200">
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">✓</div>
-                  <div className="text-sm text-gray-600">Qualität</div>
+                  <div className="text-sm text-gray-600">Streifenfrei</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">✓</div>
-                  <div className="text-sm text-gray-600">Erfahren</div>
+                  <div className="text-sm text-gray-600">Höhensicher</div>
                 </div>
                 <div className="text-center">
                   <div className="text-2xl font-bold text-primary mb-1">24/7</div>
