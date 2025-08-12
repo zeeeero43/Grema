@@ -16,7 +16,7 @@ import BlogPost from "@/pages/blog-post";
 
 import NotFound from "@/pages/not-found";
 
-const base = import.meta.env.PROD ? "/Grema" : "";
+const base = "";
 
 function Router() {
   return (
