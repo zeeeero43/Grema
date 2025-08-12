@@ -36,7 +36,7 @@ export default function Impressum() {
             </h1>
             
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
-              Angaben gemäß § 5 TMG (Telemediengesetz)
+              Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)
             </p>
           </div>
         </div>
@@ -108,7 +108,7 @@ export default function Impressum() {
               <div className="space-y-6 text-gray-700 leading-relaxed">
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Haftung für Inhalte</h3>
-                  <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 TMG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 TMG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
+                  <p>Als Diensteanbieter sind wir gemäß § 7 Abs.1 DDG für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich. Nach §§ 8 bis 10 DDG sind wir als Diensteanbieter jedoch nicht unter der Verpflichtung, übermittelte oder gespeicherte fremde Informationen zu überwachen oder nach Umständen zu forschen, die auf eine rechtswidrige Tätigkeit hinweisen.</p>
                 </div>
                 
                 <div>

@@ -74,6 +74,11 @@ Keep services section unchanged; simplify all other sections for better overview
 ✓ **Routing implemented**: Added /impressum and /datenschutz routes in App.tsx
 ✓ **Sitemap updated**: XML sitemap includes new legal pages for search engine indexing
 ✓ **German law compliance**: Website now meets German legal requirements for commercial websites
+✓ **Legal updates**: TMG references updated to DDG (Digitale-Dienste-Gesetz) as per current law
+✓ **Management corrected**: Only Ivana Grejic listed as Geschäftsführung (Tanja Scheurenberg removed)
+✓ **Footer additions**: Both legal pages now have complete footers matching site design
+✓ **Extended privacy policy**: Added comprehensive GDPR sections including SSL, cookies, complaint procedures
+✓ **Favicon implementation**: Custom cleaning-themed favicon (spray bottle) in brand colors
 
 ### Docker Deployment Migration (COMPLETED - August 12, 2025)
 ✓ **Docker modernization**: Complete migration from traditional VPS to Docker-based deployment

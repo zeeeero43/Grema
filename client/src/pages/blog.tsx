@@ -257,7 +257,7 @@ export default function Blog() {
                 Jetzt anrufen
               </a>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white hover:text-primary">
+            <Button asChild variant="outline" size="lg" className="border-white bg-transparent text-white hover:bg-white hover:text-primary">
               <Link href="/#angebot" className="flex items-center justify-center">
                 Angebot anfordern
                 <ArrowRight className="w-5 h-5 ml-2" />
