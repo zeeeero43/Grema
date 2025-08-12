@@ -173,7 +173,7 @@ export default function Datenschutz() {
                 <h2 className="text-2xl font-bold text-gray-900">Ihre Rechte</h2>
               </div>
               
-              <div className="space-y-4 text-gray-700 leading-relaxed">
+              <div className="space-y-6 text-gray-700 leading-relaxed">
                 <p>Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:</p>
                 <ul className="space-y-2 ml-4">
                   <li>• <strong>Recht auf Auskunft</strong> (Art. 15 DSGVO)</li>
@@ -183,7 +183,75 @@ export default function Datenschutz() {
                   <li>• <strong>Recht auf Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
                   <li>• <strong>Recht auf Widerspruch</strong> (Art. 21 DSGVO)</li>
                 </ul>
-                <p className="mt-4">Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:info@grema-service.de" className="text-primary hover:underline">info@grema-service.de</a></p>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Widerrufsrecht</h3>
+                  <p>Sofern die Verarbeitung auf Ihrer Einwilligung beruht, haben Sie das Recht, diese Einwilligung jederzeit zu widerrufen. Die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung wird dadurch nicht berührt.</p>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Beschwerderecht</h3>
+                  <p>Sie haben das Recht, sich bei einer Datenschutz-Aufsichtsbehörde über unsere Verarbeitung personenbezogener Daten zu beschweren.</p>
+                  <p className="mt-2">Zuständige Aufsichtsbehörde für NRW:<br />
+                  Landesbeauftragte für Datenschutz und Informationsfreiheit Nordrhein-Westfalen<br />
+                  Kavalleriestraße 2-4, 40213 Düsseldorf<br />
+                  Telefon: 0211/38424-0<br />
+                  E-Mail: poststelle@ldi.nrw.de</p>
+                </div>
+                
+                <p className="mt-6 font-medium">Zur Ausübung Ihrer Rechte wenden Sie sich bitte an: <a href="mailto:info@grema-service.de" className="text-primary hover:underline">info@grema-service.de</a></p>
+              </div>
+            </div>
+
+            {/* Hosting & Technische Sicherheit */}
+            <div className="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <Database className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Hosting & Technische Sicherheit</h2>
+              </div>
+              
+              <div className="space-y-6 text-gray-700 leading-relaxed">
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">SSL-/TLS-Verschlüsselung</h3>
+                  <p>Diese Website nutzt aus Sicherheitsgründen und zum Schutz der Übertragung vertraulicher Inhalte eine SSL-/TLS-Verschlüsselung. Eine verschlüsselte Verbindung erkennen Sie daran, dass die Adresszeile des Browsers von "http://" auf "https://" wechselt und an dem Schloss-Symbol in Ihrer Browserzeile.</p>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Server-Standort</h3>
+                  <p>Unsere Website wird auf Servern in Deutschland gehostet. Ihre Daten werden ausschließlich in der Europäischen Union verarbeitet.</p>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Cookies</h3>
+                  <p>Diese Website verwendet derzeit keine Cookies zur Speicherung von Nutzerdaten. Sollte sich dies ändern, werden wir Sie entsprechend informieren und gegebenenfalls Ihre Einwilligung einholen.</p>
+                </div>
+                
+                <div>
+                  <h3 className="font-semibold text-gray-900 mb-2">Externe Inhalte</h3>
+                  <p>Diese Website bindet keine externen Inhalte wie Google Fonts, Social Media Plugins oder Analyse-Tools ein, die Ihre Daten an Dritte übertragen könnten.</p>
+                </div>
+              </div>
+            </div>
+
+            {/* Auftragsverarbeitung */}
+            <div className="bg-white rounded-2xl shadow-sm border p-8 md:p-12">
+              <div className="flex items-center gap-3 mb-6">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center">
+                  <Lock className="w-6 h-6 text-primary" />
+                </div>
+                <h2 className="text-2xl font-bold text-gray-900">Weitergabe an Dritte</h2>
+              </div>
+              
+              <div className="space-y-4 text-gray-700 leading-relaxed">
+                <p>Eine Übermittlung Ihrer personenbezogenen Daten an Dritte findet grundsätzlich nicht statt, es sei denn:</p>
+                <ul className="space-y-1 ml-4">
+                  <li>• Sie haben Ihre ausdrückliche Einwilligung dazu erteilt (Art. 6 Abs. 1 lit. a DSGVO)</li>
+                  <li>• Die Weitergabe ist zur Geltendmachung, Ausübung oder Verteidigung von Rechtsansprüchen erforderlich (Art. 6 Abs. 1 lit. f DSGVO)</li>
+                  <li>• Die Weitergabe ist gesetzlich vorgeschrieben (Art. 6 Abs. 1 lit. c DSGVO)</li>
+                </ul>
+                <p>Externe Dienstleister werden nur nach Art. 28 DSGVO als Auftragsverarbeiter beauftragt und sind vertraglich verpflichtet, Ihre Daten vertraulich zu behandeln.</p>
               </div>
             </div>
 
