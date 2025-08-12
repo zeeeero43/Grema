@@ -14,7 +14,10 @@ RUN npm ci && npm cache clean --force
 COPY . .
 
 # Build the application
-RUN npm run build
+RUN npm run build && \
+    mkdir -p public && \
+    cp -r dist/public/* public/ && \
+    sed -i 's|"/Grema/|"/|g' public/index.html
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
