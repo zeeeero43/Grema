@@ -30,6 +30,7 @@ RUN npm ci --only=production && npm cache clean --force
 
 # Copy built application from builder stage
 COPY --from=builder /app/dist ./dist
+COPY --from=builder /app/client/dist ./public
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -46,5 +47,8 @@ EXPOSE 5000
 HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
   CMD wget --no-verbose --tries=1 --spider http://localhost:5000/ || exit 1
 
-# Start the application
+# Set production environment
+ENV NODE_ENV=production
+
+# Start the application  
 CMD ["node", "dist/index.js"]

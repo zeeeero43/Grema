@@ -1,0 +1,198 @@
+db-1     | selecting default max_connections ... 100
+db-1     | selecting default shared_buffers ... 128MB
+db-1     | selecting default time zone ... UTC
+db-1     | creating configuration files ... ok
+db-1     | running bootstrap script ... ok
+db-1     | sh: locale: not found
+db-1     | 2025-08-12 10:50:41.762 UTC [36] WARNING:  no usable system locales were found
+db-1     | performing post-bootstrap initialization ... ok
+db-1     | syncing data to disk ... ok
+db-1     |
+db-1     |
+db-1     | initdb: warning: enabling "trust" authentication for local connections
+db-1     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1     | Success. You can now start the database server using:
+db-1     |
+db-1     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1     |
+db-1     | waiting for server to start....2025-08-12 10:50:42.305 UTC [42] LOG:  starting PostgreSQL 15.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1     | 2025-08-12 10:50:42.306 UTC [42] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1     | 2025-08-12 10:50:42.309 UTC [45] LOG:  database system was shut down at 2025-08-12 10:50:42 UTC
+db-1     | 2025-08-12 10:50:42.313 UTC [42] LOG:  database system is ready to accept connections
+db-1     |  done
+db-1     | server started
+db-1     | CREATE DATABASE
+db-1     |
+db-1     |
+db-1     | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1     |
+db-1     | waiting for server to shut down...2025-08-12 10:50:42.471 UTC [42] LOG:  received fast shutdown request
+db-1     | .2025-08-12 10:50:42.471 UTC [42] LOG:  aborting any active transactions
+db-1     | 2025-08-12 10:50:42.475 UTC [42] LOG:  background worker "logical replication launcher" (PID 48) exited with exit code 1
+db-1     | 2025-08-12 10:50:42.475 UTC [43] LOG:  shutting down
+db-1     | 2025-08-12 10:50:42.476 UTC [43] LOG:  checkpoint starting: shutdown immediate
+db-1     | 2025-08-12 10:50:42.514 UTC [43] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.026 s, sync=0.011 s, total=0.039 s; sync files=301, longest=0.001 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+db-1     | 2025-08-12 10:50:42.522 UTC [42] LOG:  database system is shut down
+db-1     |  done
+db-1     | server stopped
+db-1     |
+db-1     | PostgreSQL init process complete; ready for start up.
+db-1     |
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  starting PostgreSQL 15.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1     | 2025-08-12 10:50:42.597 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1     | 2025-08-12 10:50:42.601 UTC [58] LOG:  database system was shut down at 2025-08-12 10:50:42 UTC
+db-1     | 2025-08-12 10:50:42.605 UTC [1] LOG:  database system is ready to accept connections
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+db-1     | syncing data to disk ... ok
+db-1     |
+db-1     |
+db-1     | initdb: warning: enabling "trust" authentication for local connections
+db-1     | initdb: hint: You can change this by editing pg_hba.conf or using the option -A, or --auth-local and --auth-host, the next time you run initdb.
+db-1     | Success. You can now start the database server using:
+db-1     |
+db-1     |     pg_ctl -D /var/lib/postgresql/data -l logfile start
+db-1     |
+db-1     | waiting for server to start....2025-08-12 10:50:42.305 UTC [42] LOG:  starting PostgreSQL 15.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1     | 2025-08-12 10:50:42.306 UTC [42] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1     | 2025-08-12 10:50:42.309 UTC [45] LOG:  database system was shut down at 2025-08-12 10:50:42 UTC
+db-1     | 2025-08-12 10:50:42.313 UTC [42] LOG:  database system is ready to accept connections
+db-1     |  done
+db-1     | server started
+db-1     | CREATE DATABASE
+db-1     |
+db-1     |
+db-1     | /usr/local/bin/docker-entrypoint.sh: ignoring /docker-entrypoint-initdb.d/*
+db-1     |
+db-1     | waiting for server to shut down...2025-08-12 10:50:42.471 UTC [42] LOG:  received fast shutdown request
+db-1     | .2025-08-12 10:50:42.471 UTC [42] LOG:  aborting any active transactions
+db-1     | 2025-08-12 10:50:42.475 UTC [42] LOG:  background worker "logical replication launcher" (PID 48) exited with exit code 1
+db-1     | 2025-08-12 10:50:42.475 UTC [43] LOG:  shutting down
+db-1     | 2025-08-12 10:50:42.476 UTC [43] LOG:  checkpoint starting: shutdown immediate
+db-1     | 2025-08-12 10:50:42.514 UTC [43] LOG:  checkpoint complete: wrote 921 buffers (5.6%); 0 WAL file(s) added, 0 removed, 0 recycled; write=0.026 s, sync=0.011 s, total=0.039 s; sync files=301, longest=0.001 s, average=0.001 s; distance=4239 kB, estimate=4239 kB
+db-1     | 2025-08-12 10:50:42.522 UTC [42] LOG:  database system is shut down
+db-1     |  done
+db-1     | server stopped
+db-1     |
+db-1     | PostgreSQL init process complete; ready for start up.
+db-1     |
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  starting PostgreSQL 15.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1     | 2025-08-12 10:50:42.596 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1     | 2025-08-12 10:50:42.597 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1     | 2025-08-12 10:50:42.601 UTC [58] LOG:  database system was shut down at 2025-08-12 10:50:42 UTC
+db-1     | 2025-08-12 10:50:42.605 UTC [1] LOG:  database system is ready to accept connections
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+app-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:iapp-1    | node:internal/modules/esm/resolve:873
+app-1    |   throw new ERR_MODULE_NOT_FOUND(packageName, fileURLToPath(base), null);
+app-1    |         ^
+app-1    |
+app-1    | Error [ERR_MODULE_NOT_FOUND]: Cannot find package 'vite' imported from /app/dist/index.js
+app-1    |     at packageResolve (node:internal/modules/esm/resolve:873:9)
+app-1    |     at moduleResolve (node:internal/modules/esm/resolve:946:18)
+app-1    |     at defaultResolve (node:internal/modules/esm/resolve:1188:11)
+app-1    |     at ModuleLoader.defaultResolve (node:internal/modules/esm/loader:642:12)
+app-1    |     at #cachedDefaultResolve (node:internal/modules/esm/loader:591:25)
+app-1    |     at ModuleLoader.resolve (node:internal/modules/esm/loader:574:38)
+app-1    |     at ModuleLoader.getModuleJobForImport (node:internal/modules/esm/loader:236:38)
+app-1    |     at ModuleJob._link (node:internal/modules/esm/module_job:130:49) {
+app-1    |   code: 'ERR_MODULE_NOT_FOUND'
+app-1    | }
+app-1    |
+app-1    | Node.js v20.19.4
+app-1 exited with code 1
+
