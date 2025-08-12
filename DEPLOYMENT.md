@@ -2,38 +2,15 @@
 
 Komplette Anleitung zur Bereitstellung der Grema Gebäudeservice Website auf einem Ubuntu 22.04 VPS mit GitHub Integration.
 
+**Optimiert für öffentliche GitHub Repositories** - keine SSH Keys erforderlich!
+
 ## Voraussetzungen
 
 - Frischer Ubuntu 22.04 VPS mit Root-Zugang
 - Domain-Name für die Website
-- GitHub Account
+- GitHub Repository URL (bereits vorhanden und öffentlich)
 
-## 1. GitHub Repository Setup
-
-### Repository erstellen
-```bash
-# Auf lokalem Rechner (wo das Projekt liegt)
-cd /pfad/zum/projekt
-git init
-git add .
-git commit -m "Initial commit"
-
-# GitHub Repository erstellen (über GitHub Website)
-# Dann remote hinzufügen:
-git remote add origin https://github.com/DEIN-USERNAME/grema-website.git
-git branch -M main
-git push -u origin main
-```
-
-### Deploy Key erstellen (für automatische Deployments)
-```bash
-# Auf dem VPS später ausführen (siehe Schritt 3)
-ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""
-cat ~/.ssh/deploy_key.pub
-# Public Key zu GitHub Repository → Settings → Deploy keys hinzufügen
-```
-
-## 2. VPS Grundkonfiguration
+## 1. VPS Grundkonfiguration
 
 ### System Updates
 ```bash
@@ -60,7 +37,7 @@ sudo chmod 600 /home/deploy/.ssh/authorized_keys
 su - deploy
 ```
 
-## 3. Node.js Installation
+## 2. Node.js Installation
 
 ### Node.js 20 installieren
 ```bash
@@ -78,7 +55,7 @@ npm --version
 sudo npm install -g pm2
 ```
 
-## 4. PostgreSQL Installation
+## 3. PostgreSQL Installation
 
 ### PostgreSQL installieren
 ```bash
@@ -111,7 +88,7 @@ sudo nano /etc/postgresql/14/main/pg_hba.conf
 sudo systemctl restart postgresql
 ```
 
-## 5. Nginx Installation
+## 4. Nginx Installation
 
 ### Nginx installieren
 ```bash
@@ -197,7 +174,7 @@ sudo nginx -t
 sudo systemctl reload nginx
 ```
 
-## 6. SSL Certificate mit Let's Encrypt
+## 5. SSL Certificate mit Let's Encrypt
 
 ### Certbot installieren
 ```bash
@@ -217,26 +194,20 @@ sudo certbot --nginx -d ihre-domain.de -d www.ihre-domain.de
 sudo certbot renew --dry-run
 ```
 
-## 7. Projekt Deployment
+## 6. Projekt Deployment
 
 ### Repository klonen
 ```bash
 cd /home/deploy
-git clone git@github.com:DEIN-USERNAME/grema-website.git
+
+# Öffentliches Repository klonen (HTTPS - kein SSH Key benötigt)
+git clone https://github.com/DEIN-USERNAME/grema-website.git
 cd grema-website
 
-# SSH Key für GitHub einrichten
-ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""
-cat ~/.ssh/deploy_key.pub
+# Für automatische Deployments (optional): Deploy Key einrichten
+# ssh-keygen -t ed25519 -f ~/.ssh/deploy_key -N ""
+# cat ~/.ssh/deploy_key.pub
 # Public Key zu GitHub → Settings → Deploy keys hinzufügen
-
-# SSH Config
-nano ~/.ssh/config
-# Inhalt:
-# Host github.com
-#   HostName github.com
-#   User git
-#   IdentityFile ~/.ssh/deploy_key
 ```
 
 ### Environment Variables
@@ -302,7 +273,7 @@ pm2 startup
 pm2 save
 ```
 
-## 8. Automatisches Deployment Script
+## 7. Automatisches Deployment Script
 
 ### Deploy Script erstellen
 ```bash
@@ -316,7 +287,7 @@ Inhalt für `deploy.sh`:
 
 echo "🚀 Starting deployment..."
 
-# Git pull
+# Git pull (für öffentliche Repositories)
 echo "📥 Pulling latest changes..."
 git pull origin main
 
@@ -339,37 +310,85 @@ pm2 restart grema-website
 echo "✅ Deployment completed!"
 ```
 
-### GitHub Actions Workflow (optional)
+### GitHub Actions Webhook (optional)
+Da das Repository öffentlich ist, können Sie auch einen Webhook einrichten:
+
+#### Webhook Script erstellen
 ```bash
-mkdir -p .github/workflows
-nano .github/workflows/deploy.yml
+nano /home/deploy/webhook-listener.js
 ```
 
-Inhalt für `.github/workflows/deploy.yml`:
-```yaml
-name: Deploy to VPS
+Inhalt für `webhook-listener.js`:
+```javascript
+const http = require('http');
+const crypto = require('crypto');
+const { exec } = require('child_process');
 
-on:
-  push:
-    branches: [main]
+const SECRET = 'IHR_WEBHOOK_SECRET';
+const PORT = 9000;
 
-jobs:
-  deploy:
-    runs-on: ubuntu-latest
-    
-    steps:
-    - name: Deploy to server
-      uses: appleboy/ssh-action@v0.1.5
-      with:
-        host: ${{ secrets.VPS_HOST }}
-        username: deploy
-        key: ${{ secrets.VPS_SSH_KEY }}
-        script: |
-          cd /home/deploy/grema-website
-          ./deploy.sh
+const server = http.createServer((req, res) => {
+  if (req.method === 'POST' && req.url === '/webhook') {
+    let body = '';
+    req.on('data', chunk => body += chunk.toString());
+    req.on('end', () => {
+      // Webhook Secret validieren (optional)
+      const signature = req.headers['x-hub-signature-256'];
+      if (signature) {
+        const expectedSignature = crypto
+          .createHmac('sha256', SECRET)
+          .update(body, 'utf8')
+          .digest('hex');
+        
+        if (`sha256=${expectedSignature}` !== signature) {
+          res.statusCode = 401;
+          res.end('Unauthorized');
+          return;
+        }
+      }
+
+      // Deployment ausführen
+      exec('cd /home/deploy/grema-website && ./deploy.sh', (error, stdout, stderr) => {
+        console.log('Deployment triggered:', stdout);
+        if (error) console.error('Deployment error:', error);
+      });
+      
+      res.statusCode = 200;
+      res.end('OK');
+    });
+  } else {
+    res.statusCode = 404;
+    res.end('Not Found');
+  }
+});
+
+server.listen(PORT, () => {
+  console.log(`Webhook listener running on port ${PORT}`);
+});
 ```
 
-## 9. Monitoring Setup
+#### Webhook als Service einrichten
+```bash
+# PM2 für Webhook
+pm2 start /home/deploy/webhook-listener.js --name webhook
+
+# Nginx Konfiguration erweitern
+sudo nano /etc/nginx/sites-available/grema-website
+# In der server{} Sektion hinzufügen:
+# location /webhook {
+#   proxy_pass http://localhost:9000;
+#   proxy_set_header Host $host;
+#   proxy_set_header X-Real-IP $remote_addr;
+# }
+
+# GitHub Repository → Settings → Webhooks → Add webhook
+# Payload URL: https://ihre-domain.de/webhook  
+# Content type: application/json
+# Secret: IHR_WEBHOOK_SECRET
+# Events: Just the push event
+```
+
+## 8. Monitoring Setup
 
 ### PM2 Monitoring
 ```bash
@@ -396,7 +415,7 @@ sudo nano /etc/logrotate.d/pm2-deploy
 # }
 ```
 
-## 10. Backup Setup
+## 9. Backup Setup
 
 ### Database Backup Script
 ```bash
@@ -429,7 +448,7 @@ crontab -e
 # 0 3 * * * /home/deploy/grema-website/backup-db.sh
 ```
 
-## 11. Security Hardening
+## 10. Security Hardening
 
 ### Fail2ban Installation
 ```bash
@@ -463,7 +482,7 @@ sudo apt install unattended-upgrades -y
 sudo dpkg-reconfigure unattended-upgrades
 ```
 
-## 12. Finale Checks
+## 11. Finale Checks
 
 ### Services Status prüfen
 ```bash
@@ -486,7 +505,7 @@ sudo apt install apache2-utils -y
 ab -n 100 -c 10 https://ihre-domain.de/
 ```
 
-## 13. Maintenance Befehle
+## 12. Maintenance Befehle
 
 ### Häufig verwendete Befehle
 ```bash
@@ -585,6 +604,48 @@ npm install
 npm run build
 pm2 restart grema-website
 ```
+
+---
+
+## Schnellstart für erfahrene Nutzer
+
+Für Nutzer, die schnell deployen möchten (öffentliches GitHub Repository):
+
+```bash
+# 1. System Setup
+sudo apt update && sudo apt upgrade -y
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash -
+sudo apt install -y nodejs nginx postgresql postgresql-contrib
+sudo npm install -g pm2
+
+# 2. User Setup
+sudo adduser deploy
+sudo usermod -aG sudo deploy
+su - deploy
+
+# 3. Database Setup  
+sudo -u postgres createuser -P grema_user
+sudo -u postgres createdb -O grema_user grema_website
+
+# 4. Clone und Deploy (öffentliches Repository)
+cd /home/deploy
+git clone https://github.com/IHR-USERNAME/grema-website.git
+cd grema-website
+
+# 5. Environment Setup
+cp .env.example .env
+nano .env  # DATABASE_URL und API Keys konfigurieren
+
+# 6. Build und Start
+npm install && npm run build && npm run db:push
+pm2 start ecosystem.config.js && pm2 startup && pm2 save
+
+# 7. SSL
+sudo snap install --classic certbot
+sudo certbot --nginx -d ihre-domain.de
+```
+
+**Wichtig**: Ersetzen Sie `IHR-USERNAME` mit dem tatsächlichen GitHub Username!
 
 ---
 
