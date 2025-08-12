@@ -51,7 +51,7 @@ import { SEOHead } from "../components/seo/SEOHead";
 import { getLocalBusinessSchema, getBreadcrumbSchema, getFAQSchema } from "../lib/seo/schemas";
 import heroImage from "@assets/medium-shot-people-cleaning-building-min_1754484111418.jpg";
 import unterhaltsreinigungImage from "@assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg";
-import glasreinigungImage from "@assets/person-taking-care-office-cleaning-min_1754484125992.jpg";
+import glasreinigungImage from "@assets/fensterreinigung-profi.jpg";
 import sonderreinigungImage from "@assets/professional-cleaner-wearing-protection-uniform-cleaning-floor-production-plant-min_1754484132966.jpg";
 import bauabschlussreinigungImage from "@assets/working-metal-processing-factory-min_1754484137126.jpg";
 import entruempelungImage from "@assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg";
