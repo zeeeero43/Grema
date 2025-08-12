@@ -59,7 +59,7 @@ Inhalt für `.env`:
 # API Keys - Ihre echten Keys hier eintragen
 DEEPSEEK_API_KEY=your_deepseek_api_key_here
 RUNWARE_API_KEY=your_runware_api_key_here
-OPENAI_API_KEY=your_openai_api_key_here
+# Optional: Für echte Google Reviews (sonst werden Fallback-Daten verwendet)
 GOOGLE_PLACES_API_KEY=your_google_places_api_key_here
 ```
 
@@ -399,8 +399,8 @@ cd grema-website
 
 # 3. Environment Setup
 echo "DEEPSEEK_API_KEY=your_key_here
-RUNWARE_API_KEY=your_key_here  
-OPENAI_API_KEY=your_key_here
+RUNWARE_API_KEY=your_key_here
+# Optional: Für echte Google Reviews
 GOOGLE_PLACES_API_KEY=your_key_here" > .env
 
 # 4. Deploy

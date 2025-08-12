@@ -16,8 +16,8 @@ services:
       # Add your API keys here:
       - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
       - RUNWARE_API_KEY=${RUNWARE_API_KEY}
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - GOOGLE_PLACES_API_KEY=${GOOGLE_PLACES_API_KEY}
+      # Optional: Google Places API for live reviews (fallback data available)
+      - GOOGLE_PLACES_API_KEY=${GOOGLE_PLACES_API_KEY:-}
     depends_on:
       db:
         condition: service_healthy

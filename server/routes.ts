@@ -4,6 +4,7 @@ import { storage } from "./storage";
 import { insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { blogScheduler } from "./ai/blogScheduler";
+import { getGoogleReviews } from "./googlePlaces";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
@@ -46,6 +47,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
       });
     }
   });
+
+  // Google Reviews API endpoint
+  app.get("/api/google-reviews", getGoogleReviews);
 
   // ========== AUTOMATED BLOG SYSTEM ROUTES ==========
   
