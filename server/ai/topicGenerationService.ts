@@ -110,7 +110,16 @@ Generiere GENAU ${count} verschiedene Themen für unterschiedliche Kategorien.`;
 
   private parseTopicResponse(response: string): InsertBlogIdea[] {
     try {
-      const parsed = JSON.parse(response);
+      // Clean response - remove markdown code blocks if present
+      let cleanResponse = response.trim();
+      if (cleanResponse.startsWith('```json')) {
+        cleanResponse = cleanResponse.replace(/^```json\s*/, '').replace(/\s*```$/, '');
+      }
+      if (cleanResponse.startsWith('```')) {
+        cleanResponse = cleanResponse.replace(/^```\s*/, '').replace(/\s*```$/, '');
+      }
+      
+      const parsed = JSON.parse(cleanResponse);
       
       if (!parsed.topics || !Array.isArray(parsed.topics)) {
         throw new Error('Invalid response format: missing topics array');
@@ -124,7 +133,7 @@ Generiere GENAU ${count} verschiedene Themen für unterschiedliche Kategorien.`;
       }));
 
     } catch (error) {
-      console.error('Failed to parse topic response:', response);
+      console.error('Failed to parse topic response:', response.substring(0, 200) + '...');
       throw new Error(`Failed to parse topic generation response: ${error instanceof Error ? error.message : 'Unknown error'}`);
     }
   }

@@ -1,0 +1,70 @@
+
+root@ubuntu:~/Grema# docker-compose up -d --build
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete,it will be ignored, please remove it to avoid potential confusion
+[+] Building 30.8s (15/15) FINISHED
+ => [internal] load local bake definitions                                 0.0s
+ => => reading from stdin 459B                                             0.0s
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 851B                                       0.0s
+ => [internal] load metadata for docker.io/library/node:20-alpine          0.8s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                            0.0s
+ => [1/8] FROM docker.io/library/node:20-alpine@sha256:df02558528d3d3d0d6  0.0s
+ => [internal] load build context                                          0.4s
+ => => transferring context: 109.32MB                                      0.4s
+ => CACHED [2/8] WORKDIR /app                                              0.0s
+ => CACHED [3/8] COPY package*.json ./                                     0.0s
+ => CACHED [4/8] RUN npm ci && npm cache clean --force                     0.0s
+ => [5/8] COPY . .                                                         0.5s
+ => [6/8] RUN npm run build                                                7.4s
+ => [7/8] RUN addgroup -g 1001 -S nodejs &&     adduser -S nodejs -u 1001  0.3s
+ => [8/8] RUN chown -R nodejs:nodejs /app                                 16.9s
+ => exporting to image                                                     4.3s
+ => => exporting layers                                                    4.3s
+ => => writing image sha256:e34a9ffc32cb1ec767884ee7d731dfbc7c0ec003a4488  0.0s
+ => => naming to docker.io/library/grema-app                               0.0s
+ => resolving provenance for metadata file                                 0.0s
+[+] Running 5/5
+ ✔ grema-app                Built                                          0.0s
+ ✔ Network grema_default    Created                                        0.0s
+ ✔ Container grema-db-1     Healthy                                       30.8s
+ ✔ Container grema-app-1    Started                                       30.9s
+ ✔ Container grema-nginx-1  Started                                       31.1s
+root@ubuntu:~/Grema# docker-compose ps
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete,it will be ignored, please remove it to avoid potential confusion
+NAME            IMAGE                COMMAND                  SERVICE   CREATED         STATUS                             PORTS
+grema-app-1     grema-app            "docker-entrypoint.s…"   app       43 secods ago   Up 12 seconds (health: starting)   0.0.0.0:5000->5000/tcp, [::]:5000->000/tcp
+grema-db-1      postgres:15-alpine   "docker-entrypoint.s…"   db        43 secods ago   Up 43 seconds (healthy)            0.0.0.0:5432->5432/tcp, [::]:5432->432/tcp
+grema-nginx-1   nginx:alpine         "/docker-entrypoint.…"   nginx     43 secods ago   Up 12 seconds                      0.0.0.0:80->80/tcp, [::]:80->80/tcp 0.0.0.0:443->443/tcp, [::]:443->443/tcp
+root@ubuntu:~/Grema# docker-compose logs -f
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete,it will be ignored, please remove it to avoid potential confusion
+db-1  |
+db-1     | PostgreSQL Database directory appears to contain a database; Skippin initialization
+db-1     |
+db-1     | 2025-08-12 11:25:25.851 UTC [1] LOG:  starting PostgreSQL 15.13 on x6_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1     | 2025-08-12 11:25:25.851 UTC [1] LOG:  listening on IPv4 address "0.00.0", port 5432
+db-1     | 2025-08-12 11:25:25.851 UTC [1] LOG:  listening on IPv6 address "::" port 5432
+db-1     | 2025-08-12 11:25:25.852 UTC [1] LOG:  listening on Unix socket "/varrun/postgresql/.s.PGSQL.5432"
+db-1     | 2025-08-12 11:25:25.855 UTC [29] LOG:  database system was shut downat 2025-08-12 11:24:36 UTC
+db-1     | 2025-08-12 11:25:25.861 UTC [1] LOG:  database system is ready to acept connections
+nginx-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attept to perform configuration
+nginx-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoit.d/
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-iv6-by-default.sh
+nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/ginx/conf.d/default.conf
+nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /et/nginx/conf.d/default.conf
+nginx-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvrs.envsh
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-ontemplates.sh
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-workerprocesses.sh
+nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+app-1    | 🚀 Initializing automated blog system...
+app-1    | 🚀 Starting automated blog scheduler...
+app-1    | ⏰ Will generate blog posts every ~80 hours (with random variation)
+app-1    | 🌱 Initializing dynamic blog topic system...
+app-1    | 📝 Need 10 new topics (0 unused, 5 required)
+app-1    | 🧠 Generating 10 new blog topic ideas...
+app-1    | 📊 Existing posts analysis:
+nginx-1  | 2025/08/12 11:26:13 [error] 31#31: *1 connect() failed (111: Connecton refused) while connecting to upstream, client: 94.31.69.45, server: _, requet: "GET / HTTP/1.1", upstream: "http://172.18.0.3:5000/", host: "212.227.103.14"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:26:13 +0000] "GET / HTTP/1.1" 502 55 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/138.0.0.0 Safari/537.36"
+nginx-1  | 2025/08/12 11:26:14 [error] 31#31: *1 connect() failed (111: Connecton refused) while connecting to upstream, client: 94.31.69.45, server: _, requet: "GET / HTTP/1.1", upstream: "http://172.18.0.3:5000/", host: "212.227.103.14"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:26:14 +0000] "GET / HTTP/1.1" 502 55 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, likeGecko) Chrome/138.0.0.0 Safari/537.36"
+

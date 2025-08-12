@@ -132,14 +132,15 @@ export async function registerRoutes(app: Express): Promise<Server> {
     }
   });
 
-  // Start the blog automation scheduler
+  // Start the blog automation scheduler (non-blocking)
   console.log("🚀 Initializing automated blog system...");
-  try {
-    await blogScheduler.start();
-    console.log("✅ Blog automation scheduler started successfully");
-  } catch (error) {
-    console.error("❌ Failed to start blog scheduler:", error);
-  }
+  blogScheduler.start()
+    .then(() => {
+      console.log("✅ Blog automation scheduler started successfully");
+    })
+    .catch((error) => {
+      console.error("❌ Failed to start blog scheduler:", error);
+    });
 
   const httpServer = createServer(app);
   return httpServer;
