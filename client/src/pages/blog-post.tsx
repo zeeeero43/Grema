@@ -472,9 +472,9 @@ export default function BlogPost() {
               <div className="flex justify-center space-x-6 mt-3">
                 <Link href="/" className="hover:text-white">Startseite</Link>
                 <Link href="/blog" className="hover:text-white">Blog</Link>
-                <a href="#" className="hover:text-white">Impressum</a>
-                <a href="#" className="hover:text-white">Datenschutz</a>
-                <a href="#" className="hover:text-white">AGB</a>
+                <a href="/impressum" className="hover:text-white">Impressum</a>
+                <a href="/datenschutz" className="hover:text-white">Datenschutz</a>
+
               </div>
             </div>
           </div>

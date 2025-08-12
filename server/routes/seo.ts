@@ -30,6 +30,8 @@ export function registerSEORoutes(app: Express) {
       { loc: `${baseUrl}/treppenhausreinigung`, changefreq: "monthly", priority: "0.9", lastmod: currentDate },
       { loc: `${baseUrl}/ueber-uns`, changefreq: "monthly", priority: "0.8", lastmod: currentDate },
       { loc: `${baseUrl}/blog`, changefreq: "weekly", priority: "0.8", lastmod: currentDate },
+      { loc: `${baseUrl}/impressum`, changefreq: "yearly", priority: "0.4", lastmod: currentDate },
+      { loc: `${baseUrl}/datenschutz`, changefreq: "yearly", priority: "0.4", lastmod: currentDate },
     ];
 
     const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

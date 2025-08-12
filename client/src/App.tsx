@@ -14,6 +14,8 @@ import Treppenhausreinigung from "@/pages/treppenhausreinigung";
 import UeberUns from "@/pages/ueber-uns";
 import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
+import Impressum from "@/pages/impressum";
+import Datenschutz from "@/pages/datenschutz";
 
 import NotFound from "@/pages/not-found";
 
@@ -33,6 +35,8 @@ function Router() {
         <Route path="/ueber-uns" component={UeberUns} />
         <Route path="/blog" component={Blog} />
         <Route path="/blog/:slug" component={BlogPost} />
+        <Route path="/impressum" component={Impressum} />
+        <Route path="/datenschutz" component={Datenschutz} />
 
         <Route component={NotFound} />
       </Switch>
