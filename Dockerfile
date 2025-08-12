@@ -13,13 +13,13 @@ RUN npm ci && npm cache clean --force
 # Copy source code
 COPY . .
 
-# Build the application
-RUN npm run build && \
+# Build the application for VPS (with correct base path)
+RUN cp vite.config.vps.ts vite.config.ts && \
+    npm run build && \
     rm -rf public && \
     mkdir -p public && \
     cp -r dist/public/* public/ && \
-    sed -i 's|/Grema/assets/|/assets/|g' public/index.html && \
-    echo "Asset paths fixed in HTML:" && \
+    echo "VPS build completed with correct asset paths:" && \
     grep -n "assets/" public/index.html
 
 # Create non-root user

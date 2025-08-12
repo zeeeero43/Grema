@@ -1,0 +1,66 @@
+
+root@ubuntu:~/Grema# ./diagnose-vps.sh
+🔍 VPS Website Diagnostics
+==========================
+1. Container Status:
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+NAME            IMAGE                COMMAND                  SERVICE   CREATED              STATUS                             PORTS
+grema-app-1     grema-app            "docker-entrypoint.s…"   app       About a minute ago   Up 46 seconds (health: starting)   0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp
+grema-db-1      postgres:15-alpine   "docker-entrypoint.s…"   db        About a minute ago   Up About a minute (healthy)        0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+grema-nginx-1   nginx:alpine         "/docker-entrypoint.…"   nginx     About a minute ago   Up 46 seconds                      0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp
+
+2. App Logs (last 10 lines):
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+app-1  | 🎯 Next blog generation in 78.5 hours
+app-1  | ✅ Blog scheduler started successfully
+app-1  | ✅ Blog automation scheduler started successfully
+app-1  | ✅ Sufficient topics available: 5 unused
+app-1  | 📊 Checking topic pool status...
+app-1  | 📝 Available topics: 7 unused (including 4 with local SEO)
+app-1  | 🔄 Topic pool running low, generating fresh batch with local SEO...
+app-1  | 📝 Need 24 new topics (7 unused, 12 required)
+app-1  | 🧠 Generating 24 new blog topic ideas...
+app-1  | 📊 Existing posts analysis: entrümpelung: 1, unterhaltsreinigung: 1, fensterreinigung: 1
+
+3. Nginx Logs (last 5 lines):
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:12:21:36 +0000] "GET / HTTP/1.1" 200 637 "-" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:12:21:36 +0000] "GET /Grema/assets/index-CZdH5tyt.js HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:12:21:36 +0000] "GET /Grema/assets/index-CdFCd3Jz.css HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:12:21:36 +0000] "GET /favicon.ico HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (iPhone; CPU iPhone OS 16_6 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/16.6 Mobile/15E148 Safari/604.1"
+
+4. Testing Homepage HTML:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <script type="module" crossorigin src="/Grema/assets/index-CZdH5tyt.js"></script>
+    <link rel="stylesheet" crossorigin href="/Grema/assets/index-CdFCd3Jz.css">
+  </head>
+  <body>
+    <div id="root"></div>
+    <!-- This is a replit script which adds a banner on the top of the page when opened in development mode outside the replit environment -->
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>
+5. Testing JavaScript Asset:
+ bytesript Size: 637
+
+6. Testing CSS Asset:
+ bytesze: 86642
+
+7. App Health Check:
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+
+8. Port Check:
+./diagnose-vps.sh: line 30: netstat: command not found
+
+==========================
+📊 Diagnosis Complete
+root@ubuntu:~/Grema#
