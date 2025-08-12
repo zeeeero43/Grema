@@ -15,9 +15,10 @@ COPY . .
 
 # Build the application
 RUN npm run build && \
+    rm -rf public && \
     mkdir -p public && \
     cp -r dist/public/* public/ && \
-    sed -i 's|"/Grema/|"/|g' public/index.html
+    find public -name "*.html" -type f -exec sed -i 's|"/Grema/|"/|g' {} \;
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
