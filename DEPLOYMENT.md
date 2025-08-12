@@ -42,8 +42,8 @@ Nach dem Reboot wieder einloggen und weitermachen.
 
 ### Repository klonen
 ```bash
-# Öffentliches Repository klonen
-cd /home/$(whoami)
+# Öffentliches Repository klonen (funktioniert für root und normale User)
+cd $HOME
 git clone https://github.com/IHR-USERNAME/grema-website.git
 cd grema-website
 ```
@@ -116,7 +116,7 @@ Inhalt für `webhook.sh`:
 ```bash
 #!/bin/bash
 # Simple webhook listener für GitHub
-cd /home/$(whoami)/grema-website
+cd $HOME/grema-website
 
 while true; do
   # Prüfe alle 5 Minuten auf Updates
@@ -132,7 +132,7 @@ done
 Als Service starten:
 ```bash
 # Screen session für Webhook
-screen -dmS webhook bash -c 'cd /home/$(whoami)/grema-website && ./webhook.sh'
+screen -dmS webhook bash -c 'cd $HOME/grema-website && ./webhook.sh'
 
 # Oder als Docker Service hinzufügen (erweiterte Option)
 ```
@@ -204,7 +204,7 @@ echo "Backup completed: $DATE"
 crontab -e
 
 # Tägliches Backup um 3:00 Uhr
-# 0 3 * * * cd /home/$(whoami)/grema-website && ./backup.sh
+# 0 3 * * * cd $HOME/grema-website && ./backup.sh
 ```
 
 ## 6. Zugriff und erste Tests
@@ -394,6 +394,7 @@ sudo chmod +x /usr/local/bin/docker-compose
 # Logout/Login für Docker Gruppe
 
 # 2. Project Setup
+cd $HOME
 git clone https://github.com/IHR-USERNAME/grema-website.git
 cd grema-website
 
