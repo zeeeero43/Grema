@@ -30,6 +30,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import heroImage from "@assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg";
 
 export default function Unterhaltsreinigung() {
@@ -78,6 +79,15 @@ export default function Unterhaltsreinigung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Unterhaltsreinigung"
+        serviceDescription="Professionelle Büro- und Praxisreinigung in Moers und Umgebung. Zuverlässige Unterhaltsreinigung für Unternehmen aller Größen mit höchsten Hygienestandards."
+        serviceKeywords="Unterhaltsreinigung Moers, Büroreinigung, Praxisreinigung, Gewerbliche Reinigung, Objektreinigung Moers, Reinigungsservice Büro"
+        canonicalUrl="/unterhaltsreinigung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       {/* Header */}
       <Header currentPage="unterhaltsreinigung" />
 

@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Zap, Shield, Settings, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -65,6 +66,15 @@ export default function Sonderreinigung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Sonderreinigung"
+        serviceDescription="Professionelle Sonderreinigung in Moers und Umgebung. Entfernung hartnäckiger Verschmutzungen, Graffitis und Spezialreinigung mit hochwertigen Geräten."
+        serviceKeywords="Sonderreinigung Moers, Graffiti Entfernung, Industriereinigung, Spezialreinigung, Tiefenreinigung Moers"
+        canonicalUrl="/sonderreinigung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       <Header currentPage="sonderreinigung" />
       
       {/* Hero Section */}

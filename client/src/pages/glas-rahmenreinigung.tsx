@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Droplets, Shield, Clock, Users, ArrowRight, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -65,6 +66,15 @@ export default function GlasRahmenreinigung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Glas- & Rahmenreinigung"
+        serviceDescription="Professionelle Fensterreinigung in Moers und Umgebung. Streifenfreie Glasreinigung für alle Höhen und Schwierigkeitsgrade mit modernster Technik."
+        serviceKeywords="Fensterreinigung Moers, Glasreinigung, Rahmenreinigung, Gebäudereinigung Fenster, Fassadenreinigung Moers"
+        canonicalUrl="/glas-rahmenreinigung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       <Header currentPage="glas-rahmenreinigung" />
       
       {/* Hero Section */}

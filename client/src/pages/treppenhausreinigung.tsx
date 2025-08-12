@@ -10,6 +10,7 @@ import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "
 import { useToast } from "@/hooks/use-toast";
 import { apiRequest } from "@/lib/queryClient";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Phone, Mail, CheckCircle, Shield, Clock, Users, ArrowRight, Building, MapPin, Loader2, Building2, ShieldCheck, Award } from "lucide-react";
 import { Link } from "wouter";
@@ -65,6 +66,15 @@ export default function Treppenhausreinigung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Treppenhausreinigung"
+        serviceDescription="Professionelle Treppenhausreinigung in Moers und Umgebung. Gründliche Reinigung von Treppenhäusern, Fluren und Handläufen für saubere Eingangsbereiche."
+        serviceKeywords="Treppenhausreinigung Moers, Hausflur Reinigung, Treppenhaus säubern, Eingangsbereiche Reinigung, Flur Reinigung Moers"
+        canonicalUrl="/treppenhausreinigung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       <Header currentPage="treppenhausreinigung" />
       
       {/* Hero Section */}

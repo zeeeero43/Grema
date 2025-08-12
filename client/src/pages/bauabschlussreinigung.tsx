@@ -33,6 +33,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import heroImage from "@assets/working-metal-processing-factory-min_1754484137126.jpg";
 
 export default function Bauabschlussreinigung() {
@@ -81,6 +82,15 @@ export default function Bauabschlussreinigung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Bauabschlussreinigung"
+        serviceDescription="Professionelle Bauabschlussreinigung in Moers und Umgebung. Grob- und Feinreinigung nach Umbau oder Neubau mit Entfernung von Mörtelresten und Bauschutt."
+        serviceKeywords="Bauabschlussreinigung Moers, Grundreinigung, Baustellenreinigung, Endreinigung Neubau, Renovierungsreinigung Moers"
+        canonicalUrl="/bauabschlussreinigung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       {/* Header */}
       <Header currentPage="bauabschlussreinigung" />
 
@@ -381,6 +391,7 @@ export default function Bauabschlussreinigung() {
                                 placeholder="0123 456789" 
                                 className="border-gray-300 focus:border-primary focus:ring-primary"
                                 {...field} 
+                                value={field.value || ""}
                               />
                             </FormControl>
                             <FormMessage />

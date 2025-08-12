@@ -5,6 +5,7 @@ import { insertContactInquirySchema } from "@shared/schema";
 import { z } from "zod";
 import { blogScheduler } from "./ai/blogScheduler";
 import { getGoogleReviews } from "./googlePlaces";
+import { registerSEORoutes } from "./routes/seo";
 export async function registerRoutes(app: Express): Promise<Server> {
   // Contact form submission
   app.post("/api/contact", async (req, res) => {
@@ -141,6 +142,9 @@ export async function registerRoutes(app: Express): Promise<Server> {
     .catch((error) => {
       console.error("❌ Failed to start blog scheduler:", error);
     });
+
+  // Register SEO routes (sitemap, robots.txt, etc.)
+  registerSEORoutes(app);
 
   const httpServer = createServer(app);
   return httpServer;

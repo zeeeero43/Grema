@@ -33,6 +33,7 @@ import { apiRequest } from "@/lib/queryClient";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
+import { ServicePageSEO } from "../components/seo/ServicePageSEO";
 import heroImage from "@assets/couple-sorting-belongings-from-cardboard-boxes-after-moving-new-home-min_1754484141549.jpg";
 
 export default function Entruempelung() {
@@ -81,6 +82,15 @@ export default function Entruempelung() {
 
   return (
     <div className="min-h-screen bg-white">
+      <ServicePageSEO
+        serviceName="Entrümpelung"
+        serviceDescription="Professionelle Entrümpelung in Moers und Umgebung. Haushaltsauflösung und Nachlassräumung mit langjähriger Erfahrung und fairem Preis-Leistungsverhältnis."
+        serviceKeywords="Entrümpelung Moers, Haushaltsauflösung, Nachlassräumung, Räumungsservice, Wohnungsräumung Moers"
+        canonicalUrl="/entruempelung"
+        serviceDetails={{
+          coverage: ["Moers", "Duisburg", "Krefeld", "Düsseldorf"]
+        }}
+      />
       {/* Header */}
       <Header currentPage="entruempelung" />
 

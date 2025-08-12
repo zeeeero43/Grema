@@ -47,6 +47,8 @@ import { StaticReviews } from "../components/StaticReviews";
 import { insertContactInquirySchema, type InsertContactInquiry } from "@shared/schema";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
+import { SEOHead } from "../components/seo/SEOHead";
+import { getLocalBusinessSchema, getBreadcrumbSchema, getFAQSchema } from "../lib/seo/schemas";
 import heroImage from "@assets/medium-shot-people-cleaning-building-min_1754484111418.jpg";
 import unterhaltsreinigungImage from "@assets/professional-cleaning-service-person-cleaning-office-min_1754484122126.jpg";
 import glasreinigungImage from "@assets/person-taking-care-office-cleaning-min_1754484125992.jpg";
@@ -57,6 +59,46 @@ import treppenhausreinigungImage from "@assets/man-cleaning-staircase-handrail-g
 
 export default function Home() {
   const { toast } = useToast();
+
+  // SEO Data für Homepage
+  const homePageSEO = {
+    title: "Grema Gebäudeservice GmbH - Professionelle Reinigung in Moers & Umgebung",
+    description: "Professionelle Gebäudereinigung in Moers, Duisburg & Krefeld. ✓ Unterhaltsreinigung ✓ Fensterreinigung ✓ Bauabschlussreinigung ✓ Entrümpelung. Über 25 Jahre Erfahrung - Jetzt kostenlos anfragen!",
+    keywords: "Gebäudereinigung Moers, Reinigungsservice Duisburg, Büroreinigung Krefeld, Fensterreinigung, Bauabschlussreinigung, Entrümpelung, Unterhaltsreinigung",
+    canonicalUrl: "/"
+  };
+
+  const localBusinessSchema = getLocalBusinessSchema();
+  const breadcrumbSchema = getBreadcrumbSchema([
+    { name: "Startseite", url: "http://212.227.103.141/" }
+  ]);
+  
+  const faqData = [
+    {
+      question: "Welche Reinigungsdienstleistungen bietet Grema in Moers an?",
+      answer: "Grema bietet professionelle Unterhaltsreinigung, Fenster- und Glasreinigung, Bauabschlussreinigung, Entrümpelung und Treppenhausreinigung in Moers und Umgebung."
+    },
+    {
+      question: "In welchen Städten ist Grema Gebäudeservice tätig?",
+      answer: "Wir sind hauptsächlich in Moers tätig und bedienen auch Duisburg, Krefeld, Düsseldorf und das gesamte Niederrhein-Gebiet."
+    },
+    {
+      question: "Wie kann ich ein kostenloses Angebot für Reinigungsarbeiten erhalten?",
+      answer: "Kontaktieren Sie uns über unser Kontaktformular oder telefonisch. Wir erstellen Ihnen gerne ein unverbindliches und kostenloses Angebot."
+    },
+    {
+      question: "Arbeitet Grema auch für Privatkunden?",
+      answer: "Ja, wir bieten unsere Dienstleistungen sowohl für Geschäftskunden als auch für Privatkunden an, einschließlich Entrümpelung und Fensterreinigung."
+    }
+  ];
+  
+  const faqSchema = getFAQSchema(faqData);
+
+  // Alle Schema-Markups kombinieren
+  const schemaMarkup = {
+    "@context": "https://schema.org",
+    "@graph": [localBusinessSchema, breadcrumbSchema, faqSchema]
+  };
   
   // Carousel setup  
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -218,6 +260,14 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead 
+        title={homePageSEO.title}
+        description={homePageSEO.description}
+        keywords={homePageSEO.keywords}
+        canonicalUrl={homePageSEO.canonicalUrl}
+        schemaMarkup={schemaMarkup}
+        ogType="website"
+      />
       {/* Navigation */}
       <Header currentPage="home" />
 
