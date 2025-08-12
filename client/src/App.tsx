@@ -4,6 +4,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
+import { CookieConsent } from "@/components/CookieConsent";
 import Home from "@/pages/home";
 import Unterhaltsreinigung from "@/pages/unterhaltsreinigung";
 import GlasRahmenreinigung from "@/pages/glas-rahmenreinigung";
@@ -16,6 +17,7 @@ import Blog from "@/pages/blog";
 import BlogPost from "@/pages/blog-post";
 import Impressum from "@/pages/impressum";
 import Datenschutz from "@/pages/datenschutz";
+import CookieEinstellungen from "@/pages/cookie-einstellungen";
 
 import NotFound from "@/pages/not-found";
 
@@ -37,6 +39,7 @@ function Router() {
         <Route path="/blog/:slug" component={BlogPost} />
         <Route path="/impressum" component={Impressum} />
         <Route path="/datenschutz" component={Datenschutz} />
+        <Route path="/cookie-einstellungen" component={CookieEinstellungen} />
 
         <Route component={NotFound} />
       </Switch>
@@ -51,6 +54,7 @@ function App() {
         <TooltipProvider>
           <Toaster />
           <Router />
+          <CookieConsent />
         </TooltipProvider>
       </QueryClientProvider>
     </HelmetProvider>

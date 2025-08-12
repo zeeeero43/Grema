@@ -79,6 +79,8 @@ Keep services section unchanged; simplify all other sections for better overview
 ✓ **Footer additions**: Both legal pages now have complete footers matching site design
 ✓ **Extended privacy policy**: Added comprehensive GDPR sections including SSL, cookies, complaint procedures
 ✓ **Favicon implementation**: Custom cleaning-themed favicon (spray bottle) in brand colors
+✓ **Cookie system**: Full DSGVO-compliant cookie consent system with categorization and preferences
+✓ **Cookie management**: Banner, settings modal, and comprehensive privacy policy updates
 
 ### Docker Deployment Migration (COMPLETED - August 12, 2025)
 ✓ **Docker modernization**: Complete migration from traditional VPS to Docker-based deployment

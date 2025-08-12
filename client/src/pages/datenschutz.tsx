@@ -225,7 +225,61 @@ export default function Datenschutz() {
                 
                 <div>
                   <h3 className="font-semibold text-gray-900 mb-2">Cookies</h3>
-                  <p>Diese Website verwendet derzeit keine Cookies zur Speicherung von Nutzerdaten. Sollte sich dies ändern, werden wir Sie entsprechend informieren und gegebenenfalls Ihre Einwilligung einholen.</p>
+                  <p className="mb-4">Diese Website verwendet Cookies. Cookies sind kleine Textdateien, die auf Ihrem Computer gespeichert werden und die Ihr Browser speichert. Sie dienen dazu, unser Angebot nutzerfreundlicher und sicherer zu machen.</p>
+                  
+                  <h4 className="font-semibold text-gray-900 mb-2 mt-4">Cookie-Kategorien</h4>
+                  <div className="space-y-3">
+                    <div>
+                      <h5 className="font-medium text-gray-900">Notwendige Cookies</h5>
+                      <p className="text-sm text-gray-600">Diese Cookies sind technisch erforderlich und können nicht deaktiviert werden. Sie ermöglichen es, dass Sie durch die Website navigieren und grundlegende Funktionen nutzen können.</p>
+                      <p className="text-xs text-gray-500 mt-1">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse)</p>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-medium text-gray-900">Analyse-Cookies</h5>
+                      <p className="text-sm text-gray-600">Diese Cookies helfen uns zu verstehen, wie Besucher mit unserer Website interagieren, indem Informationen anonym gesammelt und gemeldet werden. Diese Cookies werden nur mit Ihrer Einwilligung gesetzt.</p>
+                      <p className="text-xs text-gray-500 mt-1">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-medium text-gray-900">Funktionale Cookies</h5>
+                      <p className="text-sm text-gray-600">Diese Cookies ermöglichen es der Website, erweiterte Funktionalität und Personalisierung zu bieten. Diese Cookies werden nur mit Ihrer Einwilligung gesetzt.</p>
+                      <p className="text-xs text-gray-500 mt-1">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
+                    </div>
+                    
+                    <div>
+                      <h5 className="font-medium text-gray-900">Marketing-Cookies</h5>
+                      <p className="text-sm text-gray-600">Diese Cookies werden verwendet, um Werbeanzeigen zu verfolgen und zu personalisieren. Diese Cookies werden nur mit Ihrer Einwilligung gesetzt.</p>
+                      <p className="text-xs text-gray-500 mt-1">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung)</p>
+                    </div>
+                  </div>
+                  
+                  <h4 className="font-semibold text-gray-900 mb-2 mt-4">Cookie-Verwaltung</h4>
+                  <p className="mb-2">Sie können Ihre Cookie-Einstellungen jederzeit ändern oder Cookies löschen. Die meisten Browser sind standardmäßig so eingestellt, dass sie Cookies akzeptieren, aber Sie können diese Einstellung ändern.</p>
+                  <p className="mb-2">Informationen zur Verwaltung von Cookies in verschiedenen Browsern:</p>
+                  <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                    <li>• Chrome: Einstellungen → Erweitert → Datenschutz und Sicherheit → Website-Einstellungen → Cookies</li>
+                    <li>• Firefox: Einstellungen → Datenschutz & Sicherheit → Cookies und Website-Daten</li>
+                    <li>• Safari: Einstellungen → Datenschutz → Cookies und Website-Daten</li>
+                    <li>• Edge: Einstellungen → Website-Berechtigungen → Cookies und gespeicherte Daten</li>
+                  </ul>
+                  
+                  <h4 className="font-semibold text-gray-900 mb-2 mt-4">Speicherdauer</h4>
+                  <ul className="text-sm text-gray-600 space-y-1 ml-4">
+                    <li>• Notwendige Cookies: Sitzungsdauer oder max. 1 Jahr</li>
+                    <li>• Analyse-Cookies: Max. 24 Monate</li>
+                    <li>• Funktionale Cookies: Max. 12 Monate</li>
+                    <li>• Marketing-Cookies: Max. 12 Monate</li>
+                  </ul>
+                  
+                  <p className="mt-4 text-sm text-gray-600">
+                    Ihre Cookie-Einwilligung läuft nach 13 Monaten ab und muss erneuert werden. 
+                    Sie können Ihre Einstellungen jederzeit in unseren{" "}
+                    <a href="/cookie-einstellungen" className="text-primary hover:underline">
+                      Cookie-Einstellungen
+                    </a>{" "}
+                    ändern.
+                  </p>
                 </div>
                 
                 <div>
