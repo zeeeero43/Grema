@@ -223,6 +223,44 @@ export default function Datenschutz() {
           </div>
         </div>
       </section>
+
+      {/* Footer */}
+      <footer className="bg-gray-900 py-12">
+        <div className="max-w-7xl mx-auto px-6 lg:px-12">
+          <div className="text-center">
+            <div className="flex items-center justify-center space-x-3 mb-6">
+              <div className="w-8 h-8 bg-primary flex items-center justify-center rounded">
+                <Shield className="w-5 h-5 text-white" />
+              </div>
+              <div className="text-white">
+                <div className="font-bold text-lg">Grema Gebäudeservice GmbH</div>
+                <div className="text-sm text-gray-300">Professionelle Reinigung in Moers</div>
+              </div>
+            </div>
+            
+            <div className="text-gray-300 text-sm space-y-1 mb-4">
+              <div className="flex items-center justify-center space-x-2">
+                <Phone className="w-4 h-4" />
+                <span>0176 / 3444 6399</span>
+                <span className="text-gray-500">•</span>
+                <Mail className="w-4 h-4" />
+                <span>info@grema-service.de</span>
+              </div>
+              <div className="flex items-center justify-center space-x-2">
+                <span>Moers, NRW</span>
+              </div>
+            </div>
+            
+            <div className="text-gray-500 text-sm">
+              <p>&copy; 2025 Grema Gebäudeservice GmbH. Alle Rechte vorbehalten.</p>
+              <div className="flex justify-center space-x-6 mt-3">
+                <a href="/impressum" className="hover:text-white">Impressum</a>
+                <a href="/datenschutz" className="hover:text-white">Datenschutz</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
