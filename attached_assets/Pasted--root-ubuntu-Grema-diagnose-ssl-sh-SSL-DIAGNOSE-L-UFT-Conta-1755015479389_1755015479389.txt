@@ -1,0 +1,54 @@
+
+root@ubuntu:~/Grema# ./diagnose-ssl.sh
+🔍 SSL-DIAGNOSE LÄUFT...
+======================
+📊 Container-Status:
+validating /root/Grema/docker-compose.yml: volumes.certbot-renew additional prop                                             erties 'image', 'volumes', 'entrypoint' not allowed
+
+🔧 Nginx-Konfiguration testen:
+validating /root/Grema/docker-compose.yml: volumes.certbot-renew additional prop                                             erties 'image', 'volumes', 'entrypoint' not allowed
+❌ Nginx-Konfiguration fehlerhaft!
+
+📁 SSL-Zertifikat-Status:
+✅ /etc/letsencrypt/live existiert
+total 16
+drwx------ 3 root root 4096 Aug 12 16:09 .
+drwxr-xr-x 7 root root 4096 Aug 12 16:09 ..
+-rw-r--r-- 1 root root  740 Aug 12 16:09 README
+drwxr-xr-x 2 root root 4096 Aug 12 16:09 gremagebaeudeservicegmbh.de
+
+🌐 Port-Check:
+./diagnose-ssl.sh: line 32: netstat: command not found
+❌ Port 80 ist nicht offen
+./diagnose-ssl.sh: line 38: netstat: command not found
+❌ Port 443 ist nicht offen
+
+🔐 SSL-Test (falls Domain angegeben wurde):
+Ihre Domain eingeben (oder Enter für lokalen Test): gremagebaeudeservicegmbh.de
+🧪 Teste HTTPS-Verbindung zu gremagebaeudeservicegmbh.de...
+✅ HTTPS-Verbindung funktioniert
+🧪 Teste HTTP-Weiterleitung...
+⚠️ Keine HTTP→HTTPS Weiterleitung
+
+📋 Nginx-Logs (letzte 20 Zeilen):
+validating /root/Grema/docker-compose.yml: volumes.certbot-renew additional properties 'image', 'volumes', 'entrypoint' not allowed
+
+📋 Certbot-Logs (falls vorhanden):
+Keine Certbot-Logs
+
+🔧 EMPFOHLENE LÖSUNGEN:
+======================
+validating /root/Grema/docker-compose.yml: volumes.certbot-renew additional properties 'image', 'volumes', 'entrypoint' not allowed
+❌ Nginx läuft nicht - Container neu starten:
+   docker-compose restart nginx
+./diagnose-ssl.sh: line 86: netstat: command not found
+❌ Port 443 nicht offen - Firewall prüfen:
+   ufw allow 443
+   ufw status
+
+🚨 SCHNELL-REPARATUR (falls SSL komplett fehlgeschlagen):
+=========================================================
+./fix-website.sh  # Stellt HTTP-Betrieb wieder her
+
+Danach für SSL-Setup:
+./setup-domain-safe.sh  # Sicherere SSL-Installation
