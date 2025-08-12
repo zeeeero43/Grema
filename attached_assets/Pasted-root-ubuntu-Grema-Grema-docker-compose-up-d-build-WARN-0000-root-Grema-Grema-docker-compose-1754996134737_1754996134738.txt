@@ -1,0 +1,50 @@
+root@ubuntu:~/Grema/Grema# docker-compose up -d --build
+WARN[0000] /root/Grema/Grema/docker-compose.yml: the attribute `version` is obso                                                               lete, it will be ignored, please remove it to avoid potential confusion
+[+] Building 8.6s (14/16)
+ => [internal] load local bake definitions                                 0.0s
+ => => reading from stdin 471B                                             0.0s
+ => [internal] load build definition from Dockerfile                       0.0s
+ => => transferring dockerfile: 1.19kB                                     0.0s
+ => [internal] load metadata for docker.io/library/node:20-alpine          0.4s
+ => [internal] load .dockerignore                                          0.0s
+ => => transferring context: 2B                                            0.0s
+ => [builder 1/6] FROM docker.io/library/node:20-alpine@sha256:df02558528  0.0s
+ => [internal] load build context                                          0.0s
+ => => transferring context: 44.77kB                                       0.0s
+ => CACHED [builder 2/6] WORKDIR /app                                      0.0s
+ => CACHED [builder 3/6] COPY package*.json ./                             0.0s
+ => CACHED [builder 4/6] RUN npm ci                                        0.0s
+ => [builder 5/6] COPY . .                                                 0.3s
+ => [builder 6/6] RUN npm run build                                        7.4s
+ => CACHED [production 4/8] RUN npm ci --only=production && npm cache cle  0.0s
+ => CACHED [production 5/8] COPY --from=builder /app/dist ./dist           0.0s
+ => ERROR [production 6/8] COPY --from=builder /app/client/dist ./public   0.0s
+------
+ > [production 6/8] COPY --from=builder /app/client/dist ./public:
+------
+Dockerfile:33
+
+--------------------
+
+  31 |     # Copy built application from builder stage
+
+  32 |     COPY --from=builder /app/dist ./dist
+
+  33 | >>> COPY --from=builder /app/client/dist ./public
+
+  34 |
+
+  35 |     # Create non-root user
+
+--------------------
+
+failed to solve: failed to compute cache key: failed to calculate checksum of ref 0a9e0381-3667-4d39-a668-4060b9be0365::f77sjrplcgzzfs2bmtmgi3w6j: "/app/client/dist": not found
+
+root@ubuntu:~/Grema/Grema# docker-compose ps
+WARN[0000] /root/Grema/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+NAME      IMAGE     COMMAND   SERVICE   CREATED   STATUS    PORTS
+root@ubuntu:~/Grema/Grema# docker-compose logs -f
+WARN[0000] /root/Grema/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+root@ubuntu:~/Grema/Grema# docker-compose logs -f app
+WARN[0000] /root/Grema/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+root@ubuntu:~/Grema/Grema#
