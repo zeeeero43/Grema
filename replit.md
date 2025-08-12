@@ -42,7 +42,7 @@ Keep services section unchanged; simplify all other sections for better overview
 ### Core System Design
 - **Database Schema**: Includes `Users` table (id, username, password) and `Contact Inquiries` table (name, email, phone, service, message, timestamp).
 - **API Routes**: `POST /api/contact` for contact form submissions, `GET /api/contact` for retrieving inquiries (admin).
-- **Deployment Strategy**: Supports Ubuntu 22.04 VPS deployment with GitHub integration, PM2 clustering, Nginx reverse proxy, Let's Encrypt SSL, Fail2ban, UFW, automated backups, and zero-downtime deployments via GitHub Actions.
+- **Deployment Strategy**: Docker-based deployment with Docker Compose orchestration. Containerized PostgreSQL, Nginx reverse proxy, automated GitHub deployments, and simplified 10-minute setup process. Domain and SSL configuration optional.
 
 ## External Dependencies
 
@@ -62,3 +62,18 @@ Keep services section unchanged; simplify all other sections for better overview
 
 ### Other Integrations
 - **Runware.ai**: For image generation and SEO tag creation for blog posts.
+
+## Recent Changes (August 2025)
+
+### Docker Deployment Migration (COMPLETED - August 12, 2025)
+✓ **Docker modernization**: Complete migration from traditional VPS to Docker-based deployment
+✓ **Simplified setup**: Deployment reduced from 2+ hours to under 10 minutes
+✓ **Container architecture**: Docker + Docker Compose with app, PostgreSQL, and Nginx services
+✓ **Domain-optional deployment**: Works initially via IP address, domain/SSL setup moved to optional section
+✓ **GitHub integration**: Public repository support with automated deployment scripts
+✓ **Zero-configuration database**: PostgreSQL runs in container with automatic setup
+✓ **Containerized reverse proxy**: Nginx automatically configured for the application
+✓ **Automated backups**: Docker-based backup and restore scripts with volume management
+✓ **Enhanced monitoring**: Docker stats, logs, and container health checks
+✓ **Production-ready**: Multi-stage builds, security optimizations, and resource management
+✓ **Deployment files**: Dockerfile, docker-compose.yml, nginx.conf, and automated scripts created

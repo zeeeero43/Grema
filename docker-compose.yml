@@ -1,0 +1,59 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    ports:
+      - "5000:5000"
+    environment:
+      - NODE_ENV=production
+      - DATABASE_URL=postgresql://grema_user:grema_password@db:5432/grema_website
+      - PGHOST=db
+      - PGPORT=5432
+      - PGDATABASE=grema_website
+      - PGUSER=grema_user
+      - PGPASSWORD=grema_password
+      # Add your API keys here:
+      - DEEPSEEK_API_KEY=${DEEPSEEK_API_KEY}
+      - RUNWARE_API_KEY=${RUNWARE_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - GOOGLE_PLACES_API_KEY=${GOOGLE_PLACES_API_KEY}
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+
+  db:
+    image: postgres:15-alpine
+    environment:
+      - POSTGRES_DB=grema_website
+      - POSTGRES_USER=grema_user
+      - POSTGRES_PASSWORD=grema_password
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./backups:/backups
+    ports:
+      - "5432:5432"
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U grema_user -d grema_website"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  nginx:
+    image: nginx:alpine
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - app
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
