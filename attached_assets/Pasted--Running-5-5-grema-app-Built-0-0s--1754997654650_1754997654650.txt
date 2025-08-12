@@ -1,0 +1,162 @@
+
+[+] Running 5/5
+ ✔ grema-app                Built                                          0.0s
+ ✔ Network grema_default    Created                                        0.0s
+ ✔ Container grema-db-1     Healthy                                       30.8s
+ ✔ Container grema-app-1    Started                                       30.9s
+ ✔ Container grema-nginx-1  Started                                       31.2s
+root@ubuntu:~/Grema# docker-compose ps
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+NAME            IMAGE                COMMAND                  SERVICE   CREATED          STATUS                             PORTS
+grema-app-1     grema-app            "docker-entrypoint.s…"   app       47 seconds ago   Up 16 seconds (health: starting)   0.0.0.0:5000->5000/tcp, [::]:5000->5000/tcp
+grema-db-1      postgres:15-alpine   "docker-entrypoint.s…"   db        47 seconds ago   Up 47 seconds (healthy)            0.0.0.0:5432->5432/tcp, [::]:5432->5432/tcp
+grema-nginx-1   nginx:alpine         "/docker-entrypoint.…"   nginx     47 seconds ago   Up 16 seconds                      0.0.0.0:80->80/tcp, [::]:80->80/tcp, 0.0.0.0:443->443/tcp, [::]:443->443/tcp
+root@ubuntu:~/Grema# docker-compose logs -f
+WARN[0000] /root/Grema/docker-compose.yml: the attribute `version` is obsolete, it will be ignored, please remove it to avoid potential confusion
+db-1  |
+db-1  | PostgreSQL Database directory appears to contain a database; Skipping initialization
+db-1  |
+db-1  | 2025-08-12 11:19:43.409 UTC [1] LOG:  starting PostgreSQL 15.13 on x86_64-pc-linux-musl, compiled by gcc (Alpine 14.2.0) 14.2.0, 64-bit
+db-1  | 2025-08-12 11:19:43.409 UTC [1] LOG:  listening on IPv4 address "0.0.0.0", port 5432
+db-1  | 2025-08-12 11:19:43.409 UTC [1] LOG:  listening on IPv6 address "::", port 5432
+db-1  | 2025-08-12 11:19:43.410 UTC [1] LOG:  listening on Unix socket "/var/run/postgresql/.s.PGSQL.5432"
+db-1  | 2025-08-12 11:19:43.413 UTC [30] LOG:  database system was shut down at 2025-08-12 11:18:58 UTC
+db-1  | 2025-08-12 11:19:43.417 UTC [1] LOG:  database system is ready to accept connections
+db-1  | 2025-08-12 11:20:14.587 UTC [42] ERROR:  relation "blog_ideas" does not exist at character 76
+db-1  | 2025-08-12 11:20:14.587 UTC [42] STATEMENT:  select "id", "topic", "category", "keywords", "is_used", "created_at" from "blog_ideas" where "blog_ideas"."is_used" = $1 order by "blog_ideas"."created_at" desc limit $2
+db-1  | 2025-08-12 11:20:14.629 UTC [43] ERROR:  relation "blog_ideas" does not exist at character 76
+db-1  | 2025-08-12 11:20:14.629 UTC [43] STATEMENT:  select "id", "topic", "category", "keywords", "is_used", "created_at" from "blog_ideas" where "blog_ideas"."is_used" = $1 order by "blog_ideas"."created_at" desc limit $2
+db-1  | 2025-08-12 11:20:14.640 UTC [44] ERROR:  relation "ai_generation_logs" does not exist at character 13
+db-1  | 2025-08-12 11:20:14.640 UTC [44] STATEMENT:  insert into "ai_generation_logs" ("id", "type", "prompt", "response", "model", "success", "error", "created_at") values (default, $1, $2, $3, $4, $5, $6, default) returning "id", "type", "prompt", "response", "model", "success", "error", "created_at"
+nginx-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+nginx-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+nginx-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+nginx-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+nginx-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+nginx-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:20:24 +0000] "GET / HTTP/1.1" 200 637 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:20:24 +0000] "GET /Grema/assets/index-B4E_xV4-.js HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:20:24 +0000] "GET /Grema/assets/index-CdFCd3Jz.css HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:20:24 +0000] "GET /favicon.ico HTTP/1.1" 200 637 "http://212.227.103.141/" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+nginx-1  | 94.31.69.45 - - [12/Aug/2025:11:20:26 +0000] "GET / HTTP/1.1" 304 0 "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/138.0.0.0 Safari/537.36"
+app-1    | 🚀 Initializing automated blog system...
+app-1    | 🚀 Starting automated blog scheduler...
+app-1    | ⏰ Will generate blog posts every ~80 hours (with random variation)
+app-1    | 🌱 Initializing dynamic blog topic system...
+app-1    | ❌ Failed to initialize dynamic topic system: error: relation "blog_ideas" does not exist
+app-1    |     at /app/node_modules/pg-pool/index.js:45:11
+app-1    |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+app-1    |     at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:83:22
+app-1    |     at async DatabaseStorage.getUnusedBlogIdeas (file:///app/dist/index.js:293:12)
+app-1    |     at async TopicGenerationService.ensureTopicAvailability (file:///app/dist/index.js:757:26)
+app-1    |     at async BlogAutomationService.initializeBlogIdeas (file:///app/dist/index.js:786:7)
+app-1    |     at async BlogScheduler.start (file:///app/dist/index.js:971:7)
+app-1    |     at async registerRoutes (file:///app/dist/index.js:1385:5)
+app-1    |     at async file:///app/dist/index.js:1428:18 {
+app-1    |   length: 109,
+app-1    |   severity: 'ERROR',
+app-1    |   code: '42P01',
+app-1    |   detail: undefined,
+app-1    |   hint: undefined,
+app-1    |   position: '76',
+app-1    |   internalPosition: undefined,
+app-1    |   internalQuery: undefined,
+app-1    |   where: undefined,
+app-1    |   schema: undefined,
+app-1    |   table: undefined,
+app-1    |   column: undefined,
+app-1    |   dataType: undefined,
+app-1    |   constraint: undefined,
+app-1    |   file: 'parse_relation.c',
+app-1    |   line: '1392',
+app-1    |   routine: 'parserOpenTable'
+app-1    | }
+app-1    | ❌ Failed to initialize blog topics: error: relation "blog_ideas" does not exist
+app-1    |     at /app/node_modules/pg-pool/index.js:45:11
+app-1    |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+app-1    |     at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:83:22
+app-1    |     at async DatabaseStorage.getUnusedBlogIdeas (file:///app/dist/index.js:293:12)
+app-1    |     at async TopicGenerationService.ensureTopicAvailability (file:///app/dist/index.js:757:26)
+app-1    |     at async BlogAutomationService.initializeBlogIdeas (file:///app/dist/index.js:786:7)
+app-1    |     at async BlogScheduler.start (file:///app/dist/index.js:971:7)
+app-1    |     at async registerRoutes (file:///app/dist/index.js:1385:5)
+app-1    |     at async file:///app/dist/index.js:1428:18 {
+app-1    |   length: 109,
+app-1    |   severity: 'ERROR',
+app-1    |   code: '42P01',
+app-1    |   detail: undefined,
+app-1    |   hint: undefined,
+app-1    |   position: '76',
+app-1    |   internalPosition: undefined,
+app-1    |   internalQuery: undefined,
+app-1    |   where: undefined,
+app-1    |   schema: undefined,
+app-1    |   table: undefined,
+app-1    |   column: undefined,
+app-1    |   dataType: undefined,
+app-1    |   constraint: undefined,
+app-1    |   file: 'parse_relation.c',
+app-1    |   line: '1392',
+app-1    |   routine: 'parserOpenTable'
+app-1    | }
+app-1    | 🔄 Scheduled blog generation starting...
+app-1    | 🤖 Starting automated blog post generation...
+app-1    | 🎯 Next blog generation in 81.0 hours
+app-1    | ✅ Blog scheduler started successfully
+app-1    | ✅ Blog automation scheduler started successfully
+app-1    | 11:20:14 AM [express] serving on port 5000
+app-1    | ❌ Blog generation failed: error: relation "blog_ideas" does not exist
+app-1    |     at /app/node_modules/pg-pool/index.js:45:11
+app-1    |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+app-1    |     at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:83:22
+app-1    |     at async DatabaseStorage.getUnusedBlogIdeas (file:///app/dist/index.js:293:12)
+app-1    |     at async TopicGenerationService.ensureTopicAvailability (file:///app/dist/index.js:757:26)
+app-1    |     at async BlogAutomationService.generateBlogPost (file:///app/dist/index.js:800:7)
+app-1    |     at async BlogScheduler.generatePostSafely (file:///app/dist/index.js:1012:22) {
+app-1    |   length: 109,
+app-1    |   severity: 'ERROR',
+app-1    |   code: '42P01',
+app-1    |   detail: undefined,
+app-1    |   hint: undefined,
+app-1    |   position: '76',
+app-1    |   internalPosition: undefined,
+app-1    |   internalQuery: undefined,
+app-1    |   where: undefined,
+app-1    |   schema: undefined,
+app-1    |   table: undefined,
+app-1    |   column: undefined,
+app-1    |   dataType: undefined,
+app-1    |   constraint: undefined,
+app-1    |   file: 'parse_relation.c',
+app-1    |   line: '1392',
+app-1    |   routine: 'parserOpenTable'
+app-1    | }
+app-1    | ❌ Critical error in scheduled generation: error: relation "ai_generation_logs" does not exist
+app-1    |     at /app/node_modules/pg-pool/index.js:45:11
+app-1    |     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+app-1    |     at async file:///app/node_modules/drizzle-orm/node-postgres/session.js:83:22
+app-1    |     at async DatabaseStorage.createAiGenerationLog (file:///app/dist/index.js:300:20)
+app-1    |     at async BlogAutomationService.generateBlogPost (file:///app/dist/index.js:891:7)
+app-1    |     at async BlogScheduler.generatePostSafely (file:///app/dist/index.js:1012:22) {
+app-1    |   length: 117,
+app-1    |   severity: 'ERROR',
+app-1    |   code: '42P01',
+app-1    |   detail: undefined,
+app-1    |   hint: undefined,
+app-1    |   position: '13',
+app-1    |   internalPosition: undefined,
+app-1    |   internalQuery: undefined,
+app-1    |   where: undefined,
+app-1    |   schema: undefined,
+app-1    |   table: undefined,
+app-1    |   column: undefined,
+app-1    |   dataType: undefined,
+app-1    |   constraint: undefined,
+app-1    |   file: 'parse_relation.c',
+app-1    |   line: '1392',
+app-1    |   routine: 'parserOpenTable'
+app-1    | }
+

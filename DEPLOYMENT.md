@@ -76,6 +76,9 @@ docker-compose up -d --build
 # Status prüfen (sollte 3 Container zeigen: app, db, nginx)
 docker-compose ps
 
+# Datenbanktabellen erstellen (WICHTIG!)
+docker-compose exec app npm run db:push
+
 # Live-Logs ansehen (Ctrl+C zum Beenden)
 docker-compose logs -f
 ```
@@ -85,7 +88,7 @@ docker-compose logs -f
 **Website ist erreichbar unter:**
 - `http://IHRE-SERVER-IP`
 
-**Beispiel:** `http://212.227.103.141`
+**Ihre Website:** `http://212.227.103.141` ✅ LÄUFT BEREITS!
 
 ## 🔧 Befehle für den täglichen Betrieb
 
