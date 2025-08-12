@@ -1,5 +1,5 @@
-# Multi-stage build for optimal production image
-FROM node:20-alpine AS builder
+# Simplified single-stage build for reliability
+FROM node:20-alpine
 
 # Set working directory
 WORKDIR /app
@@ -7,30 +7,14 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install ALL dependencies (including dev dependencies for build)
-RUN npm ci
+# Install ALL dependencies (needed because of ESBuild bundling requirements)
+RUN npm ci && npm cache clean --force
 
 # Copy source code
 COPY . .
 
 # Build the application
 RUN npm run build
-
-# Production stage
-FROM node:20-alpine AS production
-
-# Set working directory
-WORKDIR /app
-
-# Copy package files
-COPY package*.json ./
-
-# Install only production dependencies  
-RUN npm ci --only=production && npm cache clean --force
-
-# Copy built application from builder stage
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/dist/public ./public
 
 # Create non-root user
 RUN addgroup -g 1001 -S nodejs && \
@@ -50,5 +34,5 @@ HEALTHCHECK --interval=30s --timeout=3s --start-period=5s --retries=3 \
 # Set production environment
 ENV NODE_ENV=production
 
-# Start the application  
+# Start the application
 CMD ["node", "dist/index.js"]
