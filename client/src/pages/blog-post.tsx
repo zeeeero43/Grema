@@ -22,6 +22,7 @@ import {
 import { Button } from "@/components/ui/button";
 import { Link } from "wouter";
 import { Header } from "../components/Header";
+import { SEOHead } from "../components/seo/SEOHead";
 import { getBlogPostBySlug, getAllBlogPosts, type BlogPost } from "@/data/blogPosts";
 
 interface AutoBlogPost {
@@ -138,7 +139,14 @@ export default function BlogPost() {
 
   return (
     <div className="min-h-screen bg-white">
-      {/* SEO Meta Tags would go in head */}
+      <SEOHead
+        title={`${post.title} | Grema Gebäudeservice Blog Moers`}
+        description={isAutoPost ? (post as AutoBlogPost).metaDescription : post.excerpt}
+        keywords={isAutoPost ? (post as AutoBlogPost).keywords.join(', ') : `${post.category}, Reinigung Moers, Gebäudereinigung Tipps`}
+        canonicalUrl={`/blog/${post.slug}`}
+        ogType="article"
+        ogImage={post.image}
+      />
       
       {/* Header */}
       <Header currentPage="blog" />

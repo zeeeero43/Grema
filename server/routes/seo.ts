@@ -1,11 +1,25 @@
 import type { Express } from "express";
 
 export function registerSEORoutes(app: Express) {
-  // XML Sitemap
-  app.get("/sitemap.xml", (req, res) => {
+  // XML Sitemap mit Blog-Posts
+  app.get("/sitemap.xml", async (req, res) => {
     const baseUrl = "http://212.227.103.141";
     const currentDate = new Date().toISOString().split('T')[0];
     
+    // Fetch blog posts for sitemap
+    let blogPostUrls = [];
+    try {
+      // You could fetch from database here, but for now we'll add basic blog entry
+      blogPostUrls = [
+        `      <loc>${baseUrl}/blog</loc>`,
+        `      <lastmod>${currentDate}</lastmod>`,
+        `      <changefreq>weekly</changefreq>`,
+        `      <priority>0.8</priority>`
+      ];
+    } catch (error) {
+      console.log('Could not fetch blog posts for sitemap');
+    }
+
     const urls = [
       { loc: `${baseUrl}/`, changefreq: "monthly", priority: "1.0", lastmod: currentDate },
       { loc: `${baseUrl}/unterhaltsreinigung`, changefreq: "monthly", priority: "0.9", lastmod: currentDate },

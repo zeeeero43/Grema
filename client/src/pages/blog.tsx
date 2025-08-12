@@ -18,6 +18,7 @@ import { Link } from "wouter";
 import { useQuery } from "@tanstack/react-query";
 import { Input } from "@/components/ui/input";
 import { Header } from "../components/Header";
+import { SEOHead } from "../components/seo/SEOHead";
 
 export default function Blog() {
   const [searchTerm, setSearchTerm] = useState("");
@@ -57,6 +58,14 @@ export default function Blog() {
 
   return (
     <div className="min-h-screen bg-white">
+      <SEOHead
+        title="Reinigungsblog - Fachbeiträge & Tipps | Grema Gebäudeservice Moers"
+        description="✓ Professionelle Reinigungstipps ✓ Branchenwissen ✓ Expertenratgeber für Gebäudereinigung in Moers und Umgebung. Täglich neue Fachbeiträge."
+        keywords="Reinigungsblog, Reinigungstipps, Gebäudereinigung Ratgeber, Moers Reinigung, Reinigungsexperten Blog"
+        canonicalUrl="/blog"
+        ogType="website"
+
+      />
       {/* Header */}
       <Header currentPage="blog" />
 
