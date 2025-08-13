@@ -253,7 +253,7 @@ export default function AutoBlogPost() {
         <div className="mt-12 p-8 bg-primary/5 rounded-lg border border-primary/10">
           <div className="text-center">
             <Building2 className="h-12 w-12 text-primary mx-auto mb-4" />
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">
               Professionelle Gebäudereinigung gesucht?
             </h3>
             <p className="text-gray-600 mb-6 max-w-2xl mx-auto">
@@ -303,10 +303,10 @@ export default function AutoBlogPost() {
             <div>
               <h4 className="text-lg font-semibold mb-4 text-white">Kontakt</h4>
               <div className="space-y-2 text-gray-300">
-                <p className="flex items-center">
+                <a href="tel:017634446399" className="flex items-center hover:text-white">
                   <Phone className="w-4 h-4 mr-2" />
-                  0176 34446399
-                </p>
+                  0176/3444 6399
+                </a>
                 <p className="flex items-center">
                   <MapPin className="w-4 h-4 mr-2" />
                   Moers, NRW

@@ -243,7 +243,7 @@ export default function Blog() {
       {/* CTA Section */}
       <section className="py-16 md:py-20 bg-primary">
         <div className="max-w-4xl mx-auto px-6 lg:px-12 text-center">
-          <h2 className="text-3xl sm:text-4xl font-bold text-white mb-6">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-white mb-6">
             Haben Sie Fragen zu unseren Reinigungsdienstleistungen?
           </h2>
           <p className="text-xl text-blue-100 mb-8 max-w-2xl mx-auto">
@@ -282,7 +282,7 @@ export default function Blog() {
               Professionelle Gebäudereinigung in Moers seit 2014
             </p>
             
-            <div className="flex justify-center items-center space-x-8 text-gray-400 text-sm mb-6">
+            <div className="flex flex-col sm:flex-row justify-center items-center space-y-3 sm:space-y-0 sm:space-x-8 text-gray-400 text-sm mb-6">
               <div className="flex items-center space-x-2">
                 <Phone className="w-4 h-4 text-primary" />
                 <a href="tel:017634446399" className="hover:text-white">0176/3444 6399</a>
