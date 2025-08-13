@@ -5,6 +5,8 @@ import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { HelmetProvider } from "react-helmet-async";
 import { CookieConsent } from "@/components/CookieConsent";
+import { useEffect } from "react";
+import { initializeAnalytics } from "./utils/analytics";
 import Home from "@/pages/home";
 import Unterhaltsreinigung from "@/pages/unterhaltsreinigung";
 import GlasRahmenreinigung from "@/pages/glas-rahmenreinigung";
@@ -48,6 +50,11 @@ function Router() {
 }
 
 function App() {
+  // Initialisiere Analytics basierend auf bereits erteilten Consents
+  useEffect(() => {
+    initializeAnalytics();
+  }, []);
+
   return (
     <HelmetProvider>
       <QueryClientProvider client={queryClient}>

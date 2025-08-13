@@ -51,11 +51,19 @@ export function CookieConsent() {
     document.cookie = "site-preferences=accepted; path=/; max-age=" + (365 * 24 * 60 * 60) + "; SameSite=Strict";
     
     if (prefs.analytics) {
-      // Enable analytics cookies here
+      // Enable analytics cookies and load Google Analytics
       document.cookie = "analytics-enabled=true; path=/; max-age=" + (365 * 24 * 60 * 60) + "; SameSite=Strict";
+      // Dynamisch Google Analytics laden
+      import('../utils/analytics').then(({ loadGoogleAnalytics }) => {
+        loadGoogleAnalytics();
+      });
     } else {
-      // Remove analytics cookies
+      // Remove analytics cookies and unload Google Analytics
       document.cookie = "analytics-enabled=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+      // Google Analytics komplett entfernen
+      import('../utils/analytics').then(({ removeGoogleAnalytics }) => {
+        removeGoogleAnalytics();
+      });
     }
 
     if (prefs.functional) {
