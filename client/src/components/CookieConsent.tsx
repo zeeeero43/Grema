@@ -129,13 +129,12 @@ export function CookieConsent() {
                   
                   <div className="flex flex-col sm:flex-row gap-3 w-full lg:w-auto">
                     <Button
-                      variant="outline"
                       size="sm"
-                      onClick={() => setShowSettings(true)}
-                      className="flex items-center gap-2 whitespace-nowrap"
+                      onClick={acceptAll}
+                      className="bg-primary hover:bg-primary/90 whitespace-nowrap"
                     >
-                      <Settings className="w-4 h-4" />
-                      Einstellungen
+                      <CheckCircle className="w-4 h-4 mr-2" />
+                      Alle Akzeptieren
                     </Button>
                     <Button
                       variant="outline"
@@ -146,12 +145,13 @@ export function CookieConsent() {
                       Nur Notwendige
                     </Button>
                     <Button
+                      variant="outline"
                       size="sm"
-                      onClick={acceptAll}
-                      className="bg-primary hover:bg-primary/90 whitespace-nowrap"
+                      onClick={() => setShowSettings(true)}
+                      className="flex items-center gap-2 whitespace-nowrap"
                     >
-                      <CheckCircle className="w-4 h-4 mr-2" />
-                      Alle Akzeptieren
+                      <Settings className="w-4 h-4" />
+                      Einstellungen
                     </Button>
                   </div>
                 </div>
